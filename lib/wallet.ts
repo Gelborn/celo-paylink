@@ -41,6 +41,22 @@ export async function getInjectedChainId() {
 export async function ensureInjectedChain(targetChainId = getDefaultChainId()) {
   const provider = ensureProvider();
   const targetHex = getChainHex(targetChainId);
+  const rawCurrentChainId = (await provider.request({
+    method: "eth_chainId"
+  })) as string;
+  const currentChainId = Number.parseInt(rawCurrentChainId, 16);
+
+  if (currentChainId === targetChainId) {
+    return targetChainId;
+  }
+
+  if (provider.isMiniPay) {
+    throw new Error(
+      `MiniPay is on the wrong network. Open MiniPay settings and switch to ${getChainLabel(
+        targetChainId
+      )}.`
+    );
+  }
 
   try {
     await provider.request({

@@ -48,6 +48,7 @@ export function DashboardShell({
     isWrongChain,
     connect,
     switchToDefaultChain,
+    refreshWalletState,
     disconnect,
     hasProvider,
     isMiniPay,
@@ -252,16 +253,25 @@ export function DashboardShell({
                     {expectedChainLabel}
                   </h2>
                   <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-400">
-                    {dictionary.messages.wrongNetworkDescription}
+                    {isMiniPay
+                      ? dictionary.messages.wrongNetworkMiniPayDescription
+                      : dictionary.messages.wrongNetworkDescription}
                   </p>
                   <Button
                     size="lg"
                     className="mt-8 min-w-[13rem]"
                     onClick={() => {
+                      if (isMiniPay) {
+                        void refreshWalletState();
+                        return;
+                      }
+
                       void switchToDefaultChain();
                     }}
                   >
-                    {dictionary.actions.switchNetwork}
+                    {isMiniPay
+                      ? dictionary.actions.refreshNetwork
+                      : dictionary.actions.switchNetwork}
                   </Button>
                 </div>
               </CardContent>

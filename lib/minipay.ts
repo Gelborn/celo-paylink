@@ -30,7 +30,6 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
   const [isDisconnectedByUser, setIsDisconnectedByUser] = useState(false);
   const [connectError, setConnectError] = useState<string | null>(null);
   const autoConnectAttemptedRef = useRef(false);
-  const autoSwitchAttemptedRef = useRef(false);
 
   function isSoftDisconnected() {
     if (typeof window === "undefined") {
@@ -47,6 +46,10 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
       if (!options?.silent) {
         setConnectError(message);
       }
+      return null;
+    }
+
+    if (window.ethereum.isMiniPay) {
       return null;
     }
 
@@ -67,6 +70,33 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
       }
       return null;
     }
+  }, [initialChainId]);
+
+  const refreshWalletState = useCallback(async () => {
+    if (typeof window === "undefined") return;
+
+    const provider = window.ethereum;
+    setHasProvider(Boolean(provider));
+    setIsMiniPay(Boolean(provider?.isMiniPay));
+    setIsDisconnectedByUser(isSoftDisconnected());
+
+    if (!provider) return;
+
+    const nextChainId = await detectChainId(initialChainId);
+    setChainId(nextChainId);
+    const disconnected = isSoftDisconnected();
+    setIsDisconnectedByUser(disconnected);
+
+    if (disconnected) {
+      setAccount(null);
+      return;
+    }
+
+    const accounts = (await provider.request({
+      method: "eth_accounts",
+      params: []
+    })) as Hex[];
+    setAccount(accounts[0] || null);
   }, [initialChainId]);
 
   const connect = useCallback(async (options?: { silent?: boolean }) => {
@@ -93,7 +123,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
       })) as Hex[];
       const detectedChainId = await detectChainId(initialChainId);
       const nextChainId =
-        detectedChainId !== initialChainId
+        !window.ethereum.isMiniPay && detectedChainId !== initialChainId
           ? ((await switchToDefaultChain({ silent: options?.silent })) ??
             detectedChainId)
           : detectedChainId;
@@ -142,39 +172,14 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
     if (!provider) return;
 
     const syncFromProvider = async () => {
-      const nextChainId = await detectChainId(initialChainId);
-      setChainId(nextChainId);
-      const disconnected = isSoftDisconnected();
-      setIsDisconnectedByUser(disconnected);
-
-      if (disconnected) {
-        setAccount(null);
-        return;
-      }
-
-      const accounts = (await provider.request({
-        method: "eth_accounts",
-        params: []
-      })) as Hex[];
-      const activeAccount = accounts[0] || null;
-      setAccount(activeAccount);
-
-      if (
-        activeAccount &&
-        nextChainId !== initialChainId &&
-        !autoSwitchAttemptedRef.current
-      ) {
-        autoSwitchAttemptedRef.current = true;
-        const switchedChainId = await switchToDefaultChain({ silent: true });
-        if (switchedChainId) {
-          setChainId(switchedChainId);
-          return;
-        }
-      }
+      await refreshWalletState();
 
       if (
         provider.isMiniPay &&
-        !activeAccount &&
+        !(await provider.request({
+          method: "eth_accounts",
+          params: []
+        }) as Hex[])[0] &&
         !autoConnectAttemptedRef.current
       ) {
         autoConnectAttemptedRef.current = true;
@@ -215,7 +220,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
       provider.removeListener?.("accountsChanged", handleAccountsChanged);
       provider.removeListener?.("chainChanged", handleChainChanged);
     };
-  }, [connect, initialChainId, switchToDefaultChain]);
+  }, [connect, initialChainId, refreshWalletState]);
 
   return {
     account,
@@ -230,6 +235,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
     connectError,
     connect,
     switchToDefaultChain,
+    refreshWalletState,
     disconnect,
     clearConnectError
   };

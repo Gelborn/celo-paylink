@@ -20,6 +20,7 @@ export type Dictionary = {
     openDashboard: string;
     connectWallet: string;
     switchNetwork: string;
+    refreshNetwork: string;
     disconnectWallet: string;
     saveProfile: string;
     updateProfile: string;
@@ -146,6 +147,7 @@ export type Dictionary = {
     confirmProfileInWallet: string;
     syncingProfile: string;
     wrongNetworkDescription: string;
+    wrongNetworkMiniPayDescription: string;
     approving: string;
     confirmingApproval: string;
     sending: string;
@@ -171,6 +173,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       openDashboard: "Open dashboard",
       connectWallet: "Connect",
       switchNetwork: "Switch network",
+      refreshNetwork: "I switched already",
       disconnectWallet: "Disconnect",
       saveProfile: "Publish profile",
       updateProfile: "Save changes",
@@ -319,6 +322,8 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Updating your dashboard with the latest onchain profile data.",
       wrongNetworkDescription:
         "Switch your wallet to the required network before creating or editing your PayLink profile.",
+      wrongNetworkMiniPayDescription:
+        'MiniPay is on the wrong network for this app. If you are testing, disable "Use Testnet" in MiniPay settings, then come back and try again.',
       approving: "Approving",
       confirmingApproval: "Confirming token approval onchain...",
       sending: "Sending",
@@ -343,6 +348,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       openDashboard: "Abrir painel",
       connectWallet: "Conectar",
       switchNetwork: "Trocar rede",
+      refreshNetwork: "Já troquei",
       disconnectWallet: "Desconectar",
       saveProfile: "Publicar perfil",
       updateProfile: "Salvar alterações",
@@ -491,6 +497,8 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Atualizando seu painel com os dados mais recentes do perfil na rede.",
       wrongNetworkDescription:
         "Troque sua carteira para a rede correta antes de criar ou editar seu perfil no PayLink.",
+      wrongNetworkMiniPayDescription:
+        'O MiniPay está na rede errada para este app. Se você estiver testando, desative "Use Testnet" nas configurações do MiniPay e volte para tentar de novo.',
       approving: "Aprovando",
       confirmingApproval: "Confirmando a aprovação do token na rede...",
       sending: "Enviando",

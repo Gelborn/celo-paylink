@@ -73,6 +73,10 @@ export const metadata: Metadata = {
     description:
       "Claim a handle, publish a payment profile, and accept stablecoins directly from MiniPay.",
     images: ["/og.svg"]
+  },
+  other: {
+    "talentapp:project_verification":
+      "1d52a6d849d241a451cf8976c20105cd8d9ecede245a552369eb4b46adc1b3c28cef0ac8091f852ccfc56385e8ad54fbe64f55319a352c2f0e1c3ced4c3a3a5f"
   }
 };
 

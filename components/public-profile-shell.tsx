@@ -90,7 +90,8 @@ export function PublicProfileShell({
     chainId,
     expectedChainLabel,
     isWrongChain,
-    switchToDefaultChain
+    switchToDefaultChain,
+    refreshWalletState
   } = useMiniPay(initialChainId);
   const [amount, setAmount] = useState(initialAmount || "15");
   const [reference, setReference] = useState(initialReference || "");
@@ -269,6 +270,14 @@ export function PublicProfileShell({
       const activeAccount = account || (await connect());
       if (!activeAccount) {
         throw new Error(dictionary.messages.connectBeforePay);
+      }
+
+      if (isWrongChain) {
+        throw new Error(
+          isMiniPay
+            ? dictionary.messages.wrongNetworkMiniPayDescription
+            : dictionary.messages.wrongNetworkDescription
+        );
       }
 
       if (!contractAddress || !selectedToken) {
@@ -619,16 +628,25 @@ export function PublicProfileShell({
                           {expectedChainLabel}
                         </h2>
                         <p className="text-sm leading-7 text-zinc-400">
-                          {dictionary.messages.wrongNetworkDescription}
+                          {isMiniPay
+                            ? dictionary.messages.wrongNetworkMiniPayDescription
+                            : dictionary.messages.wrongNetworkDescription}
                         </p>
                       </div>
                       <Button
                         className="w-full sm:w-auto"
                         onClick={() => {
+                          if (isMiniPay) {
+                            void refreshWalletState();
+                            return;
+                          }
+
                           void switchToDefaultChain();
                         }}
                       >
-                        {dictionary.actions.switchNetwork}
+                        {isMiniPay
+                          ? dictionary.actions.refreshNetwork
+                          : dictionary.actions.switchNetwork}
                       </Button>
                     </div>
                   ) : (
@@ -677,6 +695,7 @@ export function PublicProfileShell({
                             className="w-full"
                             size="lg"
                             onClick={() => setIsPaymentPanelOpen(true)}
+                            disabled={isWrongChain}
                           >
                             {dictionary.actions.payCreator}
                           </Button>
@@ -769,7 +788,7 @@ export function PublicProfileShell({
                             <Button
                               className="w-full sm:w-auto"
                               onClick={handlePay}
-                              disabled={isPaymentBusy || !contractAddress}
+                              disabled={isPaymentBusy || !contractAddress || isWrongChain}
                             >
                               {isPaymentBusy
                                 ? dictionary.messages.waitingConfirmation
