@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="144" fill="#09090B"/>
+  <rect x="56" y="56" width="400" height="400" rx="120" fill="#0F1115"/>
+  <rect x="156" y="96" width="200" height="200" rx="64" fill="#111318"/>
+  <g transform="translate(256 196) rotate(35)">
+    <rect x="-46" y="-68" width="50" height="118" rx="25" stroke="url(#paint0_linear)" stroke-width="14"/>
+    <rect x="10" y="-68" width="50" height="118" rx="25" stroke="#F4F4F5" stroke-opacity="0.96" stroke-width="14"/>
+  </g>
+  <text x="256" y="368" text-anchor="middle" fill="#FAFAFA" font-family="SF Pro Display, Inter, Arial, sans-serif" font-size="64" font-weight="600" letter-spacing="-0.06em">
+    PayLink
+  </text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="-21" y1="-68" x2="-21" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58E7A5"/>
+      <stop offset="1" stop-color="#1FBF75"/>
+    </linearGradient>
+  </defs>
+</svg>

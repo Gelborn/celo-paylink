@@ -20,7 +20,7 @@ export function useOwnerState({
 }) {
   const wallet = useMiniPay(initialChainId);
   const contractAddress = resolveContractAddressForChain(
-    wallet.chainId,
+    initialChainId,
     contractAddresses
   );
   const [profile, setProfile] = useState<ProfileRecord | null>(null);
@@ -41,7 +41,7 @@ export function useOwnerState({
       setIsLoadingProfile(true);
       const nextProfile = await fetchProfileByOwner(
         wallet.account as Hex,
-        wallet.chainId,
+        initialChainId,
         contractAddress
       );
 
@@ -56,7 +56,7 @@ export function useOwnerState({
     return () => {
       cancelled = true;
     };
-  }, [contractAddress, wallet.account, wallet.chainId]);
+  }, [contractAddress, initialChainId, wallet.account]);
 
   useEffect(() => {
     const activeProfile = profile;
@@ -73,7 +73,7 @@ export function useOwnerState({
       setIsLoadingPayments(true);
       const nextPayments = await fetchRecentPayments(
         owner,
-        wallet.chainId,
+        initialChainId,
         contractAddress
       );
 
@@ -88,7 +88,7 @@ export function useOwnerState({
     return () => {
       cancelled = true;
     };
-  }, [contractAddress, profile, wallet.chainId]);
+  }, [contractAddress, initialChainId, profile]);
 
   async function refreshProfile() {
     if (!wallet.account || !contractAddress) return null;
@@ -97,7 +97,7 @@ export function useOwnerState({
 
     const nextProfile = await fetchProfileByOwner(
       wallet.account as Hex,
-      wallet.chainId,
+      initialChainId,
       contractAddress
     );
 
@@ -108,7 +108,7 @@ export function useOwnerState({
       setIsLoadingPayments(true);
       const nextPayments = await fetchRecentPayments(
         nextProfile.owner,
-        wallet.chainId,
+        initialChainId,
         contractAddress
       );
       setPayments(nextPayments);

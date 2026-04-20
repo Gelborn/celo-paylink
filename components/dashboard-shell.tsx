@@ -8,6 +8,7 @@ import { buildShareUrl, shortenAddress } from "../lib/format";
 import { useOwnerState } from "../lib/use-owner-state";
 import { ChargeLinkPanel } from "./charge-link-panel";
 import { Header } from "./header";
+import { NetworkMismatchModal } from "./network-mismatch-modal";
 import { ProfileEditor, type PublishStage } from "./profile-editor";
 import { RecentPayments } from "./recent-payments";
 import { useLocale } from "./locale-provider";
@@ -149,6 +150,15 @@ export function DashboardShell({
             }
           : null;
 
+  const handleWrongNetworkAction = () => {
+    if (isMiniPay) {
+      void refreshWalletState();
+      return;
+    }
+
+    void switchToDefaultChain();
+  };
+
   return (
     <main>
       <Header
@@ -165,6 +175,23 @@ export function DashboardShell({
         onDisconnect={disconnect}
         onClearConnectError={clearConnectError}
       />
+      {account && isWrongChain && !publishFlowCopy ? (
+        <NetworkMismatchModal
+          eyebrow={dictionary.labels.network}
+          title={expectedChainLabel}
+          description={
+            isMiniPay
+              ? dictionary.messages.wrongNetworkMiniPayDescription
+              : dictionary.messages.wrongNetworkDescription
+          }
+          actionLabel={
+            isMiniPay
+              ? dictionary.actions.refreshNetwork
+              : dictionary.actions.switchNetwork
+          }
+          onAction={handleWrongNetworkAction}
+        />
+      ) : null}
       {publishFlowCopy ? (
         <section className="space-y-6">
           <SectionHeader
@@ -242,43 +269,7 @@ export function DashboardShell({
             </Card>
           ) : null}
 
-          {account && isWrongChain ? (
-            <Card>
-              <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
-                <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                    {dictionary.labels.network}
-                  </p>
-                  <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                    {expectedChainLabel}
-                  </h2>
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-400">
-                    {isMiniPay
-                      ? dictionary.messages.wrongNetworkMiniPayDescription
-                      : dictionary.messages.wrongNetworkDescription}
-                  </p>
-                  <Button
-                    size="lg"
-                    className="mt-8 min-w-[13rem]"
-                    onClick={() => {
-                      if (isMiniPay) {
-                        void refreshWalletState();
-                        return;
-                      }
-
-                      void switchToDefaultChain();
-                    }}
-                  >
-                    {isMiniPay
-                      ? dictionary.actions.refreshNetwork
-                      : dictionary.actions.switchNetwork}
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ) : null}
-
-          {account && !isWrongChain && profile ? (
+          {account && profile ? (
             <Card>
               <CardContent className="flex flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-4">
@@ -320,7 +311,7 @@ export function DashboardShell({
             </Card>
           ) : null}
 
-          {account && !isWrongChain && profile ? (
+          {account && profile ? (
             isEditingProfile ? (
               <div className="space-y-4">
                 <div className="flex justify-end">
@@ -333,7 +324,7 @@ export function DashboardShell({
                 </div>
                 <ProfileEditor
                   account={account}
-                  chainId={chainId}
+                  chainId={initialChainId}
                   contractAddress={contractAddress}
                   profile={profile}
                   onSaved={handleSaved}
@@ -398,7 +389,7 @@ export function DashboardShell({
                         <ChargeLinkPanel
                           appUrl={appUrl}
                           profile={profile}
-                          chainId={chainId}
+                          chainId={initialChainId}
                           embedded
                         />
                       </CardContent>
@@ -494,7 +485,7 @@ export function DashboardShell({
                 ) : (
                   <RecentPayments
                     payments={payments}
-                    chainId={chainId}
+                    chainId={initialChainId}
                     title={
                       isLoadingProfile || isLoadingPayments
                         ? dictionary.labels.checking
@@ -504,10 +495,10 @@ export function DashboardShell({
                 )}
               </div>
             )
-          ) : account && !isWrongChain ? (
+          ) : account ? (
             <ProfileEditor
               account={account}
-              chainId={chainId}
+              chainId={initialChainId}
               contractAddress={contractAddress}
               profile={profile}
               onSaved={handleSaved}

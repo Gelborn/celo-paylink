@@ -26,6 +26,7 @@ import {
 } from "../lib/wallet";
 import { AmountPresets } from "./amount-presets";
 import { Header } from "./header";
+import { NetworkMismatchModal } from "./network-mismatch-modal";
 import { RecentPayments } from "./recent-payments";
 import { useLocale } from "./locale-provider";
 import { Avatar } from "./ui/avatar";
@@ -216,7 +217,7 @@ export function PublicProfileShell({
   const activeProfile = profile;
   const publicUrl = buildShareUrl(appUrl, activeProfile.handle);
   const showInvoiceView = !isOwner && hasPrefilledInvoice;
-  const showWrongNetworkPrompt = Boolean(account) && isWrongChain && !isOwner;
+  const showWrongNetworkPrompt = Boolean(account) && isWrongChain;
   const isPaymentBusy = paymentStage !== null;
   const paymentSummary = {
     amount,
@@ -341,6 +342,15 @@ export function PublicProfileShell({
     }
   }
 
+  const handleWrongNetworkAction = () => {
+    if (isMiniPay) {
+      void refreshWalletState();
+      return;
+    }
+
+    void switchToDefaultChain();
+  };
+
   return (
     <main>
       <Header
@@ -357,6 +367,23 @@ export function PublicProfileShell({
         onDisconnect={disconnect}
         onClearConnectError={clearConnectError}
       />
+      {showWrongNetworkPrompt ? (
+        <NetworkMismatchModal
+          eyebrow={dictionary.labels.network}
+          title={expectedChainLabel}
+          description={
+            isMiniPay
+              ? dictionary.messages.wrongNetworkMiniPayDescription
+              : dictionary.messages.wrongNetworkDescription
+          }
+          actionLabel={
+            isMiniPay
+              ? dictionary.actions.refreshNetwork
+              : dictionary.actions.switchNetwork
+          }
+          onAction={handleWrongNetworkAction}
+        />
+      ) : null}
       {paymentOverlayCopy ? (
         <section className="space-y-6">
           <SectionHeader
@@ -618,199 +645,164 @@ export function PublicProfileShell({
                 </div>
               ) : (
                 <div className="space-y-4">
-                  {showWrongNetworkPrompt ? (
-                    <div className="space-y-5 rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5">
-                      <div className="space-y-2">
-                        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                          {dictionary.labels.network}
-                        </p>
-                        <h2 className="text-2xl font-semibold text-white">
-                          {expectedChainLabel}
-                        </h2>
-                        <p className="text-sm leading-7 text-zinc-400">
-                          {isMiniPay
-                            ? dictionary.messages.wrongNetworkMiniPayDescription
-                            : dictionary.messages.wrongNetworkDescription}
-                        </p>
+                  {showInvoiceView ? (
+                    <div className="rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                        {dictionary.publicPage.invoiceSummary}
+                      </p>
+                      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                        {hasPrefilledAmount ? (
+                          <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                            <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+                              {dictionary.fields.amount}
+                            </p>
+                            <p className="mt-2 text-2xl font-semibold text-white">
+                              {initialAmount} {selectedToken?.symbol}
+                            </p>
+                          </div>
+                        ) : null}
+                        {hasPrefilledToken && !hasPrefilledAmount ? (
+                          <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                            <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+                              {dictionary.fields.token}
+                            </p>
+                            <p className="mt-2 text-2xl font-semibold text-white">
+                              {selectedToken?.symbol}
+                            </p>
+                          </div>
+                        ) : null}
+                        {hasPrefilledReference ? (
+                          <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                            <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+                              {dictionary.fields.note}
+                            </p>
+                            <p className="mt-2 text-sm leading-7 text-zinc-300">
+                              {initialReference}
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
-                      <Button
-                        className="w-full sm:w-auto"
-                        onClick={() => {
-                          if (isMiniPay) {
-                            void refreshWalletState();
-                            return;
-                          }
-
-                          void switchToDefaultChain();
-                        }}
-                      >
-                        {isMiniPay
-                          ? dictionary.actions.refreshNetwork
-                          : dictionary.actions.switchNetwork}
-                      </Button>
                     </div>
                   ) : (
-                    <>
-                      {showInvoiceView ? (
-                        <div className="rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5">
-                          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                            {dictionary.publicPage.invoiceSummary}
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <Button
+                        className="w-full"
+                        size="lg"
+                        onClick={() => setIsPaymentPanelOpen(true)}
+                        disabled={isWrongChain}
+                      >
+                        {dictionary.actions.payCreator}
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="w-full"
+                        onClick={() => {
+                          void handleSharePublicPage();
+                        }}
+                      >
+                        {dictionary.actions.shareCreatorLink}
+                      </Button>
+                    </div>
+                  )}
+
+                  {isPaymentPanelOpen ? (
+                    <div className="space-y-5 rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5">
+                      <div>
+                        <p className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+                          {dictionary.fields.amount}
+                        </p>
+                        <AmountPresets
+                          values={[5, 15, 25, 50]}
+                          selectedValue={amount}
+                          onSelect={setAmount}
+                        />
+                      </div>
+
+                      <label className="space-y-2">
+                        <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+                          {dictionary.fields.amount}
+                        </span>
+                        <Input
+                          inputMode="decimal"
+                          value={amount}
+                          onChange={(event) =>
+                            setAmount(sanitizeCurrencyInput(event.target.value))
+                          }
+                          placeholder={dictionary.placeholders.amount}
+                        />
+                      </label>
+
+                      <label className="space-y-2">
+                        <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+                          {dictionary.fields.note}
+                        </span>
+                        <Input
+                          value={reference}
+                          onChange={(event) => setReference(event.target.value)}
+                          placeholder={dictionary.placeholders.note}
+                        />
+                      </label>
+
+                      <TokenPicker
+                        label={dictionary.fields.token}
+                        selectedAddress={selectedTokenAddress}
+                        options={tokens}
+                        onChange={(address) => setSelectedTokenAddress(address as Hex)}
+                      />
+
+                      <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4 text-sm text-zinc-400">
+                        <p>{dictionary.labels.payingFrom}</p>
+                        <p className="mt-2 text-white">
+                          {account
+                            ? shortenAddress(account)
+                            : dictionary.labels.notConnected}
+                        </p>
+                        {balance !== null && selectedToken ? (
+                          <p className="mt-2">
+                            {formatTokenAmount(balance, selectedToken.address, chainId)}{" "}
+                            {selectedToken.symbol}
                           </p>
-                          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                            {hasPrefilledAmount ? (
-                              <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
-                                <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                                  {dictionary.fields.amount}
-                                </p>
-                                <p className="mt-2 text-2xl font-semibold text-white">
-                                  {initialAmount} {selectedToken?.symbol}
-                                </p>
-                              </div>
-                            ) : null}
-                            {hasPrefilledToken && !hasPrefilledAmount ? (
-                              <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
-                                <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                                  {dictionary.fields.token}
-                                </p>
-                                <p className="mt-2 text-2xl font-semibold text-white">
-                                  {selectedToken?.symbol}
-                                </p>
-                              </div>
-                            ) : null}
-                            {hasPrefilledReference ? (
-                              <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
-                                <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                                  {dictionary.fields.note}
-                                </p>
-                                <p className="mt-2 text-sm leading-7 text-zinc-300">
-                                  {initialReference}
-                                </p>
-                              </div>
-                            ) : null}
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="grid gap-3 sm:grid-cols-2">
-                          <Button
-                            className="w-full"
-                            size="lg"
-                            onClick={() => setIsPaymentPanelOpen(true)}
-                            disabled={isWrongChain}
-                          >
-                            {dictionary.actions.payCreator}
-                          </Button>
+                        ) : null}
+                      </div>
+
+                      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                        {!account && (!isMiniPay || isDisconnectedByUser) ? (
                           <Button
                             variant="outline"
-                            className="w-full"
+                            className="w-full sm:w-auto"
                             onClick={() => {
-                              void handleSharePublicPage();
+                              void connect();
                             }}
                           >
-                            {dictionary.actions.shareCreatorLink}
+                            {isConnecting
+                              ? dictionary.messages.waitingConfirmation
+                              : dictionary.actions.connectWallet}
                           </Button>
-                        </div>
-                      )}
+                        ) : null}
+                        <Button
+                          className="w-full sm:w-auto"
+                          onClick={handlePay}
+                          disabled={isPaymentBusy || !contractAddress || isWrongChain}
+                        >
+                          {isPaymentBusy
+                            ? dictionary.messages.waitingConfirmation
+                            : dictionary.actions.payNow}
+                        </Button>
+                      </div>
 
-                      {isPaymentPanelOpen ? (
-                        <div className="space-y-5 rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5">
-                          <div>
-                            <p className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-                              {dictionary.fields.amount}
-                            </p>
-                            <AmountPresets
-                              values={[5, 15, 25, 50]}
-                              selectedValue={amount}
-                              onSelect={setAmount}
-                            />
-                          </div>
-
-                          <label className="space-y-2">
-                            <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-                              {dictionary.fields.amount}
-                            </span>
-                            <Input
-                              inputMode="decimal"
-                              value={amount}
-                              onChange={(event) =>
-                                setAmount(sanitizeCurrencyInput(event.target.value))
-                              }
-                              placeholder={dictionary.placeholders.amount}
-                            />
-                          </label>
-
-                          <label className="space-y-2">
-                            <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-                              {dictionary.fields.note}
-                            </span>
-                            <Input
-                              value={reference}
-                              onChange={(event) => setReference(event.target.value)}
-                              placeholder={dictionary.placeholders.note}
-                            />
-                          </label>
-
-                          <TokenPicker
-                            label={dictionary.fields.token}
-                            selectedAddress={selectedTokenAddress}
-                            options={tokens}
-                            onChange={(address) => setSelectedTokenAddress(address as Hex)}
-                          />
-
-                          <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4 text-sm text-zinc-400">
-                            <p>{dictionary.labels.payingFrom}</p>
-                            <p className="mt-2 text-white">
-                              {account
-                                ? shortenAddress(account)
-                                : dictionary.labels.notConnected}
-                            </p>
-                            {balance !== null && selectedToken ? (
-                              <p className="mt-2">
-                                {formatTokenAmount(balance, selectedToken.address, chainId)}{" "}
-                                {selectedToken.symbol}
-                              </p>
-                            ) : null}
-                          </div>
-
-                          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                            {!account && (!isMiniPay || isDisconnectedByUser) ? (
-                              <Button
-                                variant="outline"
-                                className="w-full sm:w-auto"
-                                onClick={() => {
-                                  void connect();
-                                }}
-                              >
-                                {isConnecting
-                                  ? dictionary.messages.waitingConfirmation
-                                  : dictionary.actions.connectWallet}
-                              </Button>
-                            ) : null}
-                            <Button
-                              className="w-full sm:w-auto"
-                              onClick={handlePay}
-                              disabled={isPaymentBusy || !contractAddress || isWrongChain}
-                            >
-                              {isPaymentBusy
-                                ? dictionary.messages.waitingConfirmation
-                                : dictionary.actions.payNow}
-                            </Button>
-                          </div>
-
-                          {status ? <p className="text-sm text-zinc-400">{status}</p> : null}
-                          {txHash ? (
-                            <Link
-                              href={`${getExplorerBaseUrl(chainId)}/tx/${txHash}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="text-sm text-zinc-300 underline underline-offset-4"
-                            >
-                              {dictionary.actions.openExplorer}
-                            </Link>
-                          ) : null}
-                        </div>
+                      {status ? <p className="text-sm text-zinc-400">{status}</p> : null}
+                      {txHash ? (
+                        <Link
+                          href={`${getExplorerBaseUrl(chainId)}/tx/${txHash}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-sm text-zinc-300 underline underline-offset-4"
+                        >
+                          {dictionary.actions.openExplorer}
+                        </Link>
                       ) : null}
-                    </>
-                  )}
+                    </div>
+                  ) : null}
 
                   <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     {showInvoiceView ? (
@@ -837,7 +829,7 @@ export function PublicProfileShell({
 
           <RecentPayments
             payments={payments}
-            chainId={chainId}
+            chainId={initialChainId}
             title={dictionary.publicPage.recentPayments}
           />
         </div>
