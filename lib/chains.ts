@@ -16,7 +16,15 @@ export function getChainConfig(chainId = getDefaultChainId()) {
 }
 
 export function getChainLabel(chainId = getDefaultChainId()) {
-  return chainId === CELO_MAINNET_CHAIN_ID ? "Celo Mainnet" : "Celo Sepolia";
+  if (chainId === CELO_MAINNET_CHAIN_ID) {
+    return "Celo Mainnet";
+  }
+
+  if (chainId === CELO_SEPOLIA_CHAIN_ID) {
+    return "Celo Sepolia";
+  }
+
+  return `Unsupported network (${chainId})`;
 }
 
 export function getChainHex(chainId = getDefaultChainId()) {
@@ -68,9 +76,15 @@ export function resolveContractAddressForChain(
     celoSepolia: Hex | null;
   }
 ) {
-  return chainId === CELO_MAINNET_CHAIN_ID
-    ? contractAddresses.celo
-    : contractAddresses.celoSepolia;
+  if (chainId === CELO_MAINNET_CHAIN_ID) {
+    return contractAddresses.celo;
+  }
+
+  if (chainId === CELO_SEPOLIA_CHAIN_ID) {
+    return contractAddresses.celoSepolia;
+  }
+
+  return null;
 }
 
 export function isSupportedCeloChain(chainId?: number): chainId is number {

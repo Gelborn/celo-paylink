@@ -130,38 +130,52 @@ export async function fetchRecentPayments(
   const provider = getProvider(chainId);
   const eventTopic = paymentSentInterface.getEvent("PaymentSent")!.topicHash;
   const paddedRecipient = `0x${recipient.slice(2).padStart(64, "0")}`;
+  const configuredFromBlock = getContractDeploymentBlock(chainId);
 
-  const logs = await provider.getLogs({
-    address: contractAddress,
-    topics: [eventTopic, paddedRecipient],
-    fromBlock: getContractDeploymentBlock(chainId),
-    toBlock: "latest"
-  });
+  try {
+    const latestBlock = BigInt(await provider.getBlockNumber());
+    const fromBlock =
+      configuredFromBlock > 0n
+        ? configuredFromBlock
+        : latestBlock > 250_000n
+          ? latestBlock - 250_000n
+          : 0n;
 
-  const recent = logs.slice(-8).reverse();
+    const logs = await provider.getLogs({
+      address: contractAddress,
+      topics: [eventTopic, paddedRecipient],
+      fromBlock,
+      toBlock: "latest"
+    });
 
-  return Promise.all(
-    recent.map(async (log) => {
-      const parsed = paymentSentInterface.parseLog(log);
-      if (!parsed) {
-        throw new Error("Could not parse PaymentSent log.");
-      }
-      const block = await provider.getBlock(log.blockNumber);
-      const token = getTokenByAddress(parsed.args.token, chainId);
+    const recent = logs.slice(-8).reverse();
 
-      return {
-        recipient: parsed.args.recipient as Hex,
-        payer: parsed.args.payer as Hex,
-        token: parsed.args.token as Hex,
-        amount: parsed.args.amount as bigint,
-        reference: parsed.args.paymentReference as string,
-        handle: parsed.args.handle as string,
-        txHash: log.transactionHash as Hex,
-        blockNumber: BigInt(log.blockNumber),
-        explorerUrl: `${getExplorerBaseUrl(chainId)}/tx/${log.transactionHash}`,
-        tokenSymbol: token?.symbol || "Token",
-        timestamp: block ? Number(block.timestamp) : null
-      };
-    })
-  );
+    return Promise.all(
+      recent.map(async (log) => {
+        const parsed = paymentSentInterface.parseLog(log);
+        if (!parsed) {
+          throw new Error("Could not parse PaymentSent log.");
+        }
+        const block = await provider.getBlock(log.blockNumber);
+        const token = getTokenByAddress(parsed.args.token, chainId);
+
+        return {
+          recipient: parsed.args.recipient as Hex,
+          payer: parsed.args.payer as Hex,
+          token: parsed.args.token as Hex,
+          amount: parsed.args.amount as bigint,
+          reference: parsed.args.paymentReference as string,
+          handle: parsed.args.handle as string,
+          txHash: log.transactionHash as Hex,
+          blockNumber: BigInt(log.blockNumber),
+          explorerUrl: `${getExplorerBaseUrl(chainId)}/tx/${log.transactionHash}`,
+          tokenSymbol: token?.symbol || "Token",
+          timestamp: block ? Number(block.timestamp) : null
+        };
+      })
+    );
+  } catch (error) {
+    console.error("Failed to fetch recent payments", error);
+    return [];
+  }
 }

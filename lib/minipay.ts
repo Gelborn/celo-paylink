@@ -4,8 +4,7 @@ import { startTransition, useCallback, useEffect, useRef, useState } from "react
 import type { Hex } from "viem";
 import {
   getChainLabel,
-  CELO_SEPOLIA_CHAIN_ID,
-  isSupportedCeloChain
+  CELO_SEPOLIA_CHAIN_ID
 } from "./chains";
 import { ensureInjectedChain } from "./wallet";
 
@@ -18,7 +17,7 @@ async function detectChainId(fallbackChainId: number) {
     method: "eth_chainId"
   })) as string;
   const chainId = Number.parseInt(raw, 16);
-  return isSupportedCeloChain(chainId) ? chainId : fallbackChainId;
+  return Number.isFinite(chainId) ? chainId : fallbackChainId;
 }
 
 export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
@@ -200,7 +199,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
 
     const handleChainChanged = (nextChainId: unknown) => {
       const parsed = Number.parseInt(nextChainId as string, 16);
-      if (isSupportedCeloChain(parsed)) {
+      if (Number.isFinite(parsed)) {
         setChainId(parsed);
       }
     };

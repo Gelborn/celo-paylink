@@ -110,8 +110,11 @@ export function PublicProfileShell({
   );
   const [paymentStage, setPaymentStage] = useState<PaymentStage>(null);
   const [paymentResult, setPaymentResult] = useState<PaymentResult | null>(null);
-  const tokens = getSupportedTokens(chainId);
-  const contractAddress = resolveContractAddressForChain(chainId, contractAddresses);
+  const tokens = getSupportedTokens(initialChainId);
+  const contractAddress = resolveContractAddressForChain(
+    initialChainId,
+    contractAddresses
+  );
 
   const [selectedTokenAddress, setSelectedTokenAddress] = useState<Hex | "">(
     getTokenFromQuery(initialTokenQuery, initialChainId)?.address ||
@@ -121,7 +124,7 @@ export function PublicProfileShell({
   );
 
   const selectedToken =
-    getTokenByAddress(selectedTokenAddress, chainId) || tokens[0];
+    getTokenByAddress(selectedTokenAddress, initialChainId) || tokens[0];
   const isOwner =
     Boolean(account) &&
     Boolean(profile) &&
@@ -129,12 +132,15 @@ export function PublicProfileShell({
 
   useEffect(() => {
     const preferredToken =
-      getTokenFromQuery(initialTokenQuery, chainId)?.address ||
+      getTokenFromQuery(initialTokenQuery, initialChainId)?.address ||
       profile?.preferredToken ||
       tokens[0]?.address ||
       "";
 
-    if (!selectedTokenAddress || getTokenByAddress(selectedTokenAddress, chainId)) {
+    if (
+      !selectedTokenAddress ||
+      getTokenByAddress(selectedTokenAddress, initialChainId)
+    ) {
       if (!selectedTokenAddress && preferredToken) {
         setSelectedTokenAddress(preferredToken);
       }
@@ -142,7 +148,13 @@ export function PublicProfileShell({
     }
 
     setSelectedTokenAddress(preferredToken);
-  }, [chainId, initialTokenQuery, profile?.preferredToken, selectedTokenAddress, tokens]);
+  }, [
+    initialChainId,
+    initialTokenQuery,
+    profile?.preferredToken,
+    selectedTokenAddress,
+    tokens
+  ]);
 
   useEffect(() => {
     if (!account || !selectedToken) {
@@ -152,16 +164,22 @@ export function PublicProfileShell({
 
     let cancelled = false;
 
-    void readBalance(selectedToken.address, account, chainId).then((nextBalance) => {
-      if (!cancelled) {
-        setBalance(nextBalance);
-      }
-    });
+    void readBalance(selectedToken.address, account, initialChainId)
+      .then((nextBalance) => {
+        if (!cancelled) {
+          setBalance(nextBalance);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setBalance(null);
+        }
+      });
 
     return () => {
       cancelled = true;
     };
-  }, [account, chainId, selectedToken]);
+  }, [account, initialChainId, selectedToken]);
 
   if (!contractReady) {
     return (
@@ -298,7 +316,7 @@ export function PublicProfileShell({
         selectedToken.address,
         activeAccount,
         contractAddress,
-        chainId
+        initialChainId
       );
 
       if (allowance < parsedAmount) {
@@ -307,11 +325,11 @@ export function PublicProfileShell({
           contractAddress,
           tokenAddress: selectedToken.address,
           amount: parsedAmount,
-          chainId
+          chainId: initialChainId
         });
         setTxHash(approvalHash);
         setPaymentStage("confirmingApproval");
-        await waitForTransaction(approvalHash, chainId);
+        await waitForTransaction(approvalHash, initialChainId);
       }
 
       setPaymentStage("sending");
@@ -321,12 +339,12 @@ export function PublicProfileShell({
         token: selectedToken.address,
         amount: parsedAmount,
         reference,
-        chainId
+        chainId: initialChainId
       });
 
       setTxHash(paymentHash);
       setPaymentStage("openingReceipt");
-      await waitForTransaction(paymentHash, chainId);
+      await waitForTransaction(paymentHash, initialChainId);
       setPaymentResult({
         txHash: paymentHash,
         amount,
@@ -461,8 +479,8 @@ export function PublicProfileShell({
                 </div>
 
                 {txHash ? (
-                  <Link
-                    href={`${getExplorerBaseUrl(chainId)}/tx/${txHash}`}
+                    <Link
+                    href={`${getExplorerBaseUrl(initialChainId)}/tx/${txHash}`}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex text-sm text-zinc-300 underline underline-offset-4"
@@ -553,7 +571,7 @@ export function PublicProfileShell({
 
               <div className="space-y-3">
                 <Link
-                  href={`${getExplorerBaseUrl(chainId)}/tx/${paymentResult.txHash}`}
+                    href={`${getExplorerBaseUrl(initialChainId)}/tx/${paymentResult.txHash}`}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex text-sm text-zinc-300 underline underline-offset-4"
@@ -753,13 +771,17 @@ export function PublicProfileShell({
                       <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4 text-sm text-zinc-400">
                         <p>{dictionary.labels.payingFrom}</p>
                         <p className="mt-2 text-white">
-                          {account
-                            ? shortenAddress(account)
-                            : dictionary.labels.notConnected}
+                            {account
+                              ? shortenAddress(account)
+                              : dictionary.labels.notConnected}
                         </p>
                         {balance !== null && selectedToken ? (
                           <p className="mt-2">
-                            {formatTokenAmount(balance, selectedToken.address, chainId)}{" "}
+                            {formatTokenAmount(
+                              balance,
+                              selectedToken.address,
+                              initialChainId
+                            )}{" "}
                             {selectedToken.symbol}
                           </p>
                         ) : null}
@@ -793,7 +815,7 @@ export function PublicProfileShell({
                       {status ? <p className="text-sm text-zinc-400">{status}</p> : null}
                       {txHash ? (
                         <Link
-                          href={`${getExplorerBaseUrl(chainId)}/tx/${txHash}`}
+                          href={`${getExplorerBaseUrl(initialChainId)}/tx/${txHash}`}
                           target="_blank"
                           rel="noreferrer"
                           className="text-sm text-zinc-300 underline underline-offset-4"

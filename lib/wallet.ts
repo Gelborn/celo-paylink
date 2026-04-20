@@ -9,8 +9,7 @@ import {
   getChainHex,
   getChainLabel,
   getDefaultChainId,
-  getRpcUrl,
-  isSupportedCeloChain
+  getRpcUrl
 } from "./chains";
 
 type EthereumProvider = NonNullable<Window["ethereum"]>;
@@ -35,7 +34,7 @@ export async function getInjectedChainId() {
   const provider = ensureProvider();
   const raw = (await provider.request({ method: "eth_chainId" })) as string;
   const chainId = Number.parseInt(raw, 16);
-  return isSupportedCeloChain(chainId) ? chainId : getDefaultChainId();
+  return Number.isFinite(chainId) ? chainId : getDefaultChainId();
 }
 
 export async function ensureInjectedChain(targetChainId = getDefaultChainId()) {
