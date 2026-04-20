@@ -1,6 +1,6 @@
 # MiniPay PayLink
 
-MiniPay PayLink is a dark, mobile-first payment profile for freelancers, creators, and solo merchants on Celo.
+MiniPay PayLink is a mobile-first payment profile for freelancers, creators, and solo merchants on Celo.
 
 Create a public page, add your handle and avatar, and receive stablecoin payments through links like:
 
