@@ -142,6 +142,8 @@ export type Dictionary = {
     noProfile: string;
     profileLoading: string;
     finishingProfile: string;
+    confirmProfileInWallet: string;
+    syncingProfile: string;
     approving: string;
     confirmingApproval: string;
     sending: string;
@@ -308,6 +310,10 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Connect a wallet and create your profile to start receiving payments.",
       profileLoading: "Loading your profile...",
       finishingProfile: "Publishing your profile...",
+      confirmProfileInWallet:
+        "Review the profile transaction in your wallet, then wait while it is confirmed onchain.",
+      syncingProfile:
+        "Updating your dashboard with the latest onchain profile data.",
       approving: "Approving",
       confirmingApproval: "Confirming token approval onchain...",
       sending: "Sending",
@@ -473,6 +479,10 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Conecte sua carteira e crie seu perfil para começar a receber.",
       profileLoading: "Carregando seu perfil...",
       finishingProfile: "Publicando seu perfil...",
+      confirmProfileInWallet:
+        "Revise a transação do perfil na sua carteira e depois aguarde a confirmação na rede.",
+      syncingProfile:
+        "Atualizando seu painel com os dados mais recentes do perfil na rede.",
       approving: "Aprovando",
       confirmingApproval: "Confirmando a aprovação do token na rede...",
       sending: "Enviando",

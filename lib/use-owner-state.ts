@@ -91,7 +91,9 @@ export function useOwnerState({
   }, [contractAddress, profile, wallet.chainId]);
 
   async function refreshProfile() {
-    if (!wallet.account || !contractAddress) return;
+    if (!wallet.account || !contractAddress) return null;
+
+    setIsLoadingProfile(true);
 
     const nextProfile = await fetchProfileByOwner(
       wallet.account as Hex,
@@ -100,15 +102,22 @@ export function useOwnerState({
     );
 
     setProfile(nextProfile);
+    setIsLoadingProfile(false);
 
     if (nextProfile) {
+      setIsLoadingPayments(true);
       const nextPayments = await fetchRecentPayments(
         nextProfile.owner,
         wallet.chainId,
         contractAddress
       );
       setPayments(nextPayments);
+      setIsLoadingPayments(false);
+      return nextProfile;
     }
+
+    setPayments([]);
+    return null;
   }
 
   return {

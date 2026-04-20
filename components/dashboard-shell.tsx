@@ -8,7 +8,7 @@ import { buildShareUrl, shortenAddress } from "../lib/format";
 import { useOwnerState } from "../lib/use-owner-state";
 import { ChargeLinkPanel } from "./charge-link-panel";
 import { Header } from "./header";
-import { ProfileEditor } from "./profile-editor";
+import { ProfileEditor, type PublishStage } from "./profile-editor";
 import { RecentPayments } from "./recent-payments";
 import { useLocale } from "./locale-provider";
 import { Avatar } from "./ui/avatar";
@@ -35,7 +35,7 @@ export function DashboardShell({
   const { dictionary } = useLocale();
   const router = useRouter();
   const [isEditingProfile, setIsEditingProfile] = useState(false);
-  const [isPublishingProfile, setIsPublishingProfile] = useState(false);
+  const [publishStage, setPublishStage] = useState<PublishStage | null>(null);
   const [activeTab, setActiveTab] = useState<DashboardTab>("manage");
   const [manageView, setManageView] = useState<ManageView>("overview");
   const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "shared">(
@@ -68,6 +68,7 @@ export function DashboardShell({
   useEffect(() => {
     if (!account) {
       setIsEditingProfile(false);
+      setPublishStage(null);
       setActiveTab("manage");
       setManageView("overview");
     }
@@ -76,12 +77,26 @@ export function DashboardShell({
   useEffect(() => {
     if (profile?.handle) {
       setIsEditingProfile(false);
+      setPublishStage(null);
       setManageView("overview");
     }
   }, [profile?.handle]);
 
   async function handleSaved() {
-    await refreshProfile();
+    const requiresFreshProfile = !profile;
+    let syncedProfile = await refreshProfile();
+
+    if (requiresFreshProfile && !syncedProfile) {
+      for (let attempt = 0; attempt < 8; attempt += 1) {
+        await new Promise((resolve) => window.setTimeout(resolve, 900));
+        syncedProfile = await refreshProfile();
+
+        if (syncedProfile) {
+          break;
+        }
+      }
+    }
+
     router.refresh();
     setActiveTab("manage");
     setManageView("overview");
@@ -112,6 +127,24 @@ export function DashboardShell({
     window.setTimeout(() => setShareStatus("idle"), 1600);
   }
 
+  const publishFlowCopy =
+    publishStage === "wallet"
+      ? {
+          title: dictionary.messages.finishingProfile,
+          description: dictionary.messages.confirmProfileInWallet
+        }
+      : publishStage === "confirming"
+        ? {
+            title: dictionary.messages.finishingProfile,
+            description: dictionary.messages.waitingConfirmation
+          }
+        : publishStage === "syncing"
+          ? {
+              title: dictionary.messages.finishingProfile,
+              description: dictionary.messages.syncingProfile
+            }
+          : null;
+
   return (
     <main>
       <Header
@@ -128,303 +161,321 @@ export function DashboardShell({
         onDisconnect={disconnect}
         onClearConnectError={clearConnectError}
       />
-      {isPublishingProfile ? (
-        <div className="fixed inset-0 z-40 flex items-center justify-center bg-zinc-950/96 px-6">
-          <div className="text-center">
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-              {dictionary.dashboard.eyebrow}
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-              {dictionary.messages.finishingProfile}
-            </h2>
-            <p className="mt-3 text-sm text-zinc-400">
-              {dictionary.messages.waitingConfirmation}
-            </p>
-          </div>
-        </div>
-      ) : null}
-      <section className="space-y-6">
-        <SectionHeader
-          eyebrow={dictionary.dashboard.eyebrow}
-          title={
-            profile
-              ? dictionary.dashboard.titleWithProfile
-              : dictionary.dashboard.titleNoProfile
-          }
-          description={
-            profile
-              ? dictionary.dashboard.descriptionWithProfile
-              : dictionary.dashboard.descriptionNoProfile
-          }
-        />
-
-        {!account ? (
+      {publishFlowCopy ? (
+        <section className="space-y-6">
+          <SectionHeader
+            eyebrow={dictionary.dashboard.eyebrow}
+            title={publishFlowCopy.title}
+            description={publishFlowCopy.description}
+          />
           <Card>
             <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
-              <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-                <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                  {dictionary.dashboard.eyebrow}
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  {dictionary.actions.connectWallet}
-                </h2>
-                <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-400">
-                  {isMiniPay && !isDisconnectedByUser
-                    ? dictionary.messages.waitingConfirmation
-                    : dictionary.dashboard.connectPrompt}
-                </p>
-                {!isMiniPay || isDisconnectedByUser ? (
-                  <Button
-                    size="lg"
-                    className="mt-8 min-w-[13rem]"
-                    onClick={() => {
-                      void connect();
-                    }}
-                  >
-                    {isConnecting
-                      ? dictionary.messages.waitingConfirmation
-                      : dictionary.actions.connectWallet}
-                  </Button>
-                ) : null}
-              </div>
-            </CardContent>
-          </Card>
-        ) : null}
-
-        {account && profile ? (
-          <Card>
-            <CardContent className="flex flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between">
-              <div className="flex items-center gap-4">
-                <Avatar
-                  name={profile.displayName}
-                  imageUrl={profile.avatarUrl}
-                  size="lg"
-                />
-                <div className="space-y-2">
-                  <Badge>{dictionary.labels.profileLive}</Badge>
-                  <div>
-                    <h2 className="text-2xl font-semibold text-white">
-                      {profile.displayName}
-                    </h2>
-                    <p className="text-sm text-zinc-400">
-                      @{profile.handle} · {shortenAddress(account)}
-                    </p>
-                  </div>
+              <div className="mx-auto max-w-2xl space-y-6 text-center">
+                <div className="mx-auto h-1 w-24 overflow-hidden rounded-full bg-white/8">
+                  <div className="h-full w-1/2 animate-pulse rounded-full bg-white" />
+                </div>
+                <div className="space-y-3">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                    {dictionary.dashboard.profileSection}
+                  </p>
+                  <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                    {publishFlowCopy.title}
+                  </h2>
+                  <p className="mx-auto max-w-xl text-sm leading-7 text-zinc-400">
+                    {publishFlowCopy.description}
+                  </p>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setActiveTab("manage");
-                    setManageView("overview");
-                    setIsEditingProfile(true);
-                  }}
-                >
-                  {dictionary.actions.editProfile}
-                </Button>
-                <Link href={`/u/${profile.handle}`}>
-                  <Button variant="secondary">
-                    {dictionary.actions.openPublicPage}
-                  </Button>
-                </Link>
-              </div>
             </CardContent>
           </Card>
-        ) : null}
+        </section>
+      ) : (
+        <section className="space-y-6">
+          <SectionHeader
+            eyebrow={dictionary.dashboard.eyebrow}
+            title={
+              profile
+                ? dictionary.dashboard.titleWithProfile
+                : dictionary.dashboard.titleNoProfile
+            }
+            description={
+              profile
+                ? dictionary.dashboard.descriptionWithProfile
+                : dictionary.dashboard.descriptionNoProfile
+            }
+          />
 
-        {account && profile ? (
-          isEditingProfile ? (
-            <div className="space-y-4">
-              <div className="flex justify-end">
-                <Button
-                  variant="ghost"
-                  onClick={() => setIsEditingProfile(false)}
-                >
-                  {dictionary.actions.cancel}
-                </Button>
-              </div>
-              <ProfileEditor
-                account={account}
-                chainId={chainId}
-                contractAddress={contractAddress}
-                profile={profile}
-                onSaved={handleSaved}
-                onPublishStateChange={setIsPublishingProfile}
-              />
-            </div>
-          ) : (
-            <div className="space-y-5">
-              <div className="overflow-x-auto">
-                <div className="inline-flex min-w-full rounded-[1.4rem] border border-white/10 bg-zinc-950/80 p-1.5 sm:min-w-0">
-                  <button
-                    type="button"
+          {!account ? (
+            <Card>
+              <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
+                <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                    {dictionary.dashboard.eyebrow}
+                  </p>
+                  <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                    {dictionary.actions.connectWallet}
+                  </h2>
+                  <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-400">
+                    {isMiniPay && !isDisconnectedByUser
+                      ? dictionary.messages.waitingConfirmation
+                      : dictionary.dashboard.connectPrompt}
+                  </p>
+                  {!isMiniPay || isDisconnectedByUser ? (
+                    <Button
+                      size="lg"
+                      className="mt-8 min-w-[13rem]"
+                      onClick={() => {
+                        void connect();
+                      }}
+                    >
+                      {isConnecting
+                        ? dictionary.messages.waitingConfirmation
+                        : dictionary.actions.connectWallet}
+                    </Button>
+                  ) : null}
+                </div>
+              </CardContent>
+            </Card>
+          ) : null}
+
+          {account && profile ? (
+            <Card>
+              <CardContent className="flex flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between">
+                <div className="flex items-center gap-4">
+                  <Avatar
+                    name={profile.displayName}
+                    imageUrl={profile.avatarUrl}
+                    size="lg"
+                  />
+                  <div className="space-y-2">
+                    <Badge>{dictionary.labels.profileLive}</Badge>
+                    <div>
+                      <h2 className="text-2xl font-semibold text-white">
+                        {profile.displayName}
+                      </h2>
+                      <p className="text-sm text-zinc-400">
+                        @{profile.handle} · {shortenAddress(account)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <Button
+                    variant="outline"
                     onClick={() => {
                       setActiveTab("manage");
                       setManageView("overview");
+                      setIsEditingProfile(true);
                     }}
-                    className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition ${
-                      activeTab === "manage"
-                        ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
-                        : "text-zinc-400 hover:bg-white/5 hover:text-white"
-                    }`}
                   >
-                    {dictionary.dashboard.actionsTab}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab("transactions")}
-                    className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition ${
-                      activeTab === "transactions"
-                        ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
-                        : "text-zinc-400 hover:bg-white/5 hover:text-white"
-                    }`}
-                  >
-                    {dictionary.dashboard.transactionsTab}
-                  </button>
+                    {dictionary.actions.editProfile}
+                  </Button>
+                  <Link href={`/u/${profile.handle}`}>
+                    <Button variant="secondary">
+                      {dictionary.actions.openPublicPage}
+                    </Button>
+                  </Link>
                 </div>
+              </CardContent>
+            </Card>
+          ) : null}
+
+          {account && profile ? (
+            isEditingProfile ? (
+              <div className="space-y-4">
+                <div className="flex justify-end">
+                  <Button
+                    variant="ghost"
+                    onClick={() => setIsEditingProfile(false)}
+                  >
+                    {dictionary.actions.cancel}
+                  </Button>
+                </div>
+                <ProfileEditor
+                  account={account}
+                  chainId={chainId}
+                  contractAddress={contractAddress}
+                  profile={profile}
+                  onSaved={handleSaved}
+                  onPublishStateChange={setPublishStage}
+                />
               </div>
+            ) : (
+              <div className="space-y-5">
+                <div className="overflow-x-auto">
+                  <div className="inline-flex min-w-full rounded-[1.4rem] border border-white/10 bg-zinc-950/80 p-1.5 sm:min-w-0">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveTab("manage");
+                        setManageView("overview");
+                      }}
+                      className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition ${
+                        activeTab === "manage"
+                          ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
+                          : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                      }`}
+                    >
+                      {dictionary.dashboard.actionsTab}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab("transactions")}
+                      className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition ${
+                        activeTab === "transactions"
+                          ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
+                          : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                      }`}
+                    >
+                      {dictionary.dashboard.transactionsTab}
+                    </button>
+                  </div>
+                </div>
 
-              {activeTab === "manage" ? (
-                manageView === "invoice" ? (
-                  <Card>
-                    <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
-                      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                        <div>
-                          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                            {dictionary.dashboard.chargeSection}
-                          </p>
-                          <h3 className="mt-2 text-xl font-semibold text-white">
-                            {dictionary.actions.createChargeLink}
-                          </h3>
-                          <p className="mt-2 max-w-2xl text-sm leading-7 text-zinc-400">
-                          {dictionary.messages.shareHint}
-                          </p>
-                        </div>
-                        <Button
-                          variant="ghost"
-                          onClick={() => setManageView("overview")}
-                        >
-                          {dictionary.actions.cancel}
-                        </Button>
-                      </div>
-                      <ChargeLinkPanel
-                        appUrl={appUrl}
-                        profile={profile}
-                        chainId={chainId}
-                        embedded
-                      />
-                    </CardContent>
-                  </Card>
-                ) : (
-                  <Card>
-                    <CardContent className="px-5 py-5 sm:px-6 sm:py-6">
-                      <p className="max-w-2xl text-sm leading-7 text-zinc-400">
-                        {dictionary.dashboard.descriptionWithProfile}
-                      </p>
-
-                      <div className="mt-5 divide-y divide-white/10">
-                        <div className="flex flex-col gap-3 py-4 first:pt-0 sm:flex-row sm:items-center sm:justify-between">
-                          <div className="min-w-0 space-y-2">
-                            <p className="text-base font-medium text-white">
-                              {dictionary.actions.shareProfile}
+                {activeTab === "manage" ? (
+                  manageView === "invoice" ? (
+                    <Card>
+                      <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
+                        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                          <div>
+                            <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                              {dictionary.dashboard.chargeSection}
                             </p>
-                            <p className="text-sm leading-7 text-zinc-400">
-                              {dictionary.messages.shareHint}
-                            </p>
-                            <code
-                              className="inline-flex max-w-full overflow-hidden text-ellipsis whitespace-nowrap rounded-full border border-white/10 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-300"
-                              style={{ fontFamily: "var(--font-mono), monospace" }}
-                            >
-                              {publicUrl}
-                            </code>
-                          </div>
-                          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                            <Button
-                              variant="outline"
-                              className="w-full sm:min-w-[10rem]"
-                              onClick={() => {
-                                void handleCopyProfileLink();
-                              }}
-                            >
-                              {shareStatus === "copied"
-                                ? dictionary.labels.copied
-                                : shareStatus === "shared"
-                                  ? dictionary.labels.shared
-                                  : dictionary.actions.copyLink}
-                            </Button>
-                            <Button
-                              className="w-full sm:min-w-[10rem]"
-                              onClick={() => {
-                                void handleShareProfile();
-                              }}
-                            >
-                              {dictionary.actions.shareLink}
-                            </Button>
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
-                          <div className="space-y-2">
-                            <p className="text-base font-medium text-white">
-                              {dictionary.actions.openPublicPage}
-                            </p>
-                            <p className="text-sm leading-7 text-zinc-400">
-                              @{profile.handle}
-                            </p>
-                          </div>
-                          <Link href={`/u/${profile.handle}`} className="block w-full sm:w-auto">
-                            <Button className="w-full sm:min-w-[12rem]">
-                              {dictionary.actions.openPublicPage}
-                            </Button>
-                          </Link>
-                        </div>
-
-                        <div className="flex flex-col gap-3 py-4 last:pb-0 sm:flex-row sm:items-center sm:justify-between">
-                          <div className="space-y-2">
-                            <p className="text-base font-medium text-white">
+                            <h3 className="mt-2 text-xl font-semibold text-white">
                               {dictionary.actions.createChargeLink}
-                            </p>
-                            <p className="text-sm leading-7 text-zinc-400">
+                            </h3>
+                            <p className="mt-2 max-w-2xl text-sm leading-7 text-zinc-400">
                               {dictionary.messages.shareHint}
                             </p>
                           </div>
                           <Button
-                            variant="secondary"
-                            className="w-full sm:min-w-[12rem]"
-                            onClick={() => setManageView("invoice")}
+                            variant="ghost"
+                            onClick={() => setManageView("overview")}
                           >
-                            {dictionary.actions.createChargeLink}
+                            {dictionary.actions.cancel}
                           </Button>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                )
-              ) : (
-                <RecentPayments
-                  payments={payments}
-                  chainId={chainId}
-                  title={
-                    isLoadingProfile || isLoadingPayments
-                      ? dictionary.labels.checking
-                      : dictionary.dashboard.transactionsSection
-                  }
-                />
-              )}
-            </div>
-          )
-        ) : account ? (
-          <ProfileEditor
-            account={account}
-            chainId={chainId}
-            contractAddress={contractAddress}
-            profile={profile}
-            onSaved={handleSaved}
-            onPublishStateChange={setIsPublishingProfile}
-          />
-        ) : null}
-      </section>
+                        <ChargeLinkPanel
+                          appUrl={appUrl}
+                          profile={profile}
+                          chainId={chainId}
+                          embedded
+                        />
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <Card>
+                      <CardContent className="px-5 py-5 sm:px-6 sm:py-6">
+                        <p className="max-w-2xl text-sm leading-7 text-zinc-400">
+                          {dictionary.dashboard.descriptionWithProfile}
+                        </p>
+
+                        <div className="mt-5 divide-y divide-white/10">
+                          <div className="flex flex-col gap-3 py-4 first:pt-0 sm:flex-row sm:items-center sm:justify-between">
+                            <div className="min-w-0 space-y-2">
+                              <p className="text-base font-medium text-white">
+                                {dictionary.actions.shareProfile}
+                              </p>
+                              <p className="text-sm leading-7 text-zinc-400">
+                                {dictionary.messages.shareHint}
+                              </p>
+                              <code
+                                className="inline-flex max-w-full overflow-hidden text-ellipsis whitespace-nowrap rounded-full border border-white/10 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-300"
+                                style={{ fontFamily: "var(--font-mono), monospace" }}
+                              >
+                                {publicUrl}
+                              </code>
+                            </div>
+                            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                              <Button
+                                variant="outline"
+                                className="w-full sm:min-w-[10rem]"
+                                onClick={() => {
+                                  void handleCopyProfileLink();
+                                }}
+                              >
+                                {shareStatus === "copied"
+                                  ? dictionary.labels.copied
+                                  : shareStatus === "shared"
+                                    ? dictionary.labels.shared
+                                    : dictionary.actions.copyLink}
+                              </Button>
+                              <Button
+                                className="w-full sm:min-w-[10rem]"
+                                onClick={() => {
+                                  void handleShareProfile();
+                                }}
+                              >
+                                {dictionary.actions.shareLink}
+                              </Button>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div className="space-y-2">
+                              <p className="text-base font-medium text-white">
+                                {dictionary.actions.openPublicPage}
+                              </p>
+                              <p className="text-sm leading-7 text-zinc-400">
+                                @{profile.handle}
+                              </p>
+                            </div>
+                            <Link
+                              href={`/u/${profile.handle}`}
+                              className="block w-full sm:w-auto"
+                            >
+                              <Button className="w-full sm:min-w-[12rem]">
+                                {dictionary.actions.openPublicPage}
+                              </Button>
+                            </Link>
+                          </div>
+
+                          <div className="flex flex-col gap-3 py-4 last:pb-0 sm:flex-row sm:items-center sm:justify-between">
+                            <div className="space-y-2">
+                              <p className="text-base font-medium text-white">
+                                {dictionary.actions.createChargeLink}
+                              </p>
+                              <p className="text-sm leading-7 text-zinc-400">
+                                {dictionary.messages.shareHint}
+                              </p>
+                            </div>
+                            <Button
+                              variant="secondary"
+                              className="w-full sm:min-w-[12rem]"
+                              onClick={() => setManageView("invoice")}
+                            >
+                              {dictionary.actions.createChargeLink}
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )
+                ) : (
+                  <RecentPayments
+                    payments={payments}
+                    chainId={chainId}
+                    title={
+                      isLoadingProfile || isLoadingPayments
+                        ? dictionary.labels.checking
+                        : dictionary.dashboard.transactionsSection
+                    }
+                  />
+                )}
+              </div>
+            )
+          ) : account ? (
+            <ProfileEditor
+              account={account}
+              chainId={chainId}
+              contractAddress={contractAddress}
+              profile={profile}
+              onSaved={handleSaved}
+              onPublishStateChange={setPublishStage}
+            />
+          ) : null}
+        </section>
+      )}
     </main>
   );
 }

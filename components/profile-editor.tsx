@@ -39,6 +39,8 @@ type InvalidFields = {
   preferredToken: boolean;
 };
 
+export type PublishStage = "wallet" | "confirming" | "syncing";
+
 export function ProfileEditor({
   account,
   chainId,
@@ -52,7 +54,7 @@ export function ProfileEditor({
   contractAddress: Hex | null;
   profile: ProfileRecord | null;
   onSaved: () => Promise<void>;
-  onPublishStateChange?: (value: boolean) => void;
+  onPublishStateChange?: (value: PublishStage | null) => void;
 }) {
   const { dictionary } = useLocale();
   const [form, setForm] = useState<FormState>({
@@ -228,6 +230,8 @@ export function ProfileEditor({
         }
       }
 
+      onPublishStateChange?.("wallet");
+
       const hash = await setProfileTx({
         contractAddress,
         handle: form.handle,
@@ -239,17 +243,19 @@ export function ProfileEditor({
         chainId
       });
 
-      onPublishStateChange?.(true);
+      onPublishStateChange?.("confirming");
       setStatus(dictionary.messages.waitingConfirmation);
       await waitForTransaction(hash, chainId);
+      onPublishStateChange?.("syncing");
       await onSaved();
+      onPublishStateChange?.(null);
       setStatus(dictionary.messages.profilePublished);
     } catch (error) {
+      onPublishStateChange?.(null);
       setStatus(
         error instanceof Error ? error.message : dictionary.messages.noProfile
       );
     } finally {
-      onPublishStateChange?.(false);
       setIsSubmitting(false);
     }
   }
