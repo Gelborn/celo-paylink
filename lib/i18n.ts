@@ -19,6 +19,7 @@ export type Dictionary = {
     cancel: string;
     openDashboard: string;
     connectWallet: string;
+    switchNetwork: string;
     disconnectWallet: string;
     saveProfile: string;
     updateProfile: string;
@@ -144,6 +145,7 @@ export type Dictionary = {
     finishingProfile: string;
     confirmProfileInWallet: string;
     syncingProfile: string;
+    wrongNetworkDescription: string;
     approving: string;
     confirmingApproval: string;
     sending: string;
@@ -168,6 +170,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       cancel: "Cancel",
       openDashboard: "Open dashboard",
       connectWallet: "Connect",
+      switchNetwork: "Switch network",
       disconnectWallet: "Disconnect",
       saveProfile: "Publish profile",
       updateProfile: "Save changes",
@@ -314,6 +317,8 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Review the profile transaction in your wallet, then wait while it is confirmed onchain.",
       syncingProfile:
         "Updating your dashboard with the latest onchain profile data.",
+      wrongNetworkDescription:
+        "Switch your wallet to the required network before creating or editing your PayLink profile.",
       approving: "Approving",
       confirmingApproval: "Confirming token approval onchain...",
       sending: "Sending",
@@ -337,6 +342,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       cancel: "Cancelar",
       openDashboard: "Abrir painel",
       connectWallet: "Conectar",
+      switchNetwork: "Trocar rede",
       disconnectWallet: "Desconectar",
       saveProfile: "Publicar perfil",
       updateProfile: "Salvar alterações",
@@ -483,6 +489,8 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Revise a transação do perfil na sua carteira e depois aguarde a confirmação na rede.",
       syncingProfile:
         "Atualizando seu painel com os dados mais recentes do perfil na rede.",
+      wrongNetworkDescription:
+        "Troque sua carteira para a rede correta antes de criar ou editar seu perfil no PayLink.",
       approving: "Aprovando",
       confirmingApproval: "Confirmando a aprovação do token na rede...",
       sending: "Enviando",

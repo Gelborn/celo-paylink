@@ -19,6 +19,10 @@ export function getChainLabel(chainId = getDefaultChainId()) {
   return chainId === CELO_MAINNET_CHAIN_ID ? "Celo Mainnet" : "Celo Sepolia";
 }
 
+export function getChainHex(chainId = getDefaultChainId()) {
+  return `0x${chainId.toString(16)}`;
+}
+
 export function getRpcUrl(chainId = getDefaultChainId()) {
   return chainId === CELO_MAINNET_CHAIN_ID
     ? env.celoMainnetRpcUrl
@@ -29,6 +33,20 @@ export function getExplorerBaseUrl(chainId = getDefaultChainId()) {
   return chainId === CELO_MAINNET_CHAIN_ID
     ? "https://celoscan.io"
     : "https://celo-sepolia.blockscout.com";
+}
+
+export function getAddChainParameters(chainId = getDefaultChainId()) {
+  return {
+    chainId: getChainHex(chainId),
+    chainName: getChainLabel(chainId),
+    nativeCurrency: {
+      name: "CELO",
+      symbol: "CELO",
+      decimals: 18
+    },
+    rpcUrls: [getRpcUrl(chainId)],
+    blockExplorerUrls: [getExplorerBaseUrl(chainId)]
+  };
 }
 
 export function getContractAddress(chainId = getDefaultChainId()): Hex | null {

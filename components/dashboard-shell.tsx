@@ -44,7 +44,10 @@ export function DashboardShell({
   const {
     account,
     chainId,
+    expectedChainLabel,
+    isWrongChain,
     connect,
+    switchToDefaultChain,
     disconnect,
     hasProvider,
     isMiniPay,
@@ -238,7 +241,34 @@ export function DashboardShell({
             </Card>
           ) : null}
 
-          {account && profile ? (
+          {account && isWrongChain ? (
+            <Card>
+              <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
+                <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                    {dictionary.labels.network}
+                  </p>
+                  <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                    {expectedChainLabel}
+                  </h2>
+                  <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-400">
+                    {dictionary.messages.wrongNetworkDescription}
+                  </p>
+                  <Button
+                    size="lg"
+                    className="mt-8 min-w-[13rem]"
+                    onClick={() => {
+                      void switchToDefaultChain();
+                    }}
+                  >
+                    {dictionary.actions.switchNetwork}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ) : null}
+
+          {account && !isWrongChain && profile ? (
             <Card>
               <CardContent className="flex flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-4">
@@ -280,7 +310,7 @@ export function DashboardShell({
             </Card>
           ) : null}
 
-          {account && profile ? (
+          {account && !isWrongChain && profile ? (
             isEditingProfile ? (
               <div className="space-y-4">
                 <div className="flex justify-end">
@@ -464,7 +494,7 @@ export function DashboardShell({
                 )}
               </div>
             )
-          ) : account ? (
+          ) : account && !isWrongChain ? (
             <ProfileEditor
               account={account}
               chainId={chainId}

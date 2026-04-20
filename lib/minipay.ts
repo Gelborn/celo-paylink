@@ -3,9 +3,11 @@
 import { startTransition, useCallback, useEffect, useRef, useState } from "react";
 import type { Hex } from "viem";
 import {
+  getChainLabel,
   CELO_SEPOLIA_CHAIN_ID,
   isSupportedCeloChain
 } from "./chains";
+import { ensureInjectedChain } from "./wallet";
 
 type EthereumProvider = NonNullable<Window["ethereum"]>;
 const DISCONNECT_STORAGE_KEY = "paylink_wallet_disconnected";
@@ -28,6 +30,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
   const [isDisconnectedByUser, setIsDisconnectedByUser] = useState(false);
   const [connectError, setConnectError] = useState<string | null>(null);
   const autoConnectAttemptedRef = useRef(false);
+  const autoSwitchAttemptedRef = useRef(false);
 
   function isSoftDisconnected() {
     if (typeof window === "undefined") {
@@ -36,6 +39,35 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
 
     return window.localStorage.getItem(DISCONNECT_STORAGE_KEY) === "1";
   }
+
+  const switchToDefaultChain = useCallback(async (options?: { silent?: boolean }) => {
+    if (!window.ethereum) {
+      const message =
+        "No wallet found. Open the app in MiniPay or use a browser with an injected wallet.";
+      if (!options?.silent) {
+        setConnectError(message);
+      }
+      return null;
+    }
+
+    try {
+      const nextChainId = await ensureInjectedChain(initialChainId);
+      setChainId(nextChainId);
+      if (!options?.silent) {
+        setConnectError(null);
+      }
+      return nextChainId;
+    } catch (error) {
+      const message =
+        error instanceof Error && error.message
+          ? error.message
+          : `Switch your wallet to ${getChainLabel(initialChainId)} to continue.`;
+      if (!options?.silent) {
+        setConnectError(message);
+      }
+      return null;
+    }
+  }, [initialChainId]);
 
   const connect = useCallback(async (options?: { silent?: boolean }) => {
     if (!window.ethereum) {
@@ -59,7 +91,12 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
         method: "eth_requestAccounts",
         params: []
       })) as Hex[];
-      const nextChainId = await detectChainId(initialChainId);
+      const detectedChainId = await detectChainId(initialChainId);
+      const nextChainId =
+        detectedChainId !== initialChainId
+          ? ((await switchToDefaultChain({ silent: options?.silent })) ??
+            detectedChainId)
+          : detectedChainId;
 
       setAccount(accounts[0] || null);
       setChainId(nextChainId);
@@ -79,7 +116,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
     } finally {
       setIsConnecting(false);
     }
-  }, [initialChainId]);
+  }, [initialChainId, switchToDefaultChain]);
 
   const disconnect = useCallback(() => {
     if (typeof window !== "undefined") {
@@ -119,11 +156,25 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
         method: "eth_accounts",
         params: []
       })) as Hex[];
-      setAccount(accounts[0] || null);
+      const activeAccount = accounts[0] || null;
+      setAccount(activeAccount);
+
+      if (
+        activeAccount &&
+        nextChainId !== initialChainId &&
+        !autoSwitchAttemptedRef.current
+      ) {
+        autoSwitchAttemptedRef.current = true;
+        const switchedChainId = await switchToDefaultChain({ silent: true });
+        if (switchedChainId) {
+          setChainId(switchedChainId);
+          return;
+        }
+      }
 
       if (
         provider.isMiniPay &&
-        !accounts[0] &&
+        !activeAccount &&
         !autoConnectAttemptedRef.current
       ) {
         autoConnectAttemptedRef.current = true;
@@ -164,17 +215,21 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
       provider.removeListener?.("accountsChanged", handleAccountsChanged);
       provider.removeListener?.("chainChanged", handleChainChanged);
     };
-  }, [connect, initialChainId]);
+  }, [connect, initialChainId, switchToDefaultChain]);
 
   return {
     account,
     chainId,
+    expectedChainId: initialChainId,
+    expectedChainLabel: getChainLabel(initialChainId),
+    isWrongChain: chainId !== initialChainId,
     hasProvider,
     isMiniPay,
     isConnecting,
     isDisconnectedByUser,
     connectError,
     connect,
+    switchToDefaultChain,
     disconnect,
     clearConnectError
   };

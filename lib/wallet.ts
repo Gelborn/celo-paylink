@@ -4,7 +4,10 @@ import { createPublicClient, createWalletClient, custom, http, type Hex } from "
 import { parseUnits } from "viem";
 import { erc20Abi, payLinkAbi } from "./abi";
 import {
+  getAddChainParameters,
   getChainConfig,
+  getChainHex,
+  getChainLabel,
   getDefaultChainId,
   getRpcUrl,
   isSupportedCeloChain
@@ -35,8 +38,51 @@ export async function getInjectedChainId() {
   return isSupportedCeloChain(chainId) ? chainId : getDefaultChainId();
 }
 
+export async function ensureInjectedChain(targetChainId = getDefaultChainId()) {
+  const provider = ensureProvider();
+  const targetHex = getChainHex(targetChainId);
+
+  try {
+    await provider.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: targetHex }]
+    });
+  } catch (error) {
+    const code =
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      typeof (error as { code?: unknown }).code === "number"
+        ? Number((error as { code: number }).code)
+        : undefined;
+
+    if (code === 4902) {
+      await provider.request({
+        method: "wallet_addEthereumChain",
+        params: [getAddChainParameters(targetChainId)]
+      });
+
+      await provider.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: targetHex }]
+      });
+    } else if (code === 4001) {
+      throw new Error(`Switch your wallet to ${getChainLabel(targetChainId)} to continue.`);
+    } else {
+      const message =
+        error instanceof Error && error.message
+          ? error.message
+          : `Could not switch to ${getChainLabel(targetChainId)}.`;
+      throw new Error(message);
+    }
+  }
+
+  return targetChainId;
+}
+
 export async function getInjectedWalletClient(chainId?: number) {
   const activeChainId = chainId ?? (await getInjectedChainId());
+  await ensureInjectedChain(activeChainId);
   return createWalletClient({
     chain: getChainConfig(activeChainId),
     transport: custom(ensureProvider())
