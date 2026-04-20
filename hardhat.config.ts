@@ -32,10 +32,7 @@ const config: HardhatUserConfig = {
     }
   },
   etherscan: {
-    apiKey: {
-      celo: verificationApiKey,
-      celoSepolia: verificationApiKey
-    },
+    apiKey: verificationApiKey,
     customChains: [
       {
         network: "celo",
