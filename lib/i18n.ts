@@ -50,16 +50,16 @@ export type Dictionary = {
     summaryDescription: string;
     connectHint: string;
   };
-    dashboard: {
-      eyebrow: string;
-      titleNoProfile: string;
-      titleWithProfile: string;
-      descriptionNoProfile: string;
-      descriptionWithProfile: string;
-      actionsTab: string;
-      manageTab: string;
-      transactionsTab: string;
-      quickActions: string;
+  dashboard: {
+    eyebrow: string;
+    titleNoProfile: string;
+    titleWithProfile: string;
+    descriptionNoProfile: string;
+    descriptionWithProfile: string;
+    actionsTab: string;
+    manageTab: string;
+    transactionsTab: string;
+    quickActions: string;
     profileSection: string;
     chargeSection: string;
     transactionsSection: string;
@@ -126,6 +126,12 @@ export type Dictionary = {
   messages: {
     contractReady: string;
     missingContract: string;
+    noWalletFound: string;
+    couldNotConnectWallet: string;
+    switchWalletRequired: string;
+    miniPayWrongNetwork: string;
+    couldNotSwitchNetwork: string;
+    unsupportedNetwork: string;
     waitingConfirmation: string;
     profilePublished: string;
     paymentComplete: string;
@@ -148,6 +154,7 @@ export type Dictionary = {
     syncingProfile: string;
     wrongNetworkDescription: string;
     wrongNetworkMiniPayDescription: string;
+    insufficientBalance: string;
     approving: string;
     confirmingApproval: string;
     sending: string;
@@ -296,6 +303,14 @@ const dictionaries: Record<Locale, Dictionary> = {
     messages: {
       contractReady: "Profile updates write directly to the deployed PayLink contract.",
       missingContract: "Set a contract address in .env before using the app.",
+      noWalletFound:
+        "No wallet found. Open the app in MiniPay or use a browser with an injected wallet.",
+      couldNotConnectWallet: "Could not connect the wallet.",
+      switchWalletRequired: "Switch your wallet to {network} to continue.",
+      miniPayWrongNetwork:
+        "MiniPay is on the wrong network. Open MiniPay settings and switch to {network}.",
+      couldNotSwitchNetwork: "Could not switch to {network}.",
+      unsupportedNetwork: "Unsupported network ({chainId})",
       waitingConfirmation: "Waiting for confirmation...",
       profilePublished: "Profile published onchain.",
       paymentComplete: "Payment complete.",
@@ -324,6 +339,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Switch your wallet to the required network before creating or editing your PayLink profile.",
       wrongNetworkMiniPayDescription:
         'MiniPay is on the wrong network for this app. If you are testing, disable "Use Testnet" in MiniPay settings, then come back and try again.',
+      insufficientBalance: "Insufficient {token} balance for this payment.",
       approving: "Approving",
       confirmingApproval: "Confirming token approval onchain...",
       sending: "Sending",
@@ -361,7 +377,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       openExplorer: "Ver no explorer",
       openPublicPage: "Ver página pública",
       payNow: "Pagar agora",
-      payCreator: "Fazer um pagamento para esse criador",
+      payCreator: "Pagar esse criador",
       shareCreatorLink: "Compartilhar o link desse criador",
       viewProfile: "Ver perfil",
       createYourOwn: "Criar perfil",
@@ -471,6 +487,14 @@ const dictionaries: Record<Locale, Dictionary> = {
     messages: {
       contractReady: "As alterações do perfil vão direto para o contrato do PayLink.",
       missingContract: "Defina o endereço do contrato no .env antes de usar o app.",
+      noWalletFound:
+        "Nenhuma carteira foi encontrada. Abra o app no MiniPay ou use um navegador com carteira integrada.",
+      couldNotConnectWallet: "Não foi possível conectar a carteira.",
+      switchWalletRequired: "Troque sua carteira para {network} para continuar.",
+      miniPayWrongNetwork:
+        "O MiniPay está na rede errada. Abra as configurações do MiniPay e troque para {network}.",
+      couldNotSwitchNetwork: "Não foi possível trocar para {network}.",
+      unsupportedNetwork: "Rede não suportada ({chainId})",
       waitingConfirmation: "Aguardando confirmação...",
       profilePublished: "Perfil publicado na rede.",
       paymentComplete: "Pagamento concluído.",
@@ -499,6 +523,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Troque sua carteira para a rede correta antes de criar ou editar seu perfil no PayLink.",
       wrongNetworkMiniPayDescription:
         'O MiniPay está na rede errada para este app. Se você estiver testando, desative "Use Testnet" nas configurações do MiniPay e volte para tentar de novo.',
+      insufficientBalance: "Saldo insuficiente em {token} para este pagamento.",
       approving: "Aprovando",
       confirmingApproval: "Confirmando a aprovação do token na rede...",
       sending: "Enviando",
@@ -511,6 +536,15 @@ const dictionaries: Record<Locale, Dictionary> = {
 
 export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale];
+}
+
+export function interpolate(
+  template: string,
+  values: Record<string, string | number>
+) {
+  return template.replace(/\{(\w+)\}/g, (_, key: string) => {
+    return String(values[key] ?? `{${key}}`);
+  });
 }
 
 export function normalizeLocale(value?: string | null): Locale {
@@ -538,4 +572,28 @@ export function resolveLocaleFromRequest(
   }
 
   return normalizeLocale(headerStore.get("accept-language"));
+}
+
+export function getRuntimeLocale(): Locale {
+  if (typeof document !== "undefined") {
+    const cookieValue = document.cookie
+      .split(";")
+      .map((item) => item.trim())
+      .find((item) => item.startsWith(`${LOCALE_COOKIE_NAME}=`))
+      ?.split("=")[1];
+
+    if (cookieValue) {
+      return normalizeLocale(decodeURIComponent(cookieValue));
+    }
+  }
+
+  if (typeof navigator !== "undefined") {
+    return normalizeLocale(navigator.language);
+  }
+
+  return "en";
+}
+
+export function getRuntimeDictionary() {
+  return getDictionary(getRuntimeLocale());
 }

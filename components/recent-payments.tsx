@@ -51,7 +51,7 @@ export function RecentPayments({
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="text-base font-semibold text-white sm:text-lg">
                       {formatTokenAmount(payment.amount, payment.token, chainId)}{" "}
-                      {payment.tokenSymbol}
+                      {payment.tokenSymbol || dictionary.fields.token}
                     </p>
                     <span className="rounded-full border border-white/10 bg-zinc-950 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
                       @{payment.handle}

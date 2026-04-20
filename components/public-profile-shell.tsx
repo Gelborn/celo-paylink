@@ -29,6 +29,7 @@ import { Header } from "./header";
 import { NetworkMismatchModal } from "./network-mismatch-modal";
 import { RecentPayments } from "./recent-payments";
 import { useLocale } from "./locale-provider";
+import { interpolate } from "../lib/i18n";
 import { Avatar } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -242,6 +243,30 @@ export function PublicProfileShell({
     token: selectedToken?.symbol || "",
     reference
   };
+  const parsedAmount = (() => {
+    if (!selectedToken || !amount) {
+      return null;
+    }
+
+    try {
+      return parseTokenAmount(amount, selectedToken.decimals);
+    } catch {
+      return null;
+    }
+  })();
+  const hasInsufficientBalance = Boolean(
+    account &&
+      selectedToken &&
+      parsedAmount !== null &&
+      parsedAmount > 0n &&
+      balance !== null &&
+      balance < parsedAmount
+  );
+  const balanceWarning = hasInsufficientBalance && selectedToken
+    ? interpolate(dictionary.messages.insufficientBalance, {
+        token: selectedToken.symbol
+      })
+    : null;
 
   const paymentOverlayCopy =
     paymentStage === "approving"
@@ -307,7 +332,10 @@ export function PublicProfileShell({
         throw new Error(dictionary.messages.missingAmount);
       }
 
-      const parsedAmount = parseTokenAmount(amount, selectedToken.decimals);
+      if (!parsedAmount) {
+        throw new Error(dictionary.messages.missingAmount);
+      }
+
       if (parsedAmount <= 0n) {
         throw new Error(dictionary.messages.positiveAmount);
       }
@@ -787,6 +815,10 @@ export function PublicProfileShell({
                         ) : null}
                       </div>
 
+                      {balanceWarning ? (
+                        <p className="text-sm text-amber-300">{balanceWarning}</p>
+                      ) : null}
+
                       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                         {!account && (!isMiniPay || isDisconnectedByUser) ? (
                           <Button
@@ -804,7 +836,12 @@ export function PublicProfileShell({
                         <Button
                           className="w-full sm:w-auto"
                           onClick={handlePay}
-                          disabled={isPaymentBusy || !contractAddress || isWrongChain}
+                          disabled={
+                            isPaymentBusy ||
+                            !contractAddress ||
+                            isWrongChain ||
+                            hasInsufficientBalance
+                          }
                         >
                           {isPaymentBusy
                             ? dictionary.messages.waitingConfirmation

@@ -6,6 +6,7 @@ import {
   getChainLabel,
   CELO_SEPOLIA_CHAIN_ID
 } from "./chains";
+import { getRuntimeDictionary, interpolate } from "./i18n";
 import { ensureInjectedChain } from "./wallet";
 
 type EthereumProvider = NonNullable<Window["ethereum"]>;
@@ -29,6 +30,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
   const [isDisconnectedByUser, setIsDisconnectedByUser] = useState(false);
   const [connectError, setConnectError] = useState<string | null>(null);
   const autoConnectAttemptedRef = useRef(false);
+  const runtimeDictionary = getRuntimeDictionary();
 
   function isSoftDisconnected() {
     if (typeof window === "undefined") {
@@ -40,8 +42,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
 
   const switchToDefaultChain = useCallback(async (options?: { silent?: boolean }) => {
     if (!window.ethereum) {
-      const message =
-        "No wallet found. Open the app in MiniPay or use a browser with an injected wallet.";
+      const message = runtimeDictionary.messages.noWalletFound;
       if (!options?.silent) {
         setConnectError(message);
       }
@@ -63,13 +64,15 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
       const message =
         error instanceof Error && error.message
           ? error.message
-          : `Switch your wallet to ${getChainLabel(initialChainId)} to continue.`;
+          : interpolate(runtimeDictionary.messages.switchWalletRequired, {
+              network: getChainLabel(initialChainId)
+            });
       if (!options?.silent) {
         setConnectError(message);
       }
       return null;
     }
-  }, [initialChainId]);
+  }, [initialChainId, runtimeDictionary.messages.noWalletFound, runtimeDictionary.messages.switchWalletRequired]);
 
   const refreshWalletState = useCallback(async () => {
     if (typeof window === "undefined") return;
@@ -100,8 +103,7 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
 
   const connect = useCallback(async (options?: { silent?: boolean }) => {
     if (!window.ethereum) {
-      const message =
-        "No wallet found. Open the app in MiniPay or use a browser with an injected wallet.";
+      const message = runtimeDictionary.messages.noWalletFound;
       if (!options?.silent) {
         setConnectError(message);
       }
@@ -139,13 +141,18 @@ export function useMiniPay(initialChainId = CELO_SEPOLIA_CHAIN_ID) {
       const message =
         error instanceof Error && error.message
           ? error.message
-          : "Could not connect the wallet.";
+          : runtimeDictionary.messages.couldNotConnectWallet;
       setConnectError(message);
       return null;
     } finally {
       setIsConnecting(false);
     }
-  }, [initialChainId, switchToDefaultChain]);
+  }, [
+    initialChainId,
+    runtimeDictionary.messages.couldNotConnectWallet,
+    runtimeDictionary.messages.noWalletFound,
+    switchToDefaultChain
+  ]);
 
   const disconnect = useCallback(() => {
     if (typeof window !== "undefined") {

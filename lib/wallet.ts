@@ -11,12 +11,13 @@ import {
   getDefaultChainId,
   getRpcUrl
 } from "./chains";
+import { getRuntimeDictionary, interpolate } from "./i18n";
 
 type EthereumProvider = NonNullable<Window["ethereum"]>;
 
 function ensureProvider() {
   if (typeof window === "undefined" || !window.ethereum) {
-    throw new Error("An injected wallet is required for this action.");
+    throw new Error(getRuntimeDictionary().messages.noWalletFound);
   }
 
   return window.ethereum;
@@ -51,9 +52,9 @@ export async function ensureInjectedChain(targetChainId = getDefaultChainId()) {
 
   if (provider.isMiniPay) {
     throw new Error(
-      `MiniPay is on the wrong network. Open MiniPay settings and switch to ${getChainLabel(
-        targetChainId
-      )}.`
+      interpolate(getRuntimeDictionary().messages.miniPayWrongNetwork, {
+        network: getChainLabel(targetChainId)
+      })
     );
   }
 
@@ -82,12 +83,18 @@ export async function ensureInjectedChain(targetChainId = getDefaultChainId()) {
         params: [{ chainId: targetHex }]
       });
     } else if (code === 4001) {
-      throw new Error(`Switch your wallet to ${getChainLabel(targetChainId)} to continue.`);
+      throw new Error(
+        interpolate(getRuntimeDictionary().messages.switchWalletRequired, {
+          network: getChainLabel(targetChainId)
+        })
+      );
     } else {
       const message =
         error instanceof Error && error.message
           ? error.message
-          : `Could not switch to ${getChainLabel(targetChainId)}.`;
+          : interpolate(getRuntimeDictionary().messages.couldNotSwitchNetwork, {
+              network: getChainLabel(targetChainId)
+            });
       throw new Error(message);
     }
   }

@@ -169,7 +169,7 @@ export async function fetchRecentPayments(
           txHash: log.transactionHash as Hex,
           blockNumber: BigInt(log.blockNumber),
           explorerUrl: `${getExplorerBaseUrl(chainId)}/tx/${log.transactionHash}`,
-          tokenSymbol: token?.symbol || "Token",
+          tokenSymbol: token?.symbol || "",
           timestamp: block ? Number(block.timestamp) : null
         };
       })

@@ -1,10 +1,13 @@
 import { formatUnits } from "viem";
 import type { SupportedTokenSymbol } from "./tokens";
 import { getTokenByAddress } from "./tokens";
-import type { Locale } from "./i18n";
+import {
+  getRuntimeDictionary,
+  type Locale
+} from "./i18n";
 
 export function shortenAddress(address?: string | null) {
-  if (!address) return "Not connected";
+  if (!address) return getRuntimeDictionary().labels.notConnected;
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
 }
 

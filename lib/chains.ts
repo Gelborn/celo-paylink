@@ -1,6 +1,7 @@
 import type { Hex } from "viem";
 import { celo, celoSepolia } from "viem/chains";
 import { env } from "./env";
+import { getRuntimeDictionary, interpolate, type Locale } from "./i18n";
 
 export const CELO_MAINNET_CHAIN_ID = 42220;
 export const CELO_SEPOLIA_CHAIN_ID = 11142220;
@@ -15,7 +16,10 @@ export function getChainConfig(chainId = getDefaultChainId()) {
   return chainId === CELO_MAINNET_CHAIN_ID ? celo : celoSepolia;
 }
 
-export function getChainLabel(chainId = getDefaultChainId()) {
+export function getChainLabel(
+  chainId = getDefaultChainId(),
+  _locale?: Locale
+) {
   if (chainId === CELO_MAINNET_CHAIN_ID) {
     return "Celo Mainnet";
   }
@@ -24,7 +28,9 @@ export function getChainLabel(chainId = getDefaultChainId()) {
     return "Celo Sepolia";
   }
 
-  return `Unsupported network (${chainId})`;
+  return interpolate(getRuntimeDictionary().messages.unsupportedNetwork, {
+    chainId
+  });
 }
 
 export function getChainHex(chainId = getDefaultChainId()) {
