@@ -1,9 +1,17 @@
-<svg width="220" height="64" viewBox="0 0 220 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="220" height="64" rx="18" fill="#0F5A43"/>
-  <rect x="10" y="10" width="44" height="44" rx="14" fill="#F4B942"/>
-  <path d="M24 22H40C44.4183 22 48 25.5817 48 30C48 34.4183 44.4183 38 40 38H32V46H24V22Z" fill="#0F5A43"/>
-  <path d="M72 40V24H88.5C92.6421 24 96 27.3579 96 31.5C96 35.6421 92.6421 39 88.5 39H80V40C80 44.4183 83.5817 48 88 48H95V54H88C79.1634 54 72 46.8366 72 38V40Z" fill="#FFF9ED"/>
-  <path d="M104 54V24H112V30.5C114.167 26.1667 117.75 24 122.75 24H126V31.5H122.25C115.417 31.5 112 35.1944 112 42.5833V54H104Z" fill="#FFF9ED"/>
-  <path d="M131 39C131 29.6112 136.778 24 145.444 24C149.889 24 153.444 25.7222 156.111 29.1667V24H164V54H156.111V48.5C153.444 52.0556 149.861 54 145.361 54C136.75 54 131 48.2778 131 39ZM156 39C156 33.6112 152.611 30.6111 147.556 30.6111C142.5 30.6111 139.111 33.6667 139.111 39C139.111 44.3333 142.5 47.3889 147.556 47.3889C152.611 47.3889 156 44.3889 156 39Z" fill="#FFF9ED"/>
-  <path d="M174 54V24H181.889V29.5C184.278 25.9444 187.944 24 192.889 24C200.222 24 205 28.9444 205 37.4444V54H197V39.1111C197 33.5556 194.333 30.6667 189.5 30.6667C184.556 30.6667 181.889 33.6111 181.889 39.4444V54H174Z" fill="#FFF9ED"/>
+<svg width="512" height="128" viewBox="0 0 512 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="128" rx="32" fill="#09090B"/>
+  <rect x="24" y="24" width="72" height="72" rx="24" fill="#111318"/>
+  <g transform="translate(60 60) rotate(35)">
+    <rect x="-22" y="-30" width="28" height="64" rx="14" stroke="url(#paint0_linear)" stroke-width="9"/>
+    <rect x="4" y="-30" width="28" height="64" rx="14" stroke="#F4F4F5" stroke-opacity="0.92" stroke-width="9"/>
+  </g>
+  <text x="118" y="74" fill="#FAFAFA" font-family="SF Pro Display, Inter, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="-0.05em">
+    MiniPay PayLink
+  </text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="-8" y1="-30" x2="-8" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58E7A5"/>
+      <stop offset="1" stop-color="#1FBF75"/>
+    </linearGradient>
+  </defs>
 </svg>

@@ -1,32 +1,32 @@
 # MiniPay PayLink
 
-MiniPay PayLink turns a simple onchain profile into a shareable payment card for freelancers, creators, and solo merchants on Celo.
+MiniPay PayLink is a dark, mobile-first payment profile for freelancers, creators, and solo merchants on Celo.
 
-Users claim a handle, publish a short profile, and receive stablecoin payments through MiniPay using links like:
+Create a public page, add your handle and avatar, and receive stablecoin payments through links like:
 
-`/u/gelborn?amount=5&ref=coffee`
+`/u/user?amount=5&ref=coffee`
 
-## Why This Fits Proof of Ship
+## Product
 
-- Built as a MiniPay-facing utility app, not a demo or farming tool
-- Uses a verified smart contract on Celo
-- Open source and GitHub-friendly
-- Focused on real stablecoin transactions for real users
-
-Rules and current docs used for this repo:
-
-- [Proof of Ship campaign](https://talent.app/~/earn/celo-proof-of-ship)
 - [MiniPay quickstart](https://docs.celo.org/build-on-celo/build-on-minipay/quickstart)
 - [Token contracts](https://docs.celo.org/tooling/contracts/token-contracts)
 - [Network overview](https://docs.celo.org/build-on-celo/network-overview)
 
+MiniPay PayLink is built around one simple flow:
+
+1. Create a public payment profile.
+2. Share your public page or a prefilled charge link.
+3. Get paid directly in Celo stablecoins.
+
 ## Features
 
 - Claim a unique immutable handle
+- Add an avatar URL, bio, and payment message
 - Update profile metadata without changing the handle
 - Accept `USDm`, `USDC`, or `USD₮` directly from MiniPay-compatible wallets
 - Forward funds straight to the recipient with no platform custody
 - Render recent payments from onchain events without a backend or indexer
+- Support `en` and `pt-BR` with automatic language detection
 
 ## Repo Layout
 
@@ -35,7 +35,7 @@ celo-paylink/
 ├── app/                  # Next.js App Router pages
 ├── components/           # UI building blocks
 ├── contracts/            # Solidity contracts
-├── docs/                 # Submission assets and scripts
+├── docs/                 # Product notes and launch assets
 ├── lib/                  # Shared Celo, MiniPay, and formatting helpers
 ├── public/               # Static assets
 ├── scripts/              # Deploy, verify, seed, ABI export
@@ -92,8 +92,9 @@ npm run verify:mainnet
 
 ## Environment Notes
 
-- `NEXT_PUBLIC_DEFAULT_CHAIN` should be `celoSepolia` while testing and `celo` for the final mainnet submission.
+- `NEXT_PUBLIC_DEFAULT_CHAIN` should be `celoSepolia` while testing and `celo` for production.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_*` powers the frontend.
+- `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` limits payment history reads to the contract deployment block.
 - `PAYLINK_CONTRACT_ADDRESS_*` is used by the verification and seeding scripts.
 
 ## Supported Tokens
@@ -109,10 +110,10 @@ From the current Celo docs:
   - `USDC`: `0x01C5C0122039549AD1493B8220cABEdD739BC44E`
   - `USD₮`: `0xd077A400968890Eacc75cdc901F0356c943e4fDb`
 
-## Contest Submission Checklist
+## Docs
 
 See:
 
-- [docs/submission-checklist.md](./docs/submission-checklist.md)
+- [docs/launch-checklist.md](./docs/launch-checklist.md)
 - [docs/demo-script.md](./docs/demo-script.md)
 - [docs/pitch-outline.md](./docs/pitch-outline.md)

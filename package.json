@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
+    "dev:mobile": "WATCHPACK_POLLING=true next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

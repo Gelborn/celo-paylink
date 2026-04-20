@@ -11,6 +11,17 @@ function readHexOrUndefined(name: string): Hex | undefined {
   return value ? (value as Hex) : undefined;
 }
 
+function readBlockNumber(name: string): bigint {
+  const value = process.env[name];
+  if (!value) return 0n;
+
+  try {
+    return BigInt(value);
+  } catch {
+    return 0n;
+  }
+}
+
 export const env = {
   appUrl: readPublicVar("NEXT_PUBLIC_APP_URL", "http://localhost:3000"),
   defaultChain: (
@@ -30,5 +41,11 @@ export const env = {
   ),
   contractAddressSepolia: readHexOrUndefined(
     "NEXT_PUBLIC_CONTRACT_ADDRESS_SEPOLIA"
+  ),
+  contractDeploymentBlockMainnet: readBlockNumber(
+    "NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_MAINNET"
+  ),
+  contractDeploymentBlockSepolia: readBlockNumber(
+    "NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_SEPOLIA"
   )
 };

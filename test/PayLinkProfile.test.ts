@@ -26,16 +26,18 @@ describe("PayLinkProfile", function () {
     await payLink
       .connect(owner)
       .setProfile(
-        "GelBorn_Studio",
-        "Gelborn",
+        "Atlas_Studio",
+        "Atlas Studio",
+        "https://example.com/avatar.png",
         "Freelance product design and interfaces.",
         "Thanks for the payment.",
         await usdCoin.getAddress()
       );
 
     const profile = await payLink.getProfile(owner.address);
-    expect(profile.handle).to.equal("gelborn_studio");
-    expect(profile.displayName).to.equal("Gelborn");
+    expect(profile.handle).to.equal("atlas_studio");
+    expect(profile.displayName).to.equal("Atlas Studio");
+    expect(profile.avatarUrl).to.equal("https://example.com/avatar.png");
   });
 
   it("rejects reusing a handle", async function () {
@@ -44,8 +46,9 @@ describe("PayLinkProfile", function () {
     await payLink
       .connect(owner)
       .setProfile(
-        "gelborn",
-        "Gelborn",
+        "atlas",
+        "Atlas",
+        "https://example.com/atlas.png",
         "Builder one.",
         "Thanks.",
         await usdCoin.getAddress()
@@ -55,8 +58,9 @@ describe("PayLinkProfile", function () {
       payLink
         .connect(outsider)
         .setProfile(
-          "GELBORN",
-          "Copycat",
+          "ATLAS",
+          "Creator Copy",
+          "https://example.com/copy.png",
           "Builder two.",
           "Thanks.",
           await usdCoin.getAddress()
@@ -70,8 +74,9 @@ describe("PayLinkProfile", function () {
     await payLink
       .connect(owner)
       .setProfile(
-        "gelborn",
-        "Gelborn",
+        "atlas",
+        "Atlas",
+        "https://example.com/atlas.png",
         "Builder one.",
         "Thanks.",
         await usdCoin.getAddress()
@@ -82,7 +87,8 @@ describe("PayLinkProfile", function () {
         .connect(owner)
         .setProfile(
           "another-handle",
-          "Gelborn",
+          "Atlas",
+          "https://example.com/atlas-2.png",
           "Updated bio.",
           "Thanks again.",
           await usdCoin.getAddress()
@@ -95,10 +101,11 @@ describe("PayLinkProfile", function () {
 
     await expect(
       payLink
-        .connect(owner)
-        .setProfile(
-          "gelborn",
-          "Gelborn",
+      .connect(owner)
+      .setProfile(
+          "atlas",
+          "Atlas",
+          "https://example.com/atlas.png",
           "Builder one.",
           "Thanks.",
           ethers.ZeroAddress
@@ -124,8 +131,9 @@ describe("PayLinkProfile", function () {
     await payLink
       .connect(owner)
       .setProfile(
-        "gelborn",
-        "Gelborn",
+        "atlas",
+        "Atlas",
+        "https://example.com/atlas.png",
         "Builder one.",
         "Thanks.",
         await usdCoin.getAddress()
@@ -136,7 +144,7 @@ describe("PayLinkProfile", function () {
     await expect(
       payLink
         .connect(payer)
-        .pay("gelborn", await usdCoin.getAddress(), 0, "coffee")
+        .pay("atlas", await usdCoin.getAddress(), 0, "coffee")
     ).to.be.revertedWithCustomError(payLink, "ZeroAmount");
   });
 
@@ -146,8 +154,9 @@ describe("PayLinkProfile", function () {
     await payLink
       .connect(owner)
       .setProfile(
-        "gelborn",
-        "Gelborn",
+        "atlas",
+        "Atlas",
+        "https://example.com/atlas.png",
         "Builder one.",
         "Thanks.",
         await usdCoin.getAddress()
@@ -158,7 +167,7 @@ describe("PayLinkProfile", function () {
     await expect(
       payLink
         .connect(payer)
-        .pay("gelborn", await usdCoin.getAddress(), 5_000_000n, "coffee")
+        .pay("atlas", await usdCoin.getAddress(), 5_000_000n, "coffee")
     )
       .to.emit(payLink, "PaymentSent")
       .withArgs(
@@ -167,7 +176,7 @@ describe("PayLinkProfile", function () {
         await usdCoin.getAddress(),
         5_000_000n,
         "coffee",
-        "gelborn"
+        "atlas"
       );
 
     expect(await usdCoin.balanceOf(owner.address)).to.equal(5_000_000n);

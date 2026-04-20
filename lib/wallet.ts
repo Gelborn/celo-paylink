@@ -5,7 +5,6 @@ import { parseUnits } from "viem";
 import { erc20Abi, payLinkAbi } from "./abi";
 import {
   getChainConfig,
-  getContractAddress,
   getDefaultChainId,
   getRpcUrl,
   isSupportedCeloChain
@@ -81,80 +80,85 @@ export async function readBalance(
 }
 
 export async function approveToken(params: {
+  contractAddress: Hex;
   tokenAddress: Hex;
   amount: bigint;
   chainId?: number;
 }) {
-  const { tokenAddress, amount, chainId } = params;
+  const { contractAddress, tokenAddress, amount, chainId } = params;
   const [account] = await getInjectedAccounts();
   const activeChainId = chainId ?? (await getInjectedChainId());
   const walletClient = await getInjectedWalletClient(activeChainId);
-  const contractAddress = getContractAddress(activeChainId);
-
-  if (!contractAddress) {
-    throw new Error("Missing deployed contract address for the active chain.");
-  }
 
   return walletClient.writeContract({
     account,
     address: tokenAddress,
     abi: erc20Abi,
     functionName: "approve",
-    args: [contractAddress, amount]
+    args: [contractAddress, amount] as const
   });
 }
 
 export async function setProfileTx(params: {
+  contractAddress: Hex;
   handle: string;
   displayName: string;
+  avatarUrl: string;
   bio: string;
   paymentMessage: string;
   preferredToken: Hex;
   chainId?: number;
 }) {
-  const { handle, displayName, bio, paymentMessage, preferredToken, chainId } =
-    params;
+  const {
+    contractAddress,
+    handle,
+    displayName,
+    avatarUrl,
+    bio,
+    paymentMessage,
+    preferredToken,
+    chainId
+  } = params;
   const [account] = await getInjectedAccounts();
   const activeChainId = chainId ?? (await getInjectedChainId());
   const walletClient = await getInjectedWalletClient(activeChainId);
-  const contractAddress = getContractAddress(activeChainId);
-
-  if (!contractAddress) {
-    throw new Error("Missing deployed contract address for the active chain.");
-  }
 
   return walletClient.writeContract({
     account,
     address: contractAddress,
     abi: payLinkAbi,
     functionName: "setProfile",
-    args: [handle, displayName, bio, paymentMessage, preferredToken]
+    args: [
+      handle,
+      displayName,
+      avatarUrl,
+      bio,
+      paymentMessage,
+      preferredToken
+    ] as const
   });
 }
 
 export async function payTx(params: {
+  contractAddress: Hex;
   recipientOrHandle: string;
   token: Hex;
   amount: bigint;
   reference: string;
   chainId?: number;
 }) {
-  const { recipientOrHandle, token, amount, reference, chainId } = params;
+  const { contractAddress, recipientOrHandle, token, amount, reference, chainId } =
+    params;
   const [account] = await getInjectedAccounts();
   const activeChainId = chainId ?? (await getInjectedChainId());
   const walletClient = await getInjectedWalletClient(activeChainId);
-  const contractAddress = getContractAddress(activeChainId);
-
-  if (!contractAddress) {
-    throw new Error("Missing deployed contract address for the active chain.");
-  }
 
   return walletClient.writeContract({
     account,
     address: contractAddress,
     abi: payLinkAbi,
     functionName: "pay",
-    args: [recipientOrHandle, token, amount, reference]
+    args: [recipientOrHandle, token, amount, reference] as const
   });
 }
 

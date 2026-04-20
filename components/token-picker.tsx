@@ -1,5 +1,7 @@
 "use client";
 
+import { HeadlessSelect } from "./ui/headless-select";
+
 type TokenOption = {
   address: string;
   symbol: string;
@@ -7,32 +9,31 @@ type TokenOption = {
 };
 
 type TokenPickerProps = {
+  label: string;
   selectedAddress: string;
   options: TokenOption[];
+  className?: string;
   onChange: (address: string) => void;
 };
 
 export function TokenPicker({
+  label,
   selectedAddress,
   options,
+  className,
   onChange
 }: TokenPickerProps) {
   return (
-    <label className="block">
-      <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[color:rgba(23,50,40,0.7)]">
-        Token
-      </span>
-      <select
-        value={selectedAddress}
-        onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-2xl border border-[var(--line)] bg-white px-4 py-3 text-sm outline-none transition focus:border-[var(--meadow)]"
-      >
-        {options.map((token) => (
-          <option key={token.address} value={token.address}>
-            {token.symbol} · {token.name}
-          </option>
-        ))}
-      </select>
-    </label>
+    <HeadlessSelect
+      label={label}
+      className={className}
+      value={selectedAddress}
+      onChange={onChange}
+      options={options.map((token) => ({
+        value: token.address,
+        label: token.symbol,
+        description: token.name
+      }))}
+    />
   );
 }

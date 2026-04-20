@@ -1,58 +1,95 @@
-import { formatTokenAmount, shortenAddress } from "../lib/format";
+import { formatDateLabel, formatTokenAmount, shortenAddress } from "../lib/format";
 import type { PaymentRecord } from "../lib/contract";
+import { useLocale } from "./locale-provider";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type RecentPaymentsProps = {
   payments: PaymentRecord[];
   chainId: number;
+  title: string;
 };
 
-export function RecentPayments({ payments, chainId }: RecentPaymentsProps) {
+export function RecentPayments({
+  payments,
+  chainId,
+  title
+}: RecentPaymentsProps) {
+  const { dictionary, locale } = useLocale();
+
   if (payments.length === 0) {
     return (
-      <div className="rounded-[1.5rem] border border-dashed border-[var(--line)] bg-white/70 p-5 text-sm text-[color:rgba(23,50,40,0.7)]">
-        No onchain payments yet. Seed this page with a real MiniPay transaction and
-        it will show up here automatically from contract events.
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">{title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="rounded-[1.4rem] border border-dashed border-white/10 bg-zinc-900 px-4 py-5 text-sm leading-7 text-zinc-400">
+            {dictionary.dashboard.emptyTransactions}
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 
   return (
-    <div className="space-y-3">
-      {payments.map((payment) => (
-        <a
-          key={payment.txHash}
-          href={payment.explorerUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="block rounded-[1.5rem] border border-[var(--line)] bg-white p-4 transition hover:-translate-y-0.5 hover:border-[var(--meadow)]"
-        >
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="text-sm font-semibold">
-                {formatTokenAmount(payment.amount, payment.token, chainId)}{" "}
-                {payment.tokenSymbol}
-              </p>
-              <p className="text-xs text-[color:rgba(23,50,40,0.7)]">
-                from {shortenAddress(payment.payer)}
-              </p>
-            </div>
-            <div className="text-right text-xs text-[color:rgba(23,50,40,0.7)]">
-              <p>
-                {payment.timestamp
-                  ? new Date(payment.timestamp * 1000).toLocaleDateString()
-                  : "Recent"}
-              </p>
-              <p className="font-medium">{payment.handle}</p>
-            </div>
-          </div>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-base">{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3.5">
+        {payments.map((payment) => (
+          <a
+            key={payment.txHash}
+            href={payment.explorerUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="group block rounded-[1.4rem] border border-white/10 bg-zinc-900 px-4 py-4 transition hover:border-white/20 hover:bg-zinc-900/90 sm:px-5 sm:py-5"
+          >
+            <div className="space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0 space-y-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="text-base font-semibold text-white sm:text-lg">
+                      {formatTokenAmount(payment.amount, payment.token, chainId)}{" "}
+                      {payment.tokenSymbol}
+                    </p>
+                    <span className="rounded-full border border-white/10 bg-zinc-950 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
+                      @{payment.handle}
+                    </span>
+                  </div>
+                  <p className="text-sm text-zinc-400">
+                    {dictionary.labels.payingFrom}{" "}
+                    <span className="text-zinc-200">{shortenAddress(payment.payer)}</span>
+                  </p>
+                </div>
+                <div className="shrink-0 rounded-full border border-white/10 bg-zinc-950 px-3 py-1.5 text-xs text-zinc-400">
+                  {payment.timestamp
+                    ? formatDateLabel(payment.timestamp, locale)
+                    : dictionary.labels.checking}
+                </div>
+              </div>
 
-          {payment.reference ? (
-            <p className="mt-3 rounded-2xl bg-[var(--sand)] px-3 py-2 text-sm text-[color:rgba(23,50,40,0.82)]">
-              “{payment.reference}”
-            </p>
-          ) : null}
-        </a>
-      ))}
-    </div>
+              {payment.reference ? (
+                <div className="rounded-2xl border border-white/10 bg-zinc-950 px-4 py-3">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
+                    {dictionary.fields.note}
+                  </p>
+                  <p className="mt-2 text-sm leading-7 text-zinc-300">
+                    {payment.reference}
+                  </p>
+                </div>
+              ) : null}
+
+              <div className="flex items-center justify-between gap-3 text-xs text-zinc-500">
+                <span>{dictionary.labels.transaction}</span>
+                <span className="transition group-hover:text-zinc-300">
+                  {shortenAddress(payment.txHash)}
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </CardContent>
+    </Card>
   );
 }

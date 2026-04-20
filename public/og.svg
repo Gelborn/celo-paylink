@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="48" fill="#09090B"/>
+  <rect x="36" y="36" width="1128" height="558" rx="36" fill="#111318"/>
+  <rect x="96" y="96" width="188" height="188" rx="56" fill="#0F1218"/>
+  <rect x="136" y="125" width="48" height="100" rx="24" transform="rotate(35 136 125)" stroke="url(#paint0_linear)" stroke-width="14"/>
+  <rect x="170" y="125" width="48" height="100" rx="24" transform="rotate(35 170 125)" stroke="#F4F4F5" stroke-opacity="0.96" stroke-width="14"/>
+  <text x="96" y="388" fill="#FAFAFA" font-family="SF Pro Display, Inter, Arial, sans-serif" font-size="72" font-weight="600" letter-spacing="-0.05em">
+    MiniPay PayLink
+  </text>
+  <text x="96" y="454" fill="#A1A1AA" font-family="SF Pro Display, Inter, Arial, sans-serif" font-size="30" font-weight="500">
+    A public payment profile for creators, freelancers, and solo merchants on Celo.
+  </text>
+  <rect x="96" y="502" width="316" height="46" rx="23" fill="#161A20"/>
+  <text x="126" y="532" fill="#58E7A5" font-family="SF Pro Display, Inter, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="0.02em">
+    Direct stablecoin payments
+  </text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="160" y1="125" x2="160" y2="225" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58E7A5"/>
+      <stop offset="1" stop-color="#1FBF75"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -3,6 +3,7 @@ import type { Hex } from "viem";
 import { payLinkAbi } from "./abi";
 import {
   getContractAddress,
+  getContractDeploymentBlock,
   getDefaultChainId,
   getExplorerBaseUrl,
   getRpcUrl
@@ -13,6 +14,7 @@ export type ProfileRecord = {
   owner: Hex;
   handle: string;
   displayName: string;
+  avatarUrl: string;
   bio: string;
   paymentMessage: string;
   preferredToken: Hex;
@@ -53,10 +55,21 @@ function getReadContract(chainId = getDefaultChainId()) {
   return new Contract(address, payLinkAbi, getProvider(chainId));
 }
 
+function getReadContractWithAddress(
+  chainId = getDefaultChainId(),
+  contractAddressOverride?: Hex | null
+) {
+  const address = contractAddressOverride || getContractAddress(chainId);
+  if (!address) return null;
+
+  return new Contract(address, payLinkAbi, getProvider(chainId));
+}
+
 function normalizeProfile(profile: {
   owner: string;
   handle: string;
   displayName: string;
+  avatarUrl: string;
   bio: string;
   paymentMessage: string;
   preferredToken: string;
@@ -66,6 +79,7 @@ function normalizeProfile(profile: {
     owner: profile.owner as Hex,
     handle: profile.handle,
     displayName: profile.displayName,
+    avatarUrl: profile.avatarUrl,
     bio: profile.bio,
     paymentMessage: profile.paymentMessage,
     preferredToken: profile.preferredToken as Hex,
@@ -75,9 +89,10 @@ function normalizeProfile(profile: {
 
 export async function fetchProfileByOwner(
   owner: Hex,
-  chainId = getDefaultChainId()
+  chainId = getDefaultChainId(),
+  contractAddressOverride?: Hex | null
 ) {
-  const contract = getReadContract(chainId);
+  const contract = getReadContractWithAddress(chainId, contractAddressOverride);
   if (!contract) return null;
 
   try {
@@ -90,9 +105,10 @@ export async function fetchProfileByOwner(
 
 export async function fetchProfileByHandle(
   handle: string,
-  chainId = getDefaultChainId()
+  chainId = getDefaultChainId(),
+  contractAddressOverride?: Hex | null
 ) {
-  const contract = getReadContract(chainId);
+  const contract = getReadContractWithAddress(chainId, contractAddressOverride);
   if (!contract) return null;
 
   try {
@@ -105,9 +121,10 @@ export async function fetchProfileByHandle(
 
 export async function fetchRecentPayments(
   recipient: Hex,
-  chainId = getDefaultChainId()
+  chainId = getDefaultChainId(),
+  contractAddressOverride?: Hex | null
 ) {
-  const contractAddress = getContractAddress(chainId);
+  const contractAddress = contractAddressOverride || getContractAddress(chainId);
   if (!contractAddress) return [] as PaymentRecord[];
 
   const provider = getProvider(chainId);
@@ -117,7 +134,7 @@ export async function fetchRecentPayments(
   const logs = await provider.getLogs({
     address: contractAddress,
     topics: [eventTopic, paddedRecipient],
-    fromBlock: 0,
+    fromBlock: getContractDeploymentBlock(chainId),
     toBlock: "latest"
   });
 

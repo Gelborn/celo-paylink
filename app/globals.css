@@ -3,15 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --page: #f6f1e7;
-  --sand: #fff9ed;
-  --ink: #173228;
-  --line: rgba(23, 50, 40, 0.12);
-  --meadow: #0f5a43;
-  --gold: #f4b942;
-  --mist: #cde6db;
-  --font-heading: "Space Grotesk", "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", "SFMono-Regular", "Menlo", "Monaco", monospace;
+  color-scheme: dark;
+  --page: #09090b;
+  --panel: #111114;
+  --panel-strong: #18181b;
+  --line: rgba(255, 255, 255, 0.08);
+  --ink: #fafafa;
+  --muted: #a1a1aa;
 }
 
 * {
@@ -26,10 +24,11 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(244, 185, 66, 0.22), transparent 28%),
-    radial-gradient(circle at right 20%, rgba(15, 90, 67, 0.16), transparent 24%),
-    linear-gradient(180deg, #f4efe3 0%, #f6f1e7 45%, #efe6d8 100%);
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.03), transparent 28%),
+    linear-gradient(180deg, #09090b 0%, #09090b 100%);
   color: var(--ink);
+  font-family: var(--font-sans), sans-serif;
 }
 
 a {
@@ -38,7 +37,7 @@ a {
 }
 
 ::selection {
-  background: rgba(15, 90, 67, 0.18);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .page-shell {
@@ -57,58 +56,32 @@ a {
 }
 
 .page-shell::before {
-  width: 18rem;
-  height: 18rem;
-  right: -3rem;
-  top: 5rem;
-  background: rgba(15, 90, 67, 0.14);
+  width: 22rem;
+  height: 22rem;
+  right: -4rem;
+  top: 4rem;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .page-shell::after {
-  width: 16rem;
-  height: 16rem;
+  width: 20rem;
+  height: 20rem;
   left: -4rem;
   bottom: 2rem;
-  background: rgba(244, 185, 66, 0.18);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .app-frame {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 76rem;
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
-.card-surface {
-  background: rgba(255, 249, 237, 0.82);
-  border: 1px solid var(--line);
-  box-shadow: 0 24px 80px rgba(12, 38, 28, 0.12);
-  backdrop-filter: blur(18px);
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(15, 90, 67, 0.16);
-  background: rgba(255, 255, 255, 0.64);
-  padding: 0.45rem 0.8rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.hero-grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
-@media (min-width: 960px) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+@media (min-width: 768px) {
+  .app-frame {
+    padding: 1.5rem;
   }
 }

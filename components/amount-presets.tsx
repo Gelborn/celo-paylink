@@ -21,10 +21,10 @@ export function AmountPresets({
             key={value}
             type="button"
             onClick={() => onSelect(String(value))}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+            className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
               active
-                ? "bg-[var(--meadow)] text-[var(--sand)]"
-                : "border border-[var(--line)] bg-white hover:border-[var(--meadow)] hover:bg-[var(--sand)]"
+                ? "border-white bg-white text-zinc-950"
+                : "border-white/10 bg-zinc-900 text-zinc-300 hover:border-white/20 hover:text-white"
             }`}
           >
             ${value}

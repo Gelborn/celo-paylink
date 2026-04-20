@@ -1,239 +1,360 @@
 export const payLinkAbi = [
   {
-    type: "constructor",
-    inputs: [
+    "inputs": [
       {
-        name: "allowedTokens",
-        type: "address[]",
-        internalType: "address[]"
+        "internalType": "address[]",
+        "name": "allowedTokens",
+        "type": "address[]"
       }
     ],
-    stateMutability: "nonpayable"
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   },
   {
-    type: "event",
-    name: "PaymentSent",
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        name: "recipient",
-        type: "address",
-        internalType: "address"
-      },
-      {
-        indexed: true,
-        name: "payer",
-        type: "address",
-        internalType: "address"
-      },
-      {
-        indexed: true,
-        name: "token",
-        type: "address",
-        internalType: "address"
-      },
-      {
-        indexed: false,
-        name: "amount",
-        type: "uint256",
-        internalType: "uint256"
-      },
-      {
-        indexed: false,
-        name: "paymentReference",
-        type: "string",
-        internalType: "string"
-      },
-      {
-        indexed: false,
-        name: "handle",
-        type: "string",
-        internalType: "string"
-      }
-    ]
+    "inputs": [],
+    "name": "HandleImmutable",
+    "type": "error"
   },
   {
-    type: "event",
-    name: "ProfileSet",
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        name: "owner",
-        type: "address",
-        internalType: "address"
-      },
-      {
-        indexed: false,
-        name: "handle",
-        type: "string",
-        internalType: "string"
-      },
-      {
-        indexed: false,
-        name: "displayName",
-        type: "string",
-        internalType: "string"
-      },
-      {
-        indexed: false,
-        name: "preferredToken",
-        type: "address",
-        internalType: "address"
-      }
-    ]
+    "inputs": [],
+    "name": "HandleTaken",
+    "type": "error"
   },
   {
-    type: "function",
-    name: "getProfile",
-    stateMutability: "view",
-    inputs: [
+    "inputs": [],
+    "name": "InvalidHandle",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidRecipient",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ProfileNotFound",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "TransferFailed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnsupportedToken",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroAmount",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
       {
-        name: "owner",
-        type: "address",
-        internalType: "address"
+        "indexed": true,
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "payer",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "paymentReference",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "handle",
+        "type": "string"
       }
     ],
-    outputs: [
+    "name": "PaymentSent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
       {
-        name: "",
-        type: "tuple",
-        internalType: "struct PayLinkProfile.Profile",
-        components: [
-          { name: "owner", type: "address", internalType: "address" },
-          { name: "handle", type: "string", internalType: "string" },
-          { name: "displayName", type: "string", internalType: "string" },
-          { name: "bio", type: "string", internalType: "string" },
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "handle",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "displayName",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "avatarUrl",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "preferredToken",
+        "type": "address"
+      }
+    ],
+    "name": "ProfileSet",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "getProfile",
+    "outputs": [
+      {
+        "components": [
           {
-            name: "paymentMessage",
-            type: "string",
-            internalType: "string"
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
           },
           {
-            name: "preferredToken",
-            type: "address",
-            internalType: "address"
-          },
-          { name: "exists", type: "bool", internalType: "bool" }
-        ]
-      }
-    ]
-  },
-  {
-    type: "function",
-    name: "getProfileByHandle",
-    stateMutability: "view",
-    inputs: [
-      {
-        name: "handle",
-        type: "string",
-        internalType: "string"
-      }
-    ],
-    outputs: [
-      {
-        name: "",
-        type: "tuple",
-        internalType: "struct PayLinkProfile.Profile",
-        components: [
-          { name: "owner", type: "address", internalType: "address" },
-          { name: "handle", type: "string", internalType: "string" },
-          { name: "displayName", type: "string", internalType: "string" },
-          { name: "bio", type: "string", internalType: "string" },
-          {
-            name: "paymentMessage",
-            type: "string",
-            internalType: "string"
+            "internalType": "string",
+            "name": "handle",
+            "type": "string"
           },
           {
-            name: "preferredToken",
-            type: "address",
-            internalType: "address"
+            "internalType": "string",
+            "name": "displayName",
+            "type": "string"
           },
-          { name: "exists", type: "bool", internalType: "bool" }
-        ]
-      }
-    ]
-  },
-  {
-    type: "function",
-    name: "pay",
-    stateMutability: "nonpayable",
-    inputs: [
-      {
-        name: "recipientOrHandle",
-        type: "string",
-        internalType: "string"
-      },
-      {
-        name: "token",
-        type: "address",
-        internalType: "address"
-      },
-      {
-        name: "amount",
-        type: "uint256",
-        internalType: "uint256"
-      },
-      {
-        name: "paymentReference",
-        type: "string",
-        internalType: "string"
-      }
-    ],
-    outputs: []
-  },
-  {
-    type: "function",
-    name: "resolveHandle",
-    stateMutability: "view",
-    inputs: [
-      {
-        name: "handle",
-        type: "string",
-        internalType: "string"
+          {
+            "internalType": "string",
+            "name": "avatarUrl",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "bio",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "paymentMessage",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "preferredToken",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "exists",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct PayLinkProfile.Profile",
+        "name": "",
+        "type": "tuple"
       }
     ],
-    outputs: [
-      {
-        name: "",
-        type: "address",
-        internalType: "address"
-      }
-    ]
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    type: "function",
-    name: "setProfile",
-    stateMutability: "nonpayable",
-    inputs: [
-      { name: "handle", type: "string", internalType: "string" },
-      { name: "displayName", type: "string", internalType: "string" },
-      { name: "bio", type: "string", internalType: "string" },
+    "inputs": [
       {
-        name: "paymentMessage",
-        type: "string",
-        internalType: "string"
+        "internalType": "string",
+        "name": "handle",
+        "type": "string"
+      }
+    ],
+    "name": "getProfileByHandle",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "handle",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "displayName",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "avatarUrl",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "bio",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "paymentMessage",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "preferredToken",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "exists",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct PayLinkProfile.Profile",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "recipientOrHandle",
+        "type": "string"
       },
       {
-        name: "preferredToken",
-        type: "address",
-        internalType: "address"
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "paymentReference",
+        "type": "string"
       }
     ],
-    outputs: []
+    "name": "pay",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    type: "function",
-    name: "supportedTokens",
-    stateMutability: "view",
-    inputs: [
-      { name: "", type: "address", internalType: "address" }
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "handle",
+        "type": "string"
+      }
     ],
-    outputs: [
-      { name: "", type: "bool", internalType: "bool" }
-    ]
+    "name": "resolveHandle",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "handle",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "displayName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "avatarUrl",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "bio",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "paymentMessage",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "preferredToken",
+        "type": "address"
+      }
+    ],
+    "name": "setProfile",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "supportedTokens",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   }
 ] as const;
 
@@ -246,9 +367,7 @@ export const erc20Abi = [
       { name: "owner", type: "address", internalType: "address" },
       { name: "spender", type: "address", internalType: "address" }
     ],
-    outputs: [
-      { name: "", type: "uint256", internalType: "uint256" }
-    ]
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }]
   },
   {
     type: "function",
@@ -258,19 +377,13 @@ export const erc20Abi = [
       { name: "spender", type: "address", internalType: "address" },
       { name: "amount", type: "uint256", internalType: "uint256" }
     ],
-    outputs: [
-      { name: "", type: "bool", internalType: "bool" }
-    ]
+    outputs: [{ name: "", type: "bool", internalType: "bool" }]
   },
   {
     type: "function",
     name: "balanceOf",
     stateMutability: "view",
-    inputs: [
-      { name: "owner", type: "address", internalType: "address" }
-    ],
-    outputs: [
-      { name: "", type: "uint256", internalType: "uint256" }
-    ]
+    inputs: [{ name: "owner", type: "address", internalType: "address" }],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }]
   }
 ] as const;

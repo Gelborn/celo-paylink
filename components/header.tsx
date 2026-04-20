@@ -1,52 +1,198 @@
-import Link from "next/link";
-import Image from "next/image";
-import { getChainLabel, getDefaultChainId } from "../lib/chains";
+"use client";
 
-export function Header() {
+import { useEffect, useState } from "react";
+import type { Hex } from "viem";
+import { getChainLabel } from "../lib/chains";
+import { shortenAddress } from "../lib/format";
+import { BrandWordmark } from "./brand-wordmark";
+import { LanguageSwitcher } from "./language-switcher";
+import { useLocale } from "./locale-provider";
+import { Avatar } from "./ui/avatar";
+import { Button } from "./ui/button";
+
+function WalletGlyph() {
   return (
-    <header className="mb-8 rounded-[2rem] border border-[var(--line)] bg-white/70 px-4 py-4 backdrop-blur md:px-6">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-3">
-          <Image
-            src="/logo.svg"
-            alt="MiniPay PayLink"
-            width={220}
-            height={64}
-            className="h-10 w-auto rounded-2xl"
-          />
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--meadow)]">
-              MiniPay PayLink
-            </p>
-            <p className="text-xs text-[color:rgba(23,50,40,0.7)]">
-              Stablecoin payment profiles on {getChainLabel(getDefaultChainId())}
-            </p>
-          </div>
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-4 w-4 text-zinc-200"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h9.8a2 2 0 0 0 1.4-.58l.3-.3" />
+      <path d="M4 9.5C4 8.12 5.12 7 6.5 7H18a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6.5A2.5 2.5 0 0 1 4 15.5z" />
+      <path d="M16.75 12h.5" />
+    </svg>
+  );
+}
+
+function AccountVisual({
+  name,
+  imageUrl
+}: {
+  name: string;
+  imageUrl?: string;
+}) {
+  if (!imageUrl) {
+    return (
+      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900">
+        <WalletGlyph />
+      </span>
+    );
+  }
+
+  return <Avatar name={name} imageUrl={imageUrl} size="xs" />;
+}
+
+export function Header({
+  account,
+  chainId,
+  hasProvider,
+  isMiniPay,
+  isConnecting,
+  isDisconnectedByUser,
+  connectError,
+  profileName,
+  profileImageUrl,
+  onConnect,
+  onDisconnect,
+  onClearConnectError
+}: {
+  account: Hex | null;
+  chainId: number;
+  hasProvider: boolean;
+  isMiniPay: boolean;
+  isConnecting: boolean;
+  isDisconnectedByUser: boolean;
+  connectError?: string | null;
+  profileName?: string;
+  profileImageUrl?: string;
+  onConnect: () => Promise<Hex | null> | void;
+  onDisconnect: () => void;
+  onClearConnectError?: () => void;
+}) {
+  const { dictionary } = useLocale();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!account) {
+      setOpen(false);
+    }
+  }, [account]);
+
+  return (
+    <>
+      <header className="mb-10 flex items-center justify-between gap-4">
+        <div className="min-w-0">
+          <BrandWordmark className="text-lg md:text-xl" />
         </div>
 
-        <nav className="flex flex-wrap gap-2 text-sm font-medium">
-          <Link
-            href="/"
-            className="rounded-full border border-[var(--line)] px-4 py-2 transition hover:border-[var(--meadow)] hover:bg-[var(--sand)]"
+        {account ? (
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="rounded-full border border-white/10 bg-zinc-950/80 p-1.5 transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+            aria-label={shortenAddress(account)}
           >
-            Home
-          </Link>
-          <Link
-            href="/my"
-            className="rounded-full border border-[var(--line)] px-4 py-2 transition hover:border-[var(--meadow)] hover:bg-[var(--sand)]"
+            <AccountVisual name={profileName || account} imageUrl={profileImageUrl} />
+          </button>
+        ) : isMiniPay && !isDisconnectedByUser ? (
+          <div className="rounded-full border border-white/10 bg-zinc-950/80 px-4 py-2 text-xs font-medium text-zinc-400">
+            {isConnecting ? dictionary.messages.waitingConfirmation : "MiniPay"}
+          </div>
+        ) : (
+          <Button
+            size="sm"
+            variant="outline"
+            disabled={isConnecting}
+            onClick={() => {
+              void onConnect();
+            }}
           >
-            My PayLink
-          </Link>
-          <a
-            href="https://talent.app/~/earn/celo-proof-of-ship"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full bg-[var(--meadow)] px-4 py-2 text-[var(--sand)] transition hover:opacity-90"
+            {isConnecting
+              ? dictionary.messages.waitingConfirmation
+              : dictionary.actions.connectWallet}
+          </Button>
+        )}
+      </header>
+
+      {connectError ? (
+        <div className="mb-6 flex items-center justify-between gap-4 rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100">
+          <p>{connectError}</p>
+          {onClearConnectError ? (
+            <button
+              type="button"
+              onClick={onClearConnectError}
+              className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-zinc-200 transition hover:bg-white/5"
+            >
+              OK
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+
+      {open && account ? (
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-end bg-black/70 p-4 md:p-6"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="w-full max-w-sm rounded-[28px] border border-white/10 bg-zinc-950 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
+            onClick={(event) => event.stopPropagation()}
           >
-            Proof of Ship
-          </a>
-        </nav>
-      </div>
-    </header>
+            <div className="mb-6 flex items-center gap-3">
+              {profileImageUrl ? (
+                <Avatar
+                  name={profileName || account}
+                  imageUrl={profileImageUrl}
+                  size="sm"
+                />
+              ) : (
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
+                  <WalletGlyph />
+                </span>
+              )}
+              <div className="min-w-0">
+                <p className="truncate text-sm font-medium text-white">
+                  {profileName || shortenAddress(account)}
+                </p>
+                <p className="truncate text-xs text-zinc-500">
+                  {dictionary.productTagline}
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                  {dictionary.labels.connectedWallet}
+                </p>
+                <p className="mt-2 break-all text-sm text-white">{account}</p>
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                  {dictionary.labels.network}
+                </p>
+                <p className="mt-2 text-sm text-zinc-300">{getChainLabel(chainId)}</p>
+              </div>
+
+              <LanguageSwitcher />
+
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={() => {
+                  onDisconnect();
+                  setOpen(false);
+                }}
+              >
+                {dictionary.actions.disconnectWallet}
+              </Button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }

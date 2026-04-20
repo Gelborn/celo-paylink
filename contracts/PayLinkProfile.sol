@@ -14,6 +14,7 @@ contract PayLinkProfile {
         address owner;
         string handle;
         string displayName;
+        string avatarUrl;
         string bio;
         string paymentMessage;
         address preferredToken;
@@ -33,6 +34,7 @@ contract PayLinkProfile {
         address indexed owner,
         string handle,
         string displayName,
+        string avatarUrl,
         address preferredToken
     );
     event PaymentSent(
@@ -62,6 +64,7 @@ contract PayLinkProfile {
     function setProfile(
         string calldata handle,
         string calldata displayName,
+        string calldata avatarUrl,
         string calldata bio,
         string calldata paymentMessage,
         address preferredToken
@@ -80,6 +83,7 @@ contract PayLinkProfile {
                 owner: msg.sender,
                 handle: normalizedHandle,
                 displayName: displayName,
+                avatarUrl: avatarUrl,
                 bio: bio,
                 paymentMessage: paymentMessage,
                 preferredToken: preferredToken,
@@ -91,6 +95,7 @@ contract PayLinkProfile {
             }
 
             profile.displayName = displayName;
+            profile.avatarUrl = avatarUrl;
             profile.bio = bio;
             profile.paymentMessage = paymentMessage;
             profile.preferredToken = preferredToken;
@@ -100,6 +105,7 @@ contract PayLinkProfile {
             msg.sender,
             normalizedHandle,
             displayName,
+            avatarUrl,
             preferredToken
         );
     }

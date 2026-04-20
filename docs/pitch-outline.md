@@ -33,10 +33,10 @@
 - See confirmation
 
 ## Slide 7
-- Proof of Ship fit
-- Utility app
-- Real transactions
-- Open source
+- Product principles
+- Direct payments
+- Minimal setup
+- No custody
 
 ## Slide 8
 - Next steps

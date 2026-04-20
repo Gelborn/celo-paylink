@@ -37,6 +37,24 @@ export function getContractAddress(chainId = getDefaultChainId()): Hex | null {
     : env.contractAddressSepolia || null;
 }
 
+export function getContractDeploymentBlock(chainId = getDefaultChainId()) {
+  return chainId === CELO_MAINNET_CHAIN_ID
+    ? env.contractDeploymentBlockMainnet
+    : env.contractDeploymentBlockSepolia;
+}
+
+export function resolveContractAddressForChain(
+  chainId: number,
+  contractAddresses: {
+    celo: Hex | null;
+    celoSepolia: Hex | null;
+  }
+) {
+  return chainId === CELO_MAINNET_CHAIN_ID
+    ? contractAddresses.celo
+    : contractAddresses.celoSepolia;
+}
+
 export function isSupportedCeloChain(chainId?: number): chainId is number {
   return chainId === CELO_MAINNET_CHAIN_ID || chainId === CELO_SEPOLIA_CHAIN_ID;
 }

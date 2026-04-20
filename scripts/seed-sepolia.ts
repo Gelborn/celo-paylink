@@ -26,9 +26,10 @@ async function main() {
 
   const tx = await contract.setProfile(
     "demo-paylink",
-    "Demo Creator",
-    "Accept stablecoin tips and lightweight invoice payments.",
-    "Thanks for supporting my work on Celo.",
+    "Atlas Studio",
+    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+    "Payments, retainers, and direct support in one clean MiniPay profile.",
+    "Thanks for paying with PayLink.",
     preferredToken
   );
 

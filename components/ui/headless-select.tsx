@@ -1,0 +1,145 @@
+"use client";
+
+import clsx from "clsx";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+export type HeadlessSelectOption = {
+  value: string;
+  label: string;
+  description?: string;
+};
+
+export function HeadlessSelect({
+  label,
+  value,
+  options,
+  onChange,
+  placeholder,
+  className,
+  triggerClassName,
+  align = "left"
+}: {
+  label?: string;
+  value: string;
+  options: HeadlessSelectOption[];
+  onChange: (value: string) => void;
+  placeholder?: string;
+  className?: string;
+  triggerClassName?: string;
+  align?: "left" | "right";
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+
+  const selected = useMemo(
+    () => options.find((option) => option.value === value),
+    [options, value]
+  );
+
+  useEffect(() => {
+    function handlePointerDown(event: MouseEvent) {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
+  return (
+    <div className={clsx("space-y-2", className)} ref={rootRef}>
+      {label ? (
+        <span className="block text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+          {label}
+        </span>
+      ) : null}
+
+      <div className="relative">
+        <button
+          type="button"
+          aria-expanded={open}
+          onClick={() => setOpen((current) => !current)}
+          className={clsx(
+            "flex min-h-12 w-full items-center justify-between rounded-2xl border border-white/10 bg-zinc-900 px-4 py-3 text-left transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20",
+            triggerClassName
+          )}
+        >
+          <div className="min-w-0">
+            <p className="truncate text-sm font-medium text-white">
+              {selected?.label || placeholder || ""}
+            </p>
+            {selected?.description ? (
+              <p className="mt-1 truncate text-xs text-zinc-500">
+                {selected.description}
+              </p>
+            ) : null}
+          </div>
+          <span
+            aria-hidden="true"
+            className={clsx(
+              "ml-4 h-2.5 w-2.5 shrink-0 rotate-45 border-b border-r border-zinc-500 transition-transform",
+              open ? "-translate-y-[1px] -rotate-135" : "translate-y-[-1px]"
+            )}
+          />
+        </button>
+
+        {open ? (
+          <div
+            className={clsx(
+              "absolute z-40 mt-2 w-full min-w-[15rem] rounded-2xl border border-white/10 bg-zinc-950 p-2 shadow-[0_24px_80px_rgba(0,0,0,0.45)]",
+              align === "right" ? "right-0" : "left-0"
+            )}
+            role="listbox"
+          >
+            {options.map((option) => {
+              const active = option.value === value;
+
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  role="option"
+                  aria-selected={active}
+                  onClick={() => {
+                    onChange(option.value);
+                    setOpen(false);
+                  }}
+                  className={clsx(
+                    "flex w-full flex-col rounded-xl px-3 py-3 text-left transition",
+                    active
+                      ? "bg-white text-zinc-950"
+                      : "text-zinc-200 hover:bg-white/5"
+                  )}
+                >
+                  <span className="text-sm font-medium">{option.label}</span>
+                  {option.description ? (
+                    <span
+                      className={clsx(
+                        "mt-1 text-xs",
+                        active ? "text-zinc-700" : "text-zinc-500"
+                      )}
+                    >
+                      {option.description}
+                    </span>
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}

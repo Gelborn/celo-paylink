@@ -16,16 +16,6 @@ export type SupportedToken = {
 
 export const SUPPORTED_TOKENS: readonly SupportedToken[] = [
   {
-    symbol: "USDm",
-    name: "Mento Dollar",
-    decimals: 18,
-    accent: "from-emerald-400 to-lime-300",
-    addresses: {
-      42220: "0x765DE816845861e75A25fCA122bb6898B8B1282a",
-      11142220: "0xdE9e4C3ce781b4bA68120d6261cbad65ce0aB00b"
-    }
-  },
-  {
     symbol: "USDC",
     name: "USD Coin",
     decimals: 6,
@@ -43,6 +33,16 @@ export const SUPPORTED_TOKENS: readonly SupportedToken[] = [
     addresses: {
       42220: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
       11142220: "0xd077A400968890Eacc75cdc901F0356c943e4fDb"
+    }
+  },
+  {
+    symbol: "USDm",
+    name: "Mento Dollar",
+    decimals: 18,
+    accent: "from-emerald-400 to-lime-300",
+    addresses: {
+      42220: "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+      11142220: "0xdE9e4C3ce781b4bA68120d6261cbad65ce0aB00b"
     }
   }
 ] as const;
@@ -74,4 +74,19 @@ export function getTokenBySymbol(
   chainId = CELO_MAINNET_CHAIN_ID
 ) {
   return getSupportedTokens(chainId).find((token) => token.symbol === symbol);
+}
+
+export function getTokenFromQuery(
+  value: string | undefined,
+  chainId = CELO_MAINNET_CHAIN_ID
+) {
+  if (!value) return undefined;
+
+  const bySymbol = getSupportedTokens(chainId).find(
+    (token) => token.symbol.toLowerCase() === value.toLowerCase()
+  );
+
+  if (bySymbol) return bySymbol;
+
+  return getTokenByAddress(value, chainId);
 }
