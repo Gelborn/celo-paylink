@@ -2,16 +2,16 @@ import hre from "hardhat";
 import { getSupportedTokenAddresses } from "../lib/tokens";
 
 async function main() {
-  const network = await hre.ethers.provider.getNetwork();
-  const chainId = Number(network.chainId);
+  const { ethers } = await hre.network.create();
+  const connectedNetwork = await ethers.provider.getNetwork();
+  const chainId = Number(connectedNetwork.chainId);
   const allowedTokens = getSupportedTokenAddresses(chainId);
 
-  const PayLinkProfile = await hre.ethers.getContractFactory("PayLinkProfile");
-  const contract = await PayLinkProfile.deploy(allowedTokens);
+  const contract = await ethers.deployContract("PayLinkProfile", [allowedTokens]);
   await contract.waitForDeployment();
 
   console.log("PayLinkProfile deployed");
-  console.log("network:", hre.network.name);
+  console.log("network:", hre.globalOptions.network);
   console.log("chainId:", chainId);
   console.log("address:", await contract.getAddress());
   console.log("allowedTokens:", allowedTokens.join(", "));

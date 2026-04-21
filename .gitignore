@@ -4,6 +4,7 @@ cache
 coverage
 node_modules
 out
+.home
 
 .DS_Store
 .env
@@ -16,5 +17,6 @@ yarn-error.log*
 pnpm-debug.log*
 
 typechain-types
+types/ethers-contracts
 dist
 tsconfig.tsbuildinfo

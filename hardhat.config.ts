@@ -1,13 +1,22 @@
-import "@nomicfoundation/hardhat-toolbox";
 import "dotenv/config";
-import type { HardhatUserConfig } from "hardhat/config";
+import hardhatEthersPlugin from "@nomicfoundation/hardhat-ethers";
+import hardhatEthersChaiMatchersPlugin from "@nomicfoundation/hardhat-ethers-chai-matchers";
+import hardhatMochaPlugin from "@nomicfoundation/hardhat-mocha";
+import hardhatVerifyPlugin from "@nomicfoundation/hardhat-verify";
+import { defineConfig } from "hardhat/config";
 import { serverEnv } from "./lib/server-env";
 
-const accounts = serverEnv.privateKey ? [serverEnv.privateKey] : [];
+const accounts = serverEnv.privateKey ? [serverEnv.privateKey] : undefined;
 const verificationApiKey =
   serverEnv.etherscanApiKey || serverEnv.celoscanApiKey || "";
 
-const config: HardhatUserConfig = {
+export default defineConfig({
+  plugins: [
+    hardhatEthersPlugin,
+    hardhatEthersChaiMatchersPlugin,
+    hardhatMochaPlugin,
+    hardhatVerifyPlugin
+  ],
   solidity: {
     version: "0.8.24",
     settings: {
@@ -18,39 +27,54 @@ const config: HardhatUserConfig = {
     }
   },
   networks: {
-    hardhat: {},
     celo: {
+      type: "http",
+      chainType: "generic",
       url: serverEnv.celoMainnetRpcUrl,
       chainId: 42220,
       accounts
     },
     celoSepolia: {
+      type: "http",
+      chainType: "generic",
       url: serverEnv.celoSepoliaRpcUrl,
       chainId: 11142220,
       accounts
     }
   },
-  etherscan: {
-    apiKey: verificationApiKey,
-    customChains: [
-      {
-        network: "celo",
-        chainId: 42220,
-        urls: {
-          apiURL: "https://api.etherscan.io/v2/api",
-          browserURL: "https://celoscan.io"
-        }
-      },
-      {
-        network: "celoSepolia",
-        chainId: 11142220,
-        urls: {
-          apiURL: "https://api.etherscan.io/v2/api",
-          browserURL: "https://sepolia.celoscan.io"
+  chainDescriptors: {
+    42220: {
+      name: "Celo Mainnet",
+      chainType: "generic",
+      blockExplorers: {
+        etherscan: {
+          name: "Celoscan",
+          url: "https://celoscan.io",
+          apiUrl: "https://api.etherscan.io/v2/api"
         }
       }
-    ]
-  }
-};
-
-export default config;
+    },
+    11142220: {
+      name: "Celo Sepolia",
+      chainType: "generic",
+      blockExplorers: {
+        blockscout: {
+          name: "Celo Sepolia Blockscout",
+          url: "https://celo-sepolia.blockscout.com",
+          apiUrl: "https://celo-sepolia.blockscout.com/api"
+        }
+      }
+    }
+  },
+  verify: verificationApiKey
+    ? {
+        etherscan: {
+          apiKey: verificationApiKey
+        }
+      }
+    : {
+        etherscan: {
+          enabled: false
+        }
+      }
+});

@@ -1,4 +1,5 @@
 import hre from "hardhat";
+import { verifyContract } from "@nomicfoundation/hardhat-verify/verify";
 import { serverEnv } from "../lib/server-env";
 import { getSupportedTokenAddresses } from "../lib/tokens";
 
@@ -14,23 +15,44 @@ function getContractAddressForNetwork(networkName: string) {
   return undefined;
 }
 
+function getVerificationProviderForNetwork(networkName: string) {
+  if (networkName === "celo") {
+    return "etherscan" as const;
+  }
+
+  if (networkName === "celoSepolia") {
+    return "blockscout" as const;
+  }
+
+  return undefined;
+}
+
 async function main() {
-  const network = await hre.ethers.provider.getNetwork();
-  const chainId = Number(network.chainId);
-  const address = getContractAddressForNetwork(hre.network.name);
+  const networkName = hre.globalOptions.network;
+  const { ethers } = await hre.network.create();
+  const connectedNetwork = await ethers.provider.getNetwork();
+  const chainId = Number(connectedNetwork.chainId);
+  const address = getContractAddressForNetwork(networkName);
+  const provider = getVerificationProviderForNetwork(networkName);
 
   if (!address) {
     throw new Error(
-      `Missing contract address env for ${hre.network.name}. Set PAYLINK_CONTRACT_ADDRESS_MAINNET or PAYLINK_CONTRACT_ADDRESS_SEPOLIA.`
+      `Missing contract address env for ${networkName}. Set PAYLINK_CONTRACT_ADDRESS_MAINNET or PAYLINK_CONTRACT_ADDRESS_SEPOLIA.`
     );
   }
 
-  const constructorArguments = [getSupportedTokenAddresses(chainId)];
+  if (!provider) {
+    throw new Error(`Unsupported verification network: ${networkName}`);
+  }
 
-  await hre.run("verify:verify", {
-    address,
-    constructorArguments
-  });
+  await verifyContract(
+    {
+      address,
+      constructorArgs: [getSupportedTokenAddresses(chainId)],
+      provider
+    },
+    hre
+  );
 }
 
 main().catch((error) => {

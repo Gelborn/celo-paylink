@@ -1,7 +1,11 @@
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import { network } from "hardhat";
+
+type NetworkConnection = Awaited<ReturnType<typeof network.create>>;
 
 describe("PayLinkProfile", function () {
+  let ethers: NetworkConnection["ethers"];
+
   async function deployFixture() {
     const [owner, payer, outsider] = await ethers.getSigners();
 
@@ -35,6 +39,10 @@ describe("PayLinkProfile", function () {
 
     return { owner, payer, failingToken, payLink };
   }
+
+  before(async function () {
+    ({ ethers } = await network.create());
+  });
 
   it("creates a profile and normalizes the handle", async function () {
     const { owner, usdCoin, payLink } = await deployFixture();

@@ -44,6 +44,8 @@ celo-paylink/
 
 ## Quick Start
 
+Use Node `22.10.0` or newer. The repo includes [.nvmrc](./.nvmrc) for local setup, and Hardhat 3 will not run on older Node releases.
+
 1. Install dependencies:
 
 ```bash
@@ -101,6 +103,7 @@ npm run verify:mainnet
 ## Environment Notes
 
 - `NEXT_PUBLIC_DEFAULT_CHAIN` should be `celoSepolia` while testing and `celo` for production.
+- Vercel, CI, and any machine running `npm run compile`, `npm test`, deploy, or verify scripts should use Node `22.10.0` or newer.
 - `NEXT_PUBLIC_*` values are safe to expose to the browser.
 - `CELO_*` values are private RPC settings for Hardhat and scripts only.
 - `NEXT_PUBLIC_CELO_*` values are the browser-facing RPC endpoints used by the frontend.
