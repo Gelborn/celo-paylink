@@ -3,32 +3,33 @@ import { fetchProfileByHandle } from "../../lib/contract";
 import { getContractAddress, getDefaultChainId } from "../../lib/chains";
 
 type SuccessPageProps = {
-  searchParams: {
+  searchParams: Promise<{
     tx?: string;
     handle?: string;
     amount?: string;
     token?: string;
     ref?: string;
-  };
+  }>;
 };
 
 export default async function SuccessPage({ searchParams }: SuccessPageProps) {
+  const resolvedSearchParams = await searchParams;
   const chainId = getDefaultChainId();
   const contractAddress = getContractAddress(chainId);
   const profile =
-    searchParams.handle && contractAddress
-      ? await fetchProfileByHandle(searchParams.handle, chainId)
+    resolvedSearchParams.handle && contractAddress
+      ? await fetchProfileByHandle(resolvedSearchParams.handle, chainId)
       : null;
 
   return (
     <SuccessShell
       chainId={chainId}
-      txHash={searchParams.tx}
-      handle={searchParams.handle}
+      txHash={resolvedSearchParams.tx}
+      handle={resolvedSearchParams.handle}
       profile={profile}
-      amount={searchParams.amount}
-      token={searchParams.token}
-      reference={searchParams.ref}
+      amount={resolvedSearchParams.amount}
+      token={resolvedSearchParams.token}
+      reference={resolvedSearchParams.ref}
     />
   );
 }

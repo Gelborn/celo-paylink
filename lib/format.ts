@@ -99,7 +99,12 @@ export function safeAmountInput(value?: string | string[]) {
 
 export function safeTextQuery(value?: string | string[]) {
   const candidate = Array.isArray(value) ? value[0] : value;
-  return candidate || "";
+  if (!candidate) return "";
+
+  return candidate
+    .replace(/[\u0000-\u001F\u007F]/g, " ")
+    .trim()
+    .slice(0, 140);
 }
 
 export function getInitials(value: string) {
@@ -119,8 +124,19 @@ export function getInitials(value: string) {
 export function normalizeImageUrl(value: string) {
   const trimmed = value.trim();
   if (!trimmed) return "";
-  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
-    return trimmed;
+
+  try {
+    const url = new URL(trimmed);
+
+    if (url.protocol !== "https:") {
+      return "";
+    }
+
+    url.username = "";
+    url.password = "";
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return "";
   }
-  return "";
 }

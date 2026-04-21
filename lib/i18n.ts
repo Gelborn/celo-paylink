@@ -318,7 +318,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       connectBeforePay: "Connect a wallet to complete the payment.",
       fillAllFields: "Fill out all fields before publishing the profile.",
       invalidImage:
-        "Avatar URL must be empty or start with http:// or https://.",
+        "Avatar URL must be empty or use https://.",
       missingAmount: "Enter an amount before continuing.",
       positiveAmount: "Use a positive amount.",
       handleAvailable: "Handle available.",
@@ -502,7 +502,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       connectBeforePay: "Conecte uma carteira para concluir o pagamento.",
       fillAllFields: "Preencha todos os campos antes de publicar seu perfil.",
       invalidImage:
-        "A URL do avatar deve estar vazia ou começar com http:// ou https://.",
+        "A URL do avatar deve estar vazia ou usar https://.",
       missingAmount: "Informe um valor antes de continuar.",
       positiveAmount: "Use um valor positivo.",
       handleAvailable: "Handle disponível.",

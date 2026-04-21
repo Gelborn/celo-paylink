@@ -20,6 +20,22 @@ describe("PayLinkProfile", function () {
     return { owner, payer, outsider, usdCoin, payLink };
   }
 
+  async function deployFailingTokenFixture() {
+    const [owner, payer] = await ethers.getSigners();
+
+    const MockFailingERC20 = await ethers.getContractFactory("MockFailingERC20");
+    const failingToken = (await MockFailingERC20.deploy()) as any;
+    await failingToken.waitForDeployment();
+
+    const PayLinkProfile = await ethers.getContractFactory("PayLinkProfile");
+    const payLink = (await PayLinkProfile.deploy([
+      await failingToken.getAddress()
+    ])) as any;
+    await payLink.waitForDeployment();
+
+    return { owner, payer, failingToken, payLink };
+  }
+
   it("creates a profile and normalizes the handle", async function () {
     const { owner, usdCoin, payLink } = await deployFixture();
 
@@ -101,8 +117,8 @@ describe("PayLinkProfile", function () {
 
     await expect(
       payLink
-      .connect(owner)
-      .setProfile(
+        .connect(owner)
+        .setProfile(
           "atlas",
           "Atlas",
           "https://example.com/atlas.png",
@@ -181,5 +197,68 @@ describe("PayLinkProfile", function () {
 
     expect(await usdCoin.balanceOf(owner.address)).to.equal(5_000_000n);
     expect(await usdCoin.balanceOf(payer.address)).to.equal(45_000_000n);
+  });
+
+  it("accepts an owner address as the payment recipient", async function () {
+    const { owner, payer, usdCoin, payLink } = await deployFixture();
+
+    await payLink
+      .connect(owner)
+      .setProfile(
+        "atlas",
+        "Atlas",
+        "https://example.com/atlas.png",
+        "Builder one.",
+        "Thanks.",
+        await usdCoin.getAddress()
+      );
+
+    await usdCoin.connect(payer).approve(await payLink.getAddress(), 5_000_000n);
+
+    await expect(
+      payLink
+        .connect(payer)
+        .pay(owner.address, await usdCoin.getAddress(), 5_000_000n, "invoice-42")
+    )
+      .to.emit(payLink, "PaymentSent")
+      .withArgs(
+        owner.address,
+        payer.address,
+        await usdCoin.getAddress(),
+        5_000_000n,
+        "invoice-42",
+        "atlas"
+      );
+  });
+
+  it("rejects malformed recipient addresses", async function () {
+    const { payer, usdCoin, payLink } = await deployFixture();
+
+    await expect(
+      payLink
+        .connect(payer)
+        .pay(`0x${"z".repeat(40)}`, await usdCoin.getAddress(), 5_000_000n, "coffee")
+    ).to.be.revertedWithCustomError(payLink, "InvalidRecipient");
+  });
+
+  it("reverts when the token transfer returns false", async function () {
+    const { owner, payer, failingToken, payLink } = await deployFailingTokenFixture();
+
+    await payLink
+      .connect(owner)
+      .setProfile(
+        "atlas",
+        "Atlas",
+        "https://example.com/atlas.png",
+        "Builder one.",
+        "Thanks.",
+        await failingToken.getAddress()
+      );
+
+    await expect(
+      payLink
+        .connect(payer)
+        .pay("atlas", await failingToken.getAddress(), 5_000_000n, "coffee")
+    ).to.be.revertedWithCustomError(payLink, "TransferFailed");
   });
 });

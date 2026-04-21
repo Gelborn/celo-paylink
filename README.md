@@ -62,7 +62,15 @@ cp .env.example .env
 npm run compile
 ```
 
-4. Run the frontend:
+4. Run local quality checks:
+
+```bash
+npm test
+npm run lint
+npm run typecheck
+```
+
+5. Run the frontend:
 
 ```bash
 npm run dev
@@ -93,9 +101,30 @@ npm run verify:mainnet
 ## Environment Notes
 
 - `NEXT_PUBLIC_DEFAULT_CHAIN` should be `celoSepolia` while testing and `celo` for production.
+- `NEXT_PUBLIC_*` values are safe to expose to the browser.
+- `CELO_*` values are private RPC settings for Hardhat and scripts only.
+- `NEXT_PUBLIC_CELO_*` values are the browser-facing RPC endpoints used by the frontend.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_*` powers the frontend.
 - `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` limits payment history reads to the contract deployment block.
 - `PAYLINK_CONTRACT_ADDRESS_*` is used by the verification and seeding scripts.
+- Do not rely on private `CELO_*` values as fallbacks for browser config.
+
+## Release Checks
+
+Run this before pushing public changes:
+
+```bash
+npm test
+npm run lint
+npm run typecheck
+npm run build
+```
+
+## Avatar URLs
+
+- Arbitrary remote avatar sources are allowed for this POC.
+- Avatar URLs must be `https://`.
+- Invalid or non-HTTPS avatar URLs fall back to initials.
 
 ## Supported Tokens
 
@@ -117,3 +146,5 @@ See:
 - [docs/launch-checklist.md](./docs/launch-checklist.md)
 - [docs/demo-script.md](./docs/demo-script.md)
 - [docs/pitch-outline.md](./docs/pitch-outline.md)
+- [SECURITY.md](./SECURITY.md)
+- [LICENSE](./LICENSE)

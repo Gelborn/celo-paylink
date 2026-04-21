@@ -19,6 +19,11 @@ export function Avatar({
   };
 
   const safeImageUrl = normalizeImageUrl(imageUrl || "");
+  const safeBackgroundImage = safeImageUrl
+    ? `linear-gradient(rgba(9, 9, 11, 0.2), rgba(9, 9, 11, 0.2)), url(${JSON.stringify(
+        safeImageUrl
+      )})`
+    : undefined;
 
   return (
     <div
@@ -29,7 +34,7 @@ export function Avatar({
       style={
         safeImageUrl
           ? {
-              backgroundImage: `linear-gradient(rgba(9, 9, 11, 0.2), rgba(9, 9, 11, 0.2)), url(${safeImageUrl})`,
+              backgroundImage: safeBackgroundImage,
               backgroundSize: "cover",
               backgroundPosition: "center"
             }

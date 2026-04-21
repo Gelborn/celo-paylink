@@ -1,13 +1,13 @@
 import type { Hex } from "viem";
 import { celo, celoSepolia } from "viem/chains";
-import { env } from "./env";
+import { publicEnv } from "./env";
 import { getRuntimeDictionary, interpolate, type Locale } from "./i18n";
 
 export const CELO_MAINNET_CHAIN_ID = 42220;
 export const CELO_SEPOLIA_CHAIN_ID = 11142220;
 
 export function getDefaultChainId(): number {
-  return env.defaultChain === "celo"
+  return publicEnv.defaultChain === "celo"
     ? CELO_MAINNET_CHAIN_ID
     : CELO_SEPOLIA_CHAIN_ID;
 }
@@ -39,8 +39,8 @@ export function getChainHex(chainId = getDefaultChainId()) {
 
 export function getRpcUrl(chainId = getDefaultChainId()) {
   return chainId === CELO_MAINNET_CHAIN_ID
-    ? env.celoMainnetRpcUrl
-    : env.celoSepoliaRpcUrl;
+    ? publicEnv.celoMainnetRpcUrl
+    : publicEnv.celoSepoliaRpcUrl;
 }
 
 export function getExplorerBaseUrl(chainId = getDefaultChainId()) {
@@ -65,14 +65,14 @@ export function getAddChainParameters(chainId = getDefaultChainId()) {
 
 export function getContractAddress(chainId = getDefaultChainId()): Hex | null {
   return chainId === CELO_MAINNET_CHAIN_ID
-    ? env.contractAddressMainnet || null
-    : env.contractAddressSepolia || null;
+    ? publicEnv.contractAddressMainnet || null
+    : publicEnv.contractAddressSepolia || null;
 }
 
 export function getContractDeploymentBlock(chainId = getDefaultChainId()) {
   return chainId === CELO_MAINNET_CHAIN_ID
-    ? env.contractDeploymentBlockMainnet
-    : env.contractDeploymentBlockSepolia;
+    ? publicEnv.contractDeploymentBlockMainnet
+    : publicEnv.contractDeploymentBlockSepolia;
 }
 
 export function resolveContractAddressForChain(

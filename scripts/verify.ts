@@ -1,13 +1,14 @@
 import hre from "hardhat";
+import { serverEnv } from "../lib/server-env";
 import { getSupportedTokenAddresses } from "../lib/tokens";
 
 function getContractAddressForNetwork(networkName: string) {
   if (networkName === "celo") {
-    return process.env.PAYLINK_CONTRACT_ADDRESS_MAINNET;
+    return serverEnv.paylinkContractAddressMainnet;
   }
 
   if (networkName === "celoSepolia") {
-    return process.env.PAYLINK_CONTRACT_ADDRESS_SEPOLIA;
+    return serverEnv.paylinkContractAddressSepolia;
   }
 
   return undefined;

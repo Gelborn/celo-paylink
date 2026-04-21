@@ -1,15 +1,15 @@
 import { DashboardShell } from "../../components/dashboard-shell";
 import { getDefaultChainId } from "../../lib/chains";
-import { env } from "../../lib/env";
+import { publicEnv } from "../../lib/env";
 
 export default function MyPayLinkPage() {
   return (
     <DashboardShell
-      appUrl={env.appUrl}
+      appUrl={publicEnv.appUrl}
       initialChainId={getDefaultChainId()}
       contractAddresses={{
-        celo: env.contractAddressMainnet || null,
-        celoSepolia: env.contractAddressSepolia || null
+        celo: publicEnv.contractAddressMainnet || null,
+        celoSepolia: publicEnv.contractAddressSepolia || null
       }}
     />
   );

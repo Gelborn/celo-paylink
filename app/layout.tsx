@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { cookies, headers } from "next/headers";
 import "./globals.css";
 import { LocaleProvider } from "../components/locale-provider";
-import { env } from "../lib/env";
+import { publicEnv } from "../lib/env";
 import { resolveLocaleFromRequest } from "../lib/i18n";
 
 const geistSans = localFont({
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description:
     "A shareable payment profile for MiniPay freelancers, creators, and solo merchants on Celo.",
-  metadataBase: new URL(env.appUrl),
+  metadataBase: new URL(publicEnv.appUrl),
   keywords: [
     "MiniPay",
     "Celo",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "MiniPay PayLink",
     description:
       "Claim a handle, publish a payment profile, and accept stablecoins directly from MiniPay.",
-    url: env.appUrl,
+    url: publicEnv.appUrl,
     siteName: "MiniPay PayLink",
     type: "website",
     images: [
@@ -85,12 +85,12 @@ export const viewport: Viewport = {
   colorScheme: "dark"
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = resolveLocaleFromRequest(cookies(), headers());
+  const locale = resolveLocaleFromRequest(await cookies(), await headers());
 
   return (
     <html lang={locale} className={`${geistSans.variable} ${geistMono.variable}`}>

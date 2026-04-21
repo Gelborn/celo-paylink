@@ -1,15 +1,15 @@
 import { HomeShell } from "../components/home-shell";
 import { getDefaultChainId } from "../lib/chains";
-import { env } from "../lib/env";
+import { publicEnv } from "../lib/env";
 
 export default function HomePage() {
   return (
     <HomeShell
-      appUrl={env.appUrl}
+      appUrl={publicEnv.appUrl}
       initialChainId={getDefaultChainId()}
       contractAddresses={{
-        celo: env.contractAddressMainnet || null,
-        celoSepolia: env.contractAddressSepolia || null
+        celo: publicEnv.contractAddressMainnet || null,
+        celoSepolia: publicEnv.contractAddressSepolia || null
       }}
     />
   );

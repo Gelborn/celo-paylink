@@ -1,10 +1,9 @@
 import hre from "hardhat";
+import { serverEnv } from "../lib/server-env";
 import { getSupportedTokens } from "../lib/tokens";
 
 async function main() {
-  const address =
-    process.env.PAYLINK_CONTRACT_ADDRESS_SEPOLIA ||
-    process.env.NEXT_PUBLIC_CONTRACT_ADDRESS_SEPOLIA;
+  const address = serverEnv.paylinkContractAddressSepolia;
 
   if (!address) {
     throw new Error("Missing PAYLINK_CONTRACT_ADDRESS_SEPOLIA in .env");

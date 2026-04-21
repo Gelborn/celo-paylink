@@ -5,45 +5,47 @@ import {
 } from "../../../lib/contract";
 import { safeAmountInput, safeTextQuery } from "../../../lib/format";
 import { getContractAddress, getDefaultChainId } from "../../../lib/chains";
-import { env } from "../../../lib/env";
+import { publicEnv } from "../../../lib/env";
 
 type HandlePageProps = {
-  params: {
+  params: Promise<{
     handle: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     amount?: string;
     ref?: string;
     token?: string;
-  };
+  }>;
 };
 
 export default async function HandlePage({
   params,
   searchParams
 }: HandlePageProps) {
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
   const chainId = getDefaultChainId();
   const contractAddress = getContractAddress(chainId);
   const profile = contractAddress
-    ? await fetchProfileByHandle(params.handle, chainId)
+    ? await fetchProfileByHandle(resolvedParams.handle, chainId)
     : null;
   const payments =
     profile && contractAddress
       ? await fetchRecentPayments(profile.owner, chainId)
       : [];
-  const amount = safeAmountInput(searchParams.amount);
-  const reference = safeTextQuery(searchParams.ref);
-  const tokenQuery = safeTextQuery(searchParams.token);
+  const amount = safeAmountInput(resolvedSearchParams.amount);
+  const reference = safeTextQuery(resolvedSearchParams.ref);
+  const tokenQuery = safeTextQuery(resolvedSearchParams.token);
 
   return (
     <PublicProfileShell
-      appUrl={env.appUrl}
+      appUrl={publicEnv.appUrl}
       initialChainId={chainId}
       contractAddresses={{
-        celo: env.contractAddressMainnet || null,
-        celoSepolia: env.contractAddressSepolia || null
+        celo: publicEnv.contractAddressMainnet || null,
+        celoSepolia: publicEnv.contractAddressSepolia || null
       }}
-      handle={params.handle}
+      handle={resolvedParams.handle}
       profile={profile}
       payments={payments}
       initialAmount={amount}
