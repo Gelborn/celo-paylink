@@ -62,7 +62,8 @@ export function PublicProfileShell({
   initialAmount,
   initialReference,
   initialTokenQuery,
-  contractReady
+  contractReady,
+  previewMode = false
 }: {
   appUrl: string;
   initialChainId: number;
@@ -77,6 +78,7 @@ export function PublicProfileShell({
   initialReference: string;
   initialTokenQuery: string;
   contractReady: boolean;
+  previewMode?: boolean;
 }) {
   const { dictionary } = useLocale();
   const {
@@ -196,6 +198,7 @@ export function PublicProfileShell({
           onConnect={connect}
           onDisconnect={disconnect}
           onClearConnectError={clearConnectError}
+          showAccountControls={!previewMode}
         />
         <EmptyState
           title={dictionary.publicPage.noContractTitle}
@@ -219,6 +222,7 @@ export function PublicProfileShell({
           onConnect={connect}
           onDisconnect={disconnect}
           onClearConnectError={clearConnectError}
+          showAccountControls={!previewMode}
         />
         <EmptyState
           title={dictionary.publicPage.missingTitle}
@@ -412,6 +416,7 @@ export function PublicProfileShell({
         onConnect={connect}
         onDisconnect={disconnect}
         onClearConnectError={clearConnectError}
+        showAccountControls={!previewMode}
       />
       {showWrongNetworkPrompt ? (
         <NetworkMismatchModal

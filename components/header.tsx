@@ -59,7 +59,8 @@ export function Header({
   profileImageUrl,
   onConnect,
   onDisconnect,
-  onClearConnectError
+  onClearConnectError,
+  showAccountControls = true
 }: {
   account: Hex | null;
   chainId: number;
@@ -73,6 +74,7 @@ export function Header({
   onConnect: () => Promise<Hex | null> | void;
   onDisconnect: () => void;
   onClearConnectError?: () => void;
+  showAccountControls?: boolean;
 }) {
   const { dictionary } = useLocale();
   const [open, setOpen] = useState(false);
@@ -90,7 +92,7 @@ export function Header({
           <BrandWordmark className="text-lg md:text-xl" />
         </div>
 
-        {account ? (
+        {!showAccountControls ? null : account ? (
           <button
             type="button"
             onClick={() => setOpen(true)}

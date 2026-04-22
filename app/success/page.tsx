@@ -1,5 +1,6 @@
 import { SuccessShell } from "../../components/success-shell";
 import { fetchProfileByHandle } from "../../lib/contract";
+import { shouldUseDemoPreview } from "../../lib/demo-profile";
 import { getContractAddress, getDefaultChainId } from "../../lib/chains";
 
 type SuccessPageProps = {
@@ -9,6 +10,7 @@ type SuccessPageProps = {
     amount?: string;
     token?: string;
     ref?: string;
+    preview?: string;
   }>;
 };
 
@@ -16,9 +18,14 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
   const resolvedSearchParams = await searchParams;
   const chainId = getDefaultChainId();
   const contractAddress = getContractAddress(chainId);
+  const previewMode = shouldUseDemoPreview(resolvedSearchParams.preview);
   const profile =
-    resolvedSearchParams.handle && contractAddress
-      ? await fetchProfileByHandle(resolvedSearchParams.handle, chainId)
+    previewMode
+      ? null
+      : resolvedSearchParams.handle
+        ? contractAddress
+          ? await fetchProfileByHandle(resolvedSearchParams.handle, chainId)
+          : null
       : null;
 
   return (
@@ -30,6 +37,7 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
       amount={resolvedSearchParams.amount}
       token={resolvedSearchParams.token}
       reference={resolvedSearchParams.ref}
+      previewMode={previewMode}
     />
   );
 }

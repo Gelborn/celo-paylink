@@ -18,7 +18,8 @@ export function SuccessShell({
   profile,
   amount,
   token,
-  reference
+  reference,
+  previewMode = false
 }: {
   chainId: number;
   txHash?: string;
@@ -27,6 +28,7 @@ export function SuccessShell({
   amount?: string;
   token?: string;
   reference?: string;
+  previewMode?: boolean;
 }) {
   const { dictionary } = useLocale();
   const {
@@ -54,6 +56,7 @@ export function SuccessShell({
         onConnect={connect}
         onDisconnect={disconnect}
         onClearConnectError={clearConnectError}
+        showAccountControls={!previewMode}
       />
       <section className="space-y-6">
         {profile ? (

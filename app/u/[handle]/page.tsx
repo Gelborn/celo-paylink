@@ -3,6 +3,11 @@ import {
   fetchProfileByHandle,
   fetchRecentPayments
 } from "../../../lib/contract";
+import {
+  getDemoPayments,
+  getDemoProfile,
+  shouldUseDemoPreview
+} from "../../../lib/demo-profile";
 import { safeAmountInput, safeTextQuery } from "../../../lib/format";
 import { getContractAddress, getDefaultChainId } from "../../../lib/chains";
 import { publicEnv } from "../../../lib/env";
@@ -15,6 +20,7 @@ type HandlePageProps = {
     amount?: string;
     ref?: string;
     token?: string;
+    preview?: string;
   }>;
 };
 
@@ -26,11 +32,15 @@ export default async function HandlePage({
   const resolvedSearchParams = await searchParams;
   const chainId = getDefaultChainId();
   const contractAddress = getContractAddress(chainId);
-  const profile = contractAddress
-    ? await fetchProfileByHandle(resolvedParams.handle, chainId)
-    : null;
-  const payments =
-    profile && contractAddress
+  const previewMode = shouldUseDemoPreview(resolvedSearchParams.preview);
+  const profile = previewMode
+    ? getDemoProfile(resolvedParams.handle, chainId)
+    : contractAddress
+      ? await fetchProfileByHandle(resolvedParams.handle, chainId)
+      : null;
+  const payments = previewMode
+    ? getDemoPayments(resolvedParams.handle, chainId)
+    : profile && contractAddress
       ? await fetchRecentPayments(profile.owner, chainId)
       : [];
   const amount = safeAmountInput(resolvedSearchParams.amount);
@@ -51,7 +61,8 @@ export default async function HandlePage({
       initialAmount={amount}
       initialReference={reference}
       initialTokenQuery={tokenQuery}
-      contractReady={Boolean(contractAddress)}
+      contractReady={previewMode || Boolean(contractAddress)}
+      previewMode={previewMode}
     />
   );
 }

@@ -4,6 +4,11 @@ export const locales = ["en", "pt-BR"] as const;
 
 export type Locale = (typeof locales)[number];
 
+type HomeStep = {
+  title: string;
+  description: string;
+};
+
 export type Dictionary = {
   languageName: string;
   productName: string;
@@ -45,7 +50,21 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     description: string;
-    points: string[];
+    heroSupport: string;
+    heroChips: string[];
+    demoCaption: string;
+    proofEyebrow: string;
+    proofTitle: string;
+    proofDescription: string;
+    proofChips: string[];
+    stepsEyebrow: string;
+    stepsTitle: string;
+    stepsDescription: string;
+    steps: HomeStep[];
+    trustStatements: string[];
+    closingEyebrow: string;
+    closingTitle: string;
+    closingDescription: string;
     summaryTitle: string;
     summaryDescription: string;
     connectHint: string;
@@ -60,6 +79,8 @@ export type Dictionary = {
     manageTab: string;
     transactionsTab: string;
     quickActions: string;
+    quickActionChargeDescription: string;
+    quickActionTransactionsDescription: string;
     profileSection: string;
     chargeSection: string;
     transactionsSection: string;
@@ -202,20 +223,64 @@ const dictionaries: Record<Locale, Dictionary> = {
       viewTransactions: "View transactions"
     },
     home: {
-      eyebrow: "Payment profile",
-      title: "Get paid with one clean MiniPay link.",
+      eyebrow: "MiniPay payment profile",
+      title: "One link for tips, invoices, and direct stablecoin payments.",
       description:
-        "Create a public payment page with your handle, avatar, message, and preferred stablecoin. Share it once and reuse it for tips, freelance payments, and lightweight invoices.",
-      points: [
-        "Direct Celo stablecoin payments",
-        "A clean public page for every creator",
-        "Charge links with amount and note prefilled"
+        "Create a public payment page, set your preferred token, and share a clean MiniPay-friendly link that works for freelancers, creators, and solo merchants.",
+      heroSupport:
+        "No custody. No backend. Just a public profile and a faster way to get paid on Celo.",
+      heroChips: [
+        "Direct stablecoin payments",
+        "Reusable charge links",
+        "Built for MiniPay"
       ],
-      summaryTitle: "Your profile is live.",
+      demoCaption:
+        "Real product flow: public pay page, send screen, and success receipt.",
+      proofEyebrow: "Why it works",
+      proofTitle: "Clear enough to trust at a glance.",
+      proofDescription:
+        "PayLink keeps the product promise simple: one public page, direct transfer, and a visible onchain record.",
+      proofChips: [
+        "Funds go straight to the recipient",
+        "Prefilled amount and note in one link",
+        "Recent payments rendered from onchain events",
+        "Works with USDm, USDC, and USD₮"
+      ],
+      stepsEyebrow: "How it works",
+      stepsTitle: "Set it once. Reuse it every time.",
+      stepsDescription:
+        "The homepage should read in one scan, and the product flow should feel the same.",
+      steps: [
+        {
+          title: "Create your profile",
+          description:
+            "Claim your handle, add your image and message, and choose the token you want to receive."
+        },
+        {
+          title: "Share a payment link",
+          description:
+            "Use your public page or prefill amount and note for tips, retainers, and lightweight invoices."
+        },
+        {
+          title: "Receive proof instantly",
+          description:
+            "The payer gets a success screen and the payment can show back up on the public page from chain data."
+        }
+      ],
+      trustStatements: [
+        "Direct onchain transfer",
+        "No platform custody",
+        "Explorer receipt included"
+      ],
+      closingEyebrow: "Start now",
+      closingTitle: "Publish your PayLink and make the next payment obvious.",
+      closingDescription:
+        "Open the dashboard, create the profile, and share the same link anywhere you want to get paid.",
+      summaryTitle: "Your payment profile is live.",
       summaryDescription:
         "Use your public page, create charge links, and track incoming payments in one place.",
       connectHint:
-        "Open the app in MiniPay or connect a wallet to create your profile."
+        "Open PayLink inside MiniPay or connect a wallet to create your profile."
     },
     dashboard: {
       eyebrow: "Dashboard",
@@ -229,6 +294,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       manageTab: "Manage",
       transactionsTab: "Transactions",
       quickActions: "Quick actions",
+      quickActionChargeDescription:
+        "Prefill amount and reference before you share your next payment request.",
+      quickActionTransactionsDescription:
+        "Open your dashboard to review the latest incoming payments and explorer links.",
       profileSection: "Profile",
       chargeSection: "Charge link",
       transactionsSection: "Incoming payments",
@@ -386,20 +455,64 @@ const dictionaries: Record<Locale, Dictionary> = {
       viewTransactions: "Ver transações"
     },
     home: {
-      eyebrow: "Perfil de pagamento",
-      title: "Receba pagamentos com um link simples no MiniPay.",
+      eyebrow: "Perfil de pagamento MiniPay",
+      title: "Um link para gorjetas, cobranças e pagamentos diretos em stablecoin.",
       description:
-        "Crie uma página pública com seu handle, avatar, mensagem e stablecoin preferida. Compartilhe uma vez e reutilize para gorjetas, freelas e cobranças rápidas.",
-      points: [
-        "Pagamentos diretos em stablecoins na Celo",
-        "Uma página pública clara para cada criador",
-        "Links de cobrança com valor e nota já preenchidos"
+        "Crie uma página pública, escolha o token que você quer receber e compartilhe um link limpo e pronto para MiniPay para freelas, criadores e pequenos negócios.",
+      heroSupport:
+        "Sem custódia. Sem backend. Só um perfil público e um jeito mais rápido de receber na Celo.",
+      heroChips: [
+        "Pagamentos diretos em stablecoin",
+        "Links de cobrança reutilizáveis",
+        "Feito para MiniPay"
       ],
-      summaryTitle: "Seu perfil está pronto.",
+      demoCaption:
+        "Fluxo real do produto: página pública de pagamento, envio e comprovante final.",
+      proofEyebrow: "Por que funciona",
+      proofTitle: "Claro o bastante para gerar confiança na primeira olhada.",
+      proofDescription:
+        "O PayLink mantém a proposta simples: uma página pública, transferência direta e registro visível na rede.",
+      proofChips: [
+        "Os fundos vão direto para o destinatário",
+        "Valor e referência já preenchidos no mesmo link",
+        "Pagamentos recentes vindos de eventos onchain",
+        "Funciona com USDm, USDC e USD₮"
+      ],
+      stepsEyebrow: "Como funciona",
+      stepsTitle: "Configure uma vez. Reaproveite sempre.",
+      stepsDescription:
+        "A homepage precisa ser entendida em uma passada, e o produto deve manter essa mesma clareza.",
+      steps: [
+        {
+          title: "Crie seu perfil",
+          description:
+            "Escolha seu handle, adicione sua imagem e mensagem e defina o token que você quer receber."
+        },
+        {
+          title: "Compartilhe o link",
+          description:
+            "Use sua página pública ou já envie valor e referência preenchidos para gorjetas, sinais e cobranças leves."
+        },
+        {
+          title: "Receba o comprovante na hora",
+          description:
+            "Quem paga vê a tela de sucesso e o pagamento pode aparecer de volta na sua página pública a partir dos dados onchain."
+        }
+      ],
+      trustStatements: [
+        "Transferência direta onchain",
+        "Sem custódia da plataforma",
+        "Comprovante no explorer"
+      ],
+      closingEyebrow: "Comece agora",
+      closingTitle: "Publique seu PayLink e deixe o próximo pagamento óbvio.",
+      closingDescription:
+        "Abra o painel, crie seu perfil e compartilhe o mesmo link em todo lugar onde você quer receber.",
+      summaryTitle: "Seu perfil de pagamentos está no ar.",
       summaryDescription:
         "Use sua página pública, gere links de cobrança e acompanhe os pagamentos em um só lugar.",
       connectHint:
-        "Abra o app no MiniPay ou conecte sua carteira para criar seu perfil."
+        "Abra o PayLink no MiniPay ou conecte sua carteira para criar seu perfil."
     },
     dashboard: {
       eyebrow: "Painel",
@@ -413,6 +526,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       manageTab: "Gerir",
       transactionsTab: "Transações",
       quickActions: "Ações rápidas",
+      quickActionChargeDescription:
+        "Defina valor e referência antes de compartilhar sua próxima cobrança.",
+      quickActionTransactionsDescription:
+        "Abra o painel para revisar os pagamentos recebidos mais recentes e os links do explorer.",
       profileSection: "Perfil",
       chargeSection: "Link de cobrança",
       transactionsSection: "Pagamentos recebidos",

@@ -7,9 +7,17 @@
   --page: #09090b;
   --panel: #111114;
   --panel-strong: #18181b;
+  --panel-muted: rgba(17, 17, 20, 0.72);
+  --panel-elevated: rgba(15, 17, 18, 0.88);
   --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
   --ink: #fafafa;
   --muted: #a1a1aa;
+  --accent: #39d98a;
+  --accent-strong: #28c276;
+  --accent-soft: rgba(57, 217, 138, 0.14);
+  --accent-line: rgba(57, 217, 138, 0.24);
+  --accent-shadow: 0 32px 90px rgba(57, 217, 138, 0.16);
 }
 
 * {
@@ -24,8 +32,9 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 24%),
-    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.03), transparent 28%),
+    radial-gradient(circle at top right, rgba(57, 217, 138, 0.13), transparent 20%),
+    radial-gradient(circle at 16% 10%, rgba(255, 255, 255, 0.06), transparent 18%),
+    radial-gradient(circle at bottom left, rgba(57, 217, 138, 0.08), transparent 24%),
     linear-gradient(180deg, #09090b 0%, #09090b 100%);
   color: var(--ink);
   font-family: var(--font-sans), sans-serif;
@@ -56,19 +65,19 @@ a {
 }
 
 .page-shell::before {
-  width: 22rem;
-  height: 22rem;
-  right: -4rem;
-  top: 4rem;
-  background: rgba(255, 255, 255, 0.05);
+  width: 26rem;
+  height: 26rem;
+  right: -5rem;
+  top: 2rem;
+  background: rgba(57, 217, 138, 0.12);
 }
 
 .page-shell::after {
-  width: 20rem;
-  height: 20rem;
-  left: -4rem;
-  bottom: 2rem;
-  background: rgba(255, 255, 255, 0.03);
+  width: 22rem;
+  height: 22rem;
+  left: -5rem;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .app-frame {
@@ -78,6 +87,100 @@ a {
   max-width: 80rem;
   margin: 0 auto;
   padding: 1rem;
+}
+
+.landing-section {
+  position: relative;
+}
+
+.landing-cta-surface {
+  background:
+    radial-gradient(circle at top left, rgba(57, 217, 138, 0.16), transparent 32%),
+    linear-gradient(145deg, rgba(14, 16, 18, 0.96), rgba(9, 9, 11, 0.9));
+  box-shadow: var(--accent-shadow);
+}
+
+.device-shell {
+  position: relative;
+  margin: 0 auto;
+  width: min(100%, 25rem);
+  padding: 0.85rem;
+  border-radius: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(10, 10, 11, 0.92);
+  box-shadow:
+    0 40px 110px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    var(--accent-shadow);
+}
+
+.device-shell::before {
+  content: "";
+  position: absolute;
+  inset: auto 14% -6% 14%;
+  height: 18%;
+  border-radius: 9999px;
+  background: rgba(57, 217, 138, 0.18);
+  filter: blur(32px);
+  z-index: 0;
+}
+
+.device-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #030303;
+  z-index: 1;
+}
+
+.device-frame::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.55rem;
+  width: 34%;
+  height: 1.45rem;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: rgba(8, 8, 9, 0.98);
+  z-index: 3;
+}
+
+.device-screen {
+  position: relative;
+  aspect-ratio: 390 / 844;
+  background:
+    radial-gradient(circle at top, rgba(57, 217, 138, 0.08), transparent 32%),
+    #040506;
+}
+
+.device-screen-inner {
+  position: absolute;
+  inset: 0.8rem 0.9rem 1rem;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(circle at top, rgba(57, 217, 138, 0.06), transparent 34%),
+    #040506;
+}
+
+.landing-demo-video,
+.landing-demo-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 @media (min-width: 768px) {
