@@ -2,16 +2,29 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useLocale } from "./locale-provider";
 
-const DEMO_POSTER_SRC = "/paylink-demo-poster.png";
-const DEMO_VIDEO_SRC = "/paylink-demo-loop.webm";
+const DEMO_MEDIA = {
+  en: {
+    poster: "/paylink-demo-poster.png",
+    video: "/paylink-demo-loop.webm",
+    alt: "PayLink payment flow preview"
+  },
+  "pt-BR": {
+    poster: "/paylink-demo-pt-br-poster.png",
+    video: "/paylink-demo-pt-br-loop.webm",
+    alt: "Visualizacao do fluxo de pagamento do PayLink"
+  }
+} as const;
 
 export function HomeDemo({
   caption
 }: {
   caption: string;
 }) {
+  const { locale } = useLocale();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const demoMedia = DEMO_MEDIA[locale];
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -36,8 +49,8 @@ export function HomeDemo({
             <div className="device-screen-inner">
               {prefersReducedMotion ? (
                 <Image
-                  src={DEMO_POSTER_SRC}
-                  alt="PayLink payment flow preview"
+                  src={demoMedia.poster}
+                  alt={demoMedia.alt}
                   fill
                   priority
                   sizes="(min-width: 1024px) 420px, (min-width: 768px) 360px, 84vw"
@@ -49,11 +62,11 @@ export function HomeDemo({
                   muted
                   loop
                   playsInline
-                  poster={DEMO_POSTER_SRC}
+                  poster={demoMedia.poster}
                   className="landing-demo-video"
-                  aria-label="PayLink payment flow preview"
+                  aria-label={demoMedia.alt}
                 >
-                  <source src={DEMO_VIDEO_SRC} type="video/webm" />
+                  <source src={demoMedia.video} type="video/webm" />
                 </video>
               )}
             </div>

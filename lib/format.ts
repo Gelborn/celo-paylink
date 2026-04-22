@@ -71,17 +71,18 @@ export function sanitizeCurrencyInput(
   const candidate = Array.isArray(value) ? value[0] : value;
   if (!candidate) return "";
 
-  const cleaned = candidate.replace(/[^\d.]/g, "");
+  const normalized = candidate.replace(/,/g, ".");
+  const cleaned = normalized.replace(/[^\d.]/g, "");
   if (!cleaned) return "";
 
-  const firstDotIndex = cleaned.indexOf(".");
-  const hasDot = firstDotIndex >= 0;
-  const wholePartRaw =
-    firstDotIndex >= 0 ? cleaned.slice(0, firstDotIndex) : cleaned;
-  const decimalPartRaw =
-    firstDotIndex >= 0
-      ? cleaned.slice(firstDotIndex + 1).replace(/\./g, "")
-      : "";
+  const lastDotIndex = cleaned.lastIndexOf(".");
+  const hasDot = lastDotIndex >= 0;
+  const wholePartRaw = hasDot
+    ? cleaned.slice(0, lastDotIndex).replace(/\./g, "")
+    : cleaned;
+  const decimalPartRaw = hasDot
+    ? cleaned.slice(lastDotIndex + 1).replace(/\./g, "")
+    : "";
 
   const wholePart = wholePartRaw.slice(0, maxWholeDigits);
   const decimalPart = decimalPartRaw.slice(0, maxDecimals);
