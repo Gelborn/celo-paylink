@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Hex } from "viem";
 import { getChainLabel } from "../lib/chains";
 import { shortenAddress } from "../lib/format";
@@ -155,106 +156,109 @@ export function Header({
         </div>
       ) : null}
 
-      {open && account ? (
-        <div
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
-          onClick={() => setOpen(false)}
-        >
-          <div className="flex h-full items-start justify-end p-4 md:p-6">
+      {open && account
+        ? createPortal(
             <div
-              ref={panelRef}
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby={titleId}
-              aria-describedby={descriptionId}
-              tabIndex={-1}
-              className="w-full max-w-sm rounded-[28px] border border-white/10 bg-zinc-950 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
-              onClick={(event) => event.stopPropagation()}
-              onKeyDown={(event) => {
-                if (event.key === "Escape") {
-                  setOpen(false);
-                  return;
-                }
-
-                if (event.key !== "Tab") {
-                  return;
-                }
-
-                const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
-                  'button:not([disabled]), [href], select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-                );
-
-                if (!focusable || focusable.length === 0) {
-                  event.preventDefault();
-                  return;
-                }
-
-                const first = focusable[0];
-                const last = focusable[focusable.length - 1];
-
-                if (event.shiftKey && document.activeElement === first) {
-                  event.preventDefault();
-                  last.focus();
-                } else if (!event.shiftKey && document.activeElement === last) {
-                  event.preventDefault();
-                  first.focus();
-                }
-              }}
+              className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
             >
-              <div className="mb-6 flex min-w-0 items-start gap-3">
-                {profileImageUrl ? (
-                  <Avatar
-                    name={profileName || account}
-                    imageUrl={profileImageUrl}
-                    size="sm"
-                  />
-                ) : (
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
-                    <WalletGlyph />
-                  </span>
-                )}
-                <div className="min-w-0">
-                  <p id={titleId} className="truncate text-sm font-medium text-white">
-                    {profileName || shortenAddress(account)}
-                  </p>
-                  <p
-                    id={descriptionId}
-                    className="line-clamp-2 text-xs leading-5 text-zinc-500"
-                  >
-                    {dictionary.productTagline}
-                  </p>
-                </div>
-              </div>
+              <div className="flex h-full items-start justify-end p-4 md:p-6">
+                <div
+                  ref={panelRef}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby={titleId}
+                  aria-describedby={descriptionId}
+                  tabIndex={-1}
+                  className="w-full max-w-sm rounded-[28px] border border-white/10 bg-zinc-950 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
+                  onClick={(event) => event.stopPropagation()}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") {
+                      setOpen(false);
+                      return;
+                    }
 
-              <div className="space-y-4">
-                <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                    {dictionary.labels.connectedWallet}
-                  </p>
-                  <p className="mt-2 break-all text-sm text-white">{account}</p>
-                  <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                    {dictionary.labels.network}
-                  </p>
-                  <p className="mt-2 text-sm text-zinc-300">{getChainLabel(chainId)}</p>
-                </div>
+                    if (event.key !== "Tab") {
+                      return;
+                    }
 
-                <LanguageSwitcher />
+                    const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
+                      'button:not([disabled]), [href], select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                    );
 
-                <Button
-                  variant="outline"
-                  className="w-full"
-                  onClick={() => {
-                    onDisconnect();
-                    setOpen(false);
+                    if (!focusable || focusable.length === 0) {
+                      event.preventDefault();
+                      return;
+                    }
+
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+
+                    if (event.shiftKey && document.activeElement === first) {
+                      event.preventDefault();
+                      last.focus();
+                    } else if (!event.shiftKey && document.activeElement === last) {
+                      event.preventDefault();
+                      first.focus();
+                    }
                   }}
                 >
-                  {dictionary.actions.disconnectWallet}
-                </Button>
+                  <div className="mb-6 flex min-w-0 items-start gap-3">
+                    {profileImageUrl ? (
+                      <Avatar
+                        name={profileName || account}
+                        imageUrl={profileImageUrl}
+                        size="sm"
+                      />
+                    ) : (
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
+                        <WalletGlyph />
+                      </span>
+                    )}
+                    <div className="min-w-0">
+                      <p id={titleId} className="truncate text-sm font-medium text-white">
+                        {profileName || shortenAddress(account)}
+                      </p>
+                      <p
+                        id={descriptionId}
+                        className="line-clamp-2 text-xs leading-5 text-zinc-500"
+                      >
+                        {dictionary.productTagline}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                        {dictionary.labels.connectedWallet}
+                      </p>
+                      <p className="mt-2 break-all text-sm text-white">{account}</p>
+                      <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                        {dictionary.labels.network}
+                      </p>
+                      <p className="mt-2 text-sm text-zinc-300">{getChainLabel(chainId)}</p>
+                    </div>
+
+                    <LanguageSwitcher />
+
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => {
+                        onDisconnect();
+                        setOpen(false);
+                      }}
+                    >
+                      {dictionary.actions.disconnectWallet}
+                    </Button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      ) : null}
+            </div>,
+            document.body
+          )
+        : null}
     </>
   );
 }
