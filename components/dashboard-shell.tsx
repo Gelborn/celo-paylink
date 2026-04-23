@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Hex } from "viem";
 import { buildShareUrl, shortenAddress } from "../lib/format";
+import { copyTextToClipboard, shareOrCopyUrl } from "../lib/share";
 import { useOwnerState } from "../lib/use-owner-state";
 import { ChargeLinkPanel } from "./charge-link-panel";
 import { Header } from "./header";
@@ -16,6 +17,7 @@ import { Avatar } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
+import { FeedbackMessage } from "./ui/feedback-message";
 import { SectionHeader } from "./ui/section-header";
 
 type DashboardTab = "manage" | "transactions";
@@ -39,9 +41,9 @@ export function DashboardShell({
   const [publishStage, setPublishStage] = useState<PublishStage | null>(null);
   const [activeTab, setActiveTab] = useState<DashboardTab>("manage");
   const [manageView, setManageView] = useState<ManageView>("overview");
-  const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "shared">(
-    "idle"
-  );
+  const [shareStatus, setShareStatus] = useState<
+    "idle" | "copied" | "shared" | "copy-error" | "share-error"
+  >("idle");
   const {
     account,
     chainId,
@@ -112,24 +114,30 @@ export function DashboardShell({
     if (!publicUrl) return;
 
     try {
-      if (navigator.share) {
-        await navigator.share({ url: publicUrl });
-        setShareStatus("shared");
-        window.setTimeout(() => setShareStatus("idle"), 1600);
+      const nextStatus = await shareOrCopyUrl(publicUrl);
+      setShareStatus(nextStatus);
+      window.setTimeout(() => setShareStatus("idle"), 1600);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
         return;
       }
 
-      await navigator.clipboard.writeText(publicUrl);
-      setShareStatus("copied");
-      window.setTimeout(() => setShareStatus("idle"), 1600);
-    } catch {}
+      setShareStatus("share-error");
+      window.setTimeout(() => setShareStatus("idle"), 2200);
+    }
   }
 
   async function handleCopyProfileLink() {
     if (!publicUrl) return;
-    await navigator.clipboard.writeText(publicUrl);
-    setShareStatus("copied");
-    window.setTimeout(() => setShareStatus("idle"), 1600);
+
+    try {
+      await copyTextToClipboard(publicUrl);
+      setShareStatus("copied");
+      window.setTimeout(() => setShareStatus("idle"), 1600);
+    } catch {
+      setShareStatus("copy-error");
+      window.setTimeout(() => setShareStatus("idle"), 2200);
+    }
   }
 
   const publishFlowCopy =
@@ -334,14 +342,22 @@ export function DashboardShell({
             ) : (
               <div className="space-y-5">
                 <div className="overflow-x-auto">
-                  <div className="inline-flex min-w-full rounded-[1.4rem] border border-white/10 bg-zinc-950/80 p-1.5 sm:min-w-0">
+                  <div
+                    role="tablist"
+                    aria-label={dictionary.dashboard.eyebrow}
+                    className="inline-flex min-w-full rounded-[1.4rem] border border-white/10 bg-zinc-950/80 p-1.5 sm:min-w-0"
+                  >
                     <button
+                      id="dashboard-tab-manage"
+                      role="tab"
+                      aria-selected={activeTab === "manage"}
+                      aria-controls="dashboard-panel-manage"
                       type="button"
                       onClick={() => {
                         setActiveTab("manage");
                         setManageView("overview");
                       }}
-                      className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition ${
+                      className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
                         activeTab === "manage"
                           ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
                           : "text-zinc-400 hover:bg-white/5 hover:text-white"
@@ -350,9 +366,13 @@ export function DashboardShell({
                       {dictionary.dashboard.actionsTab}
                     </button>
                     <button
+                      id="dashboard-tab-transactions"
+                      role="tab"
+                      aria-selected={activeTab === "transactions"}
+                      aria-controls="dashboard-panel-transactions"
                       type="button"
                       onClick={() => setActiveTab("transactions")}
-                      className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition ${
+                      className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
                         activeTab === "transactions"
                           ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
                           : "text-zinc-400 hover:bg-white/5 hover:text-white"
@@ -364,7 +384,8 @@ export function DashboardShell({
                 </div>
 
                 {activeTab === "manage" ? (
-                  manageView === "invoice" ? (
+                  <div id="dashboard-panel-manage" role="tabpanel" aria-labelledby="dashboard-tab-manage">
+                    {manageView === "invoice" ? (
                     <Card>
                       <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
                         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -441,6 +462,24 @@ export function DashboardShell({
                               </Button>
                             </div>
                           </div>
+                          <FeedbackMessage
+                            tone={
+                              shareStatus === "copy-error" || shareStatus === "share-error"
+                                ? "error"
+                                : "success"
+                            }
+                            className="pb-4"
+                          >
+                            {shareStatus === "copied"
+                              ? dictionary.messages.linkCopied
+                              : shareStatus === "shared"
+                                ? dictionary.messages.shareOpened
+                                : shareStatus === "copy-error"
+                                  ? dictionary.messages.copyFailed
+                                  : shareStatus === "share-error"
+                                  ? dictionary.messages.shareFailed
+                                  : null}
+                          </FeedbackMessage>
 
                           <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
                             <div className="space-y-2">
@@ -482,16 +521,21 @@ export function DashboardShell({
                       </CardContent>
                     </Card>
                   )
+                  }
+                  </div>
                 ) : (
+                  <div
+                    id="dashboard-panel-transactions"
+                    role="tabpanel"
+                    aria-labelledby="dashboard-tab-transactions"
+                  >
                   <RecentPayments
                     payments={payments}
                     chainId={initialChainId}
-                    title={
-                      isLoadingProfile || isLoadingPayments
-                        ? dictionary.labels.checking
-                        : dictionary.dashboard.transactionsSection
-                    }
+                    title={dictionary.dashboard.transactionsSection}
+                    isLoading={isLoadingProfile || isLoadingPayments}
                   />
+                  </div>
                 )}
               </div>
             )

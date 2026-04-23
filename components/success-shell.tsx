@@ -128,6 +128,15 @@ export function SuccessShell({
                 ) : null}
               </div>
 
+              <div className="mt-4 grid gap-3 border-t border-white/10 pt-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200">
+                  {dictionary.home.trustStatements[0]}
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200">
+                  {dictionary.home.trustStatements[2]}
+                </div>
+              </div>
+
               <div className="mt-4 border-t border-white/10 pt-4">
                 <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
                   {dictionary.labels.transaction}
@@ -143,6 +152,7 @@ export function SuccessShell({
                 <Link
                   href={`${getExplorerBaseUrl(chainId)}/tx/${txHash}`}
                   target="_blank"
+                  rel="noreferrer"
                   className="inline-flex text-sm text-zinc-300 underline underline-offset-4"
                 >
                   {dictionary.actions.openExplorer}

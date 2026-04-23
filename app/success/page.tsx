@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { SuccessShell } from "../../components/success-shell";
 import { fetchProfileByHandle } from "../../lib/contract";
 import { shouldUseDemoPreview } from "../../lib/demo-profile";
@@ -12,6 +13,15 @@ type SuccessPageProps = {
     ref?: string;
     preview?: string;
   }>;
+};
+
+export const metadata: Metadata = {
+  title: "Payment sent",
+  description: "Review the transaction receipt and return to the public PayLink page.",
+  robots: {
+    index: false,
+    follow: false
+  }
 };
 
 export default async function SuccessPage({ searchParams }: SuccessPageProps) {

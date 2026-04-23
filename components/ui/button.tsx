@@ -1,25 +1,29 @@
 "use client";
 
 import clsx from "clsx";
-import type { ButtonHTMLAttributes } from "react";
+import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "ghost" | "outline";
   size?: "sm" | "md" | "lg";
 };
 
-export function Button({
-  className,
-  variant = "primary",
-  size = "md",
-  type = "button",
-  ...props
-}: ButtonProps) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  {
+    className,
+    variant = "primary",
+    size = "md",
+    type = "button",
+    ...props
+  },
+  ref
+) {
   return (
     <button
+      ref={ref}
       type={type}
       className={clsx(
-        "inline-flex items-center justify-center rounded-full border font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex items-center justify-center rounded-full border font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] disabled:cursor-not-allowed disabled:opacity-50",
         size === "sm" && "h-9 px-4 text-sm",
         size === "md" && "h-11 px-5 text-sm",
         size === "lg" && "h-12 px-6 text-base",
@@ -36,4 +40,4 @@ export function Button({
       {...props}
     />
   );
-}
+});

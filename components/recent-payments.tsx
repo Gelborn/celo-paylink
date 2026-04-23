@@ -7,14 +7,48 @@ type RecentPaymentsProps = {
   payments: PaymentRecord[];
   chainId: number;
   title: string;
+  isLoading?: boolean;
 };
 
 export function RecentPayments({
   payments,
   chainId,
-  title
+  title,
+  isLoading = false
 }: RecentPaymentsProps) {
   const { dictionary, locale } = useLocale();
+
+  if (isLoading) {
+    return (
+      <Card aria-busy="true">
+        <CardHeader>
+          <CardTitle className="text-base">{title}</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3.5">
+          <p className="text-sm leading-7 text-zinc-400">
+            {dictionary.messages.loadingPayments}
+          </p>
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div
+              key={index}
+              className="rounded-[1.4rem] border border-white/10 bg-zinc-900 px-4 py-4 sm:px-5 sm:py-5"
+            >
+              <div className="space-y-3.5">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0 space-y-2">
+                    <div className="h-5 w-36 animate-pulse rounded-full bg-white/10" />
+                    <div className="h-4 w-28 animate-pulse rounded-full bg-white/5" />
+                  </div>
+                  <div className="h-7 w-20 animate-pulse rounded-full bg-white/5" />
+                </div>
+                <div className="h-16 animate-pulse rounded-2xl bg-white/5" />
+              </div>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+    );
+  }
 
   if (payments.length === 0) {
     return (

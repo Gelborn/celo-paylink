@@ -32,6 +32,8 @@ export function useOwnerState({
     if (!wallet.account || !contractAddress) {
       setProfile(null);
       setPayments([]);
+      setIsLoadingProfile(false);
+      setIsLoadingPayments(false);
       return;
     }
 
@@ -63,6 +65,7 @@ export function useOwnerState({
 
     if (!activeProfile || !contractAddress) {
       setPayments([]);
+      setIsLoadingPayments(false);
       return;
     }
 

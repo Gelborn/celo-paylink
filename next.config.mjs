@@ -9,6 +9,23 @@ const nextConfig = {
         source: "/:path*",
         headers: [
           {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "base-uri 'self'",
+              "font-src 'self' data:",
+              "img-src 'self' data: https:",
+              "media-src 'self' blob:",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "style-src 'self' 'unsafe-inline'",
+              "connect-src 'self' https: wss: ws:",
+              "object-src 'none'",
+              "frame-ancestors 'none'",
+              "form-action 'self'",
+              "manifest-src 'self'"
+            ].join("; ")
+          },
+          {
             key: "Cross-Origin-Opener-Policy",
             value: "same-origin"
           },

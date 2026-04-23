@@ -9,6 +9,7 @@ import { setProfileTx, waitForTransaction } from "../lib/wallet";
 import { useLocale } from "./locale-provider";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { FeedbackMessage } from "./ui/feedback-message";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { TokenPicker } from "./token-picker";
@@ -308,6 +309,7 @@ export function ProfileEditor({
               <Input
                 value={form.handle}
                 readOnly={Boolean(profile)}
+                aria-invalid={invalidFields.handle}
                 className={invalidFields.handle ? "border-red-400/70 focus:border-red-400" : undefined}
                 onChange={(event) =>
                   setForm((current) => ({
@@ -326,6 +328,7 @@ export function ProfileEditor({
               </span>
               <Input
                 value={form.displayName}
+                aria-invalid={invalidFields.displayName}
                 className={invalidFields.displayName ? "border-red-400/70 focus:border-red-400" : undefined}
                 onChange={(event) =>
                   setForm((current) => ({
@@ -344,6 +347,7 @@ export function ProfileEditor({
             </span>
             <Input
               value={form.avatarUrl}
+              aria-invalid={invalidFields.avatarUrl}
               className={invalidFields.avatarUrl ? "border-red-400/70 focus:border-red-400" : undefined}
               onChange={(event) =>
                 setForm((current) => ({
@@ -361,6 +365,7 @@ export function ProfileEditor({
             </span>
             <Textarea
               value={form.bio}
+              aria-invalid={invalidFields.bio}
               className={invalidFields.bio ? "border-red-400/70 focus:border-red-400" : undefined}
               onChange={(event) =>
                 setForm((current) => ({
@@ -378,6 +383,7 @@ export function ProfileEditor({
             </span>
             <Textarea
               value={form.paymentMessage}
+              aria-invalid={invalidFields.paymentMessage}
               onChange={(event) =>
                 setForm((current) => ({
                   ...current,
@@ -402,9 +408,17 @@ export function ProfileEditor({
           />
 
           <div className="flex flex-col gap-3 border-t border-white/10 pt-5 md:flex-row md:items-center md:justify-between">
-            <p className="text-sm text-zinc-500">
+            <FeedbackMessage
+              tone={
+                status === dictionary.messages.profilePublished
+                  ? "success"
+                  : status && !isSubmitting
+                    ? "error"
+                    : "muted"
+              }
+            >
               {footerMessage}
-            </p>
+            </FeedbackMessage>
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting
                 ? dictionary.messages.waitingConfirmation

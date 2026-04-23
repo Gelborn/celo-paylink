@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { copyTextToClipboard, shareOrCopyUrl } from "../lib/share";
 import { useLocale } from "./locale-provider";
+import { FeedbackMessage } from "./ui/feedback-message";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
@@ -12,26 +14,35 @@ type ShareLinkProps = {
 };
 
 export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
-  const [status, setStatus] = useState<"idle" | "copied" | "shared">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "copied" | "shared" | "copy-error" | "share-error"
+  >("idle");
   const { dictionary } = useLocale();
 
   async function handleCopy() {
-    await navigator.clipboard.writeText(url);
-    setStatus("copied");
-    window.setTimeout(() => setStatus("idle"), 1600);
+    try {
+      await copyTextToClipboard(url);
+      setStatus("copied");
+      window.setTimeout(() => setStatus("idle"), 1600);
+    } catch {
+      setStatus("copy-error");
+      window.setTimeout(() => setStatus("idle"), 2200);
+    }
   }
 
   async function handleShare() {
     try {
-      if (navigator.share) {
-        await navigator.share({ url });
-        setStatus("shared");
-        window.setTimeout(() => setStatus("idle"), 1600);
+      const nextStatus = await shareOrCopyUrl(url);
+      setStatus(nextStatus);
+      window.setTimeout(() => setStatus("idle"), 1600);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
         return;
       }
 
-      await handleCopy();
-    } catch {}
+      setStatus("share-error");
+      window.setTimeout(() => setStatus("idle"), 2200);
+    }
   }
 
   const content = (
@@ -60,6 +71,19 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
           {dictionary.actions.shareLink}
         </Button>
       </div>
+      <FeedbackMessage
+        tone={status === "copy-error" || status === "share-error" ? "error" : "success"}
+      >
+        {status === "copied"
+          ? dictionary.messages.linkCopied
+          : status === "shared"
+            ? dictionary.messages.shareOpened
+            : status === "copy-error"
+              ? dictionary.messages.copyFailed
+              : status === "share-error"
+              ? dictionary.messages.shareFailed
+              : null}
+      </FeedbackMessage>
     </div>
   );
 

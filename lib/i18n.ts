@@ -144,10 +144,10 @@ export type Dictionary = {
     owner: string;
     visitor: string;
   };
-  messages: {
-    contractReady: string;
-    missingContract: string;
-    noWalletFound: string;
+    messages: {
+      contractReady: string;
+      missingContract: string;
+      noWalletFound: string;
     couldNotConnectWallet: string;
     switchWalletRequired: string;
     miniPayWrongNetwork: string;
@@ -177,12 +177,18 @@ export type Dictionary = {
     wrongNetworkMiniPayDescription: string;
     insufficientBalance: string;
     approving: string;
-    confirmingApproval: string;
-    sending: string;
-    openingReceipt: string;
-    shareHint: string;
+      confirmingApproval: string;
+      sending: string;
+      openingReceipt: string;
+      shareHint: string;
+      linkCopied: string;
+      shareOpened: string;
+      copyFailed: string;
+      shareFailed: string;
+      loadingPayments: string;
+      supportsTokens: string;
+    };
   };
-};
 
 const dictionaries: Record<Locale, Dictionary> = {
   en: {
@@ -414,7 +420,13 @@ const dictionaries: Record<Locale, Dictionary> = {
       sending: "Sending",
       openingReceipt: "Opening your receipt...",
       shareHint:
-        "Use this link anywhere you want to receive direct MiniPay-friendly payments."
+        "Use this link anywhere you want to receive direct MiniPay-friendly payments.",
+      linkCopied: "Link copied to clipboard.",
+      shareOpened: "Share sheet opened.",
+      copyFailed: "Could not copy the link on this device.",
+      shareFailed: "Could not share the link right now.",
+      loadingPayments: "Loading the latest onchain payments...",
+      supportsTokens: "Supports {tokens}."
     }
   },
   "pt-BR": {
@@ -646,7 +658,13 @@ const dictionaries: Record<Locale, Dictionary> = {
       sending: "Enviando",
       openingReceipt: "Abrindo seu comprovante...",
       shareHint:
-        "Use este link em qualquer lugar onde você queira receber pagamentos diretos."
+        "Use este link em qualquer lugar onde você queira receber pagamentos diretos.",
+      linkCopied: "Link copiado para a área de transferência.",
+      shareOpened: "Janela de compartilhamento aberta.",
+      copyFailed: "Não foi possível copiar o link neste dispositivo.",
+      shareFailed: "Não foi possível compartilhar o link agora.",
+      loadingPayments: "Carregando os pagamentos onchain mais recentes...",
+      supportsTokens: "Aceita {tokens}."
     }
   }
 };

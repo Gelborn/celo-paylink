@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { Hex } from "viem";
 import { getChainLabel } from "../lib/chains";
 import { shortenAddress } from "../lib/format";
@@ -78,12 +78,26 @@ export function Header({
 }) {
   const { dictionary } = useLocale();
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const titleId = useId();
+  const descriptionId = useId();
 
   useEffect(() => {
     if (!account) {
       setOpen(false);
     }
   }, [account]);
+
+  useEffect(() => {
+    if (!open) {
+      triggerRef.current?.focus();
+      return;
+    }
+
+    closeButtonRef.current?.focus();
+  }, [open]);
 
   return (
     <>
@@ -94,10 +108,13 @@ export function Header({
 
         {!showAccountControls ? null : account ? (
           <button
+            ref={triggerRef}
             type="button"
             onClick={() => setOpen(true)}
             className="rounded-full border border-white/10 bg-zinc-950/80 p-1.5 transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
             aria-label={shortenAddress(account)}
+            aria-haspopup="dialog"
+            aria-expanded={open}
           >
             <AccountVisual name={profileName || account} imageUrl={profileImageUrl} />
           </button>
@@ -122,7 +139,10 @@ export function Header({
       </header>
 
       {connectError ? (
-        <div className="mb-6 flex items-center justify-between gap-4 rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100">
+        <div
+          role="alert"
+          className="mb-6 flex items-center justify-between gap-4 rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100"
+        >
           <p>{connectError}</p>
           {onClearConnectError ? (
             <button
@@ -142,29 +162,74 @@ export function Header({
           onClick={() => setOpen(false)}
         >
           <div
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={titleId}
+            aria-describedby={descriptionId}
             className="w-full max-w-sm rounded-[28px] border border-white/10 bg-zinc-950 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
             onClick={(event) => event.stopPropagation()}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") {
+                setOpen(false);
+                return;
+              }
+
+              if (event.key !== "Tab") {
+                return;
+              }
+
+              const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
+                'button:not([disabled]), [href], select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+              );
+
+              if (!focusable || focusable.length === 0) {
+                event.preventDefault();
+                return;
+              }
+
+              const first = focusable[0];
+              const last = focusable[focusable.length - 1];
+
+              if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+              } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+              }
+            }}
           >
-            <div className="mb-6 flex items-center gap-3">
-              {profileImageUrl ? (
-                <Avatar
-                  name={profileName || account}
-                  imageUrl={profileImageUrl}
-                  size="sm"
-                />
-              ) : (
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
-                  <WalletGlyph />
-                </span>
-              )}
-              <div className="min-w-0">
-                <p className="truncate text-sm font-medium text-white">
-                  {profileName || shortenAddress(account)}
-                </p>
-                <p className="truncate text-xs text-zinc-500">
-                  {dictionary.productTagline}
-                </p>
+            <div className="mb-6 flex items-start justify-between gap-3">
+              <div className="flex items-center gap-3">
+                {profileImageUrl ? (
+                  <Avatar
+                    name={profileName || account}
+                    imageUrl={profileImageUrl}
+                    size="sm"
+                  />
+                ) : (
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
+                    <WalletGlyph />
+                  </span>
+                )}
+                <div className="min-w-0">
+                  <p id={titleId} className="truncate text-sm font-medium text-white">
+                    {profileName || shortenAddress(account)}
+                  </p>
+                  <p id={descriptionId} className="truncate text-xs text-zinc-500">
+                    {dictionary.productTagline}
+                  </p>
+                </div>
               </div>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={() => setOpen(false)}
+                className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-zinc-300 transition hover:bg-white/5"
+              >
+                {dictionary.actions.cancel}
+              </button>
             </div>
 
             <div className="space-y-4">

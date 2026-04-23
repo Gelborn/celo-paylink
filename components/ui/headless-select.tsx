@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useId } from "react";
 
 export type HeadlessSelectOption = {
   value: string;
@@ -28,117 +28,49 @@ export function HeadlessSelect({
   triggerClassName?: string;
   align?: "left" | "right";
 }) {
-  const [open, setOpen] = useState(false);
-  const rootRef = useRef<HTMLDivElement | null>(null);
-
-  const selected = useMemo(
-    () => options.find((option) => option.value === value),
-    [options, value]
-  );
-
-  useEffect(() => {
-    function handlePointerDown(event: MouseEvent) {
-      if (!rootRef.current?.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    }
-
-    function handleEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handlePointerDown);
-    document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.removeEventListener("mousedown", handlePointerDown);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, []);
+  const selectId = useId();
+  const selected = options.find((option) => option.value === value);
+  const accessibleLabel = label || placeholder || "Select an option";
 
   return (
-    <div className={clsx("space-y-2", className)} ref={rootRef}>
+    <div className={clsx("space-y-2", className)}>
       {label ? (
-        <span className="block text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+        <label
+          htmlFor={selectId}
+          className="block text-xs font-medium uppercase tracking-[0.16em] text-zinc-500"
+        >
           {label}
-        </span>
+        </label>
       ) : null}
 
       <div className="relative">
-        <button
-          type="button"
-          aria-expanded={open}
-          onClick={() => setOpen((current) => !current)}
+        <select
+          id={selectId}
+          aria-label={accessibleLabel}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
           className={clsx(
-            "flex min-h-12 w-full items-center justify-between rounded-2xl border border-white/10 bg-zinc-900 px-4 py-3 text-left transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20",
+            "min-h-12 w-full appearance-none rounded-2xl border border-white/12 bg-[linear-gradient(180deg,rgba(24,24,27,0.92),rgba(15,15,18,0.94))] px-4 py-3 pr-11 text-sm text-white transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]",
             triggerClassName
           )}
         >
-          <div className="min-w-0">
-            <p className="truncate text-sm font-medium text-white">
-              {selected?.label || placeholder || ""}
-            </p>
-            {selected?.description ? (
-              <p className="mt-1 truncate text-xs text-zinc-500">
-                {selected.description}
-              </p>
-            ) : null}
-          </div>
-          <span
-            aria-hidden="true"
-            className={clsx(
-              "ml-4 h-2.5 w-2.5 shrink-0 rotate-45 border-b border-r border-zinc-500 transition-transform",
-              open ? "-translate-y-[1px] -rotate-135" : "translate-y-[-1px]"
-            )}
-          />
-        </button>
-
-        {open ? (
-          <div
-            className={clsx(
-              "absolute z-40 mt-2 w-full min-w-[15rem] rounded-2xl border border-white/10 bg-zinc-950 p-2 shadow-[0_24px_80px_rgba(0,0,0,0.45)]",
-              align === "right" ? "right-0" : "left-0"
-            )}
-            role="listbox"
-          >
-            {options.map((option) => {
-              const active = option.value === value;
-
-              return (
-                <button
-                  key={option.value}
-                  type="button"
-                  role="option"
-                  aria-selected={active}
-                  onClick={() => {
-                    onChange(option.value);
-                    setOpen(false);
-                  }}
-                  className={clsx(
-                    "flex w-full flex-col rounded-xl px-3 py-3 text-left transition",
-                    active
-                      ? "bg-white text-zinc-950"
-                      : "text-zinc-200 hover:bg-white/5"
-                  )}
-                >
-                  <span className="text-sm font-medium">{option.label}</span>
-                  {option.description ? (
-                    <span
-                      className={clsx(
-                        "mt-1 text-xs",
-                        active ? "text-zinc-700" : "text-zinc-500"
-                      )}
-                    >
-                      {option.description}
-                    </span>
-                  ) : null}
-                </button>
-              );
-            })}
-          </div>
-        ) : null}
+          {!selected && placeholder ? (
+            <option value="" disabled>
+              {placeholder}
+            </option>
+          ) : null}
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.description
+                ? `${option.label} — ${option.description}`
+                : option.label}
+            </option>
+          ))}
+        </select>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-4 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-b border-r border-zinc-500"
+        />
       </div>
     </div>
   );

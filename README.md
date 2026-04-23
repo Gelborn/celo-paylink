@@ -6,6 +6,13 @@ Create a public page, add your handle and avatar, and receive stablecoin payment
 
 `/u/user?amount=5&ref=coffee`
 
+## Mainnet Status
+
+- The app is ready to run against Celo mainnet.
+- Set `NEXT_PUBLIC_DEFAULT_CHAIN=celo` for production builds.
+- Set `NEXT_PUBLIC_APP_URL` to the deployed public origin before building.
+- Populate the mainnet contract address and deployment block so public routes, receipts, and payment history resolve against the live contract.
+
 ## Product
 
 - [MiniPay quickstart](https://docs.celo.org/build-on-celo/build-on-minipay/quickstart)
@@ -78,6 +85,18 @@ npm run typecheck
 npm run dev
 ```
 
+## Production Configuration
+
+These values should be set explicitly for a public deployment:
+
+- `NEXT_PUBLIC_APP_URL`: canonical public origin used by metadata, receipts, robots, and sitemap output.
+- `NEXT_PUBLIC_DEFAULT_CHAIN`: `celo` for mainnet, `celoSepolia` for testing.
+- `NEXT_PUBLIC_CONTRACT_ADDRESS_MAINNET`: deployed `PayLinkProfile` address on Celo mainnet.
+- `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_MAINNET`: deployment block used to bound event reads for payment history.
+- `NEXT_PUBLIC_CELO_MAINNET_RPC_URL`: browser-safe mainnet RPC endpoint.
+
+Do not leave `NEXT_PUBLIC_APP_URL=http://localhost:3000` in a production build.
+
 ## Deploy
 
 Deploy to Celo Sepolia:
@@ -112,6 +131,12 @@ npm run verify:mainnet
 - `PAYLINK_CONTRACT_ADDRESS_*` is used by the verification and seeding scripts.
 - Do not rely on private `CELO_*` values as fallbacks for browser config.
 
+## Wallet Support
+
+- Primary target: MiniPay on Celo.
+- Any injected wallet that can switch to Celo, approve ERC-20 allowances, and submit contract writes can exercise the same profile and payment flows.
+- Public payment pages, success receipts, and recent payments are designed to work without a backend or indexer.
+
 ## Release Checks
 
 Run this before pushing public changes:
@@ -141,6 +166,12 @@ From the current Celo docs:
   - `USDm`: `0xdE9e4C3ce781b4bA68120d6261cbad65ce0aB00b`
   - `USDC`: `0x01C5C0122039549AD1493B8220cABEdD739BC44E`
   - `USD₮`: `0xd077A400968890Eacc75cdc901F0356c943e4fDb`
+
+## Public Repo Notes
+
+- The repo includes CI, Dependabot, `SECURITY.md`, and explicit public/private env separation.
+- `robots.ts` disallows private routes such as `/my` and `/success`.
+- `sitemap.ts` publishes the canonical app origin for search engines.
 
 ## Docs
 

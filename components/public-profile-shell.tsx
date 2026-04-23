@@ -14,6 +14,7 @@ import {
   sanitizeCurrencyInput,
   shortenAddress
 } from "../lib/format";
+import { shareOrCopyUrl } from "../lib/share";
 import { useMiniPay } from "../lib/minipay";
 import { getSupportedTokens, getTokenByAddress, getTokenFromQuery } from "../lib/tokens";
 import {
@@ -35,6 +36,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { EmptyState } from "./ui/empty-state";
+import { FeedbackMessage } from "./ui/feedback-message";
 import { Input } from "./ui/input";
 import { SectionHeader } from "./ui/section-header";
 import { TokenPicker } from "./token-picker";
@@ -113,6 +115,9 @@ export function PublicProfileShell({
   );
   const [paymentStage, setPaymentStage] = useState<PaymentStage>(null);
   const [paymentResult, setPaymentResult] = useState<PaymentResult | null>(null);
+  const [shareStatus, setShareStatus] = useState<
+    "idle" | "copied" | "shared" | "error"
+  >("idle");
   const tokens = getSupportedTokens(initialChainId);
   const contractAddress = resolveContractAddressForChain(
     initialChainId,
@@ -247,6 +252,14 @@ export function PublicProfileShell({
     token: selectedToken?.symbol || "",
     reference
   };
+  const trustItems = [
+    dictionary.home.trustStatements[0],
+    dictionary.home.trustStatements[1],
+    dictionary.home.trustStatements[2],
+    interpolate(dictionary.messages.supportsTokens, {
+      tokens: tokens.map((token) => token.symbol).join(", ")
+    })
+  ];
   const parsedAmount = (() => {
     if (!selectedToken || !amount) {
       return null;
@@ -301,13 +314,17 @@ export function PublicProfileShell({
 
   async function handleSharePublicPage() {
     try {
-      if (navigator.share) {
-        await navigator.share({ url: publicUrl });
+      const nextStatus = await shareOrCopyUrl(publicUrl);
+      setShareStatus(nextStatus);
+      window.setTimeout(() => setShareStatus("idle"), 1600);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
         return;
       }
 
-      await navigator.clipboard.writeText(publicUrl);
-    } catch {}
+      setShareStatus("error");
+      window.setTimeout(() => setShareStatus("idle"), 2200);
+    }
   }
 
   async function handlePay() {
@@ -512,7 +529,7 @@ export function PublicProfileShell({
                 </div>
 
                 {txHash ? (
-                    <Link
+                  <Link
                     href={`${getExplorerBaseUrl(initialChainId)}/tx/${txHash}`}
                     target="_blank"
                     rel="noreferrer"
@@ -604,7 +621,7 @@ export function PublicProfileShell({
 
               <div className="space-y-3">
                 <Link
-                    href={`${getExplorerBaseUrl(initialChainId)}/tx/${paymentResult.txHash}`}
+                  href={`${getExplorerBaseUrl(initialChainId)}/tx/${paymentResult.txHash}`}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex text-sm text-zinc-300 underline underline-offset-4"
@@ -679,8 +696,20 @@ export function PublicProfileShell({
                 </div>
               ) : null}
 
+              <div className="grid gap-3 md:grid-cols-2">
+                {trustItems.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[1.4rem] border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+
               {isOwner ? (
-                <div className="grid gap-3 sm:grid-cols-2">
+                <div className="space-y-4">
+                  <div className="grid gap-3 sm:grid-cols-2">
                   <Link href="/my" className="block">
                     <Button className="w-full">{dictionary.actions.openDashboard}</Button>
                   </Link>
@@ -690,9 +719,21 @@ export function PublicProfileShell({
                     onClick={() => {
                       void handleSharePublicPage();
                     }}
+                    >
+                      {dictionary.actions.shareProfile}
+                    </Button>
+                  </div>
+                  <FeedbackMessage
+                    tone={shareStatus === "error" ? "error" : "success"}
                   >
-                    {dictionary.actions.shareProfile}
-                  </Button>
+                    {shareStatus === "copied"
+                      ? dictionary.messages.linkCopied
+                      : shareStatus === "shared"
+                        ? dictionary.messages.shareOpened
+                        : shareStatus === "error"
+                          ? dictionary.messages.shareFailed
+                          : null}
+                  </FeedbackMessage>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -741,6 +782,8 @@ export function PublicProfileShell({
                         size="lg"
                         onClick={() => setIsPaymentPanelOpen(true)}
                         disabled={isWrongChain}
+                        aria-expanded={isPaymentPanelOpen}
+                        aria-controls="paylink-payment-panel"
                       >
                         {dictionary.actions.payCreator}
                       </Button>
@@ -756,8 +799,31 @@ export function PublicProfileShell({
                     </div>
                   )}
 
+                  <FeedbackMessage
+                    tone={shareStatus === "error" ? "error" : "success"}
+                  >
+                    {shareStatus === "copied"
+                      ? dictionary.messages.linkCopied
+                      : shareStatus === "shared"
+                        ? dictionary.messages.shareOpened
+                        : shareStatus === "error"
+                          ? dictionary.messages.shareFailed
+                          : null}
+                  </FeedbackMessage>
+
                   {isPaymentPanelOpen ? (
-                    <div className="space-y-5 rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5">
+                    <div
+                      id="paylink-payment-panel"
+                      className="space-y-5 rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5"
+                    >
+                      <div className="space-y-2">
+                        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                          {dictionary.publicPage.invoiceSummary}
+                        </p>
+                        <p className="text-sm leading-7 text-zinc-400">
+                          {dictionary.messages.shareHint}
+                        </p>
+                      </div>
                       <div>
                         <p className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
                           {dictionary.fields.amount}
@@ -804,9 +870,9 @@ export function PublicProfileShell({
                       <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4 text-sm text-zinc-400">
                         <p>{dictionary.labels.payingFrom}</p>
                         <p className="mt-2 text-white">
-                            {account
-                              ? shortenAddress(account)
-                              : dictionary.labels.notConnected}
+                          {account
+                            ? shortenAddress(account)
+                            : dictionary.labels.notConnected}
                         </p>
                         {balance !== null && selectedToken ? (
                           <p className="mt-2">
@@ -854,7 +920,9 @@ export function PublicProfileShell({
                         </Button>
                       </div>
 
-                      {status ? <p className="text-sm text-zinc-400">{status}</p> : null}
+                      <FeedbackMessage tone={status ? "error" : "muted"}>
+                        {status}
+                      </FeedbackMessage>
                       {txHash ? (
                         <Link
                           href={`${getExplorerBaseUrl(initialChainId)}/tx/${txHash}`}

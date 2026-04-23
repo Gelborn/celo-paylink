@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { useState } from "react";
 import type { Hex } from "viem";
 import { buildShareUrl } from "../lib/format";
+import { copyTextToClipboard } from "../lib/share";
 import { useOwnerState } from "../lib/use-owner-state";
 import { Header } from "./header";
 import { HomeDemo } from "./home-demo";
@@ -12,6 +14,7 @@ import { Avatar } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { FeedbackMessage } from "./ui/feedback-message";
 
 function AccentBadge({
   children
@@ -33,7 +36,7 @@ function ProofCard({
   label: string;
 }) {
   return (
-    <Card className="h-full border-white/10 bg-[color:var(--panel-muted)]">
+    <Card className="h-full border-transparent bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))] ring-1 ring-black/30">
       <CardContent className="flex h-full flex-col px-5 pb-5 pt-5">
         <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
           {String(index + 1).padStart(2, "0")}
@@ -54,7 +57,7 @@ function StepCard({
   description: string;
 }) {
   return (
-    <Card className="h-full border-white/10 bg-[color:var(--panel-muted)]">
+    <Card className="h-full border-transparent bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))] ring-1 ring-black/30">
       <CardContent className="h-full space-y-5 px-6 pb-6 pt-6">
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-sm font-semibold text-[color:var(--accent)]">
           {String(index + 1).padStart(2, "0")}
@@ -81,6 +84,7 @@ export function HomeShell({
   };
 }) {
   const { dictionary } = useLocale();
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
   const {
     account,
     chainId,
@@ -122,7 +126,7 @@ export function HomeShell({
       {account && profile ? (
         <section className="landing-section space-y-6">
           <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-            <Card className="overflow-hidden border-[color:var(--accent-line)] bg-[color:var(--panel-elevated)]">
+            <Card className="overflow-hidden border-transparent bg-[linear-gradient(180deg,rgba(18,20,22,0.98),rgba(11,12,14,0.92))] shadow-[var(--accent-shadow),0_28px_80px_rgba(0,0,0,0.34)] ring-1 ring-[color:var(--accent-line)]">
               <CardContent className="space-y-8 px-8 py-8 md:px-10 md:py-10">
                 <div className="flex flex-wrap items-center gap-3">
                   <AccentBadge>{dictionary.labels.profileLive}</AccentBadge>
@@ -184,17 +188,43 @@ export function HomeShell({
                       variant="outline"
                       size="lg"
                       onClick={async () => {
-                        await navigator.clipboard.writeText(publicUrl);
+                        try {
+                          await copyTextToClipboard(publicUrl);
+                          setCopyStatus("copied");
+                          window.setTimeout(() => setCopyStatus("idle"), 1600);
+                        } catch {
+                          setCopyStatus("error");
+                          window.setTimeout(() => setCopyStatus("idle"), 2200);
+                        }
                       }}
                     >
                       {dictionary.actions.copyProfile}
                     </Button>
                   ) : null}
                 </div>
+
+                <FeedbackMessage tone={copyStatus === "error" ? "error" : "success"}>
+                  {copyStatus === "copied"
+                    ? dictionary.messages.linkCopied
+                    : copyStatus === "error"
+                      ? dictionary.messages.copyFailed
+                      : null}
+                </FeedbackMessage>
+
+                <div className="grid gap-3 md:grid-cols-3">
+                  {dictionary.home.trustStatements.map((statement) => (
+                    <div
+                      key={statement}
+                      className="rounded-[1.4rem] border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200"
+                    >
+                      {statement}
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="border-white/10 bg-[color:var(--panel-muted)]">
+            <Card className="border-transparent bg-[linear-gradient(180deg,rgba(22,24,25,0.94),rgba(14,15,17,0.88))] ring-1 ring-black/30">
               <CardHeader className="px-7 pt-7">
                 <CardTitle>{dictionary.dashboard.quickActions}</CardTitle>
                 <CardDescription>{dictionary.productTagline}</CardDescription>
@@ -346,7 +376,7 @@ export function HomeShell({
           </section>
 
           <section className="landing-section">
-            <Card className="landing-cta-surface overflow-hidden border-[color:var(--accent-line)]">
+            <Card className="landing-cta-surface overflow-hidden border-transparent shadow-[var(--accent-shadow),0_28px_90px_rgba(0,0,0,0.34)] ring-1 ring-[color:var(--accent-line)]">
               <CardContent className="space-y-8 px-6 py-8 md:px-10 md:py-10">
                 <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
                   <div className="space-y-4">
