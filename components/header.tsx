@@ -201,7 +201,7 @@ export function Header({
             }}
           >
             <div className="mb-6 flex items-start justify-between gap-3">
-              <div className="flex items-center gap-3">
+              <div className="flex min-w-0 flex-1 items-center gap-3">
                 {profileImageUrl ? (
                   <Avatar
                     name={profileName || account}
@@ -209,7 +209,7 @@ export function Header({
                     size="sm"
                   />
                 ) : (
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
                     <WalletGlyph />
                   </span>
                 )}
@@ -217,7 +217,10 @@ export function Header({
                   <p id={titleId} className="truncate text-sm font-medium text-white">
                     {profileName || shortenAddress(account)}
                   </p>
-                  <p id={descriptionId} className="truncate text-xs text-zinc-500">
+                  <p
+                    id={descriptionId}
+                    className="line-clamp-2 text-xs leading-5 text-zinc-500"
+                  >
                     {dictionary.productTagline}
                   </p>
                 </div>
@@ -226,7 +229,7 @@ export function Header({
                 ref={closeButtonRef}
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-zinc-300 transition hover:bg-white/5"
+                className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-zinc-300 transition hover:bg-white/5"
               >
                 {dictionary.actions.cancel}
               </button>
