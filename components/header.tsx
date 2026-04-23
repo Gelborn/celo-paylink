@@ -79,7 +79,6 @@ export function Header({
   const { dictionary } = useLocale();
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
-  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const titleId = useId();
   const descriptionId = useId();
@@ -96,7 +95,7 @@ export function Header({
       return;
     }
 
-    closeButtonRef.current?.focus();
+    panelRef.current?.focus();
   }, [open]);
 
   return (
@@ -110,7 +109,7 @@ export function Header({
           <button
             ref={triggerRef}
             type="button"
-            onClick={() => setOpen(true)}
+            onClick={() => setOpen((current) => !current)}
             className="rounded-full border border-white/10 bg-zinc-950/80 p-1.5 transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
             aria-label={shortenAddress(account)}
             aria-haspopup="dialog"
@@ -158,50 +157,51 @@ export function Header({
 
       {open && account ? (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-end bg-black/70 p-4 md:p-6"
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
           onClick={() => setOpen(false)}
         >
-          <div
-            ref={panelRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
-            aria-describedby={descriptionId}
-            className="w-full max-w-sm rounded-[28px] border border-white/10 bg-zinc-950 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
-            onClick={(event) => event.stopPropagation()}
-            onKeyDown={(event) => {
-              if (event.key === "Escape") {
-                setOpen(false);
-                return;
-              }
+          <div className="flex h-full items-start justify-end p-4 md:p-6">
+            <div
+              ref={panelRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
+              aria-describedby={descriptionId}
+              tabIndex={-1}
+              className="w-full max-w-sm rounded-[28px] border border-white/10 bg-zinc-950 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
+              onClick={(event) => event.stopPropagation()}
+              onKeyDown={(event) => {
+                if (event.key === "Escape") {
+                  setOpen(false);
+                  return;
+                }
 
-              if (event.key !== "Tab") {
-                return;
-              }
+                if (event.key !== "Tab") {
+                  return;
+                }
 
-              const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
-                'button:not([disabled]), [href], select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-              );
+                const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
+                  'button:not([disabled]), [href], select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                );
 
-              if (!focusable || focusable.length === 0) {
-                event.preventDefault();
-                return;
-              }
+                if (!focusable || focusable.length === 0) {
+                  event.preventDefault();
+                  return;
+                }
 
-              const first = focusable[0];
-              const last = focusable[focusable.length - 1];
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
 
-              if (event.shiftKey && document.activeElement === first) {
-                event.preventDefault();
-                last.focus();
-              } else if (!event.shiftKey && document.activeElement === last) {
-                event.preventDefault();
-                first.focus();
-              }
-            }}
-          >
-            <div className="mb-6 flex items-start justify-between gap-3">
-              <div className="flex min-w-0 flex-1 items-center gap-3">
+                if (event.shiftKey && document.activeElement === first) {
+                  event.preventDefault();
+                  last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                  event.preventDefault();
+                  first.focus();
+                }
+              }}
+            >
+              <div className="mb-6 flex min-w-0 items-start gap-3">
                 {profileImageUrl ? (
                   <Avatar
                     name={profileName || account}
@@ -225,40 +225,32 @@ export function Header({
                   </p>
                 </div>
               </div>
-              <button
-                ref={closeButtonRef}
-                type="button"
-                onClick={() => setOpen(false)}
-                className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-zinc-300 transition hover:bg-white/5"
-              >
-                {dictionary.actions.cancel}
-              </button>
-            </div>
 
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
-                <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                  {dictionary.labels.connectedWallet}
-                </p>
-                <p className="mt-2 break-all text-sm text-white">{account}</p>
-                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                  {dictionary.labels.network}
-                </p>
-                <p className="mt-2 text-sm text-zinc-300">{getChainLabel(chainId)}</p>
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                    {dictionary.labels.connectedWallet}
+                  </p>
+                  <p className="mt-2 break-all text-sm text-white">{account}</p>
+                  <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                    {dictionary.labels.network}
+                  </p>
+                  <p className="mt-2 text-sm text-zinc-300">{getChainLabel(chainId)}</p>
+                </div>
+
+                <LanguageSwitcher />
+
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => {
+                    onDisconnect();
+                    setOpen(false);
+                  }}
+                >
+                  {dictionary.actions.disconnectWallet}
+                </Button>
               </div>
-
-              <LanguageSwitcher />
-
-              <Button
-                variant="outline"
-                className="w-full"
-                onClick={() => {
-                  onDisconnect();
-                  setOpen(false);
-                }}
-              >
-                {dictionary.actions.disconnectWallet}
-              </Button>
             </div>
           </div>
         </div>
