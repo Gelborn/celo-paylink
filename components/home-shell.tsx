@@ -36,7 +36,7 @@ function ProofCard({
   label: string;
 }) {
   return (
-    <Card className="h-full border-transparent bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))] ring-1 ring-black/30">
+    <Card className="h-full border-white/10 bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))]">
       <CardContent className="flex h-full flex-col px-5 pb-5 pt-5">
         <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
           {String(index + 1).padStart(2, "0")}
@@ -57,7 +57,7 @@ function StepCard({
   description: string;
 }) {
   return (
-    <Card className="h-full border-transparent bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))] ring-1 ring-black/30">
+    <Card className="h-full border-white/10 bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))]">
       <CardContent className="h-full space-y-5 px-6 pb-6 pt-6">
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-sm font-semibold text-[color:var(--accent)]">
           {String(index + 1).padStart(2, "0")}
@@ -107,7 +107,7 @@ export function HomeShell({
     hasProvider && !account && (!isMiniPay || isDisconnectedByUser);
 
   return (
-    <main className="space-y-16 pb-16 md:space-y-20 md:pb-24">
+    <main className="space-y-12 pb-14 md:space-y-16 md:pb-20">
       <Header
         account={account}
         chainId={chainId}
@@ -125,8 +125,8 @@ export function HomeShell({
 
       {account && profile ? (
         <section className="landing-section space-y-6">
-          <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-            <Card className="overflow-hidden border-transparent bg-[linear-gradient(180deg,rgba(18,20,22,0.98),rgba(11,12,14,0.92))] shadow-[var(--accent-shadow),0_28px_80px_rgba(0,0,0,0.34)] ring-1 ring-[color:var(--accent-line)]">
+          <div className="grid min-w-0 gap-6 lg:grid-cols-[1.08fr_0.92fr]">
+            <Card className="overflow-hidden border-[color:var(--accent-line)] bg-[linear-gradient(180deg,rgba(18,20,22,0.98),rgba(11,12,14,0.92))] shadow-[var(--accent-shadow),0_22px_64px_rgba(0,0,0,0.28)]">
               <CardContent className="space-y-8 px-8 py-8 md:px-10 md:py-10">
                 <div className="flex flex-wrap items-center gap-3">
                   <AccentBadge>{dictionary.labels.profileLive}</AccentBadge>
@@ -156,11 +156,11 @@ export function HomeShell({
                     {dictionary.home.summaryDescription}
                   </p>
                   <p className="max-w-2xl text-sm leading-7 text-zinc-500">
-                    {dictionary.messages.shareHint}
+                    {dictionary.dashboard.profileShareHint}
                   </p>
                 </div>
 
-                <div className="rounded-[1.75rem] border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-5 py-5">
+                <div className="rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-5 py-5">
                   <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
                     {dictionary.fields.publicLink}
                   </p>
@@ -169,17 +169,17 @@ export function HomeShell({
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/my">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <Link href="/my" className="w-full sm:w-auto">
                     <Button
                       size="lg"
-                      className="border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_20px_50px_rgba(54,214,126,0.22)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+                      className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] sm:w-auto"
                     >
                       {dictionary.actions.openDashboard}
                     </Button>
                   </Link>
-                  <Link href={`/u/${profile.handle}`}>
-                    <Button variant="outline" size="lg">
+                  <Link href={`/u/${profile.handle}`} className="w-full sm:w-auto">
+                    <Button variant="outline" size="lg" className="w-full sm:w-auto">
                       {dictionary.actions.openPublicPage}
                     </Button>
                   </Link>
@@ -187,6 +187,7 @@ export function HomeShell({
                     <Button
                       variant="outline"
                       size="lg"
+                      className="w-full sm:w-auto"
                       onClick={async () => {
                         try {
                           await copyTextToClipboard(publicUrl);
@@ -215,7 +216,7 @@ export function HomeShell({
                   {dictionary.home.trustStatements.map((statement) => (
                     <div
                       key={statement}
-                      className="rounded-[1.4rem] border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200"
+                      className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200"
                     >
                       {statement}
                     </div>
@@ -224,13 +225,13 @@ export function HomeShell({
               </CardContent>
             </Card>
 
-            <Card className="border-transparent bg-[linear-gradient(180deg,rgba(22,24,25,0.94),rgba(14,15,17,0.88))] ring-1 ring-black/30">
+            <Card className="border-white/10 bg-[linear-gradient(180deg,rgba(22,24,25,0.94),rgba(14,15,17,0.88))]">
               <CardHeader className="px-7 pt-7">
                 <CardTitle>{dictionary.dashboard.quickActions}</CardTitle>
                 <CardDescription>{dictionary.productTagline}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 px-7 pb-7">
-                <div className="rounded-[1.6rem] border border-white/10 bg-zinc-950/80 px-5 py-5">
+                <div className="rounded-lg border border-white/10 bg-zinc-950/80 px-5 py-5">
                   <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                     {dictionary.actions.createChargeLink}
                   </p>
@@ -239,7 +240,7 @@ export function HomeShell({
                   </p>
                 </div>
 
-                <div className="rounded-[1.6rem] border border-white/10 bg-zinc-950/80 px-5 py-5">
+                <div className="rounded-lg border border-white/10 bg-zinc-950/80 px-5 py-5">
                   <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                     {dictionary.dashboard.transactionsSection}
                   </p>
@@ -267,28 +268,28 @@ export function HomeShell({
       ) : (
         <>
           <section className="landing-section">
-            <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
-              <div className="space-y-8">
+            <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.82fr)] lg:items-center">
+              <div className="min-w-0 space-y-7">
                 <div className="space-y-5">
                   <AccentBadge>{dictionary.home.eyebrow}</AccentBadge>
                   <div className="space-y-4">
-                    <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white md:text-6xl md:leading-[1.02]">
+                    <h1 className="max-w-3xl text-[2.65rem] font-semibold leading-[1.04] tracking-tight text-white sm:text-5xl md:text-6xl md:leading-[1.02]">
                       {dictionary.home.title}
                     </h1>
-                    <p className="max-w-2xl text-lg leading-8 text-zinc-300 md:text-xl">
+                    <p className="max-w-2xl text-base leading-7 text-zinc-300 sm:text-lg md:text-xl md:leading-8">
                       {dictionary.home.description}
                     </p>
-                    <p className="max-w-xl text-sm leading-7 text-zinc-500 md:text-base">
+                    <p className="max-w-xl text-sm leading-7 text-zinc-500">
                       {dictionary.home.heroSupport}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/my">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <Link href="/my" className="w-full sm:w-auto">
                     <Button
                       size="lg"
-                      className="border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_20px_50px_rgba(54,214,126,0.22)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+                      className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] sm:w-auto"
                     >
                       {dictionary.actions.createProfile}
                     </Button>
@@ -297,6 +298,7 @@ export function HomeShell({
                     <Button
                       variant="outline"
                       size="lg"
+                      className="w-full sm:w-auto"
                       onClick={() => {
                         void connect();
                       }}
@@ -308,23 +310,23 @@ export function HomeShell({
                   ) : null}
                 </div>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex max-w-full flex-wrap gap-2.5">
                   {dictionary.home.heroChips.map((chip) => (
                     <span
                       key={chip}
-                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-200"
+                      className="max-w-full rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-zinc-200"
                     >
                       {chip}
                     </span>
                   ))}
                 </div>
 
-                <p className="max-w-2xl text-sm leading-7 text-zinc-500">
+                <p className="max-w-xl text-sm leading-7 text-zinc-500">
                   {dictionary.home.connectHint}
                 </p>
               </div>
 
-              <div className="lg:pl-6">
+              <div className="min-w-0 overflow-hidden pt-2 lg:pl-3">
                 <HomeDemo caption={dictionary.home.demoCaption} />
               </div>
             </div>
@@ -376,7 +378,7 @@ export function HomeShell({
           </section>
 
           <section className="landing-section">
-            <Card className="landing-cta-surface overflow-hidden border-transparent shadow-[var(--accent-shadow),0_28px_90px_rgba(0,0,0,0.34)] ring-1 ring-[color:var(--accent-line)]">
+            <Card className="landing-cta-surface overflow-hidden border-[color:var(--accent-line)] shadow-[var(--accent-shadow),0_22px_64px_rgba(0,0,0,0.28)]">
               <CardContent className="space-y-8 px-6 py-8 md:px-10 md:py-10">
                 <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
                   <div className="space-y-4">
@@ -391,11 +393,11 @@ export function HomeShell({
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
-                    <Link href="/my">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <Link href="/my" className="w-full sm:w-auto">
                       <Button
                         size="lg"
-                        className="border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_20px_50px_rgba(54,214,126,0.22)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)]"
+                        className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] sm:w-auto"
                       >
                         {dictionary.actions.createProfile}
                       </Button>
@@ -404,6 +406,7 @@ export function HomeShell({
                       <Button
                         variant="outline"
                         size="lg"
+                        className="w-full sm:w-auto"
                         onClick={() => {
                           void connect();
                         }}
@@ -420,7 +423,7 @@ export function HomeShell({
                   {dictionary.home.trustStatements.map((statement) => (
                     <div
                       key={statement}
-                      className="rounded-[1.4rem] border border-white/10 bg-black/20 px-4 py-4 text-sm text-zinc-200"
+                      className="rounded-lg border border-white/10 bg-black/20 px-4 py-4 text-sm text-zinc-200"
                     >
                       {statement}
                     </div>

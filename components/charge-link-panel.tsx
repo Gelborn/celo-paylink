@@ -48,7 +48,7 @@ export function ChargeLinkPanel({
     <div className="space-y-5 overflow-hidden">
       <div>
         <p className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-          {dictionary.fields.amount}
+          {dictionary.fields.suggestedAmounts}
         </p>
         <AmountPresets
           values={[5, 15, 25, 50]}
@@ -103,7 +103,7 @@ export function ChargeLinkPanel({
     <Card>
       <CardHeader>
         <CardTitle>{dictionary.dashboard.chargeSection}</CardTitle>
-        <CardDescription>{dictionary.messages.shareHint}</CardDescription>
+        <CardDescription>{dictionary.dashboard.chargeLinkHint}</CardDescription>
       </CardHeader>
       <CardContent>{content}</CardContent>
     </Card>

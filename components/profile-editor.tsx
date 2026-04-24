@@ -398,7 +398,7 @@ export function ProfileEditor({
             label={dictionary.fields.preferredToken}
             selectedAddress={form.preferredToken}
             options={tokens}
-            className={invalidFields.preferredToken ? "rounded-2xl ring-1 ring-red-400/70" : undefined}
+            className={invalidFields.preferredToken ? "rounded-xl ring-1 ring-red-400/70" : undefined}
             onChange={(address) =>
               setForm((current) => ({
                 ...current,

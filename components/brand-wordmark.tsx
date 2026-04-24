@@ -68,7 +68,7 @@ export function BrandWordmark({
       className={clsx("inline-flex items-center gap-2", className)}
     >
       <BrandGlyph className="h-5 w-5 md:h-6 md:w-6" />
-      <span className="text-[1.15rem] font-semibold tracking-[-0.05em] text-white md:text-[1.3rem]">
+      <span className="text-[1.15rem] font-semibold tracking-normal text-white md:text-[1.3rem]">
         PayLink
       </span>
     </Link>

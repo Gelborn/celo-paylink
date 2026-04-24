@@ -81,6 +81,8 @@ export type Dictionary = {
     quickActions: string;
     quickActionChargeDescription: string;
     quickActionTransactionsDescription: string;
+    profileShareHint: string;
+    chargeLinkHint: string;
     profileSection: string;
     chargeSection: string;
     transactionsSection: string;
@@ -94,7 +96,9 @@ export type Dictionary = {
     visitorDescription: string;
     invoiceEyebrow: string;
     invoiceDescription: string;
-    invoiceSummary: string;
+    paymentFormTitle: string;
+    paymentFormDescription: string;
+    requestSummaryLabel: string;
     missingTitle: string;
     missingDescription: string;
     noContractTitle: string;
@@ -117,6 +121,7 @@ export type Dictionary = {
     amount: string;
     note: string;
     token: string;
+    suggestedAmounts: string;
     publicLink: string;
     chargeLink: string;
   };
@@ -180,7 +185,6 @@ export type Dictionary = {
       confirmingApproval: string;
       sending: string;
       openingReceipt: string;
-      shareHint: string;
       linkCopied: string;
       shareOpened: string;
       copyFailed: string;
@@ -194,7 +198,7 @@ const dictionaries: Record<Locale, Dictionary> = {
   en: {
     languageName: "English",
     productName: "MiniPay PayLink",
-    productTagline: "One profile. One link. Direct stablecoin payments on Celo.",
+    productTagline: "One profile. One link. Direct payments on Celo.",
     nav: {
       home: "Home",
       dashboard: "Dashboard",
@@ -213,15 +217,15 @@ const dictionaries: Record<Locale, Dictionary> = {
       updateProfile: "Save changes",
       copyLink: "Copy link",
       copyProfile: "Copy profile link",
-      copyChargeLink: "Copy charge link",
+      copyChargeLink: "Copy request link",
       shareLink: "Share link",
       shareProfile: "Share profile",
-      createChargeLink: "Create charge link",
+      createChargeLink: "Create request link",
       openExplorer: "Open explorer",
       openPublicPage: "Open public page",
       payNow: "Pay now",
-      payCreator: "Make a payment to this creator",
-      shareCreatorLink: "Share this creator's link",
+      payCreator: "Send a payment",
+      shareCreatorLink: "Share this profile",
       viewProfile: "View profile",
       createYourOwn: "Create yours",
       backToProfile: "Back to profile",
@@ -230,58 +234,58 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     home: {
       eyebrow: "MiniPay payment profile",
-      title: "One link for tips, invoices, and direct stablecoin payments.",
+      title: "One link for payments, tips, and requests.",
       description:
-        "Create a public payment page, set your preferred token, and share a clean MiniPay-friendly link that works for freelancers, creators, and solo merchants.",
+        "Create a public payment profile, choose the token you want to receive, and share one clean link with clients, supporters, and customers.",
       heroSupport:
-        "No custody. No backend. Just a public profile and a faster way to get paid on Celo.",
+        "No custody. Just your profile, your wallet, and a faster way to get paid on Celo.",
       heroChips: [
-        "Direct stablecoin payments",
-        "Reusable charge links",
+        "Direct payments",
+        "Reusable request links",
         "Built for MiniPay"
       ],
       demoCaption:
-        "Real product flow: public pay page, send screen, and success receipt.",
+        "Real flow: public payment page, send screen, and receipt.",
       proofEyebrow: "Why it works",
       proofTitle: "Clear enough to trust at a glance.",
       proofDescription:
-        "PayLink keeps the product promise simple: one public page, direct transfer, and a visible onchain record.",
+        "PayLink keeps the promise simple: one public page, direct transfer, and a visible receipt.",
       proofChips: [
         "Funds go straight to the recipient",
-        "Prefilled amount and note in one link",
-        "Recent payments rendered from onchain events",
+        "Amount and reference in one link",
+        "Recent payments from onchain events",
         "Works with USDm, USDC, and USD₮"
       ],
       stepsEyebrow: "How it works",
       stepsTitle: "Set it once. Reuse it every time.",
       stepsDescription:
-        "The homepage should read in one scan, and the product flow should feel the same.",
+        "Create the profile once, then reuse the same link wherever people pay you.",
       steps: [
         {
           title: "Create your profile",
           description:
-            "Claim your handle, add your image and message, and choose the token you want to receive."
+            "Claim your handle, add your image and message, and choose your receiving token."
         },
         {
-          title: "Share a payment link",
+          title: "Share your link",
           description:
-            "Use your public page or prefill amount and note for tips, retainers, and lightweight invoices."
+            "Use your public page or prefill amount and reference for tips, deposits, and requests."
         },
         {
-          title: "Receive proof instantly",
+          title: "Keep the receipt",
           description:
-            "The payer gets a success screen and the payment can show back up on the public page from chain data."
+            "The payer gets a success screen, and the explorer link stays available as proof."
         }
       ],
       trustStatements: [
-        "Direct onchain transfer",
+        "Direct wallet transfer",
         "No platform custody",
         "Explorer receipt included"
       ],
       closingEyebrow: "Start now",
       closingTitle: "Publish your PayLink and make the next payment obvious.",
       closingDescription:
-        "Open the dashboard, create the profile, and share the same link anywhere you want to get paid.",
+        "Open the dashboard, create your profile, and share the same link anywhere you want to receive.",
       summaryTitle: "Your payment profile is live.",
       summaryDescription:
         "Use your public page, create charge links, and track incoming payments in one place.",
@@ -296,16 +300,20 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Claim your handle, add a profile image, and publish the payment page you want people to open.",
       descriptionWithProfile:
         "Edit your public profile, generate charge links, and review incoming payments.",
-      actionsTab: "Actions",
+      actionsTab: "Profile and links",
       manageTab: "Manage",
-      transactionsTab: "Transactions",
+      transactionsTab: "Payments",
       quickActions: "Quick actions",
       quickActionChargeDescription:
-        "Prefill amount and reference before you share your next payment request.",
+        "Set amount and reference before sharing your next payment request.",
       quickActionTransactionsDescription:
-        "Open your dashboard to review the latest incoming payments and explorer links.",
+        "Review incoming payments and their explorer receipts.",
+      profileShareHint:
+        "Share this profile anywhere you want to receive payments.",
+      chargeLinkHint:
+        "Create a payment request with amount, token, and reference already filled in.",
       profileSection: "Profile",
-      chargeSection: "Charge link",
+      chargeSection: "Request link",
       transactionsSection: "Incoming payments",
       emptyTransactions:
         "Payments will appear here after someone pays through your public page.",
@@ -316,13 +324,16 @@ const dictionaries: Record<Locale, Dictionary> = {
       ownerTitle: "This is your public payment page.",
       ownerDescription:
         "Share it directly or go back to the dashboard to edit your profile and build charge links.",
-      visitorTitle: "Pay this profile",
+      visitorTitle: "Send payment",
       visitorDescription:
-        "Open the payment flow or share this public page with someone else.",
+        "Choose the amount, confirm the token, and send from your wallet.",
       invoiceEyebrow: "Payment request",
       invoiceDescription:
-        "This link already includes payment details. Review the request and complete the transfer on Celo.",
-      invoiceSummary: "Invoice details",
+        "This link includes payment details. Review the request and complete the transfer on Celo.",
+      paymentFormTitle: "Payment",
+      paymentFormDescription:
+        "Choose the amount, confirm the token, and send from your wallet.",
+      requestSummaryLabel: "Request summary",
       missingTitle: "This profile does not exist yet.",
       missingDescription:
         "The handle has not been published yet. Create your own profile to start sharing payments.",
@@ -336,7 +347,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Payment sent",
       title: "Your payment was sent.",
       description:
-        "The transaction was sent through PayLink. Keep the explorer link as proof and reopen the public page after confirmation to see the latest payment activity."
+        "The transaction was sent. Use the explorer receipt as proof, then return to the profile to see the latest activity."
     },
     fields: {
       handle: "Handle",
@@ -348,8 +359,9 @@ const dictionaries: Record<Locale, Dictionary> = {
       amount: "Amount",
       note: "Note",
       token: "Token",
+      suggestedAmounts: "Suggested amounts",
       publicLink: "Public link",
-      chargeLink: "Charge link"
+      chargeLink: "Request link"
     },
     placeholders: {
       handle: "creator",
@@ -387,7 +399,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       couldNotSwitchNetwork: "Could not switch to {network}.",
       unsupportedNetwork: "Unsupported network ({chainId})",
       waitingConfirmation: "Waiting for confirmation...",
-      profilePublished: "Profile published onchain.",
+      profilePublished: "Profile published.",
       paymentComplete: "Payment complete.",
       connectBeforeSave: "Connect your wallet before saving your profile.",
       connectBeforePay: "Connect a wallet to complete the payment.",
@@ -407,9 +419,9 @@ const dictionaries: Record<Locale, Dictionary> = {
       profileLoading: "Loading your profile...",
       finishingProfile: "Publishing your profile...",
       confirmProfileInWallet:
-        "Review the profile transaction in your wallet, then wait while it is confirmed onchain.",
+        "Review the profile transaction in your wallet, then wait for confirmation.",
       syncingProfile:
-        "Updating your dashboard with the latest onchain profile data.",
+        "Updating your dashboard with the latest profile data.",
       wrongNetworkDescription:
         "Switch your wallet to the required network before creating or editing your PayLink profile.",
       wrongNetworkMiniPayDescription:
@@ -419,20 +431,18 @@ const dictionaries: Record<Locale, Dictionary> = {
       confirmingApproval: "Confirming token approval onchain...",
       sending: "Sending",
       openingReceipt: "Opening your receipt...",
-      shareHint:
-        "Use this link anywhere you want to receive direct MiniPay-friendly payments.",
       linkCopied: "Link copied to clipboard.",
       shareOpened: "Share sheet opened.",
       copyFailed: "Could not copy the link on this device.",
       shareFailed: "Could not share the link right now.",
-      loadingPayments: "Loading the latest onchain payments...",
-      supportsTokens: "Supports {tokens}."
+      loadingPayments: "Loading the latest payments...",
+      supportsTokens: "Accepts {tokens}."
     }
   },
   "pt-BR": {
     languageName: "Português",
     productName: "MiniPay PayLink",
-    productTagline: "Um perfil. Um link. Pagamentos em stablecoin direto na Celo.",
+    productTagline: "Um perfil. Um link. Pagamentos diretos na Celo.",
     nav: {
       home: "Início",
       dashboard: "Painel",
@@ -458,8 +468,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       openExplorer: "Ver no explorer",
       openPublicPage: "Ver página pública",
       payNow: "Pagar agora",
-      payCreator: "Pagar esse criador",
-      shareCreatorLink: "Compartilhar o link desse criador",
+      payCreator: "Enviar pagamento",
+      shareCreatorLink: "Compartilhar este perfil",
       viewProfile: "Ver perfil",
       createYourOwn: "Criar perfil",
       backToProfile: "Voltar ao perfil",
@@ -468,58 +478,58 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     home: {
       eyebrow: "Perfil de pagamento MiniPay",
-      title: "Um link para gorjetas, cobranças e pagamentos diretos em stablecoin.",
+      title: "Um link para receber pagamentos, gorjetas e cobranças.",
       description:
-        "Crie uma página pública, escolha o token que você quer receber e compartilhe um link limpo e pronto para MiniPay para freelas, criadores e pequenos negócios.",
+        "Crie um perfil de pagamento, escolha o token que você quer receber e compartilhe um link simples com clientes, apoiadores e compradores.",
       heroSupport:
-        "Sem custódia. Sem backend. Só um perfil público e um jeito mais rápido de receber na Celo.",
+        "Sem custódia. Só seu perfil, sua carteira e um jeito mais rápido de receber na Celo.",
       heroChips: [
-        "Pagamentos diretos em stablecoin",
+        "Pagamentos diretos",
         "Links de cobrança reutilizáveis",
         "Feito para MiniPay"
       ],
       demoCaption:
-        "Fluxo real do produto: página pública de pagamento, envio e comprovante final.",
+        "Fluxo real: página de pagamento, envio e comprovante.",
       proofEyebrow: "Por que funciona",
       proofTitle: "Claro o bastante para gerar confiança na primeira olhada.",
       proofDescription:
-        "O PayLink mantém a proposta simples: uma página pública, transferência direta e registro visível na rede.",
+        "O PayLink mantém a proposta simples: uma página pública, transferência direta e comprovante visível.",
       proofChips: [
         "Os fundos vão direto para o destinatário",
         "Valor e referência já preenchidos no mesmo link",
-        "Pagamentos recentes vindos de eventos onchain",
+        "Pagamentos recentes vindos da rede",
         "Funciona com USDm, USDC e USD₮"
       ],
       stepsEyebrow: "Como funciona",
       stepsTitle: "Configure uma vez. Reaproveite sempre.",
       stepsDescription:
-        "A homepage precisa ser entendida em uma passada, e o produto deve manter essa mesma clareza.",
+        "Crie o perfil uma vez e reutilize o mesmo link onde as pessoas pagam você.",
       steps: [
         {
           title: "Crie seu perfil",
           description:
-            "Escolha seu handle, adicione sua imagem e mensagem e defina o token que você quer receber."
+            "Escolha seu handle, adicione sua imagem e mensagem e defina o token de recebimento."
         },
         {
           title: "Compartilhe o link",
           description:
-            "Use sua página pública ou já envie valor e referência preenchidos para gorjetas, sinais e cobranças leves."
+            "Use sua página pública ou envie valor e referência preenchidos para gorjetas, sinais e cobranças."
         },
         {
-          title: "Receba o comprovante na hora",
+          title: "Guarde o comprovante",
           description:
-            "Quem paga vê a tela de sucesso e o pagamento pode aparecer de volta na sua página pública a partir dos dados onchain."
+            "Quem paga vê a tela de sucesso, e o link do explorer fica disponível como comprovante."
         }
       ],
       trustStatements: [
-        "Transferência direta onchain",
+        "Transferência direta",
         "Sem custódia da plataforma",
         "Comprovante no explorer"
       ],
       closingEyebrow: "Comece agora",
       closingTitle: "Publique seu PayLink e deixe o próximo pagamento óbvio.",
       closingDescription:
-        "Abra o painel, crie seu perfil e compartilhe o mesmo link em todo lugar onde você quer receber.",
+        "Abra o painel, crie seu perfil e compartilhe o mesmo link onde você quer receber.",
       summaryTitle: "Seu perfil de pagamentos está no ar.",
       summaryDescription:
         "Use sua página pública, gere links de cobrança e acompanhe os pagamentos em um só lugar.",
@@ -534,14 +544,18 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Escolha seu handle, adicione sua imagem e publique a página que as pessoas vão usar para pagar você.",
       descriptionWithProfile:
         "Edite seu perfil público, gere links de cobrança e acompanhe os pagamentos recebidos.",
-      actionsTab: "Ações",
+      actionsTab: "Perfil e links",
       manageTab: "Gerir",
-      transactionsTab: "Transações",
+      transactionsTab: "Pagamentos",
       quickActions: "Ações rápidas",
       quickActionChargeDescription:
         "Defina valor e referência antes de compartilhar sua próxima cobrança.",
       quickActionTransactionsDescription:
-        "Abra o painel para revisar os pagamentos recebidos mais recentes e os links do explorer.",
+        "Revise os pagamentos recebidos e seus comprovantes no explorer.",
+      profileShareHint:
+        "Compartilhe este perfil onde você quer receber pagamentos.",
+      chargeLinkHint:
+        "Crie uma cobrança com valor, token e referência já preenchidos.",
       profileSection: "Perfil",
       chargeSection: "Link de cobrança",
       transactionsSection: "Pagamentos recebidos",
@@ -554,13 +568,16 @@ const dictionaries: Record<Locale, Dictionary> = {
       ownerTitle: "Esta é a sua página pública.",
       ownerDescription:
         "Compartilhe sua página ou volte ao painel para editar seu perfil e gerar links de cobrança.",
-      visitorTitle: "Pagar este perfil",
+      visitorTitle: "Enviar pagamento",
       visitorDescription:
-        "Abra o fluxo de pagamento ou compartilhe esta página pública com outra pessoa.",
+        "Escolha o valor, confira o token e envie pela sua carteira.",
       invoiceEyebrow: "Cobrança",
       invoiceDescription:
-        "Este link já inclui os dados do pagamento. Revise a cobrança e conclua a transferência na Celo.",
-      invoiceSummary: "Detalhes da cobrança",
+        "Este link inclui os dados do pagamento. Revise a cobrança e conclua a transferência na Celo.",
+      paymentFormTitle: "Pagamento",
+      paymentFormDescription:
+        "Escolha o valor, confira o token e envie pela sua carteira.",
+      requestSummaryLabel: "Resumo da cobrança",
       missingTitle: "Esse perfil ainda não existe.",
       missingDescription:
         "Esse handle ainda não foi publicado. Crie seu perfil para começar a receber.",
@@ -574,7 +591,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Pagamento enviado",
       title: "Seu pagamento foi enviado.",
       description:
-        "A transação foi enviada pelo PayLink. Guarde o link do explorer como comprovante e volte à página pública depois da confirmação para ver a atividade mais recente."
+        "A transação foi enviada. Use o link do explorer como comprovante e volte ao perfil para ver a atividade mais recente."
     },
     fields: {
       handle: "Handle",
@@ -586,6 +603,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       amount: "Valor",
       note: "Referência",
       token: "Token",
+      suggestedAmounts: "Valores sugeridos",
       publicLink: "Link público",
       chargeLink: "Link de cobrança"
     },
@@ -625,7 +643,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       couldNotSwitchNetwork: "Não foi possível trocar para {network}.",
       unsupportedNetwork: "Rede não suportada ({chainId})",
       waitingConfirmation: "Aguardando confirmação...",
-      profilePublished: "Perfil publicado na rede.",
+      profilePublished: "Perfil publicado.",
       paymentComplete: "Pagamento concluído.",
       connectBeforeSave: "Conecte sua carteira antes de salvar o perfil.",
       connectBeforePay: "Conecte uma carteira para concluir o pagamento.",
@@ -657,13 +675,11 @@ const dictionaries: Record<Locale, Dictionary> = {
       confirmingApproval: "Confirmando a aprovação do token na rede...",
       sending: "Enviando",
       openingReceipt: "Abrindo seu comprovante...",
-      shareHint:
-        "Use este link em qualquer lugar onde você queira receber pagamentos diretos.",
       linkCopied: "Link copiado para a área de transferência.",
       shareOpened: "Janela de compartilhamento aberta.",
       copyFailed: "Não foi possível copiar o link neste dispositivo.",
       shareFailed: "Não foi possível compartilhar o link agora.",
-      loadingPayments: "Carregando os pagamentos onchain mais recentes...",
+      loadingPayments: "Carregando os pagamentos mais recentes...",
       supportsTokens: "Aceita {tokens}."
     }
   }

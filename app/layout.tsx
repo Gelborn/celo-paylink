@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s · MiniPay PayLink"
   },
   description:
-    "A shareable payment profile for MiniPay freelancers, creators, and solo merchants on Celo.",
+    "Create a PayLink profile and receive direct Celo payments through one clean link.",
   metadataBase: new URL(publicEnv.appUrl),
   keywords: [
     "MiniPay",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MiniPay PayLink",
     description:
-      "Claim a handle, publish a payment profile, and accept stablecoins directly from MiniPay.",
+      "Claim a handle, publish a payment profile, and receive direct Celo payments through MiniPay.",
     url: publicEnv.appUrl,
     siteName: "MiniPay PayLink",
     type: "website",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MiniPay PayLink",
     description:
-      "Claim a handle, publish a payment profile, and accept stablecoins directly from MiniPay.",
+      "Claim a handle, publish a payment profile, and receive direct Celo payments through MiniPay.",
     images: ["/og.svg"]
   },
   other: {

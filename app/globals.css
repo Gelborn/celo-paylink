@@ -32,12 +32,12 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top right, rgba(57, 217, 138, 0.13), transparent 20%),
-    radial-gradient(circle at 16% 10%, rgba(255, 255, 255, 0.06), transparent 18%),
-    radial-gradient(circle at bottom left, rgba(57, 217, 138, 0.08), transparent 24%),
+    radial-gradient(ellipse at 78% 0%, rgba(57, 217, 138, 0.12), transparent 38rem),
+    radial-gradient(ellipse at 0% 82%, rgba(255, 255, 255, 0.035), transparent 34rem),
     linear-gradient(180deg, #09090b 0%, #09090b 100%);
   color: var(--ink);
   font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -54,37 +54,11 @@ a {
   overflow: hidden;
 }
 
-.page-shell::before,
-.page-shell::after {
-  content: "";
-  position: fixed;
-  border-radius: 9999px;
-  pointer-events: none;
-  filter: blur(70px);
-  z-index: 0;
-}
-
-.page-shell::before {
-  width: 26rem;
-  height: 26rem;
-  right: -5rem;
-  top: 2rem;
-  background: rgba(57, 217, 138, 0.12);
-}
-
-.page-shell::after {
-  width: 22rem;
-  height: 22rem;
-  left: -5rem;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.04);
-}
-
 .app-frame {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 80rem;
+  max-width: 78rem;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -95,7 +69,7 @@ a {
 
 .landing-cta-surface {
   background:
-    radial-gradient(circle at top left, rgba(57, 217, 138, 0.16), transparent 32%),
+    radial-gradient(ellipse at top left, rgba(57, 217, 138, 0.12), transparent 34rem),
     linear-gradient(145deg, rgba(14, 16, 18, 0.96), rgba(9, 9, 11, 0.9));
   box-shadow: var(--accent-shadow);
 }
@@ -103,9 +77,10 @@ a {
 .device-shell {
   position: relative;
   margin: 0 auto;
-  width: min(100%, 25rem);
-  padding: 0.85rem;
-  border-radius: 2.5rem;
+  width: min(100%, 22.5rem);
+  max-width: calc(100vw - 2rem);
+  padding: 0.65rem;
+  border-radius: 1.75rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
@@ -130,7 +105,7 @@ a {
 .device-frame {
   position: relative;
   overflow: hidden;
-  border-radius: 2rem;
+  border-radius: 1.35rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: #030303;
   z-index: 1;
@@ -142,7 +117,7 @@ a {
   left: 50%;
   top: 0.55rem;
   width: 34%;
-  height: 1.45rem;
+  height: 1.1rem;
   transform: translateX(-50%);
   border-radius: 9999px;
   background: rgba(8, 8, 9, 0.98);
@@ -159,9 +134,9 @@ a {
 
 .device-screen-inner {
   position: absolute;
-  inset: 0.8rem 0.9rem 1rem;
+  inset: 0.65rem 0.7rem 0.8rem;
   overflow: hidden;
-  border-radius: 1.2rem;
+  border-radius: 0.85rem;
   background:
     radial-gradient(circle at top, rgba(57, 217, 138, 0.06), transparent 34%),
     #040506;

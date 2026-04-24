@@ -80,7 +80,7 @@ export function SuccessShell({
               </div>
 
               {profile.paymentMessage ? (
-                <div className="rounded-3xl border border-white/10 bg-zinc-900 px-5 py-5">
+                <div className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5">
                   <p className="text-sm leading-7 text-zinc-300">
                     {profile.paymentMessage}
                   </p>
@@ -104,7 +104,7 @@ export function SuccessShell({
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-zinc-900 px-5 py-5 text-left">
+            <div className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5 text-left">
               <div className="grid gap-4 sm:grid-cols-2">
                 {amount && token ? (
                   <div>
@@ -129,10 +129,10 @@ export function SuccessShell({
               </div>
 
               <div className="mt-4 grid gap-3 border-t border-white/10 pt-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200">
+                <div className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200">
                   {dictionary.home.trustStatements[0]}
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200">
+                <div className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200">
                   {dictionary.home.trustStatements[2]}
                 </div>
               </div>
@@ -153,7 +153,7 @@ export function SuccessShell({
                   href={`${getExplorerBaseUrl(chainId)}/tx/${txHash}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex text-sm text-zinc-300 underline underline-offset-4"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
                 >
                   {dictionary.actions.openExplorer}
                 </Link>

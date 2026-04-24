@@ -141,7 +141,7 @@ export function Header({
       {connectError ? (
         <div
           role="alert"
-          className="mb-6 flex items-center justify-between gap-4 rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100"
+          className="mb-6 flex items-center justify-between gap-4 rounded-lg border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100"
         >
           <p>{connectError}</p>
           {onClearConnectError ? (
@@ -170,7 +170,7 @@ export function Header({
                   aria-labelledby={titleId}
                   aria-describedby={descriptionId}
                   tabIndex={-1}
-                  className="w-full max-w-sm rounded-[28px] border border-white/10 bg-zinc-950 p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
+                  className="w-full max-w-sm rounded-lg border border-white/10 bg-zinc-950 p-5 shadow-[0_24px_72px_rgba(0,0,0,0.42)]"
                   onClick={(event) => event.stopPropagation()}
                   onKeyDown={(event) => {
                     if (event.key === "Escape") {
@@ -229,7 +229,7 @@ export function Header({
                   </div>
 
                   <div className="space-y-4">
-                    <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                    <div className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4">
                       <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                         {dictionary.labels.connectedWallet}
                       </p>

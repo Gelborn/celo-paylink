@@ -48,7 +48,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
   const content = (
     <div className="space-y-4">
       <code
-        className="block max-w-full overflow-hidden whitespace-normal break-all rounded-2xl border border-white/10 bg-zinc-900 px-4 py-3 text-sm leading-6 text-zinc-300"
+        className="block max-w-full overflow-hidden whitespace-normal break-all rounded-lg border border-white/10 bg-zinc-900 px-4 py-3 text-sm leading-6 text-zinc-300"
         style={{ fontFamily: "var(--font-mono), monospace" }}
       >
         {url}

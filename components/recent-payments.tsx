@@ -31,7 +31,7 @@ export function RecentPayments({
           {Array.from({ length: 3 }).map((_, index) => (
             <div
               key={index}
-              className="rounded-[1.4rem] border border-white/10 bg-zinc-900 px-4 py-4 sm:px-5 sm:py-5"
+              className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4 sm:px-5 sm:py-5"
             >
               <div className="space-y-3.5">
                 <div className="flex items-start justify-between gap-4">
@@ -41,7 +41,7 @@ export function RecentPayments({
                   </div>
                   <div className="h-7 w-20 animate-pulse rounded-full bg-white/5" />
                 </div>
-                <div className="h-16 animate-pulse rounded-2xl bg-white/5" />
+                <div className="h-16 animate-pulse rounded-lg bg-white/5" />
               </div>
             </div>
           ))}
@@ -57,7 +57,7 @@ export function RecentPayments({
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="rounded-[1.4rem] border border-dashed border-white/10 bg-zinc-900 px-4 py-5 text-sm leading-7 text-zinc-400">
+          <div className="rounded-lg border border-dashed border-white/10 bg-zinc-900 px-4 py-5 text-sm leading-7 text-zinc-400">
             {dictionary.dashboard.emptyTransactions}
           </div>
         </CardContent>
@@ -77,7 +77,7 @@ export function RecentPayments({
             href={payment.explorerUrl}
             target="_blank"
             rel="noreferrer"
-            className="group block rounded-[1.4rem] border border-white/10 bg-zinc-900 px-4 py-4 transition hover:border-white/20 hover:bg-zinc-900/90 sm:px-5 sm:py-5"
+            className="group block rounded-lg border border-white/10 bg-zinc-900 px-4 py-4 transition hover:border-white/20 hover:bg-zinc-900/90 sm:px-5 sm:py-5"
           >
             <div className="space-y-4">
               <div className="flex items-start justify-between gap-4">
@@ -104,7 +104,7 @@ export function RecentPayments({
               </div>
 
               {payment.reference ? (
-                <div className="rounded-2xl border border-white/10 bg-zinc-950 px-4 py-3">
+                <div className="rounded-lg border border-white/10 bg-zinc-950 px-4 py-3">
                   <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
                     {dictionary.fields.note}
                   </p>

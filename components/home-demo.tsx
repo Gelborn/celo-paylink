@@ -42,7 +42,7 @@ export function HomeDemo({
   }, []);
 
   return (
-    <figure className="space-y-4">
+    <figure className="mx-auto max-w-full space-y-4 overflow-hidden">
       <div className="device-shell">
         <div className="device-frame">
           <div className="device-screen">

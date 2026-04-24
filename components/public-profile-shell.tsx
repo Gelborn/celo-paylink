@@ -464,7 +464,7 @@ export function PublicProfileShell({
             description={paymentOverlayCopy.description}
           />
 
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+          <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
             <Card>
               <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
@@ -485,7 +485,7 @@ export function PublicProfileShell({
                 </div>
 
                 {activeProfile.paymentMessage ? (
-                  <div className="rounded-3xl border border-white/10 bg-zinc-900 px-5 py-5">
+                  <div className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5">
                     <p className="text-sm leading-7 text-zinc-300">
                       {activeProfile.paymentMessage}
                     </p>
@@ -505,7 +505,7 @@ export function PublicProfileShell({
                   </h2>
                 </div>
 
-                <div className="rounded-3xl border border-white/10 bg-zinc-900 px-5 py-5 text-left">
+                <div className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5 text-left">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
@@ -564,7 +564,7 @@ export function PublicProfileShell({
               </div>
 
               {activeProfile.paymentMessage ? (
-                <div className="rounded-3xl border border-white/10 bg-zinc-900 px-5 py-5">
+                <div className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5">
                   <p className="text-sm leading-7 text-zinc-300">
                     {activeProfile.paymentMessage}
                   </p>
@@ -587,7 +587,7 @@ export function PublicProfileShell({
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-zinc-900 px-5 py-5 text-left">
+              <div className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5 text-left">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
@@ -624,7 +624,7 @@ export function PublicProfileShell({
                   href={`${getExplorerBaseUrl(initialChainId)}/tx/${paymentResult.txHash}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex text-sm text-zinc-300 underline underline-offset-4"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
                 >
                   {dictionary.actions.openExplorer}
                 </Link>
@@ -668,7 +668,7 @@ export function PublicProfileShell({
           }
         />
 
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
           <Card>
             <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
@@ -689,7 +689,7 @@ export function PublicProfileShell({
               </div>
 
               {profile.paymentMessage ? (
-                <div className="rounded-3xl border border-white/10 bg-zinc-900 px-5 py-5">
+                <div className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5">
                   <p className="text-sm leading-7 text-zinc-300">
                     {profile.paymentMessage}
                   </p>
@@ -700,7 +700,7 @@ export function PublicProfileShell({
                 {trustItems.map((item) => (
                   <div
                     key={item}
-                    className="rounded-[1.4rem] border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200"
+                    className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200"
                   >
                     {item}
                   </div>
@@ -738,13 +738,13 @@ export function PublicProfileShell({
               ) : (
                 <div className="space-y-4">
                   {showInvoiceView ? (
-                    <div className="rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5">
+                    <div className="rounded-lg border border-white/10 bg-zinc-950 px-5 py-5">
                       <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                        {dictionary.publicPage.invoiceSummary}
+                        {dictionary.publicPage.requestSummaryLabel}
                       </p>
                       <div className="mt-4 grid gap-4 sm:grid-cols-2">
                         {hasPrefilledAmount ? (
-                          <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                          <div className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4">
                             <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
                               {dictionary.fields.amount}
                             </p>
@@ -754,7 +754,7 @@ export function PublicProfileShell({
                           </div>
                         ) : null}
                         {hasPrefilledToken && !hasPrefilledAmount ? (
-                          <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                          <div className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4">
                             <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
                               {dictionary.fields.token}
                             </p>
@@ -764,7 +764,7 @@ export function PublicProfileShell({
                           </div>
                         ) : null}
                         {hasPrefilledReference ? (
-                          <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4">
+                          <div className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4">
                             <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
                               {dictionary.fields.note}
                             </p>
@@ -814,19 +814,19 @@ export function PublicProfileShell({
                   {isPaymentPanelOpen ? (
                     <div
                       id="paylink-payment-panel"
-                      className="space-y-5 rounded-3xl border border-white/10 bg-zinc-950 px-5 py-5"
+                      className="space-y-5 rounded-lg border border-white/10 bg-zinc-950 px-5 py-5"
                     >
                       <div className="space-y-2">
                         <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                          {dictionary.publicPage.invoiceSummary}
+                          {dictionary.publicPage.paymentFormTitle}
                         </p>
                         <p className="text-sm leading-7 text-zinc-400">
-                          {dictionary.messages.shareHint}
+                          {dictionary.publicPage.paymentFormDescription}
                         </p>
                       </div>
                       <div>
                         <p className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-                          {dictionary.fields.amount}
+                          {dictionary.fields.suggestedAmounts}
                         </p>
                         <AmountPresets
                           values={[5, 15, 25, 50]}
@@ -867,7 +867,7 @@ export function PublicProfileShell({
                         onChange={(address) => setSelectedTokenAddress(address as Hex)}
                       />
 
-                      <div className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-4 text-sm text-zinc-400">
+                      <div className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4 text-sm text-zinc-400">
                         <p>{dictionary.labels.payingFrom}</p>
                         <p className="mt-2 text-white">
                           {account
@@ -959,11 +959,13 @@ export function PublicProfileShell({
             </CardContent>
           </Card>
 
-          <RecentPayments
-            payments={payments}
-            chainId={initialChainId}
-            title={dictionary.publicPage.recentPayments}
-          />
+          <div className="self-start">
+            <RecentPayments
+              payments={payments}
+              chainId={initialChainId}
+              title={dictionary.publicPage.recentPayments}
+            />
+          </div>
         </div>
       </section>
       )}

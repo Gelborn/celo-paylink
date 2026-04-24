@@ -210,7 +210,7 @@ export function DashboardShell({
           <Card>
             <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
               <div className="mx-auto max-w-2xl space-y-6 text-center">
-                <div className="mx-auto h-1 w-24 overflow-hidden rounded-full bg-white/8">
+                <div className="mx-auto h-1 w-24 overflow-hidden rounded-full bg-white/10">
                   <div className="h-full w-1/2 animate-pulse rounded-full bg-white" />
                 </div>
                 <div className="space-y-3">
@@ -345,7 +345,7 @@ export function DashboardShell({
                   <div
                     role="tablist"
                     aria-label={dictionary.dashboard.eyebrow}
-                    className="inline-flex min-w-full rounded-[1.4rem] border border-white/10 bg-zinc-950/80 p-1.5 sm:min-w-0"
+                    className="inline-flex min-w-full rounded-lg border border-white/10 bg-zinc-950/80 p-1 sm:min-w-0"
                   >
                     <button
                       id="dashboard-tab-manage"
@@ -357,7 +357,7 @@ export function DashboardShell({
                         setActiveTab("manage");
                         setManageView("overview");
                       }}
-                      className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
+                      className={`min-w-[8rem] rounded-md px-4 py-2.5 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
                         activeTab === "manage"
                           ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
                           : "text-zinc-400 hover:bg-white/5 hover:text-white"
@@ -372,7 +372,7 @@ export function DashboardShell({
                       aria-controls="dashboard-panel-transactions"
                       type="button"
                       onClick={() => setActiveTab("transactions")}
-                      className={`min-w-[8rem] rounded-[1rem] px-4 py-2.5 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
+                      className={`min-w-[8rem] rounded-md px-4 py-2.5 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
                         activeTab === "transactions"
                           ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
                           : "text-zinc-400 hover:bg-white/5 hover:text-white"
@@ -397,7 +397,7 @@ export function DashboardShell({
                               {dictionary.actions.createChargeLink}
                             </h3>
                             <p className="mt-2 max-w-2xl text-sm leading-7 text-zinc-400">
-                              {dictionary.messages.shareHint}
+                              {dictionary.dashboard.chargeLinkHint}
                             </p>
                           </div>
                           <Button
@@ -429,10 +429,10 @@ export function DashboardShell({
                                 {dictionary.actions.shareProfile}
                               </p>
                               <p className="text-sm leading-7 text-zinc-400">
-                                {dictionary.messages.shareHint}
+                                {dictionary.dashboard.profileShareHint}
                               </p>
                               <code
-                                className="inline-flex max-w-full overflow-hidden text-ellipsis whitespace-nowrap rounded-full border border-white/10 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-300"
+                                className="inline-flex max-w-full break-all rounded-lg border border-white/10 bg-zinc-900 px-3 py-1.5 text-xs leading-5 text-zinc-300"
                                 style={{ fontFamily: "var(--font-mono), monospace" }}
                               >
                                 {publicUrl}
@@ -506,7 +506,7 @@ export function DashboardShell({
                                 {dictionary.actions.createChargeLink}
                               </p>
                               <p className="text-sm leading-7 text-zinc-400">
-                                {dictionary.messages.shareHint}
+                                {dictionary.dashboard.chargeLinkHint}
                               </p>
                             </div>
                             <Button

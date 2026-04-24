@@ -17,7 +17,7 @@ type SuccessPageProps = {
 
 export const metadata: Metadata = {
   title: "Payment sent",
-  description: "Review the transaction receipt and return to the public PayLink page.",
+  description: "Open the explorer receipt and return to the PayLink profile.",
   robots: {
     index: false,
     follow: false
