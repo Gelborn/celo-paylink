@@ -152,9 +152,39 @@ a {
   object-position: center top;
 }
 
+.profile-carousel {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.profile-carousel-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: profile-carousel-scroll 110s linear infinite;
+}
+
+.profile-carousel:hover .profile-carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes profile-carousel-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .profile-carousel-track {
+    animation: none;
   }
 }
 

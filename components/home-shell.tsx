@@ -9,6 +9,7 @@ import { copyTextToClipboard } from "../lib/share";
 import { useOwnerState } from "../lib/use-owner-state";
 import { Header } from "./header";
 import { HomeDemo } from "./home-demo";
+import { ProfileDiscovery } from "./profile-discovery";
 import { useLocale } from "./locale-provider";
 import { Avatar } from "./ui/avatar";
 import { Badge } from "./ui/badge";
@@ -96,6 +97,7 @@ export function HomeShell({
     isDisconnectedByUser,
     connectError,
     clearConnectError,
+    contractAddress,
     profile
   } = useOwnerState({
     initialChainId,
@@ -331,6 +333,12 @@ export function HomeShell({
               </div>
             </div>
           </section>
+
+          <ProfileDiscovery
+            chainId={initialChainId}
+            contractAddress={contractAddress}
+            variant="carousel"
+          />
 
           <section className="landing-section space-y-6">
             <div className="max-w-3xl space-y-3">

@@ -89,6 +89,24 @@ export type Dictionary = {
     emptyTransactions: string;
     connectPrompt: string;
   };
+  profileDiscovery: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    searchTab: string;
+    searchTitle: string;
+    searchDescription: string;
+    searchPlaceholder: string;
+    latestTitle: string;
+    latestDescription: string;
+    loading: string;
+    empty: string;
+    unavailable: string;
+    notFound: string;
+    error: string;
+    exactHint: string;
+    openProfile: string;
+  };
   publicPage: {
     ownerTitle: string;
     ownerDescription: string;
@@ -319,6 +337,28 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Payments will appear here after someone pays through your public page.",
       connectPrompt:
         "Connect a wallet to create and manage your public payment profile."
+    },
+    profileDiscovery: {
+      eyebrow: "Live profiles",
+      title: "People already receiving with PayLink.",
+      description:
+        "Browse recently published profiles discovered from the PayLink contract.",
+      searchTab: "Search",
+      searchTitle: "Find a profile",
+      searchDescription:
+        "Search by exact handle and open the public payment page.",
+      searchPlaceholder: "creator_handle",
+      latestTitle: "Recent profiles",
+      latestDescription:
+        "Newest profiles discovered from onchain profile events.",
+      loading: "Loading profiles...",
+      empty: "No other profiles found yet.",
+      unavailable:
+        "Profile discovery is unavailable until the contract is configured.",
+      notFound: "No published profile found for that handle.",
+      error: "Could not load profiles right now.",
+      exactHint: "Enter the full handle without @.",
+      openProfile: "Open profile"
     },
     publicPage: {
       ownerTitle: "This is your public payment page.",
@@ -563,6 +603,28 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Os pagamentos aparecerão aqui depois que alguém pagar pela sua página pública.",
       connectPrompt:
         "Conecte sua carteira para criar e gerenciar seu perfil de pagamentos."
+    },
+    profileDiscovery: {
+      eyebrow: "Perfis ao vivo",
+      title: "Pessoas já recebendo pelo PayLink.",
+      description:
+        "Veja perfis publicados recentemente e descobertos pelo contrato do PayLink.",
+      searchTab: "Buscar",
+      searchTitle: "Buscar perfil",
+      searchDescription:
+        "Busque pelo handle exato e abra a página pública de pagamento.",
+      searchPlaceholder: "criador_handle",
+      latestTitle: "Perfis recentes",
+      latestDescription:
+        "Perfis mais novos descobertos pelos eventos publicados na rede.",
+      loading: "Carregando perfis...",
+      empty: "Nenhum outro perfil encontrado ainda.",
+      unavailable:
+        "A descoberta de perfis fica indisponível até o contrato ser configurado.",
+      notFound: "Nenhum perfil publicado encontrado para esse handle.",
+      error: "Não foi possível carregar os perfis agora.",
+      exactHint: "Digite o handle completo sem @.",
+      openProfile: "Abrir perfil"
     },
     publicPage: {
       ownerTitle: "Esta é a sua página pública.",

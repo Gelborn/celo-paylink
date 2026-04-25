@@ -11,6 +11,7 @@ import { ChargeLinkPanel } from "./charge-link-panel";
 import { Header } from "./header";
 import { NetworkMismatchModal } from "./network-mismatch-modal";
 import { ProfileEditor, type PublishStage } from "./profile-editor";
+import { ProfileDiscovery } from "./profile-discovery";
 import { RecentPayments } from "./recent-payments";
 import { useLocale } from "./locale-provider";
 import { Avatar } from "./ui/avatar";
@@ -20,7 +21,7 @@ import { Card, CardContent } from "./ui/card";
 import { FeedbackMessage } from "./ui/feedback-message";
 import { SectionHeader } from "./ui/section-header";
 
-type DashboardTab = "manage" | "transactions";
+type DashboardTab = "manage" | "transactions" | "discover";
 type ManageView = "overview" | "invoice";
 
 export function DashboardShell({
@@ -380,6 +381,21 @@ export function DashboardShell({
                     >
                       {dictionary.dashboard.transactionsTab}
                     </button>
+                    <button
+                      id="dashboard-tab-discover"
+                      role="tab"
+                      aria-selected={activeTab === "discover"}
+                      aria-controls="dashboard-panel-discover"
+                      type="button"
+                      onClick={() => setActiveTab("discover")}
+                      className={`min-w-[8rem] rounded-md px-4 py-2.5 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
+                        activeTab === "discover"
+                          ? "bg-white text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
+                          : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                      }`}
+                    >
+                      {dictionary.profileDiscovery.searchTab}
+                    </button>
                   </div>
                 </div>
 
@@ -523,7 +539,7 @@ export function DashboardShell({
                   )
                   }
                   </div>
-                ) : (
+                ) : activeTab === "transactions" ? (
                   <div
                     id="dashboard-panel-transactions"
                     role="tabpanel"
@@ -535,6 +551,19 @@ export function DashboardShell({
                     title={dictionary.dashboard.transactionsSection}
                     isLoading={isLoadingProfile || isLoadingPayments}
                   />
+                  </div>
+                ) : (
+                  <div
+                    id="dashboard-panel-discover"
+                    role="tabpanel"
+                    aria-labelledby="dashboard-tab-discover"
+                  >
+                    <ProfileDiscovery
+                      chainId={initialChainId}
+                      contractAddress={contractAddress}
+                      currentOwner={account}
+                      variant="dashboard"
+                    />
                   </div>
                 )}
               </div>
