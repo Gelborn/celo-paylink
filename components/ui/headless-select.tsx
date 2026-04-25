@@ -50,7 +50,7 @@ export function HeadlessSelect({
           value={value}
           onChange={(event) => onChange(event.target.value)}
           className={clsx(
-            "min-h-12 w-full appearance-none rounded-xl border border-white/10 bg-[linear-gradient(180deg,rgba(24,24,27,0.92),rgba(15,15,18,0.94))] px-4 py-3 pr-11 text-sm text-white transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]",
+            "min-h-12 w-full appearance-none rounded-xl border border-white/10 bg-[linear-gradient(180deg,rgba(24,24,27,0.92),rgba(15,15,18,0.94))] px-4 py-3 pr-11 text-base text-white transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]",
             triggerClassName
           )}
         >
