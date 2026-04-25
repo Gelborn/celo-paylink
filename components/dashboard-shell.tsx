@@ -561,7 +561,6 @@ export function DashboardShell({
                     <ProfileDiscovery
                       chainId={initialChainId}
                       contractAddress={contractAddress}
-                      currentOwner={account}
                       variant="dashboard"
                     />
                   </div>

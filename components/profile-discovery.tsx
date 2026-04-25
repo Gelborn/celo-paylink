@@ -2,13 +2,13 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { type FormEvent, useEffect, useMemo, useState } from "react";
+import { type FormEvent, useState } from "react";
 import type { Hex } from "viem";
 import {
   fetchProfileByHandleIfExists,
-  fetchRecentProfiles,
   type ProfileRecord
 } from "../lib/contract";
+import { featuredProfiles } from "../lib/featured-profiles";
 import { sanitizeHandleInput } from "../lib/format";
 import { getTokenByAddress } from "../lib/tokens";
 import { Avatar } from "./ui/avatar";
@@ -18,20 +18,13 @@ import { FeedbackMessage } from "./ui/feedback-message";
 import { Input } from "./ui/input";
 import { useLocale } from "./locale-provider";
 
-type LoadState = "idle" | "loading" | "ready" | "error";
 type SearchState = "idle" | "loading" | "found" | "not-found" | "error";
 
 type ProfileDiscoveryProps = {
   chainId: number;
   contractAddress?: Hex | null;
-  currentOwner?: Hex | null;
-  limit?: number;
   variant: "carousel" | "dashboard";
 };
-
-function getDisplayNameKey(profile: ProfileRecord) {
-  return profile.displayName.trim().toLowerCase();
-}
 
 function ProfileLinkCard({
   profile,
@@ -91,75 +84,12 @@ function ProfileLinkCard({
 export function ProfileDiscovery({
   chainId,
   contractAddress,
-  currentOwner,
-  limit = 24,
   variant
 }: ProfileDiscoveryProps) {
   const { dictionary } = useLocale();
-  const [profiles, setProfiles] = useState<ProfileRecord[]>([]);
-  const [loadState, setLoadState] = useState<LoadState>("idle");
   const [query, setQuery] = useState("");
   const [searchState, setSearchState] = useState<SearchState>("idle");
   const [searchResult, setSearchResult] = useState<ProfileRecord | null>(null);
-
-  const visibleProfiles = useMemo(() => {
-    const ownerKey = currentOwner?.toLowerCase();
-    if (!ownerKey) return profiles;
-
-    return profiles.filter((profile) => profile.owner.toLowerCase() !== ownerKey);
-  }, [currentOwner, profiles]);
-
-  const displayedProfiles = useMemo(() => {
-    if (!searchResult) return visibleProfiles;
-
-    const searchOwnerKey = searchResult.owner.toLowerCase();
-    const searchNameKey = getDisplayNameKey(searchResult);
-
-    return visibleProfiles.filter((profile) => {
-      if (profile.owner.toLowerCase() === searchOwnerKey) return false;
-      return !searchNameKey || getDisplayNameKey(profile) !== searchNameKey;
-    });
-  }, [searchResult, visibleProfiles]);
-
-  useEffect(() => {
-    if (!contractAddress) {
-      setProfiles([]);
-      setLoadState("idle");
-      return;
-    }
-
-    let cancelled = false;
-
-    async function loadProfiles() {
-      setLoadState("loading");
-
-      try {
-        const nextProfiles = await fetchRecentProfiles(
-          chainId,
-          contractAddress,
-          limit
-        );
-
-        if (!cancelled) {
-          setProfiles(nextProfiles);
-          setLoadState("ready");
-        }
-      } catch (error) {
-        console.error("Failed to load discovered profiles", error);
-
-        if (!cancelled) {
-          setProfiles([]);
-          setLoadState("error");
-        }
-      }
-    }
-
-    void loadProfiles();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [chainId, contractAddress, limit]);
 
   async function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -191,11 +121,7 @@ export function ProfileDiscovery({
   }
 
   if (variant === "carousel") {
-    if (!contractAddress || loadState !== "ready" || visibleProfiles.length === 0) {
-      return null;
-    }
-
-    const carouselProfiles = [...visibleProfiles, ...visibleProfiles];
+    const carouselProfiles = [...featuredProfiles, ...featuredProfiles];
 
     return (
       <section className="landing-section space-y-6">
@@ -300,62 +226,6 @@ export function ProfileDiscovery({
           />
         </div>
       ) : null}
-
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <h3 className="text-xl font-semibold text-white">
-            {dictionary.profileDiscovery.latestTitle}
-          </h3>
-          <p className="max-w-2xl text-sm leading-7 text-zinc-400">
-            {dictionary.profileDiscovery.latestDescription}
-          </p>
-        </div>
-
-        {loadState === "loading" ? (
-          <div className="space-y-3" aria-busy="true">
-            <p className="text-sm leading-7 text-zinc-400">
-              {dictionary.profileDiscovery.loading}
-            </p>
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5"
-                >
-                  <div className="flex gap-4">
-                    <div className="h-14 w-14 animate-pulse rounded-full bg-white/10" />
-                    <div className="flex-1 space-y-3">
-                      <div className="h-4 w-24 animate-pulse rounded-full bg-white/10" />
-                      <div className="h-5 w-36 animate-pulse rounded-full bg-white/5" />
-                    </div>
-                  </div>
-                  <div className="mt-5 h-16 animate-pulse rounded-lg bg-white/5" />
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : loadState === "error" ? (
-          <div className="rounded-lg border border-dashed border-white/10 bg-zinc-900 px-4 py-5 text-sm leading-7 text-zinc-400">
-            {dictionary.profileDiscovery.error}
-          </div>
-        ) : displayedProfiles.length === 0 ? (
-          <div className="rounded-lg border border-dashed border-white/10 bg-zinc-900 px-4 py-5 text-sm leading-7 text-zinc-400">
-            {contractAddress
-              ? dictionary.profileDiscovery.empty
-              : dictionary.profileDiscovery.unavailable}
-          </div>
-        ) : (
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {displayedProfiles.map((profile) => (
-              <ProfileLinkCard
-                key={profile.owner}
-                profile={profile}
-                chainId={chainId}
-              />
-            ))}
-          </div>
-        )}
-      </div>
     </div>
   );
 }

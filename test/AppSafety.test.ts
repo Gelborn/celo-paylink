@@ -6,6 +6,11 @@ import {
   type ProfileRecord
 } from "../lib/contract";
 import { readPublicEnv } from "../lib/env";
+import {
+  featuredProfiles,
+  getFeaturedProfileImageKey,
+  getFeaturedProfileNameKey
+} from "../lib/featured-profiles";
 import { readServerEnv } from "../lib/server-env";
 import {
   normalizeImageUrl,
@@ -162,5 +167,28 @@ describe("app safety helpers", function () {
 
     expect(dedupeProfilesByDisplayName(profiles).map((profile) => profile.handle))
       .to.deep.equal(["atlas-new", "empty-name-one", "empty-name-two"]);
+  });
+
+  it("keeps the fixed featured profile set distinct", function () {
+    const expectedHandles = [
+      "marble-motion-c8d6ed",
+      "signal-photo-2b24a3",
+      "aster-research-d2de2a",
+      "echo-motion-814dd2",
+      "tidal-collective-fed4e2",
+      "signal-media-fdf3dd",
+      "northline-collective-d50c06",
+      "maple-ux-notes-b47f70",
+      "foundry-works-427ba6",
+      "lena-audio-4a2e30"
+    ];
+    const nameKeys = featuredProfiles.map(getFeaturedProfileNameKey);
+    const imageKeys = featuredProfiles.map(getFeaturedProfileImageKey);
+
+    expect(featuredProfiles.map((profile) => profile.handle)).to.deep.equal(
+      expectedHandles
+    );
+    expect(new Set(nameKeys).size).to.equal(featuredProfiles.length);
+    expect(new Set(imageKeys).size).to.equal(featuredProfiles.length);
   });
 });
