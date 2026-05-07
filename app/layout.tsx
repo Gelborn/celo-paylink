@@ -7,13 +7,13 @@ import { publicEnv } from "../lib/env";
 import { resolveLocaleFromRequest } from "../lib/i18n";
 
 const geistSans = localFont({
-  src: "../app/fonts/SFCompact.ttf",
+  src: "../app/fonts/SFCompact-latin.woff",
   variable: "--font-sans",
   display: "swap"
 });
 
 const geistMono = localFont({
-  src: "../app/fonts/SFNSMono.ttf",
+  src: "../app/fonts/SFNSMono-latin.woff",
   variable: "--font-mono",
   display: "swap"
 });

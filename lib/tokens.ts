@@ -1,5 +1,5 @@
 import type { Hex } from "viem";
-import { CELO_MAINNET_CHAIN_ID, CELO_SEPOLIA_CHAIN_ID } from "./chains";
+import { CELO_MAINNET_CHAIN_ID, CELO_SEPOLIA_CHAIN_ID } from "./chain-ids";
 
 export type SupportedTokenSymbol = "USDm" | "USDC" | "USD₮";
 
