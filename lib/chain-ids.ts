@@ -1,0 +1,2 @@
+export const CELO_MAINNET_CHAIN_ID = 42220;
+export const CELO_SEPOLIA_CHAIN_ID = 11142220;

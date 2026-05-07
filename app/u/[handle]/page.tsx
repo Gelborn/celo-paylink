@@ -1,10 +1,13 @@
 import { cache } from "react";
+import { Suspense } from "react";
 import type { Metadata } from "next";
+import { cookies, headers } from "next/headers";
 import { PublicProfileShell } from "../../../components/public-profile-shell";
 import {
-  fetchProfileByHandle,
-  fetchRecentPayments
-} from "../../../lib/contract";
+  PublicRecentPayments,
+  PublicRecentPaymentsFallback
+} from "../../../components/public-recent-payments";
+import { fetchProfileByHandle } from "../../../lib/contract";
 import {
   getDemoPayments,
   getDemoProfile,
@@ -13,6 +16,11 @@ import {
 import { safeAmountInput, safeTextQuery } from "../../../lib/format";
 import { getContractAddress, getDefaultChainId } from "../../../lib/chains";
 import { publicEnv } from "../../../lib/env";
+import {
+  getDictionary,
+  resolveLocaleFromRequest
+} from "../../../lib/i18n";
+import { RecentPaymentsView } from "../../../components/recent-payments-view";
 
 type HandlePageProps = {
   params: Promise<{
@@ -101,20 +109,46 @@ export default async function HandlePage({
 }: HandlePageProps) {
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
+  const locale = resolveLocaleFromRequest(await cookies(), await headers());
+  const dictionary = getDictionary(locale);
   const chainId = getDefaultChainId();
   const contractAddress = getContractAddress(chainId);
   const previewMode = shouldUseDemoPreview(resolvedSearchParams.preview);
   const profile = previewMode
     ? getDemoProfile(resolvedParams.handle, chainId)
     : await getProfileForHandle(resolvedParams.handle, chainId, contractAddress);
-  const payments = previewMode
-    ? getDemoPayments(resolvedParams.handle, chainId)
-    : profile && contractAddress
-      ? await fetchRecentPayments(profile.owner, chainId)
-      : [];
   const amount = safeAmountInput(resolvedSearchParams.amount);
   const reference = safeTextQuery(resolvedSearchParams.ref);
   const tokenQuery = safeTextQuery(resolvedSearchParams.token);
+  const recentPaymentsSlot = previewMode ? (
+    <RecentPaymentsView
+      payments={getDemoPayments(resolvedParams.handle, chainId)}
+      chainId={chainId}
+      title={dictionary.publicPage.recentPayments}
+      dictionary={dictionary}
+      locale={locale}
+    />
+  ) : profile ? (
+    <Suspense
+      fallback={
+        <PublicRecentPaymentsFallback
+          chainId={chainId}
+          title={dictionary.publicPage.recentPayments}
+          dictionary={dictionary}
+          locale={locale}
+        />
+      }
+    >
+      <PublicRecentPayments
+        owner={profile.owner}
+        chainId={chainId}
+        contractAddress={contractAddress}
+        title={dictionary.publicPage.recentPayments}
+        dictionary={dictionary}
+        locale={locale}
+      />
+    </Suspense>
+  ) : null;
 
   return (
     <PublicProfileShell
@@ -126,12 +160,12 @@ export default async function HandlePage({
       }}
       handle={resolvedParams.handle}
       profile={profile}
-      payments={payments}
       initialAmount={amount}
       initialReference={reference}
       initialTokenQuery={tokenQuery}
       contractReady={previewMode || Boolean(contractAddress)}
       previewMode={previewMode}
+      recentPaymentsSlot={recentPaymentsSlot}
     />
   );
 }

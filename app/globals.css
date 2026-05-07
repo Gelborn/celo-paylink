@@ -168,6 +168,11 @@ a {
   animation-play-state: paused;
 }
 
+.perf-defer-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 620px;
+}
+
 @keyframes profile-carousel-scroll {
   from {
     transform: translateX(0);
@@ -181,6 +186,26 @@ a {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .profile-carousel-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .device-shell {
+    box-shadow:
+      0 26px 72px rgba(0, 0, 0, 0.38),
+      0 0 0 1px rgba(255, 255, 255, 0.03);
+  }
+
+  .device-shell::before {
+    filter: blur(20px);
+  }
+
+  .landing-cta-surface {
+    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.28);
   }
 
   .profile-carousel-track {
