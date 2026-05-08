@@ -12,11 +12,13 @@ export function EmptyState({
 }) {
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="space-y-2">
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
-      {actions ? <CardContent className="flex flex-wrap gap-3">{actions}</CardContent> : null}
+      {actions ? (
+        <CardContent className="flex flex-wrap gap-3 pt-0">{actions}</CardContent>
+      ) : null}
     </Card>
   );
 }

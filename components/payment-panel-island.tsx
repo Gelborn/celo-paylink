@@ -29,7 +29,6 @@ import { NetworkMismatchModal } from "./network-mismatch-modal";
 import { TokenPicker } from "./token-picker";
 import { useLocale } from "./locale-provider";
 import { Button } from "./ui/button";
-import { Card, CardContent } from "./ui/card";
 import { FeedbackMessage } from "./ui/feedback-message";
 import { Input } from "./ui/input";
 
@@ -291,62 +290,60 @@ export function PaymentPanelIsland({
 
   if (paymentResult) {
     return (
-      <Card>
-        <CardContent className="space-y-6 px-6 py-8 text-center sm:px-8">
-          <div className="space-y-3">
-            <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-              {dictionary.success.eyebrow}
-            </p>
-            <h2 className="text-4xl font-semibold tracking-tight text-white">
-              {dictionary.success.title}
-            </h2>
-            <p className="mx-auto max-w-2xl text-sm leading-7 text-zinc-400">
-              {dictionary.success.description}
-            </p>
-          </div>
+      <div className="space-y-5 rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-5 py-6 text-center sm:px-6">
+        <div className="space-y-3">
+          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
+            {dictionary.success.eyebrow}
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-white">
+            {dictionary.success.title}
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm leading-7 text-zinc-400">
+            {dictionary.success.description}
+          </p>
+        </div>
 
-          <div className="rounded-lg border border-white/10 bg-zinc-900 px-5 py-5 text-left">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
+        <div className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-left">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-lg border border-[color:var(--accent-line)] bg-black/20 px-4 py-4">
+              <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+                {dictionary.fields.amount}
+              </p>
+              <p className="mt-2 text-2xl font-semibold text-[color:var(--accent)]">
+                {paymentResult.amount} {paymentResult.token}
+              </p>
+            </div>
+            {paymentResult.reference ? (
+              <div className="rounded-lg border border-white/10 bg-black/20 px-4 py-4">
                 <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                  {dictionary.fields.amount}
+                  {dictionary.fields.note}
                 </p>
-                <p className="mt-2 text-2xl font-semibold text-white">
-                  {paymentResult.amount} {paymentResult.token}
+                <p className="mt-2 text-sm leading-7 text-zinc-300">
+                  {paymentResult.reference}
                 </p>
               </div>
-              {paymentResult.reference ? (
-                <div>
-                  <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                    {dictionary.fields.note}
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-zinc-300">
-                    {paymentResult.reference}
-                  </p>
-                </div>
-              ) : null}
-            </div>
-
-            <div className="mt-4 border-t border-white/10 pt-4">
-              <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                {dictionary.labels.transaction}
-              </p>
-              <code className="mt-2 block break-all text-sm text-zinc-300">
-                {paymentResult.txHash}
-              </code>
-            </div>
+            ) : null}
           </div>
 
-          <Link
-            href={`${getExplorerBaseUrl(initialChainId)}/tx/${paymentResult.txHash}`}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex h-11 items-center justify-center rounded-full border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
-          >
-            {dictionary.actions.openExplorer}
-          </Link>
-        </CardContent>
-      </Card>
+          <div className="mt-4 border-t border-white/10 pt-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+              {dictionary.labels.transaction}
+            </p>
+            <code className="mt-2 block break-all text-sm text-zinc-300">
+              {paymentResult.txHash}
+            </code>
+          </div>
+        </div>
+
+        <Link
+          href={`${getExplorerBaseUrl(initialChainId)}/tx/${paymentResult.txHash}`}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex h-11 items-center justify-center rounded-lg border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
+        >
+          {dictionary.actions.openExplorer}
+        </Link>
+      </div>
     );
   }
 
@@ -372,10 +369,10 @@ export function PaymentPanelIsland({
 
       <div
         id="paylink-payment-panel"
-        className="space-y-5 rounded-lg border border-white/10 bg-zinc-950 px-5 py-5"
+        className="space-y-5 rounded-lg border border-white/10 bg-black/25 px-4 py-4 sm:px-5 sm:py-5"
       >
         {paymentOverlayCopy ? (
-          <div className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4">
+          <div className="rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-4 py-4">
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
               {paymentOverlayCopy.eyebrow}
             </p>
@@ -407,30 +404,32 @@ export function PaymentPanelIsland({
           />
         </div>
 
-        <label className="space-y-2">
-          <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-            {dictionary.fields.amount}
-          </span>
-          <Input
-            inputMode="decimal"
-            value={amount}
-            onChange={(event) =>
-              setAmount(sanitizeCurrencyInput(event.target.value))
-            }
-            placeholder={dictionary.placeholders.amount}
-          />
-        </label>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="space-y-2">
+            <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+              {dictionary.fields.amount}
+            </span>
+            <Input
+              inputMode="decimal"
+              value={amount}
+              onChange={(event) =>
+                setAmount(sanitizeCurrencyInput(event.target.value))
+              }
+              placeholder={dictionary.placeholders.amount}
+            />
+          </label>
 
-        <label className="space-y-2">
-          <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-            {dictionary.fields.note}
-          </span>
-          <Input
-            value={reference}
-            onChange={(event) => setReference(event.target.value)}
-            placeholder={dictionary.placeholders.note}
-          />
-        </label>
+          <label className="space-y-2">
+            <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+              {dictionary.fields.note}
+            </span>
+            <Input
+              value={reference}
+              onChange={(event) => setReference(event.target.value)}
+              placeholder={dictionary.placeholders.note}
+            />
+          </label>
+        </div>
 
         <TokenPicker
           label={dictionary.fields.token}
@@ -439,9 +438,11 @@ export function PaymentPanelIsland({
           onChange={(address) => setSelectedTokenAddress(address as Hex)}
         />
 
-        <div className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4 text-sm text-zinc-400">
-          <p>{dictionary.labels.payingFrom}</p>
-          <p className="mt-2 text-white">
+        <div className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-400">
+          <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+            {dictionary.labels.payingFrom}
+          </p>
+          <p className="mt-2 font-medium text-white">
             {account ? shortenAddress(account) : dictionary.labels.notConnected}
           </p>
           {balance !== null && selectedToken ? (
@@ -471,7 +472,7 @@ export function PaymentPanelIsland({
             </Button>
           ) : null}
           <Button
-            className="w-full sm:w-auto"
+            className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 hover:bg-[color:var(--accent-strong)] sm:w-auto"
             onClick={handlePay}
             disabled={
               isPaymentBusy ||

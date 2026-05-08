@@ -42,7 +42,7 @@ function ProfileLinkCard({
     <Link
       href={`/u/${profile.handle}`}
       className={clsx(
-        "group flex h-full flex-col rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(11,11,14,0.92))] p-5 transition hover:border-[color:var(--accent-line)] hover:bg-zinc-900/90",
+        "compact-card group flex h-full flex-col p-5 transition hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70",
         variant === "carousel" && "w-[19rem] shrink-0",
         variant === "result" && "border-[color:var(--accent-line)]"
       )}
@@ -55,11 +55,11 @@ function ProfileLinkCard({
         />
         <div className="min-w-0 space-y-2">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="max-w-[12rem] truncate rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300">
+            <span className="max-w-[12rem] truncate rounded-md border border-white/10 bg-zinc-950/60 px-3 py-1 text-xs font-medium text-zinc-300">
               @{profile.handle}
             </span>
             {token ? (
-              <span className="rounded-full border border-white/10 bg-zinc-950 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
+              <span className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
                 {token.symbol}
               </span>
             ) : null}
@@ -157,7 +157,7 @@ export function ProfileDiscovery({
 
   return (
     <div className="space-y-6">
-      <div className="rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(11,11,14,0.92))] px-5 py-5 sm:px-6 sm:py-6">
+      <div className="compact-card px-5 py-5 sm:px-6 sm:py-6">
         <div className="grid gap-5 lg:grid-cols-[1fr_minmax(18rem,0.72fr)] lg:items-end">
           <div className="space-y-2">
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">

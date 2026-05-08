@@ -22,7 +22,7 @@ function ProfileLinkCard({
     <Link
       href={`/u/${profile.handle}`}
       className={clsx(
-        "group flex h-full w-[19rem] shrink-0 flex-col rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(24,24,27,0.94),rgba(11,11,14,0.92))] p-5 transition hover:border-[color:var(--accent-line)] hover:bg-zinc-900/90"
+        "compact-card group flex h-full w-[19rem] shrink-0 flex-col p-5 transition hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70"
       )}
     >
       <div className="flex min-w-0 items-start gap-4">
@@ -33,11 +33,11 @@ function ProfileLinkCard({
         />
         <div className="min-w-0 space-y-2">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="max-w-[12rem] truncate rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-300">
+            <span className="max-w-[12rem] truncate rounded-md border border-white/10 bg-zinc-950/60 px-3 py-1 text-xs font-medium text-zinc-300">
               @{profile.handle}
             </span>
             {token ? (
-              <span className="rounded-full border border-white/10 bg-zinc-950 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
+              <span className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
                 {token.symbol}
               </span>
             ) : null}

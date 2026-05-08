@@ -22,7 +22,7 @@ export function RecentPaymentsView({
 }: RecentPaymentsViewProps) {
   if (isLoading) {
     return (
-      <Card aria-busy="true">
+      <Card className="compact-card" aria-busy="true">
         <CardHeader>
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
@@ -33,7 +33,7 @@ export function RecentPaymentsView({
           {Array.from({ length: 3 }).map((_, index) => (
             <div
               key={index}
-              className="rounded-lg border border-white/10 bg-zinc-900 px-4 py-4 sm:px-5 sm:py-5"
+              className="rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4 sm:px-5 sm:py-5"
             >
               <div className="space-y-3.5">
                 <div className="flex items-start justify-between gap-4">
@@ -54,12 +54,12 @@ export function RecentPaymentsView({
 
   if (payments.length === 0) {
     return (
-      <Card>
+      <Card className="compact-card">
         <CardHeader>
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="rounded-lg border border-dashed border-white/10 bg-zinc-900 px-4 py-5 text-sm leading-7 text-zinc-400">
+          <div className="rounded-lg border border-dashed border-white/10 bg-zinc-950/45 px-4 py-5 text-sm leading-7 text-zinc-400">
             {dictionary.dashboard.emptyTransactions}
           </div>
         </CardContent>
@@ -68,7 +68,7 @@ export function RecentPaymentsView({
   }
 
   return (
-    <Card>
+    <Card className="compact-card">
       <CardHeader>
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>
@@ -79,7 +79,7 @@ export function RecentPaymentsView({
             href={payment.explorerUrl}
             target="_blank"
             rel="noreferrer"
-            className="group block rounded-lg border border-white/10 bg-zinc-900 px-4 py-4 transition hover:border-white/20 hover:bg-zinc-900/90 sm:px-5 sm:py-5"
+            className="group block rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4 transition hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70 sm:px-5 sm:py-5"
           >
             <div className="space-y-4">
               <div className="flex items-start justify-between gap-4">
@@ -89,7 +89,7 @@ export function RecentPaymentsView({
                       {formatTokenAmount(payment.amount, payment.token, chainId)}{" "}
                       {payment.tokenSymbol || dictionary.fields.token}
                     </p>
-                    <span className="rounded-full border border-white/10 bg-zinc-950 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
+                    <span className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
                       @{payment.handle}
                     </span>
                   </div>
@@ -98,7 +98,7 @@ export function RecentPaymentsView({
                     <span className="text-zinc-200">{shortenAddress(payment.payer)}</span>
                   </p>
                 </div>
-                <div className="shrink-0 rounded-full border border-white/10 bg-zinc-950 px-3 py-1.5 text-xs text-zinc-400">
+                <div className="shrink-0 rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-xs text-zinc-400">
                   {payment.timestamp
                     ? formatDateLabel(payment.timestamp, locale)
                     : dictionary.labels.checking}
@@ -106,7 +106,7 @@ export function RecentPaymentsView({
               </div>
 
               {payment.reference ? (
-                <div className="rounded-lg border border-white/10 bg-zinc-950 px-4 py-3">
+                <div className="rounded-lg border border-white/10 bg-black/20 px-4 py-3">
                   <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
                     {dictionary.fields.note}
                   </p>

@@ -46,7 +46,7 @@ export function ChargeLinkPanel({
 
   const content = (
     <div className="space-y-5 overflow-hidden">
-      <div>
+      <div className="rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4">
         <p className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
           {dictionary.fields.suggestedAmounts}
         </p>
@@ -57,28 +57,30 @@ export function ChargeLinkPanel({
         />
       </div>
 
-      <label className="space-y-2">
-        <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-          {dictionary.fields.amount}
-        </span>
-        <Input
-          inputMode="decimal"
-          value={amount}
-          onChange={(event) => setAmount(sanitizeCurrencyInput(event.target.value))}
-          placeholder={dictionary.placeholders.amount}
-        />
-      </label>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label className="space-y-2">
+          <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+            {dictionary.fields.amount}
+          </span>
+          <Input
+            inputMode="decimal"
+            value={amount}
+            onChange={(event) => setAmount(sanitizeCurrencyInput(event.target.value))}
+            placeholder={dictionary.placeholders.amount}
+          />
+        </label>
 
-      <label className="space-y-2">
-        <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-          {dictionary.fields.note}
-        </span>
-        <Input
-          value={note}
-          onChange={(event) => setNote(event.target.value)}
-          placeholder={dictionary.placeholders.note}
-        />
-      </label>
+        <label className="space-y-2">
+          <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+            {dictionary.fields.note}
+          </span>
+          <Input
+            value={note}
+            onChange={(event) => setNote(event.target.value)}
+            placeholder={dictionary.placeholders.note}
+          />
+        </label>
+      </div>
 
       <TokenPicker
         label={dictionary.fields.token}
@@ -100,12 +102,12 @@ export function ChargeLinkPanel({
   }
 
   return (
-    <Card>
-      <CardHeader>
+    <Card className="compact-card">
+      <CardHeader className="space-y-2">
         <CardTitle>{dictionary.dashboard.chargeSection}</CardTitle>
         <CardDescription>{dictionary.dashboard.chargeLinkHint}</CardDescription>
       </CardHeader>
-      <CardContent>{content}</CardContent>
+      <CardContent className="pt-0">{content}</CardContent>
     </Card>
   );
 }
