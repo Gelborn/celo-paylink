@@ -10,7 +10,7 @@ import { ProfileCarousel } from "./profile-carousel";
 import { StaticHeader } from "./static-header";
 
 const primaryButtonClass =
-  "inline-flex h-12 w-full items-center justify-center rounded-full border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-base font-medium text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] sm:w-auto";
+  "inline-flex h-12 w-full items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-base font-medium text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] sm:w-auto";
 
 function AccentBadge({
   children
@@ -32,12 +32,12 @@ function ProofCard({
   label: string;
 }) {
   return (
-    <Card className="h-full border-white/10 bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))]">
+    <Card className="h-full border-white/10 compact-card">
       <CardContent className="flex h-full flex-col px-5 pb-5 pt-5">
         <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <p className="mt-6 text-base leading-7 text-zinc-100">{label}</p>
+        <p className="mt-5 text-base leading-7 text-zinc-100">{label}</p>
       </CardContent>
     </Card>
   );
@@ -53,9 +53,9 @@ function StepCard({
   description: string;
 }) {
   return (
-    <Card className="h-full border-white/10 bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))]">
+    <Card className="h-full border-white/10 compact-card">
       <CardContent className="h-full space-y-5 px-6 pb-6 pt-6">
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-sm font-semibold text-[color:var(--accent)]">
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-sm font-semibold text-[color:var(--accent)]">
           {String(index + 1).padStart(2, "0")}
         </span>
         <div className="space-y-3">
@@ -80,7 +80,7 @@ export function HomeStaticShell({
   };
 }) {
   return (
-    <main className="space-y-12 pb-14 md:space-y-16 md:pb-20">
+    <main className="space-y-12 pb-14 md:space-y-14 md:pb-20">
       <StaticHeader
         actions={
           <div
@@ -96,12 +96,12 @@ export function HomeStaticShell({
       />
 
       <section className="landing-section">
-        <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.82fr)] lg:items-center">
-          <div className="min-w-0 space-y-7">
+        <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.82fr)] lg:items-start">
+          <div className="min-w-0 space-y-7 lg:pt-20">
             <div className="space-y-5">
               <AccentBadge>{dictionary.home.eyebrow}</AccentBadge>
               <div className="space-y-4">
-                <h1 className="max-w-3xl text-[2.65rem] font-semibold leading-[1.04] tracking-tight text-white sm:text-5xl md:text-6xl md:leading-[1.02]">
+                <h1 className="max-w-[21rem] text-[2.2rem] font-semibold leading-[1.08] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl md:leading-[1.02]">
                   {dictionary.home.title}
                 </h1>
                 <p className="max-w-2xl text-base leading-7 text-zinc-300 sm:text-lg md:text-xl md:leading-8">
@@ -119,11 +119,11 @@ export function HomeStaticShell({
               </Link>
             </div>
 
-            <div className="flex max-w-full flex-wrap gap-2.5">
+            <div className="grid max-w-full grid-cols-1 gap-2.5 sm:flex sm:flex-wrap">
               {dictionary.home.heroChips.map((chip) => (
                 <span
                   key={chip}
-                  className="max-w-full rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-zinc-200"
+                  className="w-fit max-w-full rounded-lg border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-zinc-200"
                 >
                   {chip}
                 </span>

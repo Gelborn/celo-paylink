@@ -290,8 +290,8 @@ export function ProfileEditor({
         : "text-zinc-500";
 
   return (
-    <Card>
-      <CardHeader>
+    <Card className="compact-card">
+      <CardHeader className="space-y-2">
         <CardTitle>{dictionary.dashboard.profileSection}</CardTitle>
         <CardDescription>
           {profile
@@ -299,8 +299,8 @@ export function ProfileEditor({
             : dictionary.dashboard.descriptionNoProfile}
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-5">
+      <CardContent className="pt-0">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid gap-5 md:grid-cols-2">
             <label className="space-y-2">
               <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
@@ -366,7 +366,11 @@ export function ProfileEditor({
             <Textarea
               value={form.bio}
               aria-invalid={invalidFields.bio}
-              className={invalidFields.bio ? "border-red-400/70 focus:border-red-400" : undefined}
+              className={
+                invalidFields.bio
+                  ? "min-h-[108px] border-red-400/70 focus:border-red-400"
+                  : "min-h-[108px]"
+              }
               onChange={(event) =>
                 setForm((current) => ({
                   ...current,
@@ -384,6 +388,7 @@ export function ProfileEditor({
             <Textarea
               value={form.paymentMessage}
               aria-invalid={invalidFields.paymentMessage}
+              className="min-h-[108px]"
               onChange={(event) =>
                 setForm((current) => ({
                   ...current,
@@ -398,7 +403,7 @@ export function ProfileEditor({
             label={dictionary.fields.preferredToken}
             selectedAddress={form.preferredToken}
             options={tokens}
-            className={invalidFields.preferredToken ? "rounded-xl ring-1 ring-red-400/70" : undefined}
+            className={invalidFields.preferredToken ? "rounded-lg ring-1 ring-red-400/70" : undefined}
             onChange={(address) =>
               setForm((current) => ({
                 ...current,
@@ -407,7 +412,7 @@ export function ProfileEditor({
             }
           />
 
-          <div className="flex flex-col gap-3 border-t border-white/10 pt-5 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 md:flex-row md:items-center md:justify-between">
             <FeedbackMessage
               tone={
                 status === dictionary.messages.profilePublished
@@ -419,7 +424,11 @@ export function ProfileEditor({
             >
               {footerMessage}
             </FeedbackMessage>
-            <Button type="submit" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              className="w-full bg-[color:var(--accent)] text-black hover:bg-[color:var(--accent-strong)] md:w-auto"
+              disabled={isSubmitting}
+            >
               {isSubmitting
                 ? dictionary.messages.waitingConfirmation
                 : profile

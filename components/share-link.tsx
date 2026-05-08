@@ -46,15 +46,19 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
   }
 
   const content = (
-    <div className="space-y-4">
+    <div className="rounded-lg border border-white/10 bg-zinc-950/45 p-3">
       <code
-        className="block max-w-full overflow-hidden whitespace-normal break-all rounded-lg border border-white/10 bg-zinc-900 px-4 py-3 text-sm leading-6 text-zinc-300"
+        className="block max-w-full overflow-hidden whitespace-normal break-all rounded-md border border-white/10 bg-black/20 px-3 py-3 text-sm leading-6 text-zinc-300"
         style={{ fontFamily: "var(--font-mono), monospace" }}
       >
         {url}
       </code>
-      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Button onClick={handleCopy} variant="primary" className="w-full sm:w-auto">
+      <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <Button
+          onClick={handleCopy}
+          variant="primary"
+          className="w-full bg-[color:var(--accent)] text-black hover:bg-[color:var(--accent-strong)] sm:w-auto"
+        >
           {status === "copied"
             ? dictionary.labels.copied
             : status === "shared"
@@ -73,6 +77,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
       </div>
       <FeedbackMessage
         tone={status === "copy-error" || status === "share-error" ? "error" : "success"}
+        className="mt-3"
       >
         {status === "copied"
           ? dictionary.messages.linkCopied
@@ -92,11 +97,11 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
   }
 
   return (
-    <Card>
+    <Card className="compact-card">
       <CardHeader>
         <CardTitle className="text-base">{label}</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">{content}</CardContent>
+      <CardContent className="pt-0">{content}</CardContent>
     </Card>
   );
 }
