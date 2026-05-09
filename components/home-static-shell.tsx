@@ -1,7 +1,9 @@
 import Link from "next/link";
+import * as motion from "motion/react-client";
 import type { Hex } from "viem";
 import type { ReactNode } from "react";
 import type { Dictionary } from "../lib/i18n";
+import { fadeUp, staggerChildren } from "../lib/motion";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { HomeDemo } from "./home-demo";
@@ -10,7 +12,7 @@ import { ProfileCarousel } from "./profile-carousel";
 import { StaticHeader } from "./static-header";
 
 const primaryButtonClass =
-  "inline-flex h-12 w-full items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-base font-medium text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] transition hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] sm:w-auto";
+  "inline-flex h-12 w-full items-center justify-center rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-base font-medium text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] sm:w-auto";
 
 function AccentBadge({
   children
@@ -80,7 +82,12 @@ export function HomeStaticShell({
   };
 }) {
   return (
-    <main className="space-y-12 pb-14 md:space-y-14 md:pb-20">
+    <motion.main
+      className="space-y-12 pb-14 md:space-y-14 md:pb-20"
+      variants={staggerChildren}
+      initial="hidden"
+      animate="show"
+    >
       <StaticHeader
         actions={
           <div
@@ -95,7 +102,7 @@ export function HomeStaticShell({
         contractAddresses={contractAddresses}
       />
 
-      <section className="landing-section">
+      <motion.section className="landing-section" variants={fadeUp}>
         <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.82fr)] lg:items-start">
           <div className="min-w-0 space-y-7 lg:pt-20">
             <div className="space-y-5">
@@ -139,11 +146,16 @@ export function HomeStaticShell({
             <HomeDemo caption={dictionary.home.demoCaption} />
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <ProfileCarousel chainId={initialChainId} dictionary={dictionary} />
 
-      <section className="landing-section perf-defer-section space-y-6">
+      <motion.section
+        className="landing-section perf-defer-section space-y-6"
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+      >
         <div className="max-w-3xl space-y-3">
           <AccentBadge>{dictionary.home.proofEyebrow}</AccentBadge>
           <div className="space-y-3">
@@ -161,9 +173,14 @@ export function HomeStaticShell({
             <ProofCard key={chip} index={index} label={chip} />
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="landing-section perf-defer-section space-y-6">
+      <motion.section
+        className="landing-section perf-defer-section space-y-6"
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+      >
         <div className="max-w-3xl space-y-3">
           <AccentBadge>{dictionary.home.stepsEyebrow}</AccentBadge>
           <div className="space-y-3">
@@ -186,9 +203,14 @@ export function HomeStaticShell({
             />
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="landing-section perf-defer-section">
+      <motion.section
+        className="landing-section perf-defer-section"
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+      >
         <Card className="landing-cta-surface overflow-hidden border-[color:var(--accent-line)] shadow-[var(--accent-shadow),0_22px_64px_rgba(0,0,0,0.28)]">
           <CardContent className="space-y-8 px-6 py-8 md:px-10 md:py-10">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -223,7 +245,7 @@ export function HomeStaticShell({
             </div>
           </CardContent>
         </Card>
-      </section>
-    </main>
+      </motion.section>
+    </motion.main>
   );
 }

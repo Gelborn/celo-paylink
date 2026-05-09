@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { fadeUp, motionTransitions } from "../lib/motion";
 import { useLocale } from "./locale-provider";
 
 const DEMO_MEDIA = {
@@ -102,8 +104,17 @@ export function HomeDemo({
   const shouldRenderVideo = canUseMotion && isVisible && isIdle;
 
   return (
-    <figure className="mx-auto max-w-full space-y-4 overflow-hidden">
-      <div className="device-shell">
+    <motion.figure
+      className="mx-auto max-w-full space-y-4 overflow-hidden"
+      variants={fadeUp}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.div
+        className="device-shell"
+        whileHover={canUseMotion ? { y: -2 } : undefined}
+        transition={motionTransitions.panel}
+      >
         <div className="device-frame">
           <div className="device-screen">
             <div ref={frameRef} className="device-screen-inner">
@@ -133,10 +144,10 @@ export function HomeDemo({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <figcaption className="mx-auto max-w-sm text-center text-sm leading-7 text-zinc-400">
         {caption}
       </figcaption>
-    </figure>
+    </motion.figure>
   );
 }

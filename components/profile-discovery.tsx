@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { type FormEvent, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
 import {
   fetchProfileByHandleIfExists,
@@ -10,6 +11,7 @@ import {
 } from "../lib/contract";
 import { featuredProfiles } from "../lib/featured-profiles";
 import { sanitizeHandleInput } from "../lib/format";
+import { fadeUp, panelSwap } from "../lib/motion";
 import { getTokenByAddress } from "../lib/tokens";
 import { Avatar } from "./ui/avatar";
 import { Badge } from "./ui/badge";
@@ -42,7 +44,7 @@ function ProfileLinkCard({
     <Link
       href={`/u/${profile.handle}`}
       className={clsx(
-        "compact-card group flex h-full flex-col p-5 transition hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70",
+        "compact-card group flex h-full flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70",
         variant === "carousel" && "w-[19rem] shrink-0",
         variant === "result" && "border-[color:var(--accent-line)]"
       )}
@@ -157,7 +159,12 @@ export function ProfileDiscovery({
 
   return (
     <div className="space-y-6">
-      <div className="compact-card px-5 py-5 sm:px-6 sm:py-6">
+      <motion.div
+        className="compact-card px-5 py-5 sm:px-6 sm:py-6"
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+      >
         <div className="grid gap-5 lg:grid-cols-[1fr_minmax(18rem,0.72fr)] lg:items-end">
           <div className="space-y-2">
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
@@ -212,20 +219,28 @@ export function ProfileDiscovery({
                 ? dictionary.profileDiscovery.error
                 : null}
         </FeedbackMessage>
-      </div>
+      </motion.div>
 
-      {searchResult ? (
-        <div className="space-y-3">
-          <h3 className="text-base font-semibold text-white">
-            {dictionary.profileDiscovery.searchTitle}
-          </h3>
-          <ProfileLinkCard
-            profile={searchResult}
-            chainId={chainId}
-            variant="result"
-          />
-        </div>
-      ) : null}
+      <AnimatePresence initial={false}>
+        {searchResult ? (
+          <motion.div
+            className="space-y-3"
+            variants={panelSwap}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+          >
+            <h3 className="text-base font-semibold text-white">
+              {dictionary.profileDiscovery.searchTitle}
+            </h3>
+            <ProfileLinkCard
+              profile={searchResult}
+              chainId={chainId}
+              variant="result"
+            />
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 }

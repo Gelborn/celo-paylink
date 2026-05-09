@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { motion } from "motion/react";
+import { modalBackdrop, modalPanel } from "../lib/motion";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
@@ -26,13 +28,24 @@ export function NetworkMismatchModal({
   }, []);
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/70 px-4 py-6 backdrop-blur-sm">
-      <Card
+    <motion.div
+      className="fixed inset-0 z-40 flex items-center justify-center bg-black/70 px-4 py-6 backdrop-blur-sm"
+      variants={modalBackdrop}
+      initial="hidden"
+      animate="show"
+    >
+      <motion.div
+        variants={modalPanel}
+        initial="hidden"
+        animate="show"
+        className="w-full max-w-md"
+      >
+        <Card
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        className="w-full max-w-md border-transparent bg-[linear-gradient(180deg,rgba(24,24,27,0.98),rgba(12,12,15,0.94))] ring-1 ring-black/40"
+        className="border-transparent bg-[linear-gradient(180deg,rgba(24,24,27,0.98),rgba(12,12,15,0.94))] ring-1 ring-black/40"
         onKeyDown={(event) => {
           if (event.key === "Tab") {
             event.preventDefault();
@@ -60,6 +73,7 @@ export function NetworkMismatchModal({
           </Button>
         </CardContent>
       </Card>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
