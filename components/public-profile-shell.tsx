@@ -3,10 +3,12 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
 import type { ProfileRecord } from "../lib/contract";
 import { buildShareUrl } from "../lib/format";
 import { interpolate } from "../lib/i18n";
+import { fadeUp, panelSwap, staggerChildren } from "../lib/motion";
 import { shareOrCopyUrl } from "../lib/share";
 import { getSupportedTokens, getTokenByAddress, getTokenFromQuery } from "../lib/tokens";
 import { HomeWalletIsland } from "./home-wallet-island";
@@ -32,13 +34,13 @@ const PaymentPanelIsland = dynamic(
         aria-busy="true"
       >
         <div className="space-y-3">
-          <div className="h-4 w-40 animate-pulse rounded-full bg-white/10" />
-          <div className="h-4 w-full animate-pulse rounded-full bg-white/5" />
-          <div className="h-4 w-3/4 animate-pulse rounded-full bg-white/5" />
+          <div className="motion-shimmer h-4 w-40 animate-pulse rounded-full bg-white/10" />
+          <div className="motion-shimmer h-4 w-full animate-pulse rounded-full bg-white/5" />
+          <div className="motion-shimmer h-4 w-3/4 animate-pulse rounded-full bg-white/5" />
         </div>
-        <div className="h-12 animate-pulse rounded-lg bg-white/5" />
-        <div className="h-12 animate-pulse rounded-lg bg-white/5" />
-        <div className="h-12 animate-pulse rounded-lg bg-white/5" />
+        <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
+        <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
+        <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
       </div>
     )
   }
@@ -46,14 +48,19 @@ const PaymentPanelIsland = dynamic(
 
 function TrustList({ items }: { items: string[] }) {
   return (
-    <div className="trust-list">
+    <motion.div
+      className="trust-list"
+      variants={staggerChildren}
+      initial="hidden"
+      animate="show"
+    >
       {items.map((item) => (
-        <div key={item} className="trust-list-item text-sm">
+        <motion.div key={item} className="trust-list-item text-sm" variants={fadeUp}>
           <span className="trust-list-dot" aria-hidden="true" />
           <span>{item}</span>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
@@ -187,7 +194,12 @@ export function PublicProfileShell({
         </>
       )}
 
-      <section className="space-y-6">
+      <motion.section
+        className="space-y-6"
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+      >
         <SectionHeader
           eyebrow={
             isOwner
@@ -344,16 +356,26 @@ export function PublicProfileShell({
                           : null}
                   </FeedbackMessage>
 
-                  {isPaymentPanelOpen ? (
-                    <PaymentPanelIsland
-                      initialChainId={initialChainId}
-                      contractAddresses={contractAddresses}
-                      profile={profile}
-                      initialAmount={initialAmount}
-                      initialReference={initialReference}
-                      initialTokenQuery={initialTokenQuery}
-                    />
-                  ) : null}
+                  <AnimatePresence initial={false}>
+                    {isPaymentPanelOpen ? (
+                      <motion.div
+                        key="payment-panel"
+                        variants={panelSwap}
+                        initial="hidden"
+                        animate="show"
+                        exit="exit"
+                      >
+                        <PaymentPanelIsland
+                          initialChainId={initialChainId}
+                          contractAddresses={contractAddresses}
+                          profile={profile}
+                          initialAmount={initialAmount}
+                          initialReference={initialReference}
+                          initialTokenQuery={initialTokenQuery}
+                        />
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
 
                   <TrustList items={trustItems} />
 
@@ -382,7 +404,7 @@ export function PublicProfileShell({
 
           <div className="self-start">{recentPaymentsSlot}</div>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }

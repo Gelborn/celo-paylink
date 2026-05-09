@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "motion/react";
+import { fadeUp } from "../lib/motion";
 import { copyTextToClipboard, shareOrCopyUrl } from "../lib/share";
 import { useLocale } from "./locale-provider";
 import { FeedbackMessage } from "./ui/feedback-message";
@@ -46,7 +48,12 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
   }
 
   const content = (
-    <div className="rounded-lg border border-white/10 bg-zinc-950/45 p-3">
+    <motion.div
+      className="rounded-lg border border-white/10 bg-zinc-950/45 p-3"
+      variants={fadeUp}
+      initial="hidden"
+      animate="show"
+    >
       <code
         className="block max-w-full overflow-hidden whitespace-normal break-all rounded-md border border-white/10 bg-black/20 px-3 py-3 text-sm leading-6 text-zinc-300"
         style={{ fontFamily: "var(--font-mono), monospace" }}
@@ -89,7 +96,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
               ? dictionary.messages.shareFailed
               : null}
       </FeedbackMessage>
-    </div>
+    </motion.div>
   );
 
   if (embedded) {

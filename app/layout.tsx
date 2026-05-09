@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { cookies, headers } from "next/headers";
 import "./globals.css";
 import { LocaleProvider } from "../components/locale-provider";
+import { MotionRoot } from "../components/motion-root";
 import { publicEnv } from "../lib/env";
 import { resolveLocaleFromRequest } from "../lib/i18n";
 
@@ -97,7 +98,7 @@ export default async function RootLayout({
       <body>
         <LocaleProvider initialLocale={locale}>
           <div className="page-shell">
-            <div className="app-frame">{children}</div>
+            <MotionRoot>{children}</MotionRoot>
           </div>
         </LocaleProvider>
       </body>

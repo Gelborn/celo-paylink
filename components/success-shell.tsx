@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "motion/react";
 import { getExplorerBaseUrl } from "../lib/chains";
 import type { ProfileRecord } from "../lib/contract";
 import { useMiniPay } from "../lib/minipay";
+import { fadeUp, staggerChildren } from "../lib/motion";
 import { Header } from "./header";
 import { useLocale } from "./locale-provider";
 import { Avatar } from "./ui/avatar";
@@ -58,9 +60,15 @@ export function SuccessShell({
         onClearConnectError={clearConnectError}
         showAccountControls={!previewMode}
       />
-      <section className="space-y-5">
+      <motion.section
+        className="space-y-5"
+        variants={staggerChildren}
+        initial="hidden"
+        animate="show"
+      >
         {profile ? (
-          <Card className="compact-card mx-auto max-w-3xl">
+          <motion.div variants={fadeUp}>
+            <Card className="compact-card mx-auto max-w-3xl">
             <CardContent className="px-5 py-5 sm:px-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Avatar
@@ -80,9 +88,11 @@ export function SuccessShell({
               </div>
             </CardContent>
           </Card>
+          </motion.div>
         ) : null}
 
-        <Card className="compact-card mx-auto max-w-3xl">
+        <motion.div variants={fadeUp}>
+          <Card className="compact-card mx-auto max-w-3xl">
           <CardContent className="space-y-5 px-5 py-6 text-center sm:px-8">
             <div className="space-y-3">
               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
@@ -123,10 +133,10 @@ export function SuccessShell({
               <div className="trust-list mt-4 border-t border-white/10 pt-4">
                 {[dictionary.home.trustStatements[0], dictionary.home.trustStatements[2]].map(
                   (item) => (
-                    <div key={item} className="trust-list-item">
+                    <motion.div key={item} className="trust-list-item" variants={fadeUp}>
                       <span className="trust-list-dot" aria-hidden="true" />
                       <span>{item}</span>
-                    </div>
+                    </motion.div>
                   )
                 )}
               </div>
@@ -162,7 +172,8 @@ export function SuccessShell({
             </div>
           </CardContent>
         </Card>
-      </section>
+        </motion.div>
+      </motion.section>
     </main>
   );
 }

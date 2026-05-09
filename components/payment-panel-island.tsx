@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
 import {
   getExplorerBaseUrl,
@@ -15,6 +16,7 @@ import {
 } from "../lib/format";
 import { interpolate } from "../lib/i18n";
 import { useMiniPay } from "../lib/minipay";
+import { fadeUp, motionTransitions, panelSwap } from "../lib/motion";
 import { getSupportedTokens, getTokenByAddress, getTokenFromQuery } from "../lib/tokens";
 import {
   approveToken,
@@ -290,7 +292,12 @@ export function PaymentPanelIsland({
 
   if (paymentResult) {
     return (
-      <div className="space-y-5 rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-5 py-6 text-center sm:px-6">
+      <motion.div
+        className="space-y-5 rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-5 py-6 text-center sm:px-6"
+        variants={panelSwap}
+        initial="hidden"
+        animate="show"
+      >
         <div className="space-y-3">
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
             {dictionary.success.eyebrow}
@@ -343,12 +350,17 @@ export function PaymentPanelIsland({
         >
           {dictionary.actions.openExplorer}
         </Link>
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <div className="space-y-4">
+    <motion.div
+      className="space-y-4"
+      variants={fadeUp}
+      initial="hidden"
+      animate="show"
+    >
       {account && isWrongChain ? (
         <NetworkMismatchModal
           eyebrow={dictionary.labels.network}
@@ -371,19 +383,28 @@ export function PaymentPanelIsland({
         id="paylink-payment-panel"
         className="space-y-5 rounded-lg border border-white/10 bg-black/25 px-4 py-4 sm:px-5 sm:py-5"
       >
-        {paymentOverlayCopy ? (
-          <div className="rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-4 py-4">
-            <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-              {paymentOverlayCopy.eyebrow}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white">
-              {paymentOverlayCopy.title}
-            </h2>
-            <p className="mt-2 text-sm leading-7 text-zinc-400">
-              {paymentOverlayCopy.description}
-            </p>
-          </div>
-        ) : null}
+        <AnimatePresence mode="wait" initial={false}>
+          {paymentOverlayCopy ? (
+            <motion.div
+              key={paymentStage}
+              className="rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-4 py-4"
+              variants={panelSwap}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+            >
+              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                {paymentOverlayCopy.eyebrow}
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white">
+                {paymentOverlayCopy.title}
+              </h2>
+              <p className="mt-2 text-sm leading-7 text-zinc-400">
+                {paymentOverlayCopy.description}
+              </p>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
 
         <div className="space-y-2">
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
@@ -491,16 +512,22 @@ export function PaymentPanelIsland({
           {status}
         </FeedbackMessage>
         {txHash ? (
-          <Link
-            href={`${getExplorerBaseUrl(initialChainId)}/tx/${txHash}`}
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm text-zinc-300 underline underline-offset-4"
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={motionTransitions.micro}
           >
-            {dictionary.actions.openExplorer}
-          </Link>
+            <Link
+              href={`${getExplorerBaseUrl(initialChainId)}/tx/${txHash}`}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-zinc-300 underline underline-offset-4"
+            >
+              {dictionary.actions.openExplorer}
+            </Link>
+          </motion.div>
         ) : null}
       </div>
-    </div>
+    </motion.div>
   );
 }

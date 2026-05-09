@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { useMiniPay } from "../lib/minipay";
 import { shortenAddress } from "../lib/format";
+import { motionTransitions, softTap, subtleLift } from "../lib/motion";
 import { useLocale } from "./locale-provider";
 import { Button } from "./ui/button";
 
@@ -53,7 +55,7 @@ export function HomeWalletControls({
   const controls = account ? (
     <Link
       href="/my"
-      className="inline-flex h-9 items-center gap-2 rounded-full border border-white/10 bg-zinc-950/80 px-3 text-sm font-medium text-zinc-100 transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+      className="inline-flex h-9 items-center gap-2 rounded-full border border-white/10 bg-zinc-950/80 px-3 text-sm font-medium text-zinc-100 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-white/20 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
       aria-label={shortenAddress(account)}
     >
       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-900">
@@ -83,21 +85,30 @@ export function HomeWalletControls({
   return (
     <>
       {target ? createPortal(controls, target) : null}
-      {connectError ? (
-        <div
-          role="alert"
-          className="mb-6 flex items-center justify-between gap-4 rounded-lg border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100"
-        >
-          <p>{connectError}</p>
-          <button
-            type="button"
-            onClick={clearConnectError}
-            className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-zinc-200 transition hover:bg-white/5"
+      <AnimatePresence initial={false}>
+        {connectError ? (
+          <motion.div
+            role="alert"
+            initial={{ opacity: 0, y: -8, scale: 0.995 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -6, scale: 0.998 }}
+            transition={motionTransitions.micro}
+            className="mb-6 flex items-center justify-between gap-4 rounded-lg border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100"
           >
-            OK
-          </button>
-        </div>
-      ) : null}
+            <p>{connectError}</p>
+            <motion.button
+              type="button"
+              onClick={clearConnectError}
+              whileHover={subtleLift}
+              whileTap={softTap}
+              transition={motionTransitions.micro}
+              className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-zinc-200 transition hover:bg-white/5"
+            >
+              OK
+            </motion.button>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }

@@ -19,6 +19,9 @@
   --accent-line: rgba(57, 217, 138, 0.24);
   --accent-shadow: 0 32px 90px rgba(57, 217, 138, 0.16);
   --surface-shadow: 0 16px 42px rgba(0, 0, 0, 0.24);
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-quick: 180ms;
+  --motion-base: 220ms;
 }
 
 * {
@@ -69,6 +72,11 @@ a {
   border-radius: 0.5rem;
   background: linear-gradient(180deg, rgba(17, 18, 20, 0.92), rgba(9, 10, 12, 0.94));
   box-shadow: var(--surface-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  transition:
+    border-color var(--motion-base) var(--motion-ease),
+    background-color var(--motion-base) var(--motion-ease),
+    box-shadow var(--motion-base) var(--motion-ease),
+    transform var(--motion-base) var(--motion-ease);
 }
 
 .trust-list {
@@ -86,6 +94,16 @@ a {
   background: rgba(9, 10, 12, 0.48);
   padding: 0.75rem 0.9rem;
   color: #e4e4e7;
+  transition:
+    border-color var(--motion-base) var(--motion-ease),
+    background-color var(--motion-base) var(--motion-ease),
+    transform var(--motion-base) var(--motion-ease);
+}
+
+.trust-list-item:hover {
+  border-color: rgba(57, 217, 138, 0.18);
+  background: rgba(15, 17, 18, 0.64);
+  transform: translateY(-1px);
 }
 
 .trust-list-dot {
@@ -122,6 +140,17 @@ a {
   box-shadow:
     0 40px 110px rgba(0, 0, 0, 0.45),
     0 0 0 1px rgba(255, 255, 255, 0.03),
+    var(--accent-shadow);
+  transition:
+    box-shadow 320ms var(--motion-ease),
+    transform 320ms var(--motion-ease);
+}
+
+.device-shell:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 46px 118px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
     var(--accent-shadow);
 }
 
@@ -186,6 +215,25 @@ a {
   object-position: center top;
 }
 
+.motion-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.motion-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  animation: motion-shimmer 1.8s var(--motion-ease) infinite;
+}
+
 .profile-carousel {
   overflow: hidden;
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
@@ -217,12 +265,36 @@ a {
   }
 }
 
+@keyframes motion-shimmer {
+  to {
+    transform: translateX(120%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .profile-carousel-track {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .device-shell,
+  .trust-list-item {
+    transform: none !important;
+  }
+
+  .motion-shimmer::after {
     animation: none;
   }
 }

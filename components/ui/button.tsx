@@ -1,9 +1,11 @@
 "use client";
 
 import clsx from "clsx";
-import { forwardRef, type ButtonHTMLAttributes } from "react";
+import { motion, type HTMLMotionProps } from "motion/react";
+import { forwardRef } from "react";
+import { motionTransitions, softTap, subtleLift } from "../../lib/motion";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = HTMLMotionProps<"button"> & {
   variant?: "primary" | "secondary" | "ghost" | "outline";
   size?: "sm" | "md" | "lg";
 };
@@ -14,16 +16,24 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     variant = "primary",
     size = "md",
     type = "button",
+    disabled,
+    whileHover,
+    whileTap,
+    transition,
     ...props
   },
   ref
 ) {
   return (
-    <button
+    <motion.button
       ref={ref}
       type={type}
+      disabled={disabled}
+      whileHover={disabled ? undefined : whileHover || subtleLift}
+      whileTap={disabled ? undefined : whileTap || softTap}
+      transition={transition || motionTransitions.micro}
       className={clsx(
-        "inline-flex items-center justify-center rounded-lg border font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex items-center justify-center rounded-lg border font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] disabled:cursor-not-allowed disabled:opacity-50",
         size === "sm" && "h-9 px-4 text-sm",
         size === "md" && "h-11 px-5 text-sm",
         size === "lg" && "h-12 px-6 text-base",

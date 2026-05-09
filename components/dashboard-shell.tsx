@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
 import { buildShareUrl, shortenAddress } from "../lib/format";
+import { fadeUp, motionTransitions, panelSwap, softTap } from "../lib/motion";
 import { copyTextToClipboard, shareOrCopyUrl } from "../lib/share";
 import { useOwnerState } from "../lib/use-owner-state";
 import { ChargeLinkPanel } from "./charge-link-panel";
@@ -168,7 +170,7 @@ export function DashboardShell({
     void switchToDefaultChain();
   };
   const tabButtonClassName = (selected: boolean) =>
-    `min-w-[8rem] rounded-md border px-4 py-2.5 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
+    `min-w-[8rem] rounded-md border px-4 py-2.5 text-sm font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
       selected
         ? "border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]"
         : "border-transparent text-zinc-400 hover:bg-white/5 hover:text-white"
@@ -208,7 +210,12 @@ export function DashboardShell({
         />
       ) : null}
       {publishFlowCopy ? (
-        <section className="space-y-6">
+        <motion.section
+          className="space-y-6"
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+        >
           <SectionHeader
             eyebrow={dictionary.dashboard.eyebrow}
             title={publishFlowCopy.title}
@@ -217,7 +224,7 @@ export function DashboardShell({
           <Card className="compact-card">
             <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
               <div className="mx-auto max-w-2xl space-y-6 text-center">
-                <div className="mx-auto h-1 w-24 overflow-hidden rounded-full bg-white/10">
+                  <div className="motion-shimmer mx-auto h-1 w-24 overflow-hidden rounded-full bg-white/10">
                   <div className="h-full w-1/2 animate-pulse rounded-full bg-white" />
                 </div>
                 <div className="space-y-3">
@@ -234,9 +241,14 @@ export function DashboardShell({
               </div>
             </CardContent>
           </Card>
-        </section>
+        </motion.section>
       ) : (
-        <section className="space-y-6">
+        <motion.section
+          className="space-y-6"
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+        >
           <SectionHeader
             eyebrow={dictionary.dashboard.eyebrow}
             title={
@@ -357,7 +369,7 @@ export function DashboardShell({
                     aria-label={dictionary.dashboard.eyebrow}
                     className="inline-flex min-w-full rounded-lg border border-white/10 bg-zinc-950/70 p-1 sm:min-w-0"
                   >
-                    <button
+                    <motion.button
                       id="dashboard-tab-manage"
                       role="tab"
                       aria-selected={activeTab === "manage"}
@@ -367,40 +379,52 @@ export function DashboardShell({
                         setActiveTab("manage");
                         setManageView("overview");
                       }}
+                      whileTap={softTap}
+                      transition={motionTransitions.micro}
                       className={tabButtonClassName(activeTab === "manage")}
                     >
                       {dictionary.dashboard.actionsTab}
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
                       id="dashboard-tab-transactions"
                       role="tab"
                       aria-selected={activeTab === "transactions"}
                       aria-controls="dashboard-panel-transactions"
                       type="button"
                       onClick={() => setActiveTab("transactions")}
+                      whileTap={softTap}
+                      transition={motionTransitions.micro}
                       className={tabButtonClassName(activeTab === "transactions")}
                     >
                       {dictionary.dashboard.transactionsTab}
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
                       id="dashboard-tab-discover"
                       role="tab"
                       aria-selected={activeTab === "discover"}
                       aria-controls="dashboard-panel-discover"
                       type="button"
                       onClick={() => setActiveTab("discover")}
+                      whileTap={softTap}
+                      transition={motionTransitions.micro}
                       className={tabButtonClassName(activeTab === "discover")}
                     >
                       {dictionary.profileDiscovery.searchTab}
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
 
-                {activeTab === "manage" ? (
-                  <div
+                <AnimatePresence mode="wait" initial={false}>
+                  {activeTab === "manage" ? (
+                  <motion.div
+                    key={`manage-${manageView}`}
                     id="dashboard-panel-manage"
                     role="tabpanel"
                     aria-labelledby="dashboard-tab-manage"
+                    variants={panelSwap}
+                    initial="hidden"
+                    animate="show"
+                    exit="exit"
                   >
                     {manageView === "invoice" ? (
                       <Card className="compact-card">
@@ -540,12 +564,17 @@ export function DashboardShell({
                         </CardContent>
                       </Card>
                     )}
-                  </div>
+                  </motion.div>
                 ) : activeTab === "transactions" ? (
-                  <div
+                  <motion.div
+                    key="transactions"
                     id="dashboard-panel-transactions"
                     role="tabpanel"
                     aria-labelledby="dashboard-tab-transactions"
+                    variants={panelSwap}
+                    initial="hidden"
+                    animate="show"
+                    exit="exit"
                   >
                     <RecentPayments
                       payments={payments}
@@ -553,20 +582,26 @@ export function DashboardShell({
                       title={dictionary.dashboard.transactionsSection}
                       isLoading={isLoadingProfile || isLoadingPayments}
                     />
-                  </div>
+                  </motion.div>
                 ) : (
-                  <div
+                  <motion.div
+                    key="discover"
                     id="dashboard-panel-discover"
                     role="tabpanel"
                     aria-labelledby="dashboard-tab-discover"
+                    variants={panelSwap}
+                    initial="hidden"
+                    animate="show"
+                    exit="exit"
                   >
                     <ProfileDiscovery
                       chainId={initialChainId}
                       contractAddress={contractAddress}
                       variant="dashboard"
                     />
-                  </div>
+                  </motion.div>
                 )}
+                </AnimatePresence>
               </div>
             )
           ) : account ? (
@@ -579,7 +614,7 @@ export function DashboardShell({
               onPublishStateChange={setPublishStage}
             />
           ) : null}
-        </section>
+        </motion.section>
       )}
     </main>
   );

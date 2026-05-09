@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import Link from "next/link";
+import * as motion from "motion/react-client";
 import type { ProfileRecord } from "../lib/contract";
 import { featuredProfiles } from "../lib/featured-profiles";
 import type { Dictionary } from "../lib/i18n";
+import { fadeUp } from "../lib/motion";
 import { getTokenByAddress } from "../lib/tokens";
 import { Avatar } from "./ui/avatar";
 import { Badge } from "./ui/badge";
@@ -22,7 +24,7 @@ function ProfileLinkCard({
     <Link
       href={`/u/${profile.handle}`}
       className={clsx(
-        "compact-card group flex h-full w-[19rem] shrink-0 flex-col p-5 transition hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70"
+        "compact-card group flex h-full w-[19rem] shrink-0 flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70"
       )}
     >
       <div className="flex min-w-0 items-start gap-4">
@@ -69,7 +71,12 @@ export function ProfileCarousel({
   const carouselProfiles = [...featuredProfiles, ...featuredProfiles];
 
   return (
-    <section className="landing-section perf-defer-section space-y-6">
+    <motion.section
+      className="landing-section perf-defer-section space-y-6"
+      variants={fadeUp}
+      initial="hidden"
+      animate="show"
+    >
       <div className="max-w-3xl space-y-3">
         <Badge className="border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]">
           {dictionary.profileDiscovery.eyebrow}
@@ -96,6 +103,6 @@ export function ProfileCarousel({
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
