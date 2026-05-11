@@ -224,7 +224,7 @@ export function DashboardShell({
           <Card className="compact-card">
             <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
               <div className="mx-auto max-w-2xl space-y-6 text-center">
-                  <div className="motion-shimmer mx-auto h-1 w-24 overflow-hidden rounded-full bg-white/10">
+                <div className="motion-shimmer mx-auto h-1 w-24 overflow-hidden rounded-full bg-white/10">
                   <div className="h-full w-1/2 animate-pulse rounded-full bg-white" />
                 </div>
                 <div className="space-y-3">
@@ -414,193 +414,193 @@ export function DashboardShell({
                   </div>
                 </div>
 
-                <AnimatePresence mode="wait" initial={false}>
+                <AnimatePresence initial={false}>
                   {activeTab === "manage" ? (
-                  <motion.div
-                    key={`manage-${manageView}`}
-                    id="dashboard-panel-manage"
-                    role="tabpanel"
-                    aria-labelledby="dashboard-tab-manage"
-                    variants={panelSwap}
-                    initial="hidden"
-                    animate="show"
-                    exit="exit"
-                  >
-                    {manageView === "invoice" ? (
-                      <Card className="compact-card">
-                        <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
-                          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                            <div>
-                              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                                {dictionary.dashboard.chargeSection}
-                              </p>
-                              <h3 className="mt-2 text-xl font-semibold text-white">
-                                {dictionary.actions.createChargeLink}
-                              </h3>
-                              <p className="mt-2 max-w-2xl text-sm leading-7 text-zinc-400">
-                                {dictionary.dashboard.chargeLinkHint}
-                              </p>
-                            </div>
-                            <Button
-                              variant="ghost"
-                              onClick={() => setManageView("overview")}
-                            >
-                              {dictionary.actions.cancel}
-                            </Button>
-                          </div>
-                          <ChargeLinkPanel
-                            appUrl={appUrl}
-                            profile={profile}
-                            chainId={initialChainId}
-                            embedded
-                          />
-                        </CardContent>
-                      </Card>
-                    ) : (
-                      <Card className="compact-card">
-                        <CardContent className="space-y-5 px-5 py-5 sm:px-6 sm:py-6">
-                          <p className="max-w-2xl text-sm leading-7 text-zinc-400">
-                            {dictionary.dashboard.descriptionWithProfile}
-                          </p>
-
-                          <div className="grid gap-3">
-                            <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-                              <div className="min-w-0 space-y-2">
-                                <p className="text-base font-medium text-white">
-                                  {dictionary.actions.shareProfile}
+                    <motion.div
+                      key={`manage-${manageView}`}
+                      id="dashboard-panel-manage"
+                      role="tabpanel"
+                      aria-labelledby="dashboard-tab-manage"
+                      variants={panelSwap}
+                      initial="hidden"
+                      animate="show"
+                      exit="exit"
+                    >
+                      {manageView === "invoice" ? (
+                        <Card className="compact-card">
+                          <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
+                            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                              <div>
+                                <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                                  {dictionary.dashboard.chargeSection}
                                 </p>
-                                <p className="text-sm leading-7 text-zinc-400">
-                                  {dictionary.dashboard.profileShareHint}
-                                </p>
-                                <code
-                                  className="inline-flex max-w-full break-all rounded-lg border border-white/10 bg-black/20 px-3 py-1.5 text-xs leading-5 text-zinc-300"
-                                  style={{ fontFamily: "var(--font-mono), monospace" }}
-                                >
-                                  {publicUrl}
-                                </code>
-                              </div>
-                              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                                <Button
-                                  variant="outline"
-                                  className="w-full sm:min-w-[10rem]"
-                                  onClick={() => {
-                                    void handleCopyProfileLink();
-                                  }}
-                                >
-                                  {shareStatus === "copied"
-                                    ? dictionary.labels.copied
-                                    : shareStatus === "shared"
-                                      ? dictionary.labels.shared
-                                      : dictionary.actions.copyLink}
-                                </Button>
-                                <Button
-                                  className="w-full bg-[color:var(--accent)] text-black hover:bg-[color:var(--accent-strong)] sm:min-w-[10rem]"
-                                  onClick={() => {
-                                    void handleShareProfile();
-                                  }}
-                                >
-                                  {dictionary.actions.shareLink}
-                                </Button>
-                              </div>
-                            </div>
-                            <FeedbackMessage
-                              tone={
-                                shareStatus === "copy-error" || shareStatus === "share-error"
-                                  ? "error"
-                                  : "success"
-                              }
-                            >
-                              {shareStatus === "copied"
-                                ? dictionary.messages.linkCopied
-                                : shareStatus === "shared"
-                                  ? dictionary.messages.shareOpened
-                                  : shareStatus === "copy-error"
-                                    ? dictionary.messages.copyFailed
-                                    : shareStatus === "share-error"
-                                      ? dictionary.messages.shareFailed
-                                      : null}
-                            </FeedbackMessage>
-
-                            <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-                              <div className="space-y-2">
-                                <p className="text-base font-medium text-white">
-                                  {dictionary.actions.openPublicPage}
-                                </p>
-                                <p className="text-sm leading-7 text-zinc-400">
-                                  @{profile.handle}
-                                </p>
-                              </div>
-                              <Link
-                                href={`/u/${profile.handle}`}
-                                className="block w-full sm:w-auto"
-                              >
-                                <Button
-                                  variant="secondary"
-                                  className="w-full sm:min-w-[12rem]"
-                                >
-                                  {dictionary.actions.openPublicPage}
-                                </Button>
-                              </Link>
-                            </div>
-
-                            <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-                              <div className="space-y-2">
-                                <p className="text-base font-medium text-white">
+                                <h3 className="mt-2 text-xl font-semibold text-white">
                                   {dictionary.actions.createChargeLink}
-                                </p>
-                                <p className="text-sm leading-7 text-zinc-400">
+                                </h3>
+                                <p className="mt-2 max-w-2xl text-sm leading-7 text-zinc-400">
                                   {dictionary.dashboard.chargeLinkHint}
                                 </p>
                               </div>
                               <Button
-                                variant="secondary"
-                                className="w-full border-[color:var(--accent-line)] text-[color:var(--accent)] sm:min-w-[12rem]"
-                                onClick={() => setManageView("invoice")}
+                                variant="ghost"
+                                onClick={() => setManageView("overview")}
                               >
-                                {dictionary.actions.createChargeLink}
+                                {dictionary.actions.cancel}
                               </Button>
                             </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    )}
-                  </motion.div>
-                ) : activeTab === "transactions" ? (
-                  <motion.div
-                    key="transactions"
-                    id="dashboard-panel-transactions"
-                    role="tabpanel"
-                    aria-labelledby="dashboard-tab-transactions"
-                    variants={panelSwap}
-                    initial="hidden"
-                    animate="show"
-                    exit="exit"
-                  >
-                    <RecentPayments
-                      payments={payments}
-                      chainId={initialChainId}
-                      title={dictionary.dashboard.transactionsSection}
-                      isLoading={isLoadingProfile || isLoadingPayments}
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="discover"
-                    id="dashboard-panel-discover"
-                    role="tabpanel"
-                    aria-labelledby="dashboard-tab-discover"
-                    variants={panelSwap}
-                    initial="hidden"
-                    animate="show"
-                    exit="exit"
-                  >
-                    <ProfileDiscovery
-                      chainId={initialChainId}
-                      contractAddress={contractAddress}
-                      variant="dashboard"
-                    />
-                  </motion.div>
-                )}
+                            <ChargeLinkPanel
+                              appUrl={appUrl}
+                              profile={profile}
+                              chainId={initialChainId}
+                              embedded
+                            />
+                          </CardContent>
+                        </Card>
+                      ) : (
+                        <Card className="compact-card">
+                          <CardContent className="space-y-5 px-5 py-5 sm:px-6 sm:py-6">
+                            <p className="max-w-2xl text-sm leading-7 text-zinc-400">
+                              {dictionary.dashboard.descriptionWithProfile}
+                            </p>
+
+                            <div className="grid gap-3">
+                              <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+                                <div className="min-w-0 space-y-2">
+                                  <p className="text-base font-medium text-white">
+                                    {dictionary.actions.shareProfile}
+                                  </p>
+                                  <p className="text-sm leading-7 text-zinc-400">
+                                    {dictionary.dashboard.profileShareHint}
+                                  </p>
+                                  <code
+                                    className="inline-flex max-w-full break-all rounded-lg border border-white/10 bg-black/20 px-3 py-1.5 text-xs leading-5 text-zinc-300"
+                                    style={{ fontFamily: "var(--font-mono), monospace" }}
+                                  >
+                                    {publicUrl}
+                                  </code>
+                                </div>
+                                <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                                  <Button
+                                    variant="outline"
+                                    className="w-full sm:min-w-[10rem]"
+                                    onClick={() => {
+                                      void handleCopyProfileLink();
+                                    }}
+                                  >
+                                    {shareStatus === "copied"
+                                      ? dictionary.labels.copied
+                                      : shareStatus === "shared"
+                                        ? dictionary.labels.shared
+                                        : dictionary.actions.copyLink}
+                                  </Button>
+                                  <Button
+                                    className="w-full bg-[color:var(--accent)] text-black hover:bg-[color:var(--accent-strong)] sm:min-w-[10rem]"
+                                    onClick={() => {
+                                      void handleShareProfile();
+                                    }}
+                                  >
+                                    {dictionary.actions.shareLink}
+                                  </Button>
+                                </div>
+                              </div>
+                              <FeedbackMessage
+                                tone={
+                                  shareStatus === "copy-error" || shareStatus === "share-error"
+                                    ? "error"
+                                    : "success"
+                                }
+                              >
+                                {shareStatus === "copied"
+                                  ? dictionary.messages.linkCopied
+                                  : shareStatus === "shared"
+                                    ? dictionary.messages.shareOpened
+                                    : shareStatus === "copy-error"
+                                      ? dictionary.messages.copyFailed
+                                      : shareStatus === "share-error"
+                                        ? dictionary.messages.shareFailed
+                                        : null}
+                              </FeedbackMessage>
+
+                              <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+                                <div className="space-y-2">
+                                  <p className="text-base font-medium text-white">
+                                    {dictionary.actions.openPublicPage}
+                                  </p>
+                                  <p className="text-sm leading-7 text-zinc-400">
+                                    @{profile.handle}
+                                  </p>
+                                </div>
+                                <Link
+                                  href={`/u/${profile.handle}`}
+                                  className="block w-full sm:w-auto"
+                                >
+                                  <Button
+                                    variant="secondary"
+                                    className="w-full sm:min-w-[12rem]"
+                                  >
+                                    {dictionary.actions.openPublicPage}
+                                  </Button>
+                                </Link>
+                              </div>
+
+                              <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+                                <div className="space-y-2">
+                                  <p className="text-base font-medium text-white">
+                                    {dictionary.actions.createChargeLink}
+                                  </p>
+                                  <p className="text-sm leading-7 text-zinc-400">
+                                    {dictionary.dashboard.chargeLinkHint}
+                                  </p>
+                                </div>
+                                <Button
+                                  variant="secondary"
+                                  className="w-full border-[color:var(--accent-line)] text-[color:var(--accent)] sm:min-w-[12rem]"
+                                  onClick={() => setManageView("invoice")}
+                                >
+                                  {dictionary.actions.createChargeLink}
+                                </Button>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+                    </motion.div>
+                  ) : activeTab === "transactions" ? (
+                    <motion.div
+                      key="transactions"
+                      id="dashboard-panel-transactions"
+                      role="tabpanel"
+                      aria-labelledby="dashboard-tab-transactions"
+                      variants={panelSwap}
+                      initial="hidden"
+                      animate="show"
+                      exit="exit"
+                    >
+                      <RecentPayments
+                        payments={payments}
+                        chainId={initialChainId}
+                        title={dictionary.dashboard.transactionsSection}
+                        isLoading={isLoadingProfile || isLoadingPayments}
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="discover"
+                      id="dashboard-panel-discover"
+                      role="tabpanel"
+                      aria-labelledby="dashboard-tab-discover"
+                      variants={panelSwap}
+                      initial="hidden"
+                      animate="show"
+                      exit="exit"
+                    >
+                      <ProfileDiscovery
+                        chainId={initialChainId}
+                        contractAddress={contractAddress}
+                        variant="dashboard"
+                      />
+                    </motion.div>
+                  )}
                 </AnimatePresence>
               </div>
             )
