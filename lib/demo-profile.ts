@@ -31,8 +31,8 @@ export function getDemoProfile(handle: string, chainId: number): ProfileRecord {
     displayName: "Atlas Studio",
     avatarUrl:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
-    bio: "Payments, retainers, and direct support in one clean MiniPay profile.",
-    paymentMessage: "Thanks for paying with PayLink.",
+    bio: "Design retainers, project deposits, and direct support in one MiniPay-ready profile.",
+    paymentMessage: "Thanks for sending this payment.",
     preferredToken: token.address,
     exists: true
   };
