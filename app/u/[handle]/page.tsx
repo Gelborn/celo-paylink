@@ -61,10 +61,10 @@ export async function generateMetadata({
     ? `${profile.displayName} (${handleLabel})`
     : `${handleLabel} · MiniPay PayLink`;
   const description = profile
-    ? profile.bio || profile.paymentMessage || "Direct payments on Celo."
+    ? profile.bio || profile.paymentMessage || "Direct Celo payments through MiniPay PayLink."
     : previewMode
-      ? "Preview the PayLink public payment flow."
-      : `Open ${handleLabel} on PayLink to send a direct payment on Celo.`;
+      ? "Preview the MiniPay PayLink public payment flow."
+      : `Open ${handleLabel} on MiniPay PayLink to send a direct Celo payment.`;
 
   return {
     title,
