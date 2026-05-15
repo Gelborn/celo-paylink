@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { Copy, Eye, FileText, LayoutDashboard, Wallet } from "lucide-react";
 import { useState } from "react";
 import type { Hex } from "viem";
 import { buildShareUrl } from "../lib/format";
@@ -9,6 +9,14 @@ import { copyTextToClipboard } from "../lib/share";
 import { useOwnerState } from "../lib/use-owner-state";
 import { Header } from "./header";
 import { HomeDemo } from "./home-demo";
+import {
+  AccentBadge,
+  HeroChips,
+  HomeProofSection,
+  HomeStepsSection,
+  PrimaryProfileLink,
+  TrustGrid
+} from "./home-visuals";
 import { ProfileDiscovery } from "./profile-discovery";
 import { useLocale } from "./locale-provider";
 import { Avatar } from "./ui/avatar";
@@ -16,61 +24,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { FeedbackMessage } from "./ui/feedback-message";
-
-function AccentBadge({
-  children
-}: {
-  children: ReactNode;
-}) {
-  return (
-    <Badge className="border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]">
-      {children}
-    </Badge>
-  );
-}
-
-function ProofCard({
-  index,
-  label
-}: {
-  index: number;
-  label: string;
-}) {
-  return (
-    <Card className="h-full border-white/10 bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))]">
-      <CardContent className="flex h-full flex-col px-5 pb-5 pt-5">
-        <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <p className="mt-6 text-base leading-7 text-zinc-100">{label}</p>
-      </CardContent>
-    </Card>
-  );
-}
-
-function StepCard({
-  index,
-  title,
-  description
-}: {
-  index: number;
-  title: string;
-  description: string;
-}) {
-  return (
-    <Card className="h-full border-white/10 bg-[linear-gradient(180deg,rgba(23,24,26,0.94),rgba(14,15,17,0.88))]">
-      <CardContent className="h-full space-y-5 px-6 pb-6 pt-6">
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-sm font-semibold text-[color:var(--accent)]">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <div className="space-y-3">
-          <h2 className="text-xl font-semibold tracking-tight text-white">{title}</h2>
-          <p className="text-sm leading-7 text-zinc-400">{description}</p>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
+import { ActionRow, DetailTile } from "./ui/patterns";
 
 export function HomeShell({
   appUrl,
@@ -128,13 +82,11 @@ export function HomeShell({
       {account && profile ? (
         <section className="landing-section space-y-6">
           <div className="grid min-w-0 gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-            <Card className="overflow-hidden border-[color:var(--accent-line)] bg-[linear-gradient(180deg,rgba(18,20,22,0.98),rgba(11,12,14,0.92))] shadow-[var(--accent-shadow),0_22px_64px_rgba(0,0,0,0.28)]">
+            <Card variant="accent" className="overflow-hidden">
               <CardContent className="space-y-8 px-8 py-8 md:px-10 md:py-10">
                 <div className="flex flex-wrap items-center gap-3">
                   <AccentBadge>{dictionary.labels.profileLive}</AccentBadge>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">
-                    @{profile.handle}
-                  </span>
+                  <Badge>@{profile.handle}</Badge>
                 </div>
 
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
@@ -162,26 +114,31 @@ export function HomeShell({
                   </p>
                 </div>
 
-                <div className="rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-5 py-5">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
-                    {dictionary.fields.publicLink}
-                  </p>
-                  <p className="mt-3 break-all text-sm leading-7 text-white">
-                    {publicUrl}
-                  </p>
-                </div>
+                <DetailTile
+                  icon={<Copy aria-hidden="true" />}
+                  label={dictionary.fields.publicLink}
+                  value={publicUrl}
+                  tone="accent"
+                  mono
+                />
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Link href="/my" className="w-full sm:w-auto">
                     <Button
                       size="lg"
-                      className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] sm:w-auto"
+                      className="w-full sm:w-auto"
+                      leftIcon={<LayoutDashboard aria-hidden="true" />}
                     >
                       {dictionary.actions.openDashboard}
                     </Button>
                   </Link>
                   <Link href={`/u/${profile.handle}`} className="w-full sm:w-auto">
-                    <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full sm:w-auto"
+                      leftIcon={<Eye aria-hidden="true" />}
+                    >
                       {dictionary.actions.openPublicPage}
                     </Button>
                   </Link>
@@ -190,6 +147,7 @@ export function HomeShell({
                       variant="outline"
                       size="lg"
                       className="w-full sm:w-auto"
+                      leftIcon={<Copy aria-hidden="true" />}
                       onClick={async () => {
                         try {
                           await copyTextToClipboard(publicUrl);
@@ -214,51 +172,45 @@ export function HomeShell({
                       : null}
                 </FeedbackMessage>
 
-                <div className="grid gap-3 md:grid-cols-3">
-                  {dictionary.home.trustStatements.map((statement) => (
-                    <div
-                      key={statement}
-                      className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-200"
-                    >
-                      {statement}
-                    </div>
-                  ))}
-                </div>
+                <TrustGrid statements={dictionary.home.trustStatements} />
               </CardContent>
             </Card>
 
-            <Card className="border-white/10 bg-[linear-gradient(180deg,rgba(22,24,25,0.94),rgba(14,15,17,0.88))]">
+            <Card variant="elevated">
               <CardHeader className="px-7 pt-7">
                 <CardTitle>{dictionary.dashboard.quickActions}</CardTitle>
                 <CardDescription>{dictionary.productTagline}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4 px-7 pb-7">
-                <div className="rounded-lg border border-white/10 bg-zinc-950/80 px-5 py-5">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                    {dictionary.actions.createChargeLink}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-zinc-300">
-                    {dictionary.dashboard.quickActionChargeDescription}
-                  </p>
-                </div>
+                <ActionRow
+                  icon={<FileText aria-hidden="true" />}
+                  title={dictionary.actions.createChargeLink}
+                  description={dictionary.dashboard.quickActionChargeDescription}
+                  tone="accent"
+                />
 
-                <div className="rounded-lg border border-white/10 bg-zinc-950/80 px-5 py-5">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                    {dictionary.dashboard.transactionsSection}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-zinc-300">
-                    {dictionary.dashboard.quickActionTransactionsDescription}
-                  </p>
-                </div>
+                <ActionRow
+                  icon={<LayoutDashboard aria-hidden="true" />}
+                  title={dictionary.dashboard.transactionsSection}
+                  description={dictionary.dashboard.quickActionTransactionsDescription}
+                />
 
                 <div className="grid gap-3">
                   <Link href="/my">
-                    <Button variant="secondary" className="w-full">
+                    <Button
+                      variant="secondary"
+                      className="w-full"
+                      leftIcon={<FileText aria-hidden="true" />}
+                    >
                       {dictionary.actions.createChargeLink}
                     </Button>
                   </Link>
                   <Link href={`/u/${profile.handle}`}>
-                    <Button variant="outline" className="w-full">
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      leftIcon={<Eye aria-hidden="true" />}
+                    >
                       {dictionary.actions.viewProfile}
                     </Button>
                   </Link>
@@ -288,19 +240,13 @@ export function HomeShell({
                 </div>
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                  <Link href="/my" className="w-full sm:w-auto">
-                    <Button
-                      size="lg"
-                      className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] sm:w-auto"
-                    >
-                      {dictionary.actions.createProfile}
-                    </Button>
-                  </Link>
+                  <PrimaryProfileLink>{dictionary.actions.createProfile}</PrimaryProfileLink>
                   {showConnectAction ? (
                     <Button
                       variant="outline"
                       size="lg"
                       className="w-full sm:w-auto"
+                      leftIcon={<Wallet aria-hidden="true" />}
                       onClick={() => {
                         void connect();
                       }}
@@ -312,16 +258,7 @@ export function HomeShell({
                   ) : null}
                 </div>
 
-                <div className="flex max-w-full flex-wrap gap-2.5">
-                  {dictionary.home.heroChips.map((chip) => (
-                    <span
-                      key={chip}
-                      className="max-w-full rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-zinc-200"
-                    >
-                      {chip}
-                    </span>
-                  ))}
-                </div>
+                <HeroChips chips={dictionary.home.heroChips} />
 
                 <p className="max-w-xl text-sm leading-7 text-zinc-500">
                   {dictionary.home.connectHint}
@@ -341,48 +278,11 @@ export function HomeShell({
           />
 
           <section className="landing-section space-y-6">
-            <div className="max-w-3xl space-y-3">
-              <AccentBadge>{dictionary.home.proofEyebrow}</AccentBadge>
-              <div className="space-y-3">
-                <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                  {dictionary.home.proofTitle}
-                </h2>
-                <p className="text-base leading-8 text-zinc-400">
-                  {dictionary.home.proofDescription}
-                </p>
-              </div>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {dictionary.home.proofChips.map((chip, index) => (
-                <ProofCard key={chip} index={index} label={chip} />
-              ))}
-            </div>
+            <HomeProofSection dictionary={dictionary} />
           </section>
 
           <section className="landing-section space-y-6">
-            <div className="max-w-3xl space-y-3">
-              <AccentBadge>{dictionary.home.stepsEyebrow}</AccentBadge>
-              <div className="space-y-3">
-                <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                  {dictionary.home.stepsTitle}
-                </h2>
-                <p className="text-base leading-8 text-zinc-400">
-                  {dictionary.home.stepsDescription}
-                </p>
-              </div>
-            </div>
-
-            <div className="grid gap-4 lg:grid-cols-3">
-              {dictionary.home.steps.map((step, index) => (
-                <StepCard
-                  key={step.title}
-                  index={index}
-                  title={step.title}
-                  description={step.description}
-                />
-              ))}
-            </div>
+            <HomeStepsSection dictionary={dictionary} />
           </section>
 
           <section className="landing-section">
@@ -402,19 +302,13 @@ export function HomeShell({
                   </div>
 
                   <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                    <Link href="/my" className="w-full sm:w-auto">
-                      <Button
-                        size="lg"
-                        className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 shadow-[0_18px_42px_rgba(54,214,126,0.18)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] sm:w-auto"
-                      >
-                        {dictionary.actions.createProfile}
-                      </Button>
-                    </Link>
+                    <PrimaryProfileLink>{dictionary.actions.createProfile}</PrimaryProfileLink>
                     {showConnectAction ? (
                       <Button
                         variant="outline"
                         size="lg"
                         className="w-full sm:w-auto"
+                        leftIcon={<Wallet aria-hidden="true" />}
                         onClick={() => {
                           void connect();
                         }}
@@ -427,16 +321,7 @@ export function HomeShell({
                   </div>
                 </div>
 
-                <div className="grid gap-3 md:grid-cols-3">
-                  {dictionary.home.trustStatements.map((statement) => (
-                    <div
-                      key={statement}
-                      className="rounded-lg border border-white/10 bg-black/20 px-4 py-4 text-sm text-zinc-200"
-                    >
-                      {statement}
-                    </div>
-                  ))}
-                </div>
+                <TrustGrid statements={dictionary.home.trustStatements} />
               </CardContent>
             </Card>
           </section>

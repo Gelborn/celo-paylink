@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { RefreshCw } from "lucide-react";
 import { motion } from "motion/react";
 import { modalBackdrop, modalPanel } from "../lib/motion";
 import { Button } from "./ui/button";
@@ -67,6 +68,7 @@ export function NetworkMismatchModal({
             ref={actionRef}
             size="lg"
             className="mt-8 min-w-[13rem]"
+            leftIcon={<RefreshCw aria-hidden="true" />}
             onClick={onAction}
           >
             {actionLabel}

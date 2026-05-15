@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { CheckCircle2, Coins, ExternalLink, FileText, UserRound } from "lucide-react";
 import { motion } from "motion/react";
 import { getExplorerBaseUrl } from "../lib/chains";
 import type { ProfileRecord } from "../lib/contract";
@@ -12,6 +13,7 @@ import { Avatar } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
+import { DetailTile, IconFrame } from "./ui/patterns";
 
 export function SuccessShell({
   chainId,
@@ -68,7 +70,7 @@ export function SuccessShell({
       >
         {profile ? (
           <motion.div variants={fadeUp}>
-            <Card className="compact-card mx-auto max-w-3xl">
+            <Card variant="elevated" className="compact-card mx-auto max-w-3xl">
               <CardContent className="px-5 py-5 sm:px-6">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Avatar
@@ -77,7 +79,7 @@ export function SuccessShell({
                     size="lg"
                   />
                   <div className="space-y-2">
-                    <Badge>@{profile.handle}</Badge>
+                    <Badge variant="accent">@{profile.handle}</Badge>
                     <div>
                       <h1 className="text-3xl font-semibold text-white sm:text-[2rem]">
                         {profile.displayName}
@@ -92,9 +94,12 @@ export function SuccessShell({
         ) : null}
 
         <motion.div variants={fadeUp}>
-          <Card className="compact-card mx-auto max-w-3xl">
+          <Card variant="elevated" className="compact-card mx-auto max-w-3xl">
             <CardContent className="space-y-5 px-5 py-6 text-center sm:px-8">
               <div className="space-y-3">
+                <IconFrame tone="success" className="mx-auto h-12 w-12">
+                  <CheckCircle2 aria-hidden="true" />
+                </IconFrame>
                 <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                   {dictionary.success.eyebrow}
                 </p>
@@ -109,24 +114,19 @@ export function SuccessShell({
               <div className="rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 text-left sm:px-5 sm:py-5">
                 <div className="grid gap-3 sm:grid-cols-2">
                   {amount && token ? (
-                    <div className="rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-4 py-4">
-                      <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                        {dictionary.fields.amount}
-                      </p>
-                      <p className="mt-2 text-2xl font-semibold text-[color:var(--accent)]">
-                        {amount} {token}
-                      </p>
-                    </div>
+                    <DetailTile
+                      icon={<Coins aria-hidden="true" />}
+                      label={dictionary.fields.amount}
+                      value={`${amount} ${token}`}
+                      tone="accent"
+                    />
                   ) : null}
                   {reference ? (
-                    <div className="rounded-lg border border-white/10 bg-black/20 px-4 py-4">
-                      <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                        {dictionary.fields.note}
-                      </p>
-                      <p className="mt-2 text-sm leading-7 text-zinc-300">
-                        {reference}
-                      </p>
-                    </div>
+                    <DetailTile
+                      icon={<FileText aria-hidden="true" />}
+                      label={dictionary.fields.note}
+                      value={reference}
+                    />
                   ) : null}
                 </div>
 
@@ -134,7 +134,9 @@ export function SuccessShell({
                   {[dictionary.home.trustStatements[0], dictionary.home.trustStatements[2]].map(
                     (item) => (
                       <motion.div key={item} className="trust-list-item" variants={fadeUp}>
-                        <span className="trust-list-dot" aria-hidden="true" />
+                        <IconFrame tone="accent" className="h-8 w-8 rounded-md">
+                          <CheckCircle2 aria-hidden="true" />
+                        </IconFrame>
                         <span>{item}</span>
                       </motion.div>
                     )
@@ -156,15 +158,16 @@ export function SuccessShell({
                   <Link
                     href={`${getExplorerBaseUrl(chainId)}/tx/${txHash}`}
                     target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex h-11 items-center justify-center rounded-lg border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
+                  rel="noreferrer"
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
                   >
+                    <ExternalLink aria-hidden="true" className="h-4 w-4" />
                     {dictionary.actions.openExplorer}
                   </Link>
                 ) : null}
                 {handle ? (
                   <Link href={`/u/${handle}`}>
-                    <Button size="lg">
+                    <Button size="lg" leftIcon={<UserRound aria-hidden="true" />}>
                       {dictionary.actions.viewProfile} @{handle}
                     </Button>
                   </Link>

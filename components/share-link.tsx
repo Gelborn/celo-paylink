@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Copy, Share2 } from "lucide-react";
 import { motion } from "motion/react";
 import { fadeUp } from "../lib/motion";
 import { copyTextToClipboard, shareOrCopyUrl } from "../lib/share";
@@ -64,7 +65,8 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
         <Button
           onClick={handleCopy}
           variant="primary"
-          className="w-full bg-[color:var(--accent)] text-black hover:bg-[color:var(--accent-strong)] sm:w-auto"
+          className="w-full sm:w-auto"
+          leftIcon={<Copy aria-hidden="true" />}
         >
           {status === "copied"
             ? dictionary.labels.copied
@@ -78,6 +80,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
           }}
           variant="outline"
           className="w-full sm:w-auto"
+          leftIcon={<Share2 aria-hidden="true" />}
         >
           {dictionary.actions.shareLink}
         </Button>
@@ -104,7 +107,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
   }
 
   return (
-    <Card className="compact-card">
+    <Card variant="elevated" className="compact-card">
       <CardHeader>
         <CardTitle className="text-base">{label}</CardTitle>
       </CardHeader>

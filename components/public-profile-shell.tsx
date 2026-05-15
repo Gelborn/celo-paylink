@@ -3,6 +3,15 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
+import {
+  CheckCircle2,
+  Coins,
+  FileText,
+  LayoutDashboard,
+  Send,
+  Share2,
+  UserRound
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
 import type { ProfileRecord } from "../lib/contract";
@@ -21,6 +30,7 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { EmptyState } from "./ui/empty-state";
 import { FeedbackMessage } from "./ui/feedback-message";
+import { DetailTile, IconFrame } from "./ui/patterns";
 import { SectionHeader } from "./ui/section-header";
 
 const PaymentPanelIsland = dynamic(
@@ -56,7 +66,9 @@ function TrustList({ items }: { items: string[] }) {
     >
       {items.map((item) => (
         <motion.div key={item} className="trust-list-item text-sm" variants={fadeUp}>
-          <span className="trust-list-dot" aria-hidden="true" />
+          <IconFrame tone="accent" className="h-8 w-8 rounded-md">
+            <CheckCircle2 aria-hidden="true" />
+          </IconFrame>
           <span>{item}</span>
         </motion.div>
       ))}
@@ -127,7 +139,9 @@ export function PublicProfileShell({
           description={dictionary.publicPage.missingDescription}
           actions={
             <Link href="/my">
-              <Button>{dictionary.publicPage.createYours}</Button>
+              <Button leftIcon={<UserRound aria-hidden="true" />}>
+                {dictionary.publicPage.createYours}
+              </Button>
             </Link>
           }
         />
@@ -223,7 +237,7 @@ export function PublicProfileShell({
         />
 
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-          <Card className="compact-card">
+          <Card variant="elevated" className="compact-card">
             <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Avatar
@@ -232,7 +246,7 @@ export function PublicProfileShell({
                   size="xl"
                 />
                 <div className="space-y-2">
-                  <Badge>@{profile.handle}</Badge>
+                  <Badge variant={isOwner ? "accent" : "neutral"}>@{profile.handle}</Badge>
                   <div>
                     <h1 className="text-3xl font-semibold text-white sm:text-[2rem]">
                       {profile.displayName}
@@ -243,11 +257,11 @@ export function PublicProfileShell({
               </div>
 
               {profile.paymentMessage ? (
-                <div className="rounded-lg border border-white/10 bg-zinc-950/60 px-4 py-4">
-                  <p className="text-sm leading-7 text-zinc-300">
-                    {profile.paymentMessage}
-                  </p>
-                </div>
+                <DetailTile
+                  icon={<FileText aria-hidden="true" />}
+                  label={dictionary.fields.paymentMessage}
+                  value={profile.paymentMessage}
+                />
               ) : null}
 
               {isOwner ? (
@@ -255,13 +269,17 @@ export function PublicProfileShell({
                   <TrustList items={trustItems} />
                   <div className="grid gap-3 sm:grid-cols-2">
                     <Link href="/my" className="block">
-                      <Button className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 hover:bg-[color:var(--accent-strong)]">
+                      <Button
+                        className="w-full"
+                        leftIcon={<LayoutDashboard aria-hidden="true" />}
+                      >
                         {dictionary.actions.openDashboard}
                       </Button>
                     </Link>
                     <Button
                       variant="outline"
                       className="w-full"
+                      leftIcon={<Share2 aria-hidden="true" />}
                       onClick={() => {
                         void handleSharePublicPage();
                       }}
@@ -284,40 +302,33 @@ export function PublicProfileShell({
               ) : (
                 <div className="space-y-4">
                   {showInvoiceView ? (
-                    <div className="rounded-lg border border-white/10 bg-zinc-950/60 px-4 py-4">
+                    <div className="rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4">
                       <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                         {dictionary.publicPage.requestSummaryLabel}
                       </p>
                       <div className="mt-4 grid gap-3 sm:grid-cols-2">
                         {hasPrefilledAmount ? (
-                          <div>
-                            <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                              {dictionary.fields.amount}
-                            </p>
-                            <p className="mt-2 text-2xl font-semibold text-white">
-                              {initialAmount} {selectedToken?.symbol}
-                            </p>
-                          </div>
+                          <DetailTile
+                            icon={<Coins aria-hidden="true" />}
+                            label={dictionary.fields.amount}
+                            value={`${initialAmount} ${selectedToken?.symbol}`}
+                            tone="accent"
+                          />
                         ) : null}
                         {hasPrefilledToken && !hasPrefilledAmount ? (
-                          <div>
-                            <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                              {dictionary.fields.token}
-                            </p>
-                            <p className="mt-2 text-2xl font-semibold text-white">
-                              {selectedToken?.symbol}
-                            </p>
-                          </div>
+                          <DetailTile
+                            icon={<Coins aria-hidden="true" />}
+                            label={dictionary.fields.token}
+                            value={selectedToken?.symbol}
+                            tone="accent"
+                          />
                         ) : null}
                         {hasPrefilledReference ? (
-                          <div>
-                            <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                              {dictionary.fields.note}
-                            </p>
-                            <p className="mt-2 text-sm leading-7 text-zinc-300">
-                              {initialReference}
-                            </p>
-                          </div>
+                          <DetailTile
+                            icon={<FileText aria-hidden="true" />}
+                            label={dictionary.fields.note}
+                            value={initialReference}
+                          />
                         ) : null}
                       </div>
                     </div>
@@ -326,6 +337,7 @@ export function PublicProfileShell({
                       <Button
                         className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 hover:bg-[color:var(--accent-strong)]"
                         size="lg"
+                        leftIcon={<Send aria-hidden="true" />}
                         onClick={() => setIsPaymentPanelOpen(true)}
                         aria-expanded={isPaymentPanelOpen}
                         aria-controls="paylink-payment-panel"
@@ -335,6 +347,7 @@ export function PublicProfileShell({
                       <Button
                         variant="outline"
                         className="w-full"
+                        leftIcon={<Share2 aria-hidden="true" />}
                         onClick={() => {
                           void handleSharePublicPage();
                         }}
@@ -384,6 +397,7 @@ export function PublicProfileShell({
                       <Button
                         variant="outline"
                         className="w-full sm:w-auto"
+                        leftIcon={<Share2 aria-hidden="true" />}
                         onClick={() => {
                           void handleSharePublicPage();
                         }}
@@ -392,7 +406,11 @@ export function PublicProfileShell({
                       </Button>
                     ) : null}
                     <Link href="/my" className="block w-full sm:w-auto">
-                      <Button variant="secondary" className="w-full sm:w-auto">
+                      <Button
+                        variant="secondary"
+                        className="w-full sm:w-auto"
+                        leftIcon={<UserRound aria-hidden="true" />}
+                      >
                         {dictionary.actions.createYourOwn}
                       </Button>
                     </Link>

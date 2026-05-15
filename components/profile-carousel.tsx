@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import * as motion from "motion/react-client";
 import type { ProfileRecord } from "../lib/contract";
 import { featuredProfiles } from "../lib/featured-profiles";
@@ -56,6 +57,7 @@ function ProfileLinkCard({
 
       <span className="mt-5 inline-flex text-sm font-medium text-[color:var(--accent)] transition group-hover:text-[color:var(--accent-strong)]">
         {dictionary.profileDiscovery.openProfile}
+        <ArrowUpRight aria-hidden="true" className="ml-1.5 h-4 w-4" />
       </span>
     </Link>
   );
@@ -78,7 +80,7 @@ export function ProfileCarousel({
       animate="show"
     >
       <div className="max-w-3xl space-y-3">
-        <Badge className="border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]">
+        <Badge variant="accent">
           {dictionary.profileDiscovery.eyebrow}
         </Badge>
         <div className="space-y-3">

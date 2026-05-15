@@ -1,11 +1,25 @@
 import clsx from "clsx";
 import type { HTMLAttributes } from "react";
 
-export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+export function Card({
+  variant = "default",
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement> & {
+  variant?: "default" | "elevated" | "inset" | "accent";
+}) {
   return (
     <div
       className={clsx(
-        "rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(22,22,25,0.96),rgba(12,13,15,0.94))] shadow-[0_16px_42px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.025)]",
+        "rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]",
+        variant === "default" &&
+          "border-white/10 bg-[linear-gradient(180deg,rgba(18,19,22,0.96),rgba(10,11,13,0.94))] shadow-[0_14px_36px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.025)]",
+        variant === "elevated" &&
+          "border-white/15 bg-[linear-gradient(180deg,rgba(22,23,26,0.98),rgba(10,11,13,0.95))] shadow-[0_24px_62px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.035)]",
+        variant === "inset" &&
+          "border-white/10 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]",
+        variant === "accent" &&
+          "border-[color:var(--accent-line)] bg-[linear-gradient(180deg,rgba(17,22,20,0.98),rgba(9,11,12,0.94))] shadow-[var(--accent-shadow),0_18px_46px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.035)]",
         className
       )}
       {...props}

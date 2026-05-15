@@ -3,6 +3,17 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  Copy,
+  CreditCard,
+  Eye,
+  FileText,
+  LayoutDashboard,
+  Pencil,
+  Search,
+  Share2,
+  Wallet
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
 import { buildShareUrl, shortenAddress } from "../lib/format";
@@ -21,6 +32,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { FeedbackMessage } from "./ui/feedback-message";
+import { ActionRow } from "./ui/patterns";
 import { SectionHeader } from "./ui/section-header";
 
 type DashboardTab = "manage" | "transactions" | "discover";
@@ -170,7 +182,7 @@ export function DashboardShell({
     void switchToDefaultChain();
   };
   const tabButtonClassName = (selected: boolean) =>
-    `min-w-[8rem] rounded-md border px-4 py-2.5 text-sm font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
+    `inline-flex min-w-[8rem] items-center justify-center gap-2 rounded-md border px-4 py-2.5 text-sm font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] [&>svg]:h-4 [&>svg]:w-4 ${
       selected
         ? "border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]"
         : "border-transparent text-zinc-400 hover:bg-white/5 hover:text-white"
@@ -264,12 +276,12 @@ export function DashboardShell({
           />
 
           {!account ? (
-            <Card className="compact-card">
+            <Card variant="elevated" className="compact-card">
               <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
                 <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
-                    {dictionary.dashboard.eyebrow}
-                  </p>
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]">
+                    <Wallet aria-hidden="true" className="h-5 w-5" />
+                  </span>
                   <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                     {dictionary.actions.connectWallet}
                   </h2>
@@ -281,7 +293,8 @@ export function DashboardShell({
                   {!isMiniPay || isDisconnectedByUser ? (
                     <Button
                       size="lg"
-                      className="mt-8 min-w-[13rem] bg-[color:var(--accent)] text-black hover:bg-[color:var(--accent-strong)]"
+                      className="mt-8 min-w-[13rem]"
+                      leftIcon={<Wallet aria-hidden="true" />}
                       onClick={() => {
                         void connect();
                       }}
@@ -297,7 +310,7 @@ export function DashboardShell({
           ) : null}
 
           {account && profile ? (
-            <Card className="compact-card">
+            <Card variant="accent" className="compact-card">
               <CardContent className="flex flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-4">
                   <Avatar
@@ -306,7 +319,7 @@ export function DashboardShell({
                     size="lg"
                   />
                   <div className="space-y-2">
-                    <Badge>{dictionary.labels.profileLive}</Badge>
+                    <Badge variant="accent">{dictionary.labels.profileLive}</Badge>
                     <div>
                       <h2 className="text-2xl font-semibold text-white">
                         {profile.displayName}
@@ -320,6 +333,7 @@ export function DashboardShell({
                 <div className="flex flex-wrap gap-3">
                   <Button
                     variant="outline"
+                    leftIcon={<Pencil aria-hidden="true" />}
                     onClick={() => {
                       setActiveTab("manage");
                       setManageView("overview");
@@ -331,6 +345,7 @@ export function DashboardShell({
                   <Link href={`/u/${profile.handle}`}>
                     <Button
                       variant="secondary"
+                      leftIcon={<Eye aria-hidden="true" />}
                       className="border-[color:var(--accent-line)] text-[color:var(--accent)]"
                     >
                       {dictionary.actions.openPublicPage}
@@ -383,6 +398,7 @@ export function DashboardShell({
                       transition={motionTransitions.micro}
                       className={tabButtonClassName(activeTab === "manage")}
                     >
+                      <LayoutDashboard aria-hidden="true" />
                       {dictionary.dashboard.actionsTab}
                     </motion.button>
                     <motion.button
@@ -396,6 +412,7 @@ export function DashboardShell({
                       transition={motionTransitions.micro}
                       className={tabButtonClassName(activeTab === "transactions")}
                     >
+                      <CreditCard aria-hidden="true" />
                       {dictionary.dashboard.transactionsTab}
                     </motion.button>
                     <motion.button
@@ -409,6 +426,7 @@ export function DashboardShell({
                       transition={motionTransitions.micro}
                       className={tabButtonClassName(activeTab === "discover")}
                     >
+                      <Search aria-hidden="true" />
                       {dictionary.profileDiscovery.searchTab}
                     </motion.button>
                   </div>
@@ -443,6 +461,7 @@ export function DashboardShell({
                               </div>
                               <Button
                                 variant="ghost"
+                                leftIcon={<LayoutDashboard aria-hidden="true" />}
                                 onClick={() => setManageView("overview")}
                               >
                                 {dictionary.actions.cancel}
@@ -464,45 +483,44 @@ export function DashboardShell({
                             </p>
 
                             <div className="grid gap-3">
-                              <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-                                <div className="min-w-0 space-y-2">
-                                  <p className="text-base font-medium text-white">
-                                    {dictionary.actions.shareProfile}
-                                  </p>
-                                  <p className="text-sm leading-7 text-zinc-400">
-                                    {dictionary.dashboard.profileShareHint}
-                                  </p>
+                              <ActionRow
+                                icon={<Share2 aria-hidden="true" />}
+                                title={dictionary.actions.shareProfile}
+                                description={dictionary.dashboard.profileShareHint}
+                                tone="accent"
+                                detail={
                                   <code
                                     className="inline-flex max-w-full break-all rounded-lg border border-white/10 bg-black/20 px-3 py-1.5 text-xs leading-5 text-zinc-300"
                                     style={{ fontFamily: "var(--font-mono), monospace" }}
                                   >
                                     {publicUrl}
                                   </code>
-                                </div>
-                                <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                                  <Button
-                                    variant="outline"
-                                    className="w-full sm:min-w-[10rem]"
-                                    onClick={() => {
-                                      void handleCopyProfileLink();
-                                    }}
-                                  >
-                                    {shareStatus === "copied"
-                                      ? dictionary.labels.copied
-                                      : shareStatus === "shared"
-                                        ? dictionary.labels.shared
-                                        : dictionary.actions.copyLink}
-                                  </Button>
-                                  <Button
-                                    className="w-full bg-[color:var(--accent)] text-black hover:bg-[color:var(--accent-strong)] sm:min-w-[10rem]"
-                                    onClick={() => {
-                                      void handleShareProfile();
-                                    }}
-                                  >
-                                    {dictionary.actions.shareLink}
-                                  </Button>
-                                </div>
-                              </div>
+                                }
+                              >
+                                <Button
+                                  variant="outline"
+                                  className="w-full sm:min-w-[10rem]"
+                                  leftIcon={<Copy aria-hidden="true" />}
+                                  onClick={() => {
+                                    void handleCopyProfileLink();
+                                  }}
+                                >
+                                  {shareStatus === "copied"
+                                    ? dictionary.labels.copied
+                                    : shareStatus === "shared"
+                                      ? dictionary.labels.shared
+                                      : dictionary.actions.copyLink}
+                                </Button>
+                                <Button
+                                  className="w-full sm:min-w-[10rem]"
+                                  leftIcon={<Share2 aria-hidden="true" />}
+                                  onClick={() => {
+                                    void handleShareProfile();
+                                  }}
+                                >
+                                  {dictionary.actions.shareLink}
+                                </Button>
+                              </ActionRow>
                               <FeedbackMessage
                                 tone={
                                   shareStatus === "copy-error" || shareStatus === "share-error"
@@ -521,15 +539,11 @@ export function DashboardShell({
                                         : null}
                               </FeedbackMessage>
 
-                              <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-                                <div className="space-y-2">
-                                  <p className="text-base font-medium text-white">
-                                    {dictionary.actions.openPublicPage}
-                                  </p>
-                                  <p className="text-sm leading-7 text-zinc-400">
-                                    @{profile.handle}
-                                  </p>
-                                </div>
+                              <ActionRow
+                                icon={<Eye aria-hidden="true" />}
+                                title={dictionary.actions.openPublicPage}
+                                description={`@${profile.handle}`}
+                              >
                                 <Link
                                   href={`/u/${profile.handle}`}
                                   className="block w-full sm:w-auto"
@@ -537,29 +551,28 @@ export function DashboardShell({
                                   <Button
                                     variant="secondary"
                                     className="w-full sm:min-w-[12rem]"
+                                    leftIcon={<Eye aria-hidden="true" />}
                                   >
                                     {dictionary.actions.openPublicPage}
                                   </Button>
                                 </Link>
-                              </div>
+                              </ActionRow>
 
-                              <div className="flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-                                <div className="space-y-2">
-                                  <p className="text-base font-medium text-white">
-                                    {dictionary.actions.createChargeLink}
-                                  </p>
-                                  <p className="text-sm leading-7 text-zinc-400">
-                                    {dictionary.dashboard.chargeLinkHint}
-                                  </p>
-                                </div>
+                              <ActionRow
+                                icon={<FileText aria-hidden="true" />}
+                                title={dictionary.actions.createChargeLink}
+                                description={dictionary.dashboard.chargeLinkHint}
+                                tone="accent"
+                              >
                                 <Button
                                   variant="secondary"
                                   className="w-full border-[color:var(--accent-line)] text-[color:var(--accent)] sm:min-w-[12rem]"
+                                  leftIcon={<FileText aria-hidden="true" />}
                                   onClick={() => setManageView("invoice")}
                                 >
                                   {dictionary.actions.createChargeLink}
                                 </Button>
-                              </div>
+                              </ActionRow>
                             </div>
                           </CardContent>
                         </Card>

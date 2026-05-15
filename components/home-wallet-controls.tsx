@@ -3,31 +3,13 @@
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
+import { Wallet, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useMiniPay } from "../lib/minipay";
 import { shortenAddress } from "../lib/format";
 import { motionTransitions, softTap, subtleLift } from "../lib/motion";
 import { useLocale } from "./locale-provider";
 import { Button } from "./ui/button";
-
-function WalletGlyph() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 text-zinc-200"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h9.8a2 2 0 0 0 1.4-.58l.3-.3" />
-      <path d="M4 9.5C4 8.12 5.12 7 6.5 7H18a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6.5A2.5 2.5 0 0 1 4 15.5z" />
-      <path d="M16.75 12h.5" />
-    </svg>
-  );
-}
 
 export function HomeWalletControls({
   initialChainId,
@@ -59,7 +41,7 @@ export function HomeWalletControls({
       aria-label={shortenAddress(account)}
     >
       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-900">
-        <WalletGlyph />
+        <Wallet aria-hidden="true" className="h-4 w-4 text-zinc-200" />
       </span>
       <span className="hidden sm:inline">{shortenAddress(account)}</span>
     </Link>
@@ -71,6 +53,7 @@ export function HomeWalletControls({
     <Button
       size="sm"
       variant="outline"
+      leftIcon={<Wallet aria-hidden="true" />}
       disabled={isConnecting}
       onClick={() => {
         void connect();
@@ -102,9 +85,10 @@ export function HomeWalletControls({
               whileHover={subtleLift}
               whileTap={softTap}
               transition={motionTransitions.micro}
-              className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-zinc-200 transition hover:bg-white/5"
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-zinc-200 transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300/30"
+              aria-label={dictionary.actions.cancel}
             >
-              OK
+              <X aria-hidden="true" className="h-4 w-4" />
             </motion.button>
           </motion.div>
         ) : null}

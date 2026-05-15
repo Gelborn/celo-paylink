@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Save, UserRound } from "lucide-react";
 import type { Hex } from "viem";
 import { fetchProfileByHandle, type ProfileRecord } from "../lib/contract";
 import { normalizeImageUrl, sanitizeHandleInput } from "../lib/format";
@@ -290,7 +291,7 @@ export function ProfileEditor({
         : "text-zinc-500";
 
   return (
-    <Card className="compact-card">
+    <Card variant="elevated" className="compact-card">
       <CardHeader className="space-y-2">
         <CardTitle>{dictionary.dashboard.profileSection}</CardTitle>
         <CardDescription>
@@ -426,7 +427,14 @@ export function ProfileEditor({
             </FeedbackMessage>
             <Button
               type="submit"
-              className="w-full bg-[color:var(--accent)] text-black hover:bg-[color:var(--accent-strong)] md:w-auto"
+              className="w-full md:w-auto"
+              leftIcon={
+                profile ? (
+                  <Save aria-hidden="true" />
+                ) : (
+                  <UserRound aria-hidden="true" />
+                )
+              }
               disabled={isSubmitting}
             >
               {isSubmitting

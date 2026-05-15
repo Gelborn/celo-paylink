@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CheckCircle2, Coins, ExternalLink, FileText, Send, Wallet } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
 import {
@@ -33,6 +34,7 @@ import { useLocale } from "./locale-provider";
 import { Button } from "./ui/button";
 import { FeedbackMessage } from "./ui/feedback-message";
 import { Input } from "./ui/input";
+import { DetailTile, IconFrame } from "./ui/patterns";
 
 type PaymentStage =
   | null
@@ -298,6 +300,9 @@ export function PaymentPanelIsland({
         initial="hidden"
         animate="show"
       >
+        <IconFrame tone="success" className="mx-auto h-12 w-12">
+          <CheckCircle2 aria-hidden="true" />
+        </IconFrame>
         <div className="space-y-3">
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
             {dictionary.success.eyebrow}
@@ -312,23 +317,18 @@ export function PaymentPanelIsland({
 
         <div className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-left">
           <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg border border-[color:var(--accent-line)] bg-black/20 px-4 py-4">
-              <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                {dictionary.fields.amount}
-              </p>
-              <p className="mt-2 text-2xl font-semibold text-[color:var(--accent)]">
-                {paymentResult.amount} {paymentResult.token}
-              </p>
-            </div>
+            <DetailTile
+              icon={<Coins aria-hidden="true" />}
+              label={dictionary.fields.amount}
+              value={`${paymentResult.amount} ${paymentResult.token}`}
+              tone="accent"
+            />
             {paymentResult.reference ? (
-              <div className="rounded-lg border border-white/10 bg-black/20 px-4 py-4">
-                <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                  {dictionary.fields.note}
-                </p>
-                <p className="mt-2 text-sm leading-7 text-zinc-300">
-                  {paymentResult.reference}
-                </p>
-              </div>
+              <DetailTile
+                icon={<FileText aria-hidden="true" />}
+                label={dictionary.fields.note}
+                value={paymentResult.reference}
+              />
             ) : null}
           </div>
 
@@ -346,8 +346,9 @@ export function PaymentPanelIsland({
           href={`${getExplorerBaseUrl(initialChainId)}/tx/${paymentResult.txHash}`}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex h-11 items-center justify-center rounded-lg border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
+          className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
         >
+          <ExternalLink aria-hidden="true" className="h-4 w-4" />
           {dictionary.actions.openExplorer}
         </Link>
       </motion.div>
@@ -459,20 +460,18 @@ export function PaymentPanelIsland({
           onChange={(address) => setSelectedTokenAddress(address as Hex)}
         />
 
-        <div className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-sm text-zinc-400">
-          <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-            {dictionary.labels.payingFrom}
-          </p>
-          <p className="mt-2 font-medium text-white">
-            {account ? shortenAddress(account) : dictionary.labels.notConnected}
-          </p>
-          {balance !== null && selectedToken ? (
-            <p className="mt-2">
-              {formatTokenAmount(balance, selectedToken.address, initialChainId)}{" "}
-              {selectedToken.symbol}
-            </p>
-          ) : null}
-        </div>
+        <DetailTile
+          icon={<Wallet aria-hidden="true" />}
+          label={dictionary.labels.payingFrom}
+          value={account ? shortenAddress(account) : dictionary.labels.notConnected}
+          description={
+            balance !== null && selectedToken
+              ? `${formatTokenAmount(balance, selectedToken.address, initialChainId)} ${
+                  selectedToken.symbol
+                }`
+              : undefined
+          }
+        />
 
         {balanceWarning ? (
           <p className="text-sm text-amber-300">{balanceWarning}</p>
@@ -483,6 +482,7 @@ export function PaymentPanelIsland({
             <Button
               variant="outline"
               className="w-full sm:w-auto"
+              leftIcon={<Wallet aria-hidden="true" />}
               onClick={() => {
                 void connect();
               }}
@@ -494,6 +494,7 @@ export function PaymentPanelIsland({
           ) : null}
           <Button
             className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 hover:bg-[color:var(--accent-strong)] sm:w-auto"
+            leftIcon={<Send aria-hidden="true" />}
             onClick={handlePay}
             disabled={
               isPaymentBusy ||
@@ -521,8 +522,9 @@ export function PaymentPanelIsland({
               href={`${getExplorerBaseUrl(initialChainId)}/tx/${txHash}`}
               target="_blank"
               rel="noreferrer"
-              className="text-sm text-zinc-300 underline underline-offset-4"
+              className="inline-flex items-center gap-2 text-sm text-zinc-300 underline underline-offset-4"
             >
+              <ExternalLink aria-hidden="true" className="h-4 w-4" />
               {dictionary.actions.openExplorer}
             </Link>
           </motion.div>
