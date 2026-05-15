@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { type FormEvent, useState } from "react";
+import { ArrowUpRight, Search } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
 import {
@@ -78,6 +79,7 @@ function ProfileLinkCard({
 
       <span className="mt-5 inline-flex text-sm font-medium text-[color:var(--accent)] transition group-hover:text-[color:var(--accent-strong)]">
         {dictionary.profileDiscovery.openProfile}
+        <ArrowUpRight aria-hidden="true" className="ml-1.5 h-4 w-4" />
       </span>
     </Link>
   );
@@ -128,7 +130,7 @@ export function ProfileDiscovery({
     return (
       <section className="landing-section space-y-6">
         <div className="max-w-3xl space-y-3">
-          <Badge className="border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]">
+          <Badge variant="accent">
             {dictionary.profileDiscovery.eyebrow}
           </Badge>
           <div className="space-y-3">
@@ -194,6 +196,7 @@ export function ProfileDiscovery({
               <Button
                 type="submit"
                 className="w-full sm:w-auto sm:min-w-[8rem]"
+                leftIcon={<Search aria-hidden="true" />}
                 disabled={!contractAddress || searchState === "loading"}
               >
                 {searchState === "loading"

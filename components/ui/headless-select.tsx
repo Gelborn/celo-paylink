@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { ChevronDown } from "lucide-react";
 import { useId } from "react";
 
 export type HeadlessSelectOption = {
@@ -50,7 +51,7 @@ export function HeadlessSelect({
           value={value}
           onChange={(event) => onChange(event.target.value)}
           className={clsx(
-            "min-h-12 w-full appearance-none rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(23,23,26,0.92),rgba(14,15,17,0.96))] px-4 py-3 pr-11 text-base text-white transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]",
+            "min-h-12 w-full appearance-none rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(20,21,24,0.94),rgba(11,12,14,0.96))] px-4 py-3 pr-11 text-base text-white transition-[background-color,border-color,box-shadow] duration-200 hover:border-white/20 focus:border-[color:var(--accent-line)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]",
             triggerClassName
           )}
         >
@@ -67,9 +68,9 @@ export function HeadlessSelect({
             </option>
           ))}
         </select>
-        <span
+        <ChevronDown
           aria-hidden="true"
-          className="pointer-events-none absolute right-4 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-b border-r border-zinc-500"
+          className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500"
         />
       </div>
     </div>

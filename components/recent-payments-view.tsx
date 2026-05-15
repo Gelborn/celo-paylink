@@ -1,9 +1,11 @@
+import { ExternalLink, ReceiptText } from "lucide-react";
 import * as motion from "motion/react-client";
 import { formatDateLabel, formatTokenAmount, shortenAddress } from "../lib/format";
 import type { PaymentRecord } from "../lib/contract";
 import type { Dictionary, Locale } from "../lib/i18n";
 import { fadeUp, staggerChildren } from "../lib/motion";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { IconFrame } from "./ui/patterns";
 
 type RecentPaymentsViewProps = {
   payments: PaymentRecord[];
@@ -24,7 +26,7 @@ export function RecentPaymentsView({
 }: RecentPaymentsViewProps) {
   if (isLoading) {
     return (
-      <Card className="compact-card" aria-busy="true">
+      <Card variant="elevated" className="compact-card" aria-busy="true">
         <CardHeader>
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
@@ -56,7 +58,7 @@ export function RecentPaymentsView({
 
   if (payments.length === 0) {
     return (
-      <Card className="compact-card">
+      <Card variant="elevated" className="compact-card">
         <CardHeader>
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
@@ -70,7 +72,7 @@ export function RecentPaymentsView({
   }
 
   return (
-    <Card className="compact-card">
+    <Card variant="elevated" className="compact-card">
       <CardHeader>
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>
@@ -92,20 +94,25 @@ export function RecentPaymentsView({
             >
               <div className="space-y-4">
                 <div className="flex items-start justify-between gap-4">
-                  <div className="min-w-0 space-y-2">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <p className="text-base font-semibold text-white sm:text-lg">
-                        {formatTokenAmount(payment.amount, payment.token, chainId)}{" "}
-                        {payment.tokenSymbol || dictionary.fields.token}
+                  <div className="flex min-w-0 items-start gap-3">
+                    <IconFrame tone="accent" className="h-9 w-9">
+                      <ReceiptText aria-hidden="true" />
+                    </IconFrame>
+                    <div className="min-w-0 space-y-2">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <p className="text-base font-semibold text-white sm:text-lg">
+                          {formatTokenAmount(payment.amount, payment.token, chainId)}{" "}
+                          {payment.tokenSymbol || dictionary.fields.token}
+                        </p>
+                        <span className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
+                          @{payment.handle}
+                        </span>
+                      </div>
+                      <p className="text-sm text-zinc-400">
+                        {dictionary.labels.payingFrom}{" "}
+                        <span className="text-zinc-200">{shortenAddress(payment.payer)}</span>
                       </p>
-                      <span className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
-                        @{payment.handle}
-                      </span>
                     </div>
-                    <p className="text-sm text-zinc-400">
-                      {dictionary.labels.payingFrom}{" "}
-                      <span className="text-zinc-200">{shortenAddress(payment.payer)}</span>
-                    </p>
                   </div>
                   <div className="shrink-0 rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-xs text-zinc-400">
                     {payment.timestamp
@@ -130,6 +137,10 @@ export function RecentPaymentsView({
                   <span className="transition group-hover:text-zinc-300">
                     {shortenAddress(payment.txHash)}
                   </span>
+                  <ExternalLink
+                    aria-hidden="true"
+                    className="h-3.5 w-3.5 transition group-hover:text-zinc-300"
+                  />
                 </div>
               </div>
             </motion.a>

@@ -5,20 +5,20 @@
 :root {
   color-scheme: dark;
   --page: #09090b;
-  --panel: #111114;
-  --panel-strong: #18181b;
-  --panel-muted: rgba(17, 17, 20, 0.72);
-  --panel-elevated: rgba(15, 17, 18, 0.88);
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.16);
+  --panel: #101114;
+  --panel-strong: #17181c;
+  --panel-muted: rgba(16, 17, 20, 0.74);
+  --panel-elevated: rgba(14, 16, 18, 0.9);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.17);
   --ink: #fafafa;
   --muted: #a1a1aa;
   --accent: #39d98a;
   --accent-strong: #28c276;
-  --accent-soft: rgba(57, 217, 138, 0.14);
-  --accent-line: rgba(57, 217, 138, 0.24);
-  --accent-shadow: 0 32px 90px rgba(57, 217, 138, 0.16);
-  --surface-shadow: 0 16px 42px rgba(0, 0, 0, 0.24);
+  --accent-soft: rgba(57, 217, 138, 0.1);
+  --accent-line: rgba(57, 217, 138, 0.2);
+  --accent-shadow: 0 24px 70px rgba(57, 217, 138, 0.1);
+  --surface-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --motion-quick: 180ms;
   --motion-base: 220ms;
@@ -36,8 +36,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(ellipse at 78% 0%, rgba(57, 217, 138, 0.12), transparent 38rem),
-    radial-gradient(ellipse at 0% 82%, rgba(255, 255, 255, 0.035), transparent 34rem),
+    radial-gradient(ellipse at 78% 0%, rgba(57, 217, 138, 0.08), transparent 38rem),
+    radial-gradient(ellipse at 0% 82%, rgba(255, 255, 255, 0.026), transparent 34rem),
     linear-gradient(180deg, #09090b 0%, #09090b 100%);
   color: var(--ink);
   font-family: var(--font-sans), sans-serif;
@@ -70,7 +70,7 @@ a {
 .compact-card {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
-  background: linear-gradient(180deg, rgba(17, 18, 20, 0.92), rgba(9, 10, 12, 0.94));
+  background: linear-gradient(180deg, rgba(18, 19, 22, 0.94), rgba(10, 11, 13, 0.94));
   box-shadow: var(--surface-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.025);
   transition:
     border-color var(--motion-base) var(--motion-ease),
@@ -91,7 +91,7 @@ a {
   min-height: 2.75rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0.5rem;
-  background: rgba(9, 10, 12, 0.48);
+  background: rgba(9, 10, 12, 0.42);
   padding: 0.75rem 0.9rem;
   color: #e4e4e7;
   transition:
@@ -102,7 +102,7 @@ a {
 
 .trust-list-item:hover {
   border-color: rgba(57, 217, 138, 0.18);
-  background: rgba(15, 17, 18, 0.64);
+  background: rgba(15, 17, 18, 0.58);
   transform: translateY(-1px);
 }
 
@@ -121,8 +121,8 @@ a {
 
 .landing-cta-surface {
   background:
-    radial-gradient(ellipse at top left, rgba(57, 217, 138, 0.12), transparent 34rem),
-    linear-gradient(145deg, rgba(14, 16, 18, 0.96), rgba(9, 9, 11, 0.9));
+    radial-gradient(ellipse at top left, rgba(57, 217, 138, 0.09), transparent 34rem),
+    linear-gradient(145deg, rgba(15, 17, 19, 0.96), rgba(9, 9, 11, 0.92));
   box-shadow: var(--accent-shadow);
 }
 
@@ -138,7 +138,7 @@ a {
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
     rgba(10, 10, 11, 0.92);
   box-shadow:
-    0 40px 110px rgba(0, 0, 0, 0.45),
+    0 34px 92px rgba(0, 0, 0, 0.42),
     0 0 0 1px rgba(255, 255, 255, 0.03),
     var(--accent-shadow);
   transition:
@@ -149,7 +149,7 @@ a {
 .device-shell:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 46px 118px rgba(0, 0, 0, 0.48),
+    0 40px 104px rgba(0, 0, 0, 0.45),
     0 0 0 1px rgba(255, 255, 255, 0.04),
     var(--accent-shadow);
 }

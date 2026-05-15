@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { Coins } from "lucide-react";
 import { buildShareUrl, sanitizeCurrencyInput } from "../lib/format";
 import { getSupportedTokens, getTokenByAddress, type SupportedTokenSymbol } from "../lib/tokens";
 import { useLocale } from "./locale-provider";
@@ -8,6 +9,7 @@ import { AmountPresets } from "./amount-presets";
 import { ShareLink } from "./share-link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
+import { IconFrame } from "./ui/patterns";
 import { TokenPicker } from "./token-picker";
 import type { ProfileRecord } from "../lib/contract";
 
@@ -47,9 +49,14 @@ export function ChargeLinkPanel({
   const content = (
     <div className="space-y-5 overflow-hidden">
       <div className="rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4">
-        <p className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
-          {dictionary.fields.suggestedAmounts}
-        </p>
+        <div className="mb-3 flex items-center gap-3">
+          <IconFrame tone="accent" className="h-8 w-8 rounded-md">
+            <Coins aria-hidden="true" />
+          </IconFrame>
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+            {dictionary.fields.suggestedAmounts}
+          </p>
+        </div>
         <AmountPresets
           values={[5, 15, 25, 50]}
           selectedValue={amount}
@@ -102,7 +109,7 @@ export function ChargeLinkPanel({
   }
 
   return (
-    <Card className="compact-card">
+    <Card variant="elevated" className="compact-card">
       <CardHeader className="space-y-2">
         <CardTitle>{dictionary.dashboard.chargeSection}</CardTitle>
         <CardDescription>{dictionary.dashboard.chargeLinkHint}</CardDescription>
