@@ -11,7 +11,7 @@ export function Badge({
   return (
     <span
       className={clsx(
-        "inline-flex max-w-full items-center gap-1.5 rounded-md border px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
+        "inline-flex max-w-full items-center gap-1.5 rounded-md border px-3 py-1 text-[11px] font-medium uppercase tracking-[0.15em] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
         variant === "neutral" &&
           "border-white/10 bg-zinc-950/55 text-zinc-400",
         variant === "accent" &&

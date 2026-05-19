@@ -91,7 +91,7 @@ export function Header({
 
   return (
     <>
-      <header className="mb-10 flex items-center justify-between gap-4">
+      <header className="mb-8 flex items-center justify-between gap-4 md:mb-10">
         <div className="min-w-0">
           <BrandWordmark className="text-lg md:text-xl" />
         </div>

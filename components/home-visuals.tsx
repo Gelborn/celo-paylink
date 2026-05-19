@@ -16,7 +16,7 @@ import { AccentBadge, IconFrame } from "./ui/patterns";
 export { AccentBadge } from "./ui/patterns";
 
 const primaryLinkClass =
-  "inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-base font-medium text-zinc-950 shadow-[0_12px_28px_rgba(57,217,138,0.12)] transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] sm:w-auto";
+  "inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-base font-medium text-zinc-950 shadow-[0_10px_24px_rgba(57,217,138,0.1)] transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:shadow-[0_14px_32px_rgba(57,217,138,0.14)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] sm:w-auto";
 
 const proofIcons = [ShieldCheck, Link2, ReceiptText, Coins];
 const stepIcons = [UserRound, Send, BadgeCheck];
@@ -32,11 +32,11 @@ export function PrimaryProfileLink({ children }: { children: ReactNode }) {
 
 export function HeroChips({ chips }: { chips: string[] }) {
   return (
-    <div className="grid max-w-full grid-cols-1 gap-2.5 sm:flex sm:flex-wrap">
+    <div className="grid max-w-full grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-2.5">
       {chips.map((chip) => (
         <span
           key={chip}
-          className="w-fit max-w-full rounded-lg border border-white/10 bg-white/[0.055] px-3.5 py-2 text-sm text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]"
+          className="w-fit max-w-full rounded-lg border border-white/10 bg-white/[0.052] px-3.5 py-2 text-sm text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]"
         >
           {chip}
         </span>
@@ -87,7 +87,7 @@ export function ProofCard({
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
-        <p className="mt-5 text-base leading-7 text-zinc-100">{label}</p>
+        <p className="mt-4 text-base leading-7 text-zinc-100">{label}</p>
       </CardContent>
     </Card>
   );
@@ -106,7 +106,7 @@ export function StepCard({
 
   return (
     <Card className="h-full compact-card" variant="elevated">
-      <CardContent className="h-full space-y-5 px-6 pb-6 pt-6">
+      <CardContent className="h-full space-y-4 px-6 pb-6 pt-6">
         <IconFrame tone="accent">
           <Icon aria-hidden="true" />
         </IconFrame>
@@ -164,7 +164,7 @@ export function TrustGrid({ statements }: { statements: string[] }) {
       {statements.map((statement) => (
         <div
           key={statement}
-          className="rounded-lg border border-white/10 bg-black/20 px-4 py-4 text-sm text-zinc-200"
+          className="rounded-lg border border-white/10 bg-black/20 px-4 py-3.5 text-sm leading-6 text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:py-4"
         >
           {statement}
         </div>

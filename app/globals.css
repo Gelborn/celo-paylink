@@ -17,8 +17,8 @@
   --accent-strong: #28c276;
   --accent-soft: rgba(57, 217, 138, 0.1);
   --accent-line: rgba(57, 217, 138, 0.2);
-  --accent-shadow: 0 24px 70px rgba(57, 217, 138, 0.1);
-  --surface-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+  --accent-shadow: 0 18px 56px rgba(57, 217, 138, 0.09);
+  --surface-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --motion-quick: 180ms;
   --motion-base: 220ms;
@@ -36,8 +36,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(ellipse at 78% 0%, rgba(57, 217, 138, 0.08), transparent 38rem),
-    radial-gradient(ellipse at 0% 82%, rgba(255, 255, 255, 0.026), transparent 34rem),
+    radial-gradient(ellipse at 78% 0%, rgba(57, 217, 138, 0.07), transparent 36rem),
+    radial-gradient(ellipse at 0% 82%, rgba(255, 255, 255, 0.024), transparent 32rem),
     linear-gradient(180deg, #09090b 0%, #09090b 100%);
   color: var(--ink);
   font-family: var(--font-sans), sans-serif;
@@ -68,9 +68,9 @@ a {
 }
 
 .compact-card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 0.5rem;
-  background: linear-gradient(180deg, rgba(18, 19, 22, 0.94), rgba(10, 11, 13, 0.94));
+  background: linear-gradient(180deg, rgba(18, 19, 22, 0.92), rgba(10, 11, 13, 0.96));
   box-shadow: var(--surface-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.025);
   transition:
     border-color var(--motion-base) var(--motion-ease),
@@ -81,18 +81,18 @@ a {
 
 .trust-list {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.55rem;
 }
 
 .trust-list-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  min-height: 2.75rem;
+  gap: 0.7rem;
+  min-height: 2.5rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0.5rem;
   background: rgba(9, 10, 12, 0.42);
-  padding: 0.75rem 0.9rem;
+  padding: 0.65rem 0.8rem;
   color: #e4e4e7;
   transition:
     border-color var(--motion-base) var(--motion-ease),
@@ -121,7 +121,7 @@ a {
 
 .landing-cta-surface {
   background:
-    radial-gradient(ellipse at top left, rgba(57, 217, 138, 0.09), transparent 34rem),
+    radial-gradient(ellipse at top left, rgba(57, 217, 138, 0.08), transparent 30rem),
     linear-gradient(145deg, rgba(15, 17, 19, 0.96), rgba(9, 9, 11, 0.92));
   box-shadow: var(--accent-shadow);
 }
@@ -129,16 +129,16 @@ a {
 .device-shell {
   position: relative;
   margin: 0 auto;
-  width: min(100%, 22.5rem);
+  width: clamp(18rem, 32vw, 21.25rem);
   max-width: calc(100vw - 2rem);
-  padding: 0.65rem;
-  border-radius: 1.75rem;
+  padding: 0.55rem;
+  border-radius: 1.55rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
     rgba(10, 10, 11, 0.92);
   box-shadow:
-    0 34px 92px rgba(0, 0, 0, 0.42),
+    0 28px 78px rgba(0, 0, 0, 0.38),
     0 0 0 1px rgba(255, 255, 255, 0.03),
     var(--accent-shadow);
   transition:
@@ -149,7 +149,7 @@ a {
 .device-shell:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 40px 104px rgba(0, 0, 0, 0.45),
+    0 34px 92px rgba(0, 0, 0, 0.42),
     0 0 0 1px rgba(255, 255, 255, 0.04),
     var(--accent-shadow);
 }
@@ -157,8 +157,8 @@ a {
 .device-shell::before {
   content: "";
   position: absolute;
-  inset: auto 14% -6% 14%;
-  height: 18%;
+  inset: auto 16% -5% 16%;
+  height: 16%;
   border-radius: 9999px;
   background: rgba(57, 217, 138, 0.18);
   filter: blur(32px);
@@ -168,7 +168,7 @@ a {
 .device-frame {
   position: relative;
   overflow: hidden;
-  border-radius: 1.35rem;
+  border-radius: 1.15rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: #030303;
   z-index: 1;
@@ -178,9 +178,9 @@ a {
   content: "";
   position: absolute;
   left: 50%;
-  top: 0.55rem;
-  width: 34%;
-  height: 1.1rem;
+  top: 0.45rem;
+  width: 32%;
+  height: 0.95rem;
   transform: translateX(-50%);
   border-radius: 9999px;
   background: rgba(8, 8, 9, 0.98);
@@ -197,7 +197,7 @@ a {
 
 .device-screen-inner {
   position: absolute;
-  inset: 0.65rem 0.7rem 0.8rem;
+  inset: 0.55rem 0.6rem 0.7rem;
   overflow: hidden;
   border-radius: 0.85rem;
   background:
@@ -301,6 +301,10 @@ a {
 
 @media (max-width: 767px) {
   .device-shell {
+    width: min(100%, 21.5rem);
+  }
+
+  .device-shell {
     box-shadow:
       0 26px 72px rgba(0, 0, 0, 0.38),
       0 0 0 1px rgba(255, 255, 255, 0.03);
@@ -321,6 +325,6 @@ a {
 
 @media (min-width: 768px) {
   .app-frame {
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem 1.5rem;
   }
 }
