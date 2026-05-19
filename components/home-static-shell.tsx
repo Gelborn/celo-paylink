@@ -30,7 +30,7 @@ export function HomeStaticShell({
 }) {
   return (
     <motion.main
-      className="space-y-12 pb-14 md:space-y-14 md:pb-20"
+      className="space-y-10 pb-14 md:space-y-12 md:pb-20"
       variants={staggerChildren}
       initial="hidden"
       animate="show"
@@ -50,12 +50,12 @@ export function HomeStaticShell({
       />
 
       <motion.section className="landing-section" variants={fadeUp}>
-        <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.82fr)] lg:items-start">
-          <div className="min-w-0 space-y-7 lg:pt-20">
-            <div className="space-y-5">
+        <div className="grid min-w-0 gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.78fr)] lg:items-center lg:gap-10">
+          <div className="min-w-0 space-y-6 lg:pt-8">
+            <div className="space-y-4">
               <AccentBadge>{dictionary.home.eyebrow}</AccentBadge>
               <div className="space-y-4">
-                <h1 className="max-w-[21rem] text-[2.2rem] font-semibold leading-[1.08] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl md:leading-[1.02]">
+                <h1 className="max-w-[21.5rem] text-[2.15rem] font-semibold leading-[1.08] tracking-tight text-white sm:max-w-3xl sm:text-5xl md:text-6xl md:leading-[1.02]">
                   {dictionary.home.title}
                 </h1>
                 <p className="max-w-2xl text-base leading-7 text-zinc-300 sm:text-lg md:text-xl md:leading-8">
@@ -67,7 +67,7 @@ export function HomeStaticShell({
               </div>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
               <PrimaryProfileLink>{dictionary.actions.createProfile}</PrimaryProfileLink>
             </div>
 
@@ -78,7 +78,7 @@ export function HomeStaticShell({
             </p>
           </div>
 
-          <div className="min-w-0 overflow-hidden pt-2 lg:pl-3">
+          <div className="min-w-0 overflow-hidden pt-1 lg:pl-2 lg:pt-3">
             <HomeDemo caption={dictionary.home.demoCaption} />
           </div>
         </div>

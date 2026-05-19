@@ -65,8 +65,8 @@ function TrustList({ items }: { items: string[] }) {
       animate="show"
     >
       {items.map((item) => (
-        <motion.div key={item} className="trust-list-item text-sm" variants={fadeUp}>
-          <IconFrame tone="accent" className="h-8 w-8 rounded-md">
+        <motion.div key={item} className="trust-list-item text-sm leading-6" variants={fadeUp}>
+          <IconFrame tone="accent" className="h-7 w-7 rounded-md">
             <CheckCircle2 aria-hidden="true" />
           </IconFrame>
           <span>{item}</span>
@@ -209,7 +209,7 @@ export function PublicProfileShell({
       )}
 
       <motion.section
-        className="space-y-6"
+        className="space-y-5"
         variants={fadeUp}
         initial="hidden"
         animate="show"
@@ -236,22 +236,22 @@ export function PublicProfileShell({
           }
         />
 
-        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6">
           <Card variant="elevated" className="compact-card">
-            <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <CardContent className="space-y-4 px-4 py-4 sm:space-y-5 sm:px-6 sm:py-6">
+              <div className="flex items-center gap-4">
                 <Avatar
                   name={profile.displayName}
                   imageUrl={profile.avatarUrl}
-                  size="xl"
+                  size="md"
                 />
-                <div className="space-y-2">
+                <div className="min-w-0 space-y-2">
                   <Badge variant={isOwner ? "accent" : "neutral"}>@{profile.handle}</Badge>
                   <div>
-                    <h1 className="text-3xl font-semibold text-white sm:text-[2rem]">
+                    <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-[2rem]">
                       {profile.displayName}
-                    </h1>
-                    <p className="text-sm text-zinc-500">{profile.bio}</p>
+                    </h2>
+                    <p className="mt-1 text-sm leading-6 text-zinc-400">{profile.bio}</p>
                   </div>
                 </div>
               </div>
@@ -261,6 +261,7 @@ export function PublicProfileShell({
                   icon={<FileText aria-hidden="true" />}
                   label={dictionary.fields.paymentMessage}
                   value={profile.paymentMessage}
+                  className="bg-zinc-950/35 py-3"
                 />
               ) : null}
 
@@ -302,25 +303,35 @@ export function PublicProfileShell({
               ) : (
                 <div className="space-y-4">
                   {showInvoiceView ? (
-                    <div className="rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4">
-                      <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+                    <div className="rounded-lg border border-white/10 bg-zinc-950/45 px-3.5 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:px-4 sm:py-4">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
                         {dictionary.publicPage.requestSummaryLabel}
                       </p>
-                      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      <div className="mt-3 grid gap-2.5 min-[360px]:grid-cols-2 sm:gap-3">
                         {hasPrefilledAmount ? (
                           <DetailTile
                             icon={<Coins aria-hidden="true" />}
                             label={dictionary.fields.amount}
-                            value={`${initialAmount} ${selectedToken?.symbol}`}
+                            value={
+                              <span className="text-sm leading-5 sm:text-base">
+                                {initialAmount} {selectedToken?.symbol}
+                              </span>
+                            }
                             tone="accent"
+                            className="min-h-[4.5rem] px-3 py-3"
                           />
                         ) : null}
                         {hasPrefilledToken && !hasPrefilledAmount ? (
                           <DetailTile
                             icon={<Coins aria-hidden="true" />}
                             label={dictionary.fields.token}
-                            value={selectedToken?.symbol}
+                            value={
+                              <span className="text-sm leading-5 sm:text-base">
+                                {selectedToken?.symbol}
+                              </span>
+                            }
                             tone="accent"
+                            className="min-h-[4.5rem] px-3 py-3"
                           />
                         ) : null}
                         {hasPrefilledReference ? (
@@ -328,6 +339,7 @@ export function PublicProfileShell({
                             icon={<FileText aria-hidden="true" />}
                             label={dictionary.fields.note}
                             value={initialReference}
+                            className="min-h-[4.5rem] px-3 py-3"
                           />
                         ) : null}
                       </div>
@@ -420,7 +432,7 @@ export function PublicProfileShell({
             </CardContent>
           </Card>
 
-          <div className="self-start">{recentPaymentsSlot}</div>
+          <div className="self-start lg:sticky lg:top-6">{recentPaymentsSlot}</div>
         </div>
       </motion.section>
     </main>

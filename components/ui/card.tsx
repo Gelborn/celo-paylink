@@ -13,13 +13,13 @@ export function Card({
       className={clsx(
         "rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]",
         variant === "default" &&
-          "border-white/10 bg-[linear-gradient(180deg,rgba(18,19,22,0.96),rgba(10,11,13,0.94))] shadow-[0_14px_36px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.025)]",
+          "border-white/10 bg-[linear-gradient(180deg,rgba(18,19,22,0.94),rgba(10,11,13,0.96))] shadow-[0_12px_30px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.025)]",
         variant === "elevated" &&
-          "border-white/15 bg-[linear-gradient(180deg,rgba(22,23,26,0.98),rgba(10,11,13,0.95))] shadow-[0_24px_62px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.035)]",
+          "border-white/[0.12] bg-[linear-gradient(180deg,rgba(20,21,24,0.96),rgba(10,11,13,0.96))] shadow-[0_18px_46px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.032)]",
         variant === "inset" &&
           "border-white/10 bg-zinc-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]",
         variant === "accent" &&
-          "border-[color:var(--accent-line)] bg-[linear-gradient(180deg,rgba(17,22,20,0.98),rgba(9,11,12,0.94))] shadow-[var(--accent-shadow),0_18px_46px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.035)]",
+          "border-[color:var(--accent-line)] bg-[linear-gradient(180deg,rgba(16,22,19,0.96),rgba(9,11,12,0.95))] shadow-[var(--accent-shadow),0_14px_36px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.032)]",
         className
       )}
       {...props}

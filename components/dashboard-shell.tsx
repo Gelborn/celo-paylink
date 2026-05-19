@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
+  CheckCircle2,
   Copy,
   CreditCard,
   Eye,
@@ -32,7 +33,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { FeedbackMessage } from "./ui/feedback-message";
-import { ActionRow } from "./ui/patterns";
+import { ActionRow, IconFrame } from "./ui/patterns";
 import { SectionHeader } from "./ui/section-header";
 
 type DashboardTab = "manage" | "transactions" | "discover";
@@ -277,33 +278,54 @@ export function DashboardShell({
 
           {!account ? (
             <Card variant="elevated" className="compact-card">
-              <CardContent className="px-6 py-10 sm:px-8 sm:py-12">
-                <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]">
-                    <Wallet aria-hidden="true" className="h-5 w-5" />
-                  </span>
-                  <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                    {dictionary.actions.connectWallet}
-                  </h2>
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-400">
-                    {isMiniPay && !isDisconnectedByUser
-                      ? dictionary.messages.waitingConfirmation
-                      : dictionary.dashboard.connectPrompt}
-                  </p>
-                  {!isMiniPay || isDisconnectedByUser ? (
-                    <Button
-                      size="lg"
-                      className="mt-8 min-w-[13rem]"
-                      leftIcon={<Wallet aria-hidden="true" />}
-                      onClick={() => {
-                        void connect();
-                      }}
-                    >
-                      {isConnecting
+              <CardContent className="p-0">
+                <div className="grid overflow-hidden rounded-lg lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.78fr)]">
+                  <div className="px-5 py-8 text-center sm:px-8 sm:py-10 lg:px-10 lg:text-left">
+                    <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)] lg:mx-0">
+                      <Wallet aria-hidden="true" className="h-5 w-5" />
+                    </span>
+                    <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                      {dictionary.actions.connectWallet}
+                    </h2>
+                    <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-zinc-400 lg:mx-0">
+                      {isMiniPay && !isDisconnectedByUser
                         ? dictionary.messages.waitingConfirmation
-                        : dictionary.actions.connectWallet}
-                    </Button>
-                  ) : null}
+                        : dictionary.dashboard.connectPrompt}
+                    </p>
+                    {!isMiniPay || isDisconnectedByUser ? (
+                      <Button
+                        size="lg"
+                        className="mt-7 w-full sm:w-auto sm:min-w-[13rem]"
+                        leftIcon={<Wallet aria-hidden="true" />}
+                        onClick={() => {
+                          void connect();
+                        }}
+                      >
+                        {isConnecting
+                          ? dictionary.messages.waitingConfirmation
+                          : dictionary.actions.connectWallet}
+                      </Button>
+                    ) : null}
+                  </div>
+
+                  <div className="border-t border-white/10 bg-black/15 px-5 py-5 sm:px-6 lg:border-l lg:border-t-0 lg:px-7 lg:py-8">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
+                      {dictionary.dashboard.profileSection}
+                    </p>
+                    <div className="mt-4 grid gap-3">
+                      {dictionary.home.trustStatements.slice(0, 3).map((statement) => (
+                        <div
+                          key={statement}
+                          className="flex items-start gap-3 rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-3.5 text-sm leading-6 text-zinc-300"
+                        >
+                          <IconFrame tone="accent" className="h-8 w-8 rounded-md">
+                            <CheckCircle2 aria-hidden="true" />
+                          </IconFrame>
+                          <span>{statement}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>

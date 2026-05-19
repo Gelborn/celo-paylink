@@ -38,7 +38,7 @@ export function IconFrame({
   return (
     <span
       className={clsx(
-        "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border [&>svg]:h-4 [&>svg]:w-4",
+        "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] [&>svg]:h-4 [&>svg]:w-4",
         toneClasses[tone],
         className
       )}
@@ -68,27 +68,27 @@ export function DetailTile({
   return (
     <div
       className={clsx(
-        "rounded-lg border px-4 py-4",
+        "rounded-lg border px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:py-4",
         toneClasses[tone],
         className
       )}
     >
       <div className="flex items-start gap-3">
-        {icon ? <IconFrame tone={tone} className="h-9 w-9">{icon}</IconFrame> : null}
+        {icon ? <IconFrame tone={tone} className="h-8 w-8">{icon}</IconFrame> : null}
         <div className="min-w-0 flex-1">
-          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
+          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-500">
             {label}
           </p>
           <div
             className={clsx(
-              "mt-2 break-words text-base font-semibold leading-6 text-white",
+              "mt-1.5 break-words text-base font-semibold leading-6 text-white",
               mono && "font-mono text-sm font-medium text-zinc-200"
             )}
           >
             {value}
           </div>
           {description ? (
-            <p className="mt-2 text-sm leading-6 text-zinc-400">{description}</p>
+            <p className="mt-1.5 text-sm leading-6 text-zinc-400">{description}</p>
           ) : null}
         </div>
       </div>
@@ -116,7 +116,7 @@ export function ActionRow({
   return (
     <div
       className={clsx(
-        "flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4 sm:flex-row sm:items-center sm:justify-between",
+        "flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:flex-row sm:items-center sm:justify-between",
         className
       )}
     >

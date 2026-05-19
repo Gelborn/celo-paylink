@@ -382,7 +382,7 @@ export function PaymentPanelIsland({
 
       <div
         id="paylink-payment-panel"
-        className="space-y-5 rounded-lg border border-white/10 bg-black/25 px-4 py-4 sm:px-5 sm:py-5"
+        className="space-y-3.5 rounded-lg border border-white/10 bg-black/25 px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:space-y-5 sm:px-5 sm:py-5"
       >
         <AnimatePresence mode="wait" initial={false}>
           {paymentOverlayCopy ? (
@@ -407,8 +407,8 @@ export function PaymentPanelIsland({
           ) : null}
         </AnimatePresence>
 
-        <div className="space-y-2">
-          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
+        <div className="space-y-1.5">
+          <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
             {dictionary.publicPage.paymentFormTitle}
           </p>
           <p className="text-sm leading-7 text-zinc-400">
@@ -416,7 +416,7 @@ export function PaymentPanelIsland({
           </p>
         </div>
         <div>
-          <p className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
+          <p className="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">
             {dictionary.fields.suggestedAmounts}
           </p>
           <AmountPresets
@@ -426,7 +426,7 @@ export function PaymentPanelIsland({
           />
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 min-[360px]:grid-cols-2">
           <label className="space-y-2">
             <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
               {dictionary.fields.amount}
@@ -460,24 +460,26 @@ export function PaymentPanelIsland({
           onChange={(address) => setSelectedTokenAddress(address as Hex)}
         />
 
-        <DetailTile
-          icon={<Wallet aria-hidden="true" />}
-          label={dictionary.labels.payingFrom}
-          value={account ? shortenAddress(account) : dictionary.labels.notConnected}
-          description={
-            balance !== null && selectedToken
-              ? `${formatTokenAmount(balance, selectedToken.address, initialChainId)} ${
-                  selectedToken.symbol
-                }`
-              : undefined
-          }
-        />
-
         {balanceWarning ? (
           <p className="text-sm text-amber-300">{balanceWarning}</p>
         ) : null}
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="flex flex-col gap-3 rounded-lg border border-white/10 bg-zinc-950/35 p-3 sm:flex-row sm:flex-wrap">
+          <Button
+            className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 hover:bg-[color:var(--accent-strong)] sm:w-auto sm:min-w-[8.5rem]"
+            leftIcon={<Send aria-hidden="true" />}
+            onClick={handlePay}
+            disabled={
+              isPaymentBusy ||
+              !contractAddress ||
+              isWrongChain ||
+              hasInsufficientBalance
+            }
+          >
+            {isPaymentBusy
+              ? dictionary.messages.waitingConfirmation
+              : dictionary.actions.payNow}
+          </Button>
           {!account && (!isMiniPay || isDisconnectedByUser) ? (
             <Button
               variant="outline"
@@ -492,22 +494,21 @@ export function PaymentPanelIsland({
                 : dictionary.actions.connectWallet}
             </Button>
           ) : null}
-          <Button
-            className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 hover:bg-[color:var(--accent-strong)] sm:w-auto"
-            leftIcon={<Send aria-hidden="true" />}
-            onClick={handlePay}
-            disabled={
-              isPaymentBusy ||
-              !contractAddress ||
-              isWrongChain ||
-              hasInsufficientBalance
-            }
-          >
-            {isPaymentBusy
-              ? dictionary.messages.waitingConfirmation
-              : dictionary.actions.payNow}
-          </Button>
         </div>
+
+        <DetailTile
+          icon={<Wallet aria-hidden="true" />}
+          label={dictionary.labels.payingFrom}
+          value={account ? shortenAddress(account) : dictionary.labels.notConnected}
+          className="bg-zinc-950/35 py-3"
+          description={
+            balance !== null && selectedToken
+              ? `${formatTokenAmount(balance, selectedToken.address, initialChainId)} ${
+                  selectedToken.symbol
+                }`
+              : undefined
+          }
+        />
 
         <FeedbackMessage tone={status ? "error" : "muted"}>
           {status}
