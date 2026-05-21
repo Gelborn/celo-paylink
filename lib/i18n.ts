@@ -216,7 +216,7 @@ const dictionaries: Record<Locale, Dictionary> = {
   en: {
     languageName: "English",
     productName: "MiniPay PayLink",
-    productTagline: "One profile. One link. Direct Celo payments.",
+    productTagline: "One profile. One link. Direct payments on Celo.",
     nav: {
       home: "Home",
       dashboard: "Dashboard",
@@ -229,7 +229,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       openDashboard: "Open dashboard",
       connectWallet: "Connect wallet",
       switchNetwork: "Switch network",
-      refreshNetwork: "I switched networks",
+      refreshNetwork: "I've switched networks",
       disconnectWallet: "Disconnect",
       saveProfile: "Publish profile",
       updateProfile: "Save changes",
@@ -239,74 +239,74 @@ const dictionaries: Record<Locale, Dictionary> = {
       shareLink: "Share link",
       shareProfile: "Share profile",
       createChargeLink: "Create request link",
-      openExplorer: "Open explorer",
+      openExplorer: "View receipt",
       openPublicPage: "Open public page",
       payNow: "Pay now",
-      payCreator: "Send a payment",
-      shareCreatorLink: "Share this profile",
+      payCreator: "Send payment",
+      shareCreatorLink: "Share profile",
       viewProfile: "View profile",
-      createYourOwn: "Create your own",
+      createYourOwn: "Create your profile",
       backToProfile: "Back to profile",
       useDashboard: "Use dashboard",
       viewTransactions: "View transactions"
     },
     home: {
-      eyebrow: "MiniPay payment profiles",
-      title: "One trusted link for Celo payments.",
+      eyebrow: "Payment profiles for MiniPay",
+      title: "A trusted link for direct Celo payments.",
       description:
-        "Create a public profile, choose the token you want to receive, and share a clean link with clients, supporters, and customers.",
+        "Create a public profile, choose the token you accept, and share one clean link with clients, supporters, and customers.",
       heroSupport:
-        "Payments go straight to your wallet. PayLink never takes custody.",
+        "Payments settle directly in your wallet. PayLink never takes custody.",
       heroChips: [
-        "Direct wallet payments",
+        "Direct wallet settlement",
         "Reusable request links",
         "Built for MiniPay"
       ],
       demoCaption:
-        "Live flow: public page, wallet confirmation, and receipt.",
-      proofEyebrow: "Trust by default",
-      proofTitle: "Clear details before every payment.",
+        "Public page, wallet confirmation, and receipt in one flow.",
+      proofEyebrow: "Trust built in",
+      proofTitle: "Clear payment details before anyone sends.",
       proofDescription:
-        "PayLink shows who is receiving, what is being paid, and where to verify the transfer.",
+        "PayLink shows the recipient, amount, token, and verification path before the transfer moves on Celo.",
       proofChips: [
-        "Funds move directly to the recipient",
+        "Funds move directly to the recipient wallet",
         "Amount, token, and reference stay in the link",
-        "Receipts link to the explorer",
-        "Works with USDm, USDC, and USD₮"
+        "Every payment includes an explorer receipt",
+        "Accept USDm, USDC, and USD₮"
       ],
       stepsEyebrow: "How it works",
-      stepsTitle: "Set up once. Share whenever you need to get paid.",
+      stepsTitle: "Create once. Share whenever you need to get paid.",
       stepsDescription:
-        "Create your profile once, then use the same page or a prefilled request link.",
+        "Publish a profile, then use the same page or a prefilled request link for each payment.",
       steps: [
         {
           title: "Publish your profile",
           description:
-            "Claim a handle, add your profile details, and choose a receiving token."
+            "Claim a handle, add your public details, and choose the token you want to receive."
         },
         {
           title: "Share the right link",
           description:
-            "Send your public page for open payments or prefill amount, token, and reference for requests."
+            "Share your public page for open payments or create a request link with amount, token, and reference already filled in."
         },
         {
           title: "Keep a receipt",
           description:
-            "Payers get a success screen with the explorer link, and recent payments appear from onchain events."
+            "Payers get a receipt link after confirmation, and recent payments appear from onchain events."
         }
       ],
       trustStatements: [
-        "Direct to your wallet",
+        "Settles to your wallet",
         "No PayLink custody",
         "Explorer receipt included"
       ],
       closingEyebrow: "Ready when you are",
       closingTitle: "Publish your PayLink before the next payment request.",
       closingDescription:
-        "Open the dashboard, create your profile, and share one link anywhere you receive payments.",
+        "Open the dashboard, create your profile, and share one link anywhere you get paid.",
       summaryTitle: "Your PayLink is live.",
       summaryDescription:
-        "Share your page, create request links, and review incoming payments from one dashboard.",
+        "Share your profile, create request links, and review incoming payments from one dashboard.",
       connectHint:
         "Open PayLink in MiniPay or connect a wallet to publish your profile."
     },
@@ -315,58 +315,58 @@ const dictionaries: Record<Locale, Dictionary> = {
       titleNoProfile: "Publish your payment profile",
       titleWithProfile: "Manage your PayLink",
       descriptionNoProfile:
-        "Claim a handle, add profile details, and publish the page people will use to pay you.",
+        "Claim a handle, add your public details, and publish the profile people will use to pay you.",
       descriptionWithProfile:
-        "Update your public profile, create request links, and review incoming payments.",
+        "Update your profile, create request links, and review incoming payments.",
       actionsTab: "Profile and links",
       manageTab: "Profile",
       transactionsTab: "Payments",
       quickActions: "Quick actions",
       quickActionChargeDescription:
-        "Prefill amount, token, and reference before sharing a payment request.",
+        "Create a request link with amount, token, and reference already filled in.",
       quickActionTransactionsDescription:
-        "Review incoming payments and their explorer receipts.",
+        "Review incoming payments and open their receipts.",
       profileShareHint:
-        "Share this public profile anywhere you receive payments.",
+        "Share this public profile anywhere you get paid.",
       chargeLinkHint:
-        "Prefill amount, token, and reference for a payment request.",
+        "Create a payment request with amount, token, and reference already filled in.",
       profileSection: "Profile",
       chargeSection: "Request link",
       transactionsSection: "Incoming payments",
       emptyTransactions:
-        "Incoming payments will appear here after someone pays through your PayLink.",
+        "Incoming payments will appear here after someone pays through your profile.",
       connectPrompt:
-        "Connect a wallet to create and manage your public payment profile."
+        "Connect a wallet to create and manage your payment profile."
     },
     profileDiscovery: {
       eyebrow: "Published profiles",
-      title: "Creators receiving with PayLink.",
+      title: "Creators and merchants using PayLink.",
       description:
         "Browse recently published profiles from the PayLink contract.",
       searchTab: "Search",
       searchTitle: "Find a profile",
       searchDescription:
-        "Enter an exact handle to open a public payment page.",
+        "Enter an exact handle to open its public payment profile.",
       searchPlaceholder: "creator_handle",
       latestTitle: "Recent profiles",
       latestDescription:
-        "Newest profiles from onchain profile events.",
+        "Newest profiles from onchain events.",
       loading: "Loading profiles...",
       empty: "No published profiles found yet.",
       unavailable:
-        "Profile discovery appears after the contract is configured.",
+        "Profile discovery will appear after the contract is configured.",
       notFound: "No published profile matches that handle.",
       error: "Profiles could not load right now.",
       exactHint: "Use the full handle without @.",
       openProfile: "Open profile"
     },
     publicPage: {
-      ownerTitle: "This is your public PayLink.",
+      ownerTitle: "This is your public PayLink profile.",
       ownerDescription:
-        "Share it as-is or use the dashboard to update your profile and create request links.",
+        "Share it as-is, or open the dashboard to update your profile and create request links.",
       visitorTitle: "Send a direct payment",
       visitorDescription:
-        "Review the profile, choose an amount and token, then confirm in your wallet.",
+        "Review the recipient, choose an amount and token, then confirm in your wallet.",
       invoiceEyebrow: "Payment request",
       invoiceDescription:
         "This link includes payment details. Review the request, then complete the transfer on Celo.",
@@ -376,10 +376,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       requestSummaryLabel: "Request summary",
       missingTitle: "This PayLink is not published yet.",
       missingDescription:
-        "That handle has not been published. Create your own profile to start receiving payments.",
+        "That handle has not been published. Create your profile to start receiving direct payments.",
       noContractTitle: "Contract not configured",
       noContractDescription:
-        "Set a PayLink contract address in the environment before opening public profile routes.",
+        "Set a PayLink contract address in the environment before opening public profiles.",
       recentPayments: "Recent payments",
       createYours: "Create your profile"
     },
@@ -387,7 +387,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Payment sent",
       title: "Payment sent.",
       description:
-        "Your transfer was submitted on Celo. Use the explorer receipt as proof, then return to the profile for the latest activity."
+        "Your transfer was submitted on Celo. Use the receipt as proof, then return to the profile for the latest activity."
     },
     fields: {
       handle: "Handle",
@@ -441,7 +441,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       waitingConfirmation: "Waiting for confirmation...",
       profilePublished: "Profile published.",
       paymentComplete: "Payment complete.",
-      connectBeforeSave: "Connect your wallet before saving this profile.",
+      connectBeforeSave: "Connect your wallet before publishing this profile.",
       connectBeforePay: "Connect a wallet to send this payment.",
       fillAllFields: "Complete the required fields before publishing.",
       invalidImage:
@@ -495,7 +495,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       openDashboard: "Abrir painel",
       connectWallet: "Conectar carteira",
       switchNetwork: "Trocar rede",
-      refreshNetwork: "Já troquei de rede",
+      refreshNetwork: "Já troquei a rede",
       disconnectWallet: "Desconectar",
       saveProfile: "Publicar perfil",
       updateProfile: "Salvar alterações",
@@ -505,74 +505,74 @@ const dictionaries: Record<Locale, Dictionary> = {
       shareLink: "Compartilhar link",
       shareProfile: "Compartilhar perfil",
       createChargeLink: "Criar link de cobrança",
-      openExplorer: "Ver no explorer",
+      openExplorer: "Ver comprovante",
       openPublicPage: "Ver página pública",
       payNow: "Pagar agora",
       payCreator: "Enviar pagamento",
-      shareCreatorLink: "Compartilhar este perfil",
+      shareCreatorLink: "Compartilhar perfil",
       viewProfile: "Ver perfil",
-      createYourOwn: "Criar o seu",
+      createYourOwn: "Criar seu perfil",
       backToProfile: "Voltar ao perfil",
       useDashboard: "Usar painel",
       viewTransactions: "Ver transações"
     },
     home: {
-      eyebrow: "Perfil de pagamento MiniPay",
-      title: "Um link confiável para receber na Celo.",
+      eyebrow: "Perfis de pagamento para MiniPay",
+      title: "Um link confiável para pagamentos diretos na Celo.",
       description:
-        "Crie um perfil público, escolha o token que quer receber e compartilhe um link simples com clientes, apoiadores e compradores.",
+        "Crie um perfil público, escolha o token que aceita e compartilhe um link simples com clientes, apoiadores e compradores.",
       heroSupport:
-        "O pagamento cai direto na sua carteira. O PayLink nunca fica com os fundos.",
+        "O pagamento liquida direto na sua carteira. O PayLink nunca fica com os fundos.",
       heroChips: [
-        "Pagamentos diretos na carteira",
+        "Liquidação direta na carteira",
         "Links de cobrança reutilizáveis",
         "Feito para MiniPay"
       ],
       demoCaption:
-        "Fluxo real: página pública, confirmação na carteira e comprovante.",
-      proofEyebrow: "Confiança desde o início",
-      proofTitle: "Tudo claro antes de pagar.",
+        "Página pública, confirmação na carteira e comprovante em um só fluxo.",
+      proofEyebrow: "Confiança integrada",
+      proofTitle: "Dados claros antes de qualquer pagamento.",
       proofDescription:
-        "O PayLink mostra quem recebe, o que será pago e onde verificar a transferência.",
+        "O PayLink mostra quem recebe, valor, token e caminho de verificação antes da transferência na Celo.",
       proofChips: [
-        "Os fundos vão direto para quem recebe",
+        "Os fundos vão direto para a carteira de quem recebe",
         "Valor, token e referência ficam no link",
-        "Comprovantes abrem no explorer",
-        "Funciona com USDm, USDC e USD₮"
+        "Todo pagamento inclui comprovante no explorer",
+        "Aceite USDm, USDC e USD₮"
       ],
       stepsEyebrow: "Como funciona",
-      stepsTitle: "Configure uma vez. Compartilhe sempre que precisar receber.",
+      stepsTitle: "Crie uma vez. Compartilhe sempre que precisar receber.",
       stepsDescription:
-        "Crie o perfil uma vez e use a mesma página ou um link de cobrança preenchido.",
+        "Publique um perfil e use a mesma página ou um link de cobrança preenchido para cada pagamento.",
       steps: [
         {
           title: "Publique seu perfil",
           description:
-            "Escolha um handle, adicione os dados do perfil e defina o token de recebimento."
+            "Escolha um handle, adicione seus dados públicos e defina o token que quer receber."
         },
         {
           title: "Compartilhe o link certo",
           description:
-            "Envie a página pública para pagamentos livres ou preencha valor, token e referência para cobranças."
+            "Compartilhe a página pública para pagamentos livres ou crie um link de cobrança com valor, token e referência já preenchidos."
         },
         {
           title: "Guarde o comprovante",
           description:
-            "Quem paga vê uma tela de sucesso com link do explorer, e os pagamentos recentes aparecem por eventos onchain."
+            "Quem paga recebe um link de comprovante após a confirmação, e os pagamentos recentes aparecem por eventos onchain."
         }
       ],
       trustStatements: [
-        "Direto para sua carteira",
+        "Liquida na sua carteira",
         "Sem custódia do PayLink",
         "Comprovante no explorer"
       ],
       closingEyebrow: "Pronto para receber",
       closingTitle: "Publique seu PayLink antes da próxima cobrança.",
       closingDescription:
-        "Abra o painel, crie seu perfil e compartilhe um link em qualquer lugar onde você recebe.",
+        "Abra o painel, crie seu perfil e compartilhe um link em qualquer lugar onde você recebe pagamentos.",
       summaryTitle: "Seu PayLink está no ar.",
       summaryDescription:
-        "Compartilhe sua página, crie links de cobrança e acompanhe pagamentos recebidos em um painel.",
+        "Compartilhe seu perfil, crie links de cobrança e acompanhe pagamentos recebidos em um painel.",
       connectHint:
         "Abra o PayLink no MiniPay ou conecte uma carteira para publicar seu perfil."
     },
@@ -581,58 +581,58 @@ const dictionaries: Record<Locale, Dictionary> = {
       titleNoProfile: "Publique seu perfil de pagamentos",
       titleWithProfile: "Gerencie seu PayLink",
       descriptionNoProfile:
-        "Escolha um handle, adicione os dados do perfil e publique a página que as pessoas vão usar para pagar você.",
+        "Escolha um handle, adicione seus dados públicos e publique o perfil que as pessoas vão usar para pagar você.",
       descriptionWithProfile:
-        "Atualize seu perfil público, crie links de cobrança e acompanhe pagamentos recebidos.",
+        "Atualize seu perfil, crie links de cobrança e acompanhe pagamentos recebidos.",
       actionsTab: "Perfil e links",
       manageTab: "Perfil",
       transactionsTab: "Pagamentos",
       quickActions: "Ações rápidas",
       quickActionChargeDescription:
-        "Preencha valor, token e referência antes de compartilhar a próxima cobrança.",
+        "Crie um link de cobrança com valor, token e referência já preenchidos.",
       quickActionTransactionsDescription:
-        "Revise os pagamentos recebidos e seus comprovantes no explorer.",
+        "Revise os pagamentos recebidos e abra seus comprovantes.",
       profileShareHint:
         "Compartilhe este perfil público onde você recebe pagamentos.",
       chargeLinkHint:
-        "Preencha valor, token e referência para uma cobrança.",
+        "Crie uma cobrança com valor, token e referência já preenchidos.",
       profileSection: "Perfil",
       chargeSection: "Link de cobrança",
       transactionsSection: "Pagamentos recebidos",
       emptyTransactions:
-        "Os pagamentos recebidos aparecerão aqui depois que alguém pagar pelo seu PayLink.",
+        "Os pagamentos recebidos aparecerão aqui depois que alguém pagar pelo seu perfil.",
       connectPrompt:
-        "Conecte sua carteira para criar e gerenciar seu perfil de pagamentos."
+        "Conecte sua carteira para criar e gerenciar seu perfil de pagamento."
     },
     profileDiscovery: {
       eyebrow: "Perfis publicados",
-      title: "Criadores recebendo pelo PayLink.",
+      title: "Criadores e comerciantes usando o PayLink.",
       description:
         "Veja perfis publicados recentemente pelo contrato do PayLink.",
       searchTab: "Buscar",
       searchTitle: "Buscar perfil",
       searchDescription:
-        "Digite o handle exato para abrir uma página pública de pagamento.",
+        "Digite o handle exato para abrir o perfil público de pagamento.",
       searchPlaceholder: "criador_handle",
       latestTitle: "Perfis recentes",
       latestDescription:
-        "Perfis mais novos vindos dos eventos onchain.",
+        "Perfis mais novos vindos de eventos onchain.",
       loading: "Carregando perfis...",
       empty: "Nenhum perfil publicado encontrado ainda.",
       unavailable:
-        "A descoberta de perfis aparece depois que o contrato for configurado.",
+        "A descoberta de perfis aparecerá depois que o contrato for configurado.",
       notFound: "Nenhum perfil publicado corresponde a esse handle.",
       error: "Não foi possível carregar os perfis agora.",
       exactHint: "Use o handle completo sem @.",
       openProfile: "Abrir perfil"
     },
     publicPage: {
-      ownerTitle: "Este é o seu PayLink público.",
+      ownerTitle: "Este é o seu perfil público do PayLink.",
       ownerDescription:
-        "Compartilhe como está ou use o painel para atualizar o perfil e criar links de cobrança.",
+        "Compartilhe como está ou abra o painel para atualizar seu perfil e criar links de cobrança.",
       visitorTitle: "Enviar pagamento direto",
       visitorDescription:
-        "Confira o perfil, escolha valor e token e confirme na sua carteira.",
+        "Confira quem recebe, escolha valor e token e confirme na sua carteira.",
       invoiceEyebrow: "Cobrança",
       invoiceDescription:
         "Este link inclui os dados do pagamento. Revise a cobrança e conclua a transferência na Celo.",
@@ -642,10 +642,10 @@ const dictionaries: Record<Locale, Dictionary> = {
       requestSummaryLabel: "Resumo da cobrança",
       missingTitle: "Este PayLink ainda não foi publicado.",
       missingDescription:
-        "Esse handle ainda não foi publicado. Crie seu perfil para começar a receber pagamentos.",
+        "Esse handle ainda não foi publicado. Crie seu perfil para começar a receber pagamentos diretos.",
       noContractTitle: "Contrato não configurado",
       noContractDescription:
-        "Defina o endereço do contrato do PayLink no ambiente antes de abrir páginas públicas.",
+        "Defina o endereço do contrato do PayLink no ambiente antes de abrir perfis públicos.",
       recentPayments: "Pagamentos recentes",
       createYours: "Criar seu perfil"
     },
@@ -653,7 +653,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Pagamento enviado",
       title: "Pagamento enviado.",
       description:
-        "Sua transferência foi enviada na Celo. Use o comprovante no explorer e volte ao perfil para ver a atividade mais recente."
+        "Sua transferência foi enviada na Celo. Use o comprovante como prova e volte ao perfil para ver a atividade mais recente."
     },
     fields: {
       handle: "Handle",
@@ -707,7 +707,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       waitingConfirmation: "Aguardando confirmação...",
       profilePublished: "Perfil publicado.",
       paymentComplete: "Pagamento concluído.",
-      connectBeforeSave: "Conecte sua carteira antes de salvar este perfil.",
+      connectBeforeSave: "Conecte sua carteira antes de publicar este perfil.",
       connectBeforePay: "Conecte uma carteira para enviar este pagamento.",
       fillAllFields: "Preencha os campos obrigatórios antes de publicar.",
       invalidImage:

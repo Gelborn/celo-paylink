@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     template: "%s · MiniPay PayLink"
   },
   description:
-    "Create a MiniPay PayLink profile and receive direct Celo stablecoin payments through one trusted link.",
+    "Create a MiniPay PayLink profile and receive direct Celo payments through one trusted link.",
   metadataBase: new URL(publicEnv.appUrl),
   keywords: [
     "MiniPay",
     "Celo",
     "stablecoin",
     "payments",
-    "pay link",
+    "payment link",
     "creator payments"
   ],
   category: "finance",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MiniPay PayLink",
     description:
-      "Claim a handle, publish a no-custody payment profile, and receive direct Celo payments through MiniPay.",
+      "Publish a no-custody payment profile, share request links, and receive direct Celo payments through MiniPay.",
     url: publicEnv.appUrl,
     siteName: "MiniPay PayLink",
     type: "website",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MiniPay PayLink",
     description:
-      "Claim a handle, publish a no-custody payment profile, and receive direct Celo payments through MiniPay.",
+      "Publish a no-custody payment profile, share request links, and receive direct Celo payments through MiniPay.",
     images: ["/og.svg"]
   },
   other: {

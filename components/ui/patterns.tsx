@@ -76,7 +76,7 @@ export function DetailTile({
       <div className="flex items-start gap-3">
         {icon ? <IconFrame tone={tone} className="h-8 w-8">{icon}</IconFrame> : null}
         <div className="min-w-0 flex-1">
-          <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-500">
+          <p className="text-[10px] font-medium uppercase tracking-normal text-zinc-500 sm:text-[11px] sm:tracking-[0.14em]">
             {label}
           </p>
           <div

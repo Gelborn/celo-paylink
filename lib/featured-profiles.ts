@@ -8,7 +8,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=400&q=80",
     bio: "Audio cleanup, mastering, and reusable sound packs for indie teams shipping product videos.",
-    paymentMessage: "Thanks for funding the next recording block.",
+    paymentMessage: "Thanks for paying for the next recording block.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   },
@@ -30,7 +30,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
     bio: "Research briefs, market scans, and synthesis notes for teams turning loose ideas into sharper product decisions.",
-    paymentMessage: "Appreciate the backing for the next research sprint.",
+    paymentMessage: "Thanks for paying for the next research sprint.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   },
@@ -41,7 +41,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
     bio: "Motion edits, launch teasers, and clean handoff files for product teams moving fast.",
-    paymentMessage: "Appreciate the backing for the next motion sprint.",
+    paymentMessage: "Thanks for paying for the next motion sprint.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   },
@@ -52,7 +52,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=400&q=80",
     bio: "Campaign planning, content edits, and lightweight launch support for creators with new releases.",
-    paymentMessage: "Thanks for helping fund the next campaign pack.",
+    paymentMessage: "Thanks for paying for the next campaign pack.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   },
@@ -63,7 +63,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=420&q=80",
     bio: "Narration cleanup, mastering, and podcast clips for creators publishing on tighter timelines.",
-    paymentMessage: "Thanks for supporting the next recording block.",
+    paymentMessage: "Thanks for paying for the next recording block.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   },
@@ -74,7 +74,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=420&q=80",
     bio: "Design systems, landing pages, and handoff notes for indie builders moving from idea to launch.",
-    paymentMessage: "Thanks again for supporting the next design sprint.",
+    paymentMessage: "Thanks for paying for the next design sprint.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   },
@@ -85,7 +85,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=420&q=80",
     bio: "Interface reviews, research notes, and sharper product flows for teams improving a live app.",
-    paymentMessage: "Thanks for funding the next UX review.",
+    paymentMessage: "Thanks for paying for the next UX review.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   },
@@ -96,7 +96,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=420&q=80",
     bio: "Content sequencing, launch support, and campaign tune-ups for teams that need a steadier delivery loop.",
-    paymentMessage: "Appreciate the backing for the next campaign sprint.",
+    paymentMessage: "Thanks for paying for the next campaign sprint.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   },
@@ -107,7 +107,7 @@ export const featuredProfiles = [
     avatarUrl:
       "https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=420&q=80",
     bio: "Voice edits, audio cleanup, and final exports for lessons, demos, and creator updates.",
-    paymentMessage: "Appreciate the backing for the next audio delivery.",
+    paymentMessage: "Thanks for paying for the next audio delivery.",
     preferredToken: "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
     exists: true
   }
