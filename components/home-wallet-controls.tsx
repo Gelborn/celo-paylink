@@ -53,15 +53,18 @@ export function HomeWalletControls({
     <Button
       size="sm"
       variant="outline"
+      className="h-9 w-9 px-0 sm:w-auto sm:px-3.5"
       leftIcon={<Wallet aria-hidden="true" />}
       disabled={isConnecting}
       onClick={() => {
         void connect();
       }}
     >
-      {isConnecting
-        ? dictionary.messages.waitingConfirmation
-        : dictionary.actions.connectWallet}
+      <span className="sr-only sm:not-sr-only">
+        {isConnecting
+          ? dictionary.messages.waitingConfirmation
+          : dictionary.actions.connectWallet}
+      </span>
     </Button>
   );
 

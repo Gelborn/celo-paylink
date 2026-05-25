@@ -30,10 +30,12 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 body {
   margin: 0;
+  width: 100%;
   min-height: 100vh;
   background:
     radial-gradient(ellipse at 78% 0%, rgba(57, 217, 138, 0.07), transparent 36rem),
@@ -42,6 +44,8 @@ body {
   color: var(--ink);
   font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -58,16 +62,30 @@ a {
   overflow: hidden;
 }
 
+.page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 76%);
+}
+
 .app-frame {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 78rem;
+  min-width: 0;
+  max-width: min(78rem, 100vw);
   margin: 0 auto;
-  padding: 1rem;
+  padding: clamp(0.875rem, 3vw, 1.25rem);
 }
 
 .compact-card {
+  min-width: 0;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 0.5rem;
   background: linear-gradient(180deg, rgba(18, 19, 22, 0.92), rgba(10, 11, 13, 0.96));
@@ -117,6 +135,7 @@ a {
 
 .landing-section {
   position: relative;
+  min-width: 0;
 }
 
 .landing-cta-surface {
@@ -253,6 +272,18 @@ a {
 .perf-defer-section {
   content-visibility: auto;
   contain-intrinsic-size: auto 620px;
+}
+
+@media (max-width: 639px) {
+  .profile-carousel {
+    margin-inline: calc(clamp(0.875rem, 3vw, 1.25rem) * -1);
+    padding-inline: clamp(0.875rem, 3vw, 1.25rem);
+    mask-image: none;
+  }
+
+  .profile-carousel-track {
+    gap: 0.75rem;
+  }
 }
 
 @keyframes profile-carousel-scroll {

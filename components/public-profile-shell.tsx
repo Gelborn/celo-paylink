@@ -187,7 +187,7 @@ export function PublicProfileShell({
           previewMode ? null : (
             <div
               id="public-wallet-slot"
-              className="flex min-h-9 min-w-[5.5rem] justify-end"
+              className="flex min-h-9 min-w-9 justify-end sm:min-w-[5.5rem]"
               aria-live="polite"
             />
           )
@@ -236,10 +236,10 @@ export function PublicProfileShell({
           }
         />
 
-        <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6">
-          <Card variant="elevated" className="compact-card">
+        <div className="grid min-w-0 items-start gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6">
+          <Card variant="elevated" className="compact-card overflow-hidden">
             <CardContent className="space-y-4 px-4 py-4 sm:space-y-5 sm:px-6 sm:py-6">
-              <div className="flex items-center gap-4">
+              <div className="flex min-w-0 items-center gap-4">
                 <Avatar
                   name={profile.displayName}
                   imageUrl={profile.avatarUrl}
@@ -307,7 +307,7 @@ export function PublicProfileShell({
                       <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
                         {dictionary.publicPage.requestSummaryLabel}
                       </p>
-                      <div className="mt-3 grid gap-2.5 min-[360px]:grid-cols-2 sm:gap-3">
+                      <div className="mt-3 grid min-w-0 gap-2.5 sm:grid-cols-2 sm:gap-3">
                         {hasPrefilledAmount ? (
                           <DetailTile
                             icon={<Coins aria-hidden="true" />}
@@ -404,7 +404,7 @@ export function PublicProfileShell({
 
                   <TrustList items={trustItems} />
 
-                  <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap">
                     {showInvoiceView ? (
                       <Button
                         variant="outline"
@@ -432,7 +432,7 @@ export function PublicProfileShell({
             </CardContent>
           </Card>
 
-          <div className="self-start lg:sticky lg:top-6">{recentPaymentsSlot}</div>
+          <div className="min-w-0 self-start lg:sticky lg:top-6">{recentPaymentsSlot}</div>
         </div>
       </motion.section>
     </main>

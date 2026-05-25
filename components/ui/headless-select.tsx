@@ -34,7 +34,7 @@ export function HeadlessSelect({
   const accessibleLabel = label || placeholder || "Select an option";
 
   return (
-    <div className={clsx("space-y-2", className)}>
+    <div className={clsx("min-w-0 space-y-2", className)}>
       {label ? (
         <label
           htmlFor={selectId}
@@ -44,14 +44,14 @@ export function HeadlessSelect({
         </label>
       ) : null}
 
-      <div className="relative">
+      <div className="relative min-w-0">
         <select
           id={selectId}
           aria-label={accessibleLabel}
           value={value}
           onChange={(event) => onChange(event.target.value)}
           className={clsx(
-            "min-h-12 w-full appearance-none rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(20,21,24,0.9),rgba(11,12,14,0.96))] px-4 py-3 pr-11 text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] transition-[background-color,border-color,box-shadow] duration-200 hover:border-white/20 focus:border-[color:var(--accent-line)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]",
+            "min-h-12 min-w-0 w-full appearance-none rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(20,21,24,0.9),rgba(11,12,14,0.96))] px-4 py-3 pr-11 text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] transition-[background-color,border-color,box-shadow] duration-200 hover:border-white/20 focus:border-[color:var(--accent-line)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]",
             triggerClassName
           )}
         >

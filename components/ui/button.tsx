@@ -39,7 +39,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       whileTap={disabled ? undefined : whileTap || softTap}
       transition={transition || motionTransitions.micro}
       className={clsx(
-        "inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] disabled:cursor-not-allowed disabled:opacity-55",
+        "inline-flex max-w-full shrink-0 items-center justify-center gap-2 rounded-lg border text-center font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] disabled:cursor-not-allowed disabled:opacity-55",
         size === "sm" && "h-9 px-3.5 text-sm",
         size === "md" && "h-11 px-5 text-sm",
         size === "lg" && "h-12 px-5 text-base",

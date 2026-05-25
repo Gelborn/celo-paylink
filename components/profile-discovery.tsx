@@ -45,8 +45,8 @@ function ProfileLinkCard({
     <Link
       href={`/u/${profile.handle}`}
       className={clsx(
-        "compact-card group flex h-full flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70",
-        variant === "carousel" && "w-[19rem] shrink-0",
+        "compact-card group flex h-full min-w-0 flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70",
+        variant === "carousel" && "w-[min(19rem,calc(100vw-2rem))] shrink-0",
         variant === "result" && "border-[color:var(--accent-line)]"
       )}
     >

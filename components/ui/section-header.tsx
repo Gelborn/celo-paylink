@@ -12,15 +12,15 @@ export function SectionHeader({
   actions?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-      <div className="max-w-3xl space-y-3">
+    <div className="flex min-w-0 flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div className="min-w-0 max-w-3xl space-y-3">
         {eyebrow ? (
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
             {eyebrow}
           </p>
         ) : null}
         <div className="space-y-2">
-          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
+          <h1 className="max-w-full text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
             {title}
           </h1>
           {description ? (

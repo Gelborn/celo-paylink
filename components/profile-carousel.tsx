@@ -25,7 +25,7 @@ function ProfileLinkCard({
     <Link
       href={`/u/${profile.handle}`}
       className={clsx(
-        "compact-card group flex h-full w-[19rem] shrink-0 flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70"
+        "compact-card group flex h-full w-[min(19rem,calc(100vw-2rem))] shrink-0 flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70"
       )}
     >
       <div className="flex min-w-0 items-start gap-4">

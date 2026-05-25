@@ -39,7 +39,7 @@ export function HomeStaticShell({
         actions={
           <div
             id="home-wallet-slot"
-            className="flex min-h-9 min-w-[5.5rem] justify-end"
+            className="flex min-h-9 min-w-9 justify-end sm:min-w-[5.5rem]"
             aria-live="polite"
           />
         }

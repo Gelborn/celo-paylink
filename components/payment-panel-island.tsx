@@ -426,7 +426,7 @@ export function PaymentPanelIsland({
           />
         </div>
 
-        <div className="grid gap-4 min-[360px]:grid-cols-2">
+        <div className="grid min-w-0 gap-4 sm:grid-cols-2">
           <label className="space-y-2">
             <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
               {dictionary.fields.amount}

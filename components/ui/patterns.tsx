@@ -68,12 +68,12 @@ export function DetailTile({
   return (
     <div
       className={clsx(
-        "rounded-lg border px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:py-4",
+        "min-w-0 rounded-lg border px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:py-4",
         toneClasses[tone],
         className
       )}
     >
-      <div className="flex items-start gap-3">
+      <div className="flex min-w-0 items-start gap-3">
         {icon ? <IconFrame tone={tone} className="h-8 w-8">{icon}</IconFrame> : null}
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-medium uppercase tracking-normal text-zinc-500 sm:text-[11px] sm:tracking-[0.14em]">
@@ -81,7 +81,7 @@ export function DetailTile({
           </p>
           <div
             className={clsx(
-              "mt-1.5 break-words text-base font-semibold leading-6 text-white",
+              "mt-1.5 min-w-0 break-words text-base font-semibold leading-6 text-white",
               mono && "font-mono text-sm font-medium text-zinc-200"
             )}
           >
@@ -116,7 +116,7 @@ export function ActionRow({
   return (
     <div
       className={clsx(
-        "flex flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:flex-row sm:items-center sm:justify-between",
+        "flex min-w-0 flex-col gap-4 rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:flex-row sm:items-center sm:justify-between",
         className
       )}
     >

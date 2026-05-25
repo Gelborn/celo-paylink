@@ -16,7 +16,7 @@ import { AccentBadge, IconFrame } from "./ui/patterns";
 export { AccentBadge } from "./ui/patterns";
 
 const primaryLinkClass =
-  "inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-base font-medium text-zinc-950 shadow-[0_10px_24px_rgba(57,217,138,0.1)] transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:shadow-[0_14px_32px_rgba(57,217,138,0.14)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] sm:w-auto";
+  "inline-flex h-12 max-w-full w-full items-center justify-center gap-2 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-6 text-center text-base font-medium text-zinc-950 shadow-[0_10px_24px_rgba(57,217,138,0.1)] transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:shadow-[0_14px_32px_rgba(57,217,138,0.14)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] sm:w-auto";
 
 const proofIcons = [ShieldCheck, Link2, ReceiptText, Coins];
 const stepIcons = [UserRound, Send, BadgeCheck];

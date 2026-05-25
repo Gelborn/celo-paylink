@@ -7,7 +7,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
       <input
         ref={ref}
         className={clsx(
-          "h-12 w-full rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(20,21,24,0.9),rgba(11,12,14,0.96))] px-4 text-base text-white outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] transition-[background-color,border-color,box-shadow] duration-200 placeholder:text-zinc-500 hover:border-white/20 focus:border-[color:var(--accent-line)] focus:bg-zinc-950/95 focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] aria-[invalid=true]:border-red-400/70 aria-[invalid=true]:focus:border-red-400 aria-[invalid=true]:focus-visible:ring-red-400/30",
+          "h-12 min-w-0 w-full rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(20,21,24,0.9),rgba(11,12,14,0.96))] px-4 text-base text-white outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] transition-[background-color,border-color,box-shadow] duration-200 placeholder:text-zinc-500 hover:border-white/20 focus:border-[color:var(--accent-line)] focus:bg-zinc-950/95 focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] aria-[invalid=true]:border-red-400/70 aria-[invalid=true]:focus:border-red-400 aria-[invalid=true]:focus-visible:ring-red-400/30",
           className
         )}
         {...props}

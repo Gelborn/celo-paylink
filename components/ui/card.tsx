@@ -11,7 +11,7 @@ export function Card({
   return (
     <div
       className={clsx(
-        "rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]",
+        "min-w-0 rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]",
         variant === "default" &&
           "border-white/10 bg-[linear-gradient(180deg,rgba(18,19,22,0.94),rgba(10,11,13,0.96))] shadow-[0_12px_30px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.025)]",
         variant === "elevated" &&
@@ -31,14 +31,14 @@ export function CardHeader({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={clsx("px-5 pt-5 sm:px-6 sm:pt-6", className)} {...props} />;
+  return <div className={clsx("min-w-0 px-5 pt-5 sm:px-6 sm:pt-6", className)} {...props} />;
 }
 
 export function CardContent({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={clsx("px-5 pb-5 sm:px-6 sm:pb-6", className)} {...props} />;
+  return <div className={clsx("min-w-0 px-5 pb-5 sm:px-6 sm:pb-6", className)} {...props} />;
 }
 
 export function CardTitle({

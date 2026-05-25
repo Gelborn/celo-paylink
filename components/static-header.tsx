@@ -7,11 +7,11 @@ export function StaticHeader({
   actions?: ReactNode;
 }) {
   return (
-    <header className="mb-8 flex items-center justify-between gap-4 md:mb-10">
+    <header className="mb-8 flex min-w-0 items-center justify-between gap-3 md:mb-10 md:gap-4">
       <div className="min-w-0">
         <BrandWordmark className="text-lg md:text-xl" />
       </div>
-      {actions ? <div className="shrink-0">{actions}</div> : null}
+      {actions ? <div className="flex min-w-0 shrink-0 justify-end">{actions}</div> : null}
     </header>
   );
 }

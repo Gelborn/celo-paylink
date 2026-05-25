@@ -91,7 +91,7 @@ export function Header({
 
   return (
     <>
-      <header className="mb-8 flex items-center justify-between gap-4 md:mb-10">
+      <header className="mb-8 flex min-w-0 items-center justify-between gap-3 md:mb-10 md:gap-4">
         <div className="min-w-0">
           <BrandWordmark className="text-lg md:text-xl" />
         </div>
@@ -119,15 +119,18 @@ export function Header({
           <Button
             size="sm"
             variant="outline"
+            className="h-9 w-9 px-0 sm:w-auto sm:px-3.5"
             leftIcon={<Wallet aria-hidden="true" />}
             disabled={isConnecting}
             onClick={() => {
               void onConnect();
             }}
           >
-            {isConnecting
-              ? dictionary.messages.waitingConfirmation
-              : dictionary.actions.connectWallet}
+            <span className="sr-only sm:not-sr-only">
+              {isConnecting
+                ? dictionary.messages.waitingConfirmation
+                : dictionary.actions.connectWallet}
+            </span>
           </Button>
         )}
       </header>
