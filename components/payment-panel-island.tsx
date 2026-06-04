@@ -494,6 +494,10 @@ export function PaymentPanelIsland({
                 : dictionary.actions.connectWallet}
             </Button>
           ) : null}
+          <p className="flex w-full items-center gap-2 text-xs leading-5 text-zinc-500">
+            <CheckCircle2 aria-hidden="true" className="h-3.5 w-3.5 text-[color:var(--accent)]" />
+            {dictionary.home.trustStatements[1]}
+          </p>
         </div>
 
         <DetailTile
