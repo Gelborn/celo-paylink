@@ -63,8 +63,11 @@ export function RecentPaymentsView({
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="rounded-lg border border-dashed border-white/10 bg-zinc-950/45 px-4 py-5 text-sm leading-7 text-zinc-400">
-            {dictionary.dashboard.emptyTransactions}
+          <div className="flex items-start gap-3 rounded-lg border border-dashed border-white/10 bg-zinc-950/45 px-4 py-5 text-sm leading-7 text-zinc-400">
+            <IconFrame tone="accent" className="h-9 w-9 rounded-md">
+              <ReceiptText aria-hidden="true" />
+            </IconFrame>
+            <p>{dictionary.dashboard.emptyTransactions}</p>
           </div>
         </CardContent>
       </Card>
