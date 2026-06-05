@@ -85,7 +85,7 @@ npm run typecheck
 npm run dev
 ```
 
-For a quick reviewer demo without a deployed contract, open:
+For a quick reviewer demo without connecting a wallet or deploying a contract, open:
 
 `http://localhost:3000/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1`
 
