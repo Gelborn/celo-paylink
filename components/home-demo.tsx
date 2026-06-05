@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { fadeUp, motionTransitions } from "../lib/motion";
 import { useLocale } from "./locale-provider";
 
@@ -25,6 +25,7 @@ export function HomeDemo({
   caption: string;
 }) {
   const { locale } = useLocale();
+  const captionId = useId();
   const frameRef = useRef<HTMLDivElement | null>(null);
   const [canUseMotion, setCanUseMotion] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -128,6 +129,7 @@ export function HomeDemo({
                   poster={demoMedia.poster}
                   className="landing-demo-video"
                   aria-label={demoMedia.alt}
+                  aria-describedby={captionId}
                 >
                   <source src={demoMedia.video} type="video/webm" />
                 </video>
@@ -135,6 +137,7 @@ export function HomeDemo({
                 <Image
                   src={demoMedia.poster}
                   alt={demoMedia.alt}
+                  aria-describedby={captionId}
                   fill
                   priority
                   sizes="(min-width: 1024px) 420px, (min-width: 768px) 360px, 84vw"
@@ -145,7 +148,10 @@ export function HomeDemo({
           </div>
         </div>
       </motion.div>
-      <figcaption className="mx-auto max-w-sm text-center text-sm leading-7 text-zinc-400">
+      <figcaption
+        id={captionId}
+        className="mx-auto max-w-sm text-center text-sm leading-7 text-zinc-400"
+      >
         {caption}
       </figcaption>
     </motion.figure>
