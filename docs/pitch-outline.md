@@ -22,7 +22,7 @@
 - Onchain design
 - Verified contract
 - Direct forwarding
-- No custody
+- No custody; payments settle directly to the recipient wallet
 - Event-based payment history
 
 ## Slide 6
