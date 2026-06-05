@@ -1,6 +1,17 @@
 import type { ReactNode } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card";
 
+function getEmptyStateId(title: string) {
+  const slug = title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return `empty-state-${slug || "content"}`;
+}
+
 export function EmptyState({
   title,
   description,
@@ -10,14 +21,20 @@ export function EmptyState({
   description: string;
   actions?: ReactNode;
 }) {
+  const baseId = getEmptyStateId(title);
+  const titleId = `${baseId}-title`;
+  const descriptionId = `${baseId}-description`;
+
   return (
-    <Card>
+    <Card role="region" aria-labelledby={titleId} aria-describedby={descriptionId}>
       <CardHeader className="space-y-2">
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardTitle id={titleId}>{title}</CardTitle>
+        <CardDescription id={descriptionId}>{description}</CardDescription>
       </CardHeader>
       {actions ? (
-        <CardContent className="flex flex-wrap gap-3 pt-0">{actions}</CardContent>
+        <CardContent className="flex flex-wrap gap-3 pt-0" role="group" aria-labelledby={titleId}>
+          {actions}
+        </CardContent>
       ) : null}
     </Card>
   );
