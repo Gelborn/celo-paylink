@@ -356,6 +356,9 @@ export function ProfileEditor({
             <Input
               value={form.avatarUrl}
               aria-invalid={invalidFields.avatarUrl}
+              type="url"
+              inputMode="url"
+              autoComplete="url"
               className={invalidFields.avatarUrl ? "border-red-400/70 focus:border-red-400" : undefined}
               onChange={(event) =>
                 setForm((current) => ({
