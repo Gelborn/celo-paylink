@@ -40,6 +40,6 @@
 
 ## Slide 8
 - Next steps
-- QR links
+- Shareable QR codes for in-person payments
 - Lightweight invoice templates
 - Merchant-specific presets
