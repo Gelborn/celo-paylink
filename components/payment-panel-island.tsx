@@ -389,6 +389,9 @@ export function PaymentPanelIsland({
           {paymentOverlayCopy ? (
             <motion.div
               key={paymentStage}
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
               className="rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-4 py-4"
               variants={panelSwap}
               initial="hidden"
