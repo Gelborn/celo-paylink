@@ -337,6 +337,7 @@ export function ProfileEditor({
               <Input
                 value={form.displayName}
                 aria-invalid={invalidFields.displayName}
+                autoComplete="name"
                 className={invalidFields.displayName ? "border-red-400/70 focus:border-red-400" : undefined}
                 onChange={(event) =>
                   setForm((current) => ({
