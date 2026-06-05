@@ -8,6 +8,7 @@
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm private routes stay hidden.
 - Open `/manifest.webmanifest` and confirm the app name, icon, and scope match the production install.
+- Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
 - Test the public pay page inside MiniPay on phone.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
