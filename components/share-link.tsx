@@ -67,6 +67,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
           variant="primary"
           className="w-full sm:w-auto"
           leftIcon={<Copy aria-hidden="true" />}
+          aria-label={`${dictionary.actions.copyLink}: ${label}`}
         >
           {status === "copied"
             ? dictionary.labels.copied
@@ -81,6 +82,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
           variant="outline"
           className="w-full sm:w-auto"
           leftIcon={<Share2 aria-hidden="true" />}
+          aria-label={`${dictionary.actions.shareLink}: ${label}`}
         >
           {dictionary.actions.shareLink}
         </Button>
