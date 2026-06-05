@@ -89,6 +89,8 @@ For a quick reviewer demo without connecting a wallet or deploying a contract, o
 
 `http://localhost:3000/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1`
 
+`preview=1` only works outside production; production public pages should use the deployed `PayLinkProfile` contract.
+
 ## Production Configuration
 
 These values should be set explicitly for a public deployment:
