@@ -190,7 +190,11 @@ export function ProfileDiscovery({
             </p>
           </div>
 
-          <form onSubmit={handleSearch} className="space-y-3">
+          <form
+            onSubmit={handleSearch}
+            className="space-y-3"
+            aria-busy={searchState === "loading"}
+          >
             <div className="flex flex-col gap-3 sm:flex-row">
               <Input
                 type="search"
