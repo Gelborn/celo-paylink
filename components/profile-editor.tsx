@@ -335,6 +335,7 @@ export function ProfileEditor({
                 id={handleStatusId}
                 className={`text-xs ${handleStatusClassName}`}
                 role="status"
+                aria-live="polite"
                 aria-atomic="true"
               >
                 {handleStatusText}
