@@ -37,6 +37,8 @@ export const metadata: Metadata = {
     "creator payments"
   ],
   category: "finance",
+  creator: "MiniPay PayLink",
+  publisher: "MiniPay PayLink",
   alternates: {
     canonical: "/"
   },
