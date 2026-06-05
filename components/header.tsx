@@ -230,29 +230,42 @@ export function Header({
                         }
                       }}
                     >
-                      <div className="mb-6 flex min-w-0 items-start gap-3">
-                        {profileImageUrl ? (
-                          <Avatar
-                            name={profileName || account}
-                            imageUrl={profileImageUrl}
-                            size="sm"
-                          />
-                        ) : (
-                          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
-                            <Wallet aria-hidden="true" className="h-4 w-4 text-zinc-200" />
-                          </span>
-                        )}
-                        <div className="min-w-0">
-                          <p id={titleId} className="truncate text-sm font-medium text-white">
-                            {profileName || shortenAddress(account)}
-                          </p>
-                          <p
-                            id={descriptionId}
-                            className="line-clamp-2 text-xs leading-5 text-zinc-500"
-                          >
-                            {dictionary.productTagline}
-                          </p>
+                      <div className="mb-6 flex min-w-0 items-start justify-between gap-3">
+                        <div className="flex min-w-0 items-start gap-3">
+                          {profileImageUrl ? (
+                            <Avatar
+                              name={profileName || account}
+                              imageUrl={profileImageUrl}
+                              size="sm"
+                            />
+                          ) : (
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-zinc-900">
+                              <Wallet aria-hidden="true" className="h-4 w-4 text-zinc-200" />
+                            </span>
+                          )}
+                          <div className="min-w-0">
+                            <p id={titleId} className="truncate text-sm font-medium text-white">
+                              {profileName || shortenAddress(account)}
+                            </p>
+                            <p
+                              id={descriptionId}
+                              className="line-clamp-2 text-xs leading-5 text-zinc-500"
+                            >
+                              {dictionary.productTagline}
+                            </p>
+                          </div>
                         </div>
+                        <motion.button
+                          type="button"
+                          onClick={() => setOpen(false)}
+                          whileHover={subtleLift}
+                          whileTap={softTap}
+                          transition={motionTransitions.micro}
+                          className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-zinc-200 transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                          aria-label={dictionary.actions.cancel}
+                        >
+                          <X aria-hidden="true" className="h-4 w-4" />
+                        </motion.button>
                       </div>
 
                       <div className="space-y-4">
