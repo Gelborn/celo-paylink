@@ -85,6 +85,10 @@ npm run typecheck
 npm run dev
 ```
 
+For a quick reviewer demo without a deployed contract, open:
+
+`http://localhost:3000/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1`
+
 ## Production Configuration
 
 These values should be set explicitly for a public deployment:
