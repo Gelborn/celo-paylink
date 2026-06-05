@@ -480,7 +480,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     }
   },
   "pt-BR": {
-    languageName: "Português",
+    languageName: "Português (Brasil)",
     productName: "MiniPay PayLink",
     productTagline: "Um perfil. Um link. Pagamentos diretos na Celo.",
     nav: {
