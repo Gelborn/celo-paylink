@@ -65,6 +65,7 @@ export function BrandWordmark({
   return (
     <Link
       href={href}
+      aria-label="MiniPay PayLink home"
       className={clsx("inline-flex items-center gap-2", className)}
     >
       <BrandGlyph className="h-5 w-5 md:h-6 md:w-6" />
