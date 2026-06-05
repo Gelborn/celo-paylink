@@ -42,6 +42,7 @@ export function RecentPaymentsView({
           {Array.from({ length: 3 }).map((_, index) => (
             <div
               key={index}
+              aria-hidden="true"
               className="rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4 sm:px-5 sm:py-5"
             >
               <div className="space-y-3.5">
