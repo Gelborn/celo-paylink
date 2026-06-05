@@ -40,6 +40,8 @@ export const metadata: Metadata = {
   creator: "MiniPay PayLink",
   publisher: "MiniPay PayLink",
   formatDetection: {
+    address: false,
+    email: false,
     telephone: false
   },
   alternates: {
