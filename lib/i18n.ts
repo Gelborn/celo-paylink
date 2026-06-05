@@ -373,7 +373,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       paymentFormTitle: "Payment details",
       paymentFormDescription:
         "Choose an amount and token, then confirm the transfer in your wallet.",
-      requestSummaryLabel: "Request summary",
+      requestSummaryLabel: "Prefilled request",
       missingTitle: "This PayLink is not published yet.",
       missingDescription:
         "That handle has not been published. Create your profile to start receiving direct payments.",
@@ -639,7 +639,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       paymentFormTitle: "Dados do pagamento",
       paymentFormDescription:
         "Escolha valor e token e confirme a transferência na sua carteira.",
-      requestSummaryLabel: "Resumo da cobrança",
+      requestSummaryLabel: "Cobrança preenchida",
       missingTitle: "Este PayLink ainda não foi publicado.",
       missingDescription:
         "Esse handle ainda não foi publicado. Crie seu perfil para começar a receber pagamentos diretos.",
