@@ -4,6 +4,7 @@
 - Verify the contract on a block explorer.
 - Set `NEXT_PUBLIC_CONTRACT_ADDRESS_*` in the production environment.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` after deployment.
+- Confirm `NEXT_PUBLIC_APP_URL` points to the final public origin before recording or sharing screenshots.
 - Test the public pay page inside MiniPay on phone.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Confirm profile creation, profile updates, and charge-link generation.
