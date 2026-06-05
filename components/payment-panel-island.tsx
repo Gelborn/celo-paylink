@@ -434,6 +434,7 @@ export function PaymentPanelIsland({
             </span>
             <Input
               inputMode="decimal"
+              enterKeyHint="next"
               value={amount}
               onChange={(event) =>
                 setAmount(sanitizeCurrencyInput(event.target.value))
@@ -448,6 +449,7 @@ export function PaymentPanelIsland({
             </span>
             <Input
               value={reference}
+              enterKeyHint="done"
               onChange={(event) => setReference(event.target.value)}
               placeholder={dictionary.placeholders.note}
             />
