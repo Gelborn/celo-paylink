@@ -91,7 +91,7 @@ export function RecentPaymentsView({
               key={payment.txHash}
               href={payment.explorerUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               variants={fadeUp}
               aria-label={`${dictionary.actions.openExplorer}: ${formatTokenAmount(
                 payment.amount,
