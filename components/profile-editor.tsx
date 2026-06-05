@@ -302,7 +302,11 @@ export function ProfileEditor({
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-0">
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6"
+          aria-busy={isSubmitting}
+        >
           <div className="grid gap-5 md:grid-cols-2">
             <label className="space-y-2">
               <span className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-500">
