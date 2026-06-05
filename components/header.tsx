@@ -73,6 +73,7 @@ export function Header({
   const panelRef = useRef<HTMLDivElement | null>(null);
   const titleId = useId();
   const descriptionId = useId();
+  const panelId = useId();
 
   useEffect(() => {
     if (!account) {
@@ -108,6 +109,7 @@ export function Header({
             aria-label={`${dictionary.labels.connectedWallet}: ${shortenAddress(account)}`}
             aria-haspopup="dialog"
             aria-expanded={open}
+            aria-controls={open ? panelId : undefined}
           >
             <AccountVisual name={profileName || account} imageUrl={profileImageUrl} />
           </motion.button>
@@ -179,6 +181,7 @@ export function Header({
                 >
                   <div className="flex h-full items-start justify-end p-4 md:p-6">
                     <motion.div
+                      id={panelId}
                       ref={panelRef}
                       role="dialog"
                       aria-modal="true"
