@@ -5,6 +5,7 @@
 - Set `NEXT_PUBLIC_CONTRACT_ADDRESS_*` in the production environment.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` after deployment.
 - Test the public pay page inside MiniPay on phone.
+- Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Confirm profile creation, profile updates, and charge-link generation.
 - Send at least one real payment and verify it appears in the recent payments list.
 - Capture final screenshots for:
