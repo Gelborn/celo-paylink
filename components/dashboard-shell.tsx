@@ -20,6 +20,7 @@ import type { Hex } from "viem";
 import { buildShareUrl, shortenAddress } from "../lib/format";
 import { fadeUp, motionTransitions, panelSwap, softTap } from "../lib/motion";
 import { copyTextToClipboard, shareOrCopyUrl } from "../lib/share";
+import { getTokenByAddress } from "../lib/tokens";
 import { useOwnerState } from "../lib/use-owner-state";
 import { ChargeLinkPanel } from "./charge-link-panel";
 import { Header } from "./header";
@@ -87,6 +88,9 @@ export function DashboardShell({
   });
 
   const publicUrl = profile ? buildShareUrl(appUrl, profile.handle) : "";
+  const preferredToken = profile
+    ? getTokenByAddress(profile.preferredToken, initialChainId)
+    : null;
 
   useEffect(() => {
     if (!account) {
@@ -349,6 +353,11 @@ export function DashboardShell({
                       <p className="text-sm text-zinc-400">
                         @{profile.handle} · {shortenAddress(account)}
                       </p>
+                      {preferredToken ? (
+                        <p className="text-xs text-zinc-500">
+                          {dictionary.labels.preferredToken}: {preferredToken.symbol}
+                        </p>
+                      ) : null}
                     </div>
                   </div>
                 </div>
