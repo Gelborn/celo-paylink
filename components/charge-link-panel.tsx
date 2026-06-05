@@ -71,6 +71,7 @@ export function ChargeLinkPanel({
           </span>
           <Input
             inputMode="decimal"
+            enterKeyHint="next"
             value={amount}
             onChange={(event) => setAmount(sanitizeCurrencyInput(event.target.value))}
             placeholder={dictionary.placeholders.amount}
@@ -83,6 +84,7 @@ export function ChargeLinkPanel({
           </span>
           <Input
             value={note}
+            enterKeyHint="done"
             onChange={(event) => setNote(event.target.value)}
             placeholder={dictionary.placeholders.note}
           />
