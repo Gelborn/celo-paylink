@@ -31,7 +31,12 @@ export function RecentPaymentsView({
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3.5">
-          <p className="text-sm leading-7 text-zinc-400" role="status" aria-live="polite">
+          <p
+            className="text-sm leading-7 text-zinc-400"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             {dictionary.messages.loadingPayments}
           </p>
           {Array.from({ length: 3 }).map((_, index) => (
