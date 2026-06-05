@@ -5,6 +5,7 @@
 - Set `NEXT_PUBLIC_CONTRACT_ADDRESS_*` in the production environment.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` after deployment.
 - Confirm `NEXT_PUBLIC_APP_URL` points to the final public origin before recording or sharing screenshots.
+- Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm private routes stay hidden.
 - Open `/manifest.webmanifest` and confirm the app name, icon, and scope match the production install.
 - Test the public pay page inside MiniPay on phone.
