@@ -15,4 +15,6 @@ Send a report to the repository owner with:
 - impact assessment
 - any suggested mitigation
 
+Do not include private keys, seed phrases, wallet passphrases, or production RPC secrets in the report.
+
 If the report is valid, fixes will be prepared privately and disclosed after a patch is available.
