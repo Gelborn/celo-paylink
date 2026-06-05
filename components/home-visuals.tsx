@@ -32,16 +32,16 @@ export function PrimaryProfileLink({ children }: { children: ReactNode }) {
 
 export function HeroChips({ chips }: { chips: string[] }) {
   return (
-    <div className="grid max-w-full grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-2.5">
+    <ul className="grid max-w-full grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-2.5">
       {chips.map((chip) => (
-        <span
+        <li
           key={chip}
           className="w-fit max-w-full rounded-lg border border-white/10 bg-white/[0.052] px-3.5 py-2 text-sm text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)]"
         >
           {chip}
-        </span>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
