@@ -336,7 +336,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       emptyTransactions:
         "Incoming payments will appear here after someone pays through your profile.",
       connectPrompt:
-        "Connect a wallet to create and manage your payment profile."
+        "Open in MiniPay or connect a browser wallet to create and manage your payment profile."
     },
     profileDiscovery: {
       eyebrow: "Published profiles",
@@ -602,7 +602,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       emptyTransactions:
         "Os pagamentos recebidos aparecerão aqui depois que alguém pagar pelo seu perfil.",
       connectPrompt:
-        "Conecte sua carteira para criar e gerenciar seu perfil de pagamento."
+        "Abra no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil de pagamento."
     },
     profileDiscovery: {
       eyebrow: "Perfis publicados",
