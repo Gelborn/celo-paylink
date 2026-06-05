@@ -5,6 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "MiniPay PayLink",
     short_name: "PayLink",
     id: "/",
+    lang: "en",
     description:
       "A MiniPay-ready payment profile for direct Celo stablecoin payments and reusable request links.",
     categories: ["finance", "productivity"],
