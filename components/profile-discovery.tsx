@@ -32,11 +32,13 @@ type ProfileDiscoveryProps = {
 function ProfileLinkCard({
   profile,
   chainId,
-  variant = "grid"
+  variant = "grid",
+  isDuplicate = false
 }: {
   profile: ProfileRecord;
   chainId: number;
   variant?: "carousel" | "grid" | "result";
+  isDuplicate?: boolean;
 }) {
   const { dictionary } = useLocale();
   const token = getTokenByAddress(profile.preferredToken, chainId);
@@ -47,7 +49,9 @@ function ProfileLinkCard({
   return (
     <Link
       href={`/u/${profile.handle}`}
+      aria-hidden={isDuplicate ? "true" : undefined}
       aria-label={`${dictionary.profileDiscovery.openProfile}: ${profileLabel}`}
+      tabIndex={isDuplicate ? -1 : undefined}
       className={clsx(
         "compact-card group flex h-full min-w-0 flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70",
         variant === "carousel" && "w-[min(19rem,calc(100vw-2rem))] shrink-0",
@@ -156,6 +160,7 @@ export function ProfileDiscovery({
                 profile={profile}
                 chainId={chainId}
                 variant="carousel"
+                isDuplicate={index >= featuredProfiles.length}
               />
             ))}
           </div>

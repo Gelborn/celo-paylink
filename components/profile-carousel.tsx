@@ -13,11 +13,13 @@ import { Badge } from "./ui/badge";
 function ProfileLinkCard({
   profile,
   chainId,
-  dictionary
+  dictionary,
+  isDuplicate = false
 }: {
   profile: ProfileRecord;
   chainId: number;
   dictionary: Dictionary;
+  isDuplicate?: boolean;
 }) {
   const token = getTokenByAddress(profile.preferredToken, chainId);
   const profileLabel = profile.displayName
@@ -27,7 +29,9 @@ function ProfileLinkCard({
   return (
     <Link
       href={`/u/${profile.handle}`}
+      aria-hidden={isDuplicate ? "true" : undefined}
       aria-label={`${dictionary.profileDiscovery.openProfile}: ${profileLabel}`}
+      tabIndex={isDuplicate ? -1 : undefined}
       className={clsx(
         "compact-card group flex h-full w-[min(19rem,calc(100vw-2rem))] shrink-0 flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70"
       )}
@@ -105,6 +109,7 @@ export function ProfileCarousel({
               profile={profile}
               chainId={chainId}
               dictionary={dictionary}
+              isDuplicate={index >= featuredProfiles.length}
             />
           ))}
         </div>
