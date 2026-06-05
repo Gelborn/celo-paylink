@@ -653,7 +653,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Pagamento enviado",
       title: "Pagamento enviado.",
       description:
-        "Sua transferência foi enviada na Celo. Use o comprovante como prova e volte ao perfil para ver a atividade mais recente."
+        "Sua transferência foi enviada na Celo. Use o comprovante como confirmação e volte ao perfil para ver a atividade mais recente."
     },
     fields: {
       handle: "Handle",
