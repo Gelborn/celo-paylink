@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { Save, UserRound } from "lucide-react";
 import type { Hex } from "viem";
 import { fetchProfileByHandle, type ProfileRecord } from "../lib/contract";
@@ -79,6 +79,7 @@ export function ProfileEditor({
     paymentMessage: false,
     preferredToken: false
   });
+  const handleStatusId = useId();
   const tokens = getSupportedTokens(chainId);
   const defaultTokenAddress = tokens[0]?.address || "";
 
@@ -311,6 +312,7 @@ export function ProfileEditor({
                 value={form.handle}
                 readOnly={Boolean(profile)}
                 aria-invalid={invalidFields.handle}
+                aria-describedby={handleStatusId}
                 className={invalidFields.handle ? "border-red-400/70 focus:border-red-400" : undefined}
                 onChange={(event) =>
                   setForm((current) => ({
@@ -320,7 +322,9 @@ export function ProfileEditor({
                 }
                 placeholder={dictionary.placeholders.handle}
               />
-              <p className={`text-xs ${handleStatusClassName}`}>{handleStatusText}</p>
+              <p id={handleStatusId} className={`text-xs ${handleStatusClassName}`} role="status">
+                {handleStatusText}
+              </p>
             </label>
 
             <label className="space-y-2">
