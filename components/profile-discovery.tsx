@@ -198,6 +198,7 @@ export function ProfileDiscovery({
                 aria-label={dictionary.fields.handle}
                 autoCapitalize="none"
                 autoCorrect="off"
+                enterKeyHint="search"
                 spellCheck={false}
               />
               <Button
