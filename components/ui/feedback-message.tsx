@@ -20,7 +20,7 @@ export function FeedbackMessage({
         <motion.p
           key={String(children)}
           role={tone === "error" ? "alert" : "status"}
-          aria-live="polite"
+          aria-live={tone === "error" ? "assertive" : "polite"}
           initial={{ opacity: 0, y: -4, scale: 0.995 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -3, scale: 0.998 }}
