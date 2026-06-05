@@ -15,7 +15,7 @@ const DEMO_MEDIA = {
   "pt-BR": {
     poster: "/paylink-demo-pt-br-poster.webp",
     video: "/paylink-demo-pt-br-loop.webm",
-    alt: "Visualizacao do fluxo de pagamento do PayLink"
+    alt: "Visualização do fluxo de pagamento do PayLink"
   }
 } as const;
 
