@@ -81,9 +81,9 @@ export function SuccessShell({
                   <div className="space-y-2">
                     <Badge variant="accent">@{profile.handle}</Badge>
                     <div>
-                      <h1 className="text-3xl font-semibold text-white sm:text-[2rem]">
+                      <h2 className="text-3xl font-semibold text-white sm:text-[2rem]">
                         {profile.displayName}
-                      </h1>
+                      </h2>
                       <p className="text-sm text-zinc-500">{profile.bio}</p>
                     </div>
                   </div>
@@ -103,9 +103,9 @@ export function SuccessShell({
                 <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                   {dictionary.success.eyebrow}
                 </p>
-                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   {dictionary.success.title}
-                </h2>
+                </h1>
                 <p className="mx-auto max-w-2xl text-sm leading-7 text-zinc-400">
                   {dictionary.success.description}
                 </p>
