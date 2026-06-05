@@ -4,6 +4,8 @@ Target length: 90 seconds for judging or quick product review.
 
 For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public pay page before the live MiniPay walkthrough.
 
+During the live pass, call out that payments settle directly to the recipient wallet with no platform custody.
+
 1. Open the landing page and explain PayLink in one sentence.
 2. Open `/my`, connect with MiniPay, and create or update the payment profile.
 3. Show the saved handle and copy the shareable pay link.
