@@ -83,7 +83,7 @@ export async function generateMetadata({
           url: "/og.svg",
           width: 1200,
           height: 630,
-          alt: title
+          alt: `${title} payment profile preview`
         }
       ]
     },
