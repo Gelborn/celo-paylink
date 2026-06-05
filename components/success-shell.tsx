@@ -84,7 +84,9 @@ export function SuccessShell({
                       <h2 className="text-3xl font-semibold text-white sm:text-[2rem]">
                         {profile.displayName}
                       </h2>
-                      <p className="text-sm text-zinc-500">{profile.bio}</p>
+                      {profile.bio ? (
+                        <p className="text-sm text-zinc-500">{profile.bio}</p>
+                      ) : null}
                     </div>
                   </div>
                 </div>
