@@ -196,6 +196,9 @@ export function ProfileDiscovery({
                 placeholder={dictionary.profileDiscovery.searchPlaceholder}
                 disabled={!contractAddress}
                 aria-label={dictionary.fields.handle}
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
               />
               <Button
                 type="submit"

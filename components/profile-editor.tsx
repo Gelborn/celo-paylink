@@ -313,6 +313,9 @@ export function ProfileEditor({
                 readOnly={Boolean(profile)}
                 aria-invalid={invalidFields.handle}
                 aria-describedby={handleStatusId}
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
                 className={invalidFields.handle ? "border-red-400/70 focus:border-red-400" : undefined}
                 onChange={(event) =>
                   setForm((current) => ({
