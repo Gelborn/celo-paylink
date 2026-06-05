@@ -105,7 +105,7 @@ export function Header({
             whileTap={softTap}
             transition={motionTransitions.micro}
             className="rounded-full border border-white/10 bg-zinc-950/80 p-1.5 transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-            aria-label={shortenAddress(account)}
+            aria-label={`${dictionary.labels.connectedWallet}: ${shortenAddress(account)}`}
             aria-haspopup="dialog"
             aria-expanded={open}
           >
