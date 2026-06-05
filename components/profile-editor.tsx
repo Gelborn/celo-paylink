@@ -313,6 +313,7 @@ export function ProfileEditor({
                 readOnly={Boolean(profile)}
                 aria-invalid={invalidFields.handle}
                 aria-describedby={handleStatusId}
+                autoComplete="off"
                 autoCapitalize="none"
                 autoCorrect="off"
                 enterKeyHint="next"
