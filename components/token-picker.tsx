@@ -13,6 +13,7 @@ type TokenPickerProps = {
   selectedAddress: string;
   options: TokenOption[];
   className?: string;
+  invalid?: boolean;
   onChange: (address: string) => void;
 };
 
@@ -21,12 +22,14 @@ export function TokenPicker({
   selectedAddress,
   options,
   className,
+  invalid = false,
   onChange
 }: TokenPickerProps) {
   return (
     <HeadlessSelect
       label={label}
       className={className}
+      invalid={invalid}
       value={selectedAddress}
       onChange={onChange}
       options={options.map((token) => ({

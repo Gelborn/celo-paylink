@@ -18,6 +18,7 @@ export function HeadlessSelect({
   placeholder,
   className,
   triggerClassName,
+  invalid = false,
   align = "left"
 }: {
   label?: string;
@@ -27,6 +28,7 @@ export function HeadlessSelect({
   placeholder?: string;
   className?: string;
   triggerClassName?: string;
+  invalid?: boolean;
   align?: "left" | "right";
 }) {
   const selectId = useId();
@@ -48,6 +50,7 @@ export function HeadlessSelect({
         <select
           id={selectId}
           aria-label={accessibleLabel}
+          aria-invalid={invalid ? true : undefined}
           value={value}
           onChange={(event) => onChange(event.target.value)}
           className={clsx(
