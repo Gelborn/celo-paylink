@@ -78,7 +78,14 @@ export const metadata: Metadata = {
     title: "MiniPay PayLink",
     description:
       "Publish a no-custody payment profile, share request links, and receive direct Celo payments through MiniPay.",
-    images: ["/og.svg"]
+    images: [
+      {
+        url: "/og.svg",
+        width: 1200,
+        height: 630,
+        alt: "MiniPay PayLink payment profile preview"
+      }
+    ]
   },
   other: {
     "talentapp:project_verification":
