@@ -85,6 +85,8 @@ npm run typecheck
 npm run dev
 ```
 
+For phone testing on the same network, run `npm run dev:mobile` and open the machine IP from MiniPay.
+
 For a quick reviewer demo without connecting a wallet or deploying a contract, open:
 
 `http://localhost:3000/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1`
