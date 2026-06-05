@@ -315,6 +315,7 @@ export function ProfileEditor({
                 aria-describedby={handleStatusId}
                 autoCapitalize="none"
                 autoCorrect="off"
+                enterKeyHint="next"
                 spellCheck={false}
                 className={invalidFields.handle ? "border-red-400/70 focus:border-red-400" : undefined}
                 onChange={(event) =>
@@ -338,6 +339,7 @@ export function ProfileEditor({
                 value={form.displayName}
                 aria-invalid={invalidFields.displayName}
                 autoComplete="name"
+                enterKeyHint="next"
                 className={invalidFields.displayName ? "border-red-400/70 focus:border-red-400" : undefined}
                 onChange={(event) =>
                   setForm((current) => ({
@@ -360,6 +362,7 @@ export function ProfileEditor({
               type="url"
               inputMode="url"
               autoComplete="url"
+              enterKeyHint="next"
               className={invalidFields.avatarUrl ? "border-red-400/70 focus:border-red-400" : undefined}
               onChange={(event) =>
                 setForm((current) => ({
