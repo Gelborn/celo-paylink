@@ -176,6 +176,7 @@ From the current Celo docs:
 ## Public Repo Notes
 
 - The repo includes CI, Dependabot, `SECURITY.md`, and explicit public/private env separation.
+- CI runs contract tests, lint, typecheck, and a production build on pushes and pull requests.
 - `robots.ts` disallows private routes such as `/my` and `/success`.
 - `sitemap.ts` publishes the canonical app origin for search engines.
 
