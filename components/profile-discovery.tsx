@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useId, useState } from "react";
 import { ArrowUpRight, Search } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
@@ -95,6 +95,7 @@ export function ProfileDiscovery({
   variant
 }: ProfileDiscoveryProps) {
   const { dictionary } = useLocale();
+  const searchHintId = useId();
   const [query, setQuery] = useState("");
   const [searchState, setSearchState] = useState<SearchState>("idle");
   const [searchResult, setSearchResult] = useState<ProfileRecord | null>(null);
@@ -196,6 +197,7 @@ export function ProfileDiscovery({
                 placeholder={dictionary.profileDiscovery.searchPlaceholder}
                 disabled={!contractAddress}
                 aria-label={dictionary.fields.handle}
+                aria-describedby={searchHintId}
                 autoCapitalize="none"
                 autoCorrect="off"
                 enterKeyHint="search"
@@ -212,7 +214,7 @@ export function ProfileDiscovery({
                   : dictionary.profileDiscovery.searchTab}
               </Button>
             </div>
-            <p className="text-xs leading-5 text-zinc-500">
+            <p id={searchHintId} className="text-xs leading-5 text-zinc-500">
               {dictionary.profileDiscovery.exactHint}
             </p>
           </form>
