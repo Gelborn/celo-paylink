@@ -114,7 +114,12 @@ export function Header({
             <AccountVisual name={profileName || account} imageUrl={profileImageUrl} />
           </motion.button>
         ) : isMiniPay && !isDisconnectedByUser ? (
-          <div className="rounded-full border border-white/10 bg-zinc-950/80 px-4 py-2 text-xs font-medium text-zinc-400">
+          <div
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            className="rounded-full border border-white/10 bg-zinc-950/80 px-4 py-2 text-xs font-medium text-zinc-400"
+          >
             {isConnecting ? dictionary.messages.waitingConfirmation : "MiniPay"}
           </div>
         ) : (
