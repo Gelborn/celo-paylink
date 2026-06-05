@@ -89,6 +89,10 @@ For a quick reviewer demo without connecting a wallet or deploying a contract, o
 
 `http://localhost:3000/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1`
 
+To preview the matching receipt state, open:
+
+`http://localhost:3000/success?tx=0x51f0ed1f7cf8e3d4860ef65bfb30e94c877ce4bfc0a463ce84f674fed0ef8e2c&handle=demo-paylink&amount=5&token=USDC&ref=coffee&preview=1`
+
 `preview=1` only works outside production; production public pages should use the deployed `PayLinkProfile` contract.
 
 ## Production Configuration
