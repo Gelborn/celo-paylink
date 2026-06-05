@@ -469,7 +469,9 @@ export function PaymentPanelIsland({
         />
 
         {balanceWarning ? (
-          <p className="text-sm text-amber-300">{balanceWarning}</p>
+          <p className="text-sm text-amber-300" role="alert" aria-atomic="true">
+            {balanceWarning}
+          </p>
         ) : null}
 
         <div className="flex flex-col gap-3 rounded-lg border border-white/10 bg-zinc-950/35 p-3 sm:flex-row sm:flex-wrap">
