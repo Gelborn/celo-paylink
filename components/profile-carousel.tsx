@@ -20,10 +20,14 @@ function ProfileLinkCard({
   dictionary: Dictionary;
 }) {
   const token = getTokenByAddress(profile.preferredToken, chainId);
+  const profileLabel = profile.displayName
+    ? `${profile.displayName} (@${profile.handle})`
+    : `@${profile.handle}`;
 
   return (
     <Link
       href={`/u/${profile.handle}`}
+      aria-label={`${dictionary.profileDiscovery.openProfile}: ${profileLabel}`}
       className={clsx(
         "compact-card group flex h-full w-[min(19rem,calc(100vw-2rem))] shrink-0 flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70"
       )}
