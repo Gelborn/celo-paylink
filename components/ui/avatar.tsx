@@ -27,6 +27,7 @@ export function Avatar({
 
   return (
     <div
+      aria-hidden="true"
       className={clsx(
         "relative flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-zinc-900 font-medium text-white",
         sizes[size]
