@@ -475,7 +475,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       shareOpened: "Share sheet opened.",
       copyFailed: "Could not copy the link on this device.",
       shareFailed: "Could not share the link right now.",
-      loadingPayments: "Loading the latest payments...",
+      loadingPayments: "Reading recent payments from Celo...",
       supportsTokens: "Accepts {tokens}."
     }
   },
@@ -741,7 +741,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       shareOpened: "Janela de compartilhamento aberta.",
       copyFailed: "Não foi possível copiar o link neste dispositivo.",
       shareFailed: "Não foi possível compartilhar o link agora.",
-      loadingPayments: "Carregando os pagamentos mais recentes...",
+      loadingPayments: "Lendo pagamentos recentes na Celo...",
       supportsTokens: "Aceita {tokens}."
     }
   }
