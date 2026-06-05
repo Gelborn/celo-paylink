@@ -432,7 +432,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       missingContract: "Set a PayLink contract address in .env before using the app.",
       noWalletFound:
         "No wallet found. Open PayLink in MiniPay or use a browser with an injected wallet.",
-      couldNotConnectWallet: "Could not connect to the wallet.",
+      couldNotConnectWallet: "Could not connect to the wallet. Check the wallet prompt and try again.",
       switchWalletRequired: "Switch your wallet to {network} to continue.",
       miniPayWrongNetwork:
         "MiniPay is on the wrong network. Open MiniPay settings and switch to {network}.",
@@ -698,7 +698,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       missingContract: "Defina o endereço do contrato do PayLink no .env antes de usar o app.",
       noWalletFound:
         "Nenhuma carteira foi encontrada. Abra o PayLink no MiniPay ou use um navegador com carteira integrada.",
-      couldNotConnectWallet: "Não foi possível conectar à carteira.",
+      couldNotConnectWallet: "Não foi possível conectar à carteira. Confira a solicitação na carteira e tente novamente.",
       switchWalletRequired: "Troque sua carteira para {network} para continuar.",
       miniPayWrongNetwork:
         "O MiniPay está na rede errada. Abra as configurações do MiniPay e troque para {network}.",
