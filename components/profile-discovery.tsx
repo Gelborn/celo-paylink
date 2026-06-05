@@ -199,6 +199,7 @@ export function ProfileDiscovery({
                 disabled={!contractAddress}
                 aria-label={dictionary.fields.handle}
                 aria-describedby={searchHintId}
+                autoComplete="off"
                 autoCapitalize="none"
                 autoCorrect="off"
                 enterKeyHint="search"
