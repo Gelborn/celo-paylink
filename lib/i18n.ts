@@ -366,7 +366,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Visitors see the payment form here. Share it as-is, or open the dashboard to update details and create request links.",
       visitorTitle: "Send a direct payment",
       visitorDescription:
-        "Review the recipient, choose an amount and token, then confirm in your wallet.",
+        "Review the recipient, amount, and token before confirming the payment in your wallet.",
       invoiceEyebrow: "Payment request",
       invoiceDescription:
         "This link includes payment details. Review the request, then complete the transfer on Celo.",
@@ -632,7 +632,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Visitantes veem o formulário de pagamento aqui. Compartilhe como está ou abra o painel para atualizar dados e criar links de cobrança.",
       visitorTitle: "Enviar pagamento direto",
       visitorDescription:
-        "Confira quem recebe, escolha valor e token e confirme na sua carteira.",
+        "Confira quem recebe, valor e token antes de confirmar o pagamento na sua carteira.",
       invoiceEyebrow: "Cobrança",
       invoiceDescription:
         "Este link inclui os dados do pagamento. Revise a cobrança e conclua a transferência na Celo.",
