@@ -14,4 +14,5 @@ During the live pass, call out that payments settle directly to the recipient wa
 6. Approve the token if needed.
 7. Send the payment and wait for confirmation.
 8. Show the success page and transaction link.
+   Keep the explorer receipt visible long enough to make the onchain proof clear.
 9. Refresh the public card and show the recent payment event rendered from chain data.
