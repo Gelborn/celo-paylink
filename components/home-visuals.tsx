@@ -160,15 +160,15 @@ export function HomeStepsSection({ dictionary }: { dictionary: Dictionary }) {
 
 export function TrustGrid({ statements }: { statements: string[] }) {
   return (
-    <div className="grid gap-3 md:grid-cols-3">
+    <ul className="grid gap-3 md:grid-cols-3">
       {statements.map((statement) => (
-        <div
+        <li
           key={statement}
           className="rounded-lg border border-white/10 bg-black/20 px-4 py-3.5 text-sm leading-6 text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:py-4"
         >
           {statement}
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
