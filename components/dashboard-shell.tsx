@@ -532,6 +532,7 @@ export function DashboardShell({
                                   variant="outline"
                                   className="w-full sm:min-w-[10rem]"
                                   leftIcon={<Copy aria-hidden="true" />}
+                                  aria-label={`${dictionary.actions.copyLink}: ${dictionary.fields.publicLink}`}
                                   onClick={() => {
                                     void handleCopyProfileLink();
                                   }}
@@ -545,6 +546,7 @@ export function DashboardShell({
                                 <Button
                                   className="w-full sm:min-w-[10rem]"
                                   leftIcon={<Share2 aria-hidden="true" />}
+                                  aria-label={`${dictionary.actions.shareLink}: ${dictionary.fields.publicLink}`}
                                   onClick={() => {
                                     void handleShareProfile();
                                   }}
