@@ -434,6 +434,7 @@ export function PaymentPanelIsland({
             </span>
             <Input
               inputMode="decimal"
+              autoComplete="off"
               enterKeyHint="next"
               value={amount}
               onChange={(event) =>
@@ -449,6 +450,7 @@ export function PaymentPanelIsland({
             </span>
             <Input
               value={reference}
+              autoComplete="off"
               enterKeyHint="done"
               onChange={(event) => setReference(event.target.value)}
               placeholder={dictionary.placeholders.note}
