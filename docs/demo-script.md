@@ -1,5 +1,7 @@
 # Demo Script
 
+Target length: 90 seconds for judging or quick product review.
+
 1. Open the landing page and explain PayLink in one sentence.
 2. Open `/my`, connect with MiniPay, and create or update the payment profile.
 3. Show the saved handle and copy the shareable pay link.
