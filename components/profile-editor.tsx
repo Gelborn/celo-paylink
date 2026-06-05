@@ -326,7 +326,12 @@ export function ProfileEditor({
                 }
                 placeholder={dictionary.placeholders.handle}
               />
-              <p id={handleStatusId} className={`text-xs ${handleStatusClassName}`} role="status">
+              <p
+                id={handleStatusId}
+                className={`text-xs ${handleStatusClassName}`}
+                role="status"
+                aria-atomic="true"
+              >
                 {handleStatusText}
               </p>
             </label>
