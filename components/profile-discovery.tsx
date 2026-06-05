@@ -188,6 +188,7 @@ export function ProfileDiscovery({
           <form onSubmit={handleSearch} className="space-y-3">
             <div className="flex flex-col gap-3 sm:flex-row">
               <Input
+                type="search"
                 value={query}
                 onChange={(event) => {
                   setQuery(sanitizeHandleInput(event.target.value));
