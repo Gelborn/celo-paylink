@@ -58,21 +58,21 @@ const PaymentPanelIsland = dynamic(
 
 function TrustList({ items }: { items: string[] }) {
   return (
-    <motion.div
+    <motion.ul
       className="trust-list"
       variants={staggerChildren}
       initial="hidden"
       animate="show"
     >
       {items.map((item) => (
-        <motion.div key={item} className="trust-list-item text-sm leading-6" variants={fadeUp}>
+        <motion.li key={item} className="trust-list-item text-sm leading-6" variants={fadeUp}>
           <IconFrame tone="accent" className="h-7 w-7 rounded-md">
             <CheckCircle2 aria-hidden="true" />
           </IconFrame>
           <span>{item}</span>
-        </motion.div>
+        </motion.li>
       ))}
-    </motion.div>
+    </motion.ul>
   );
 }
 
