@@ -17,6 +17,7 @@
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
 - Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
 - Test the public pay page inside MiniPay on phone.
+- Navigate the public pay page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
 - Confirm profile creation, profile updates, and charge-link generation.
