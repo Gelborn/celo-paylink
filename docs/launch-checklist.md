@@ -14,6 +14,7 @@
 - Open `/manifest.webmanifest` and confirm the app name, icon, and scope match the production install.
 - Install the PWA once and confirm the Dashboard shortcut opens `/my`.
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
+- Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
 - Test the public pay page inside MiniPay on phone.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
