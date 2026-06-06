@@ -292,7 +292,12 @@ export function ProfileEditor({
         : "text-zinc-500";
 
   return (
-    <Card variant="elevated" className="compact-card">
+    <Card
+      variant="elevated"
+      className="compact-card"
+      role="region"
+      aria-label={dictionary.dashboard.profileSection}
+    >
       <CardHeader className="space-y-2">
         <CardTitle>{dictionary.dashboard.profileSection}</CardTitle>
         <CardDescription>
