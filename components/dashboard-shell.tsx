@@ -301,6 +301,7 @@ export function DashboardShell({
                         size="lg"
                         className="mt-7 w-full sm:w-auto sm:min-w-[13rem]"
                         leftIcon={<Wallet aria-hidden="true" />}
+                        aria-busy={isConnecting ? true : undefined}
                         onClick={() => {
                           void connect();
                         }}
