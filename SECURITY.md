@@ -16,6 +16,7 @@ Send a report to the repository owner with:
 - whether it affects preview/demo mode, production flows, or both
 - browser, wallet, and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
+- approximate time observed, including timezone, if it happened on a live deployment
 - transaction hashes or explorer links, if applicable
 - impact assessment
 - any suggested mitigation
