@@ -85,7 +85,7 @@ npm run typecheck
 npm run dev
 ```
 
-For phone testing on the same network, run `npm run dev:mobile` and open the machine IP from MiniPay.
+For phone testing on the same network, run `npm run dev:mobile` and open the printed network URL from MiniPay.
 
 For a quick reviewer demo without connecting a wallet or deploying a contract, open:
 
