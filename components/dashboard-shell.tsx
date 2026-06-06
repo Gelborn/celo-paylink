@@ -317,9 +317,12 @@ export function DashboardShell({
                     <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
                       {dictionary.dashboard.profileSection}
                     </p>
-                    <div className="mt-4 grid gap-3">
+                    <ul
+                      className="mt-4 grid gap-3"
+                      aria-label={dictionary.dashboard.profileSection}
+                    >
                       {dictionary.home.trustStatements.slice(0, 3).map((statement) => (
-                        <div
+                        <li
                           key={statement}
                           className="flex items-start gap-3 rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-3.5 text-sm leading-6 text-zinc-300"
                         >
@@ -327,9 +330,9 @@ export function DashboardShell({
                             <CheckCircle2 aria-hidden="true" />
                           </IconFrame>
                           <span>{statement}</span>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
               </CardContent>
