@@ -187,6 +187,7 @@ From the current Celo docs:
 - CI runs contract tests, lint, typecheck, and a production build on pushes and pull requests.
 - `robots.ts` disallows private routes such as `/my` and `/success`.
 - `sitemap.ts` publishes the canonical app origin for search engines.
+- `manifest.ts` publishes install metadata, the Dashboard shortcut, and the mobile demo screenshot.
 
 ## Docs
 
