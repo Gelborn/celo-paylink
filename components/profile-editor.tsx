@@ -467,6 +467,7 @@ export function ProfileEditor({
                 )
               }
               disabled={isSubmitting}
+              aria-busy={isSubmitting ? true : undefined}
             >
               {isSubmitting
                 ? dictionary.messages.waitingConfirmation
