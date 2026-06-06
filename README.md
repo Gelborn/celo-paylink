@@ -139,6 +139,8 @@ npm run verify:sepolia
 npm run verify:mainnet
 ```
 
+After deployment, copy the contract address and deployment block into the matching `NEXT_PUBLIC_*` values before building the frontend.
+
 ## Environment Notes
 
 - `NEXT_PUBLIC_DEFAULT_CHAIN` should be `celoSepolia` while testing and `celo` for production.
