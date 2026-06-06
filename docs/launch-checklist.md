@@ -21,6 +21,7 @@
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
 - Confirm profile creation, profile updates, and charge-link generation.
+- Copy a profile link from `/my` and confirm it uses the final HTTPS origin.
 - Send at least one real payment and verify it appears in the recent payments list.
 - Open the success-screen receipt link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the success-screen amount, token, and reference match the public request link.
