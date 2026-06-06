@@ -100,49 +100,57 @@ export function Header({
           />
         </div>
 
-        {!showAccountControls ? null : account ? (
-          <motion.button
-            ref={triggerRef}
-            type="button"
-            onClick={() => setOpen((current) => !current)}
-            whileHover={subtleLift}
-            whileTap={softTap}
-            transition={motionTransitions.micro}
-            className="rounded-full border border-white/10 bg-zinc-950/80 p-1.5 transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-            aria-label={`${dictionary.labels.connectedWallet}: ${shortenAddress(account)}`}
-            aria-haspopup="dialog"
-            aria-expanded={open}
-            aria-controls={open ? panelId : undefined}
-          >
-            <AccountVisual name={profileName || account} imageUrl={profileImageUrl} />
-          </motion.button>
-        ) : isMiniPay && !isDisconnectedByUser ? (
+        {!showAccountControls ? null : (
           <div
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
-            className="rounded-full border border-white/10 bg-zinc-950/80 px-4 py-2 text-xs font-medium text-zinc-400"
+            className="flex min-w-0 shrink-0 justify-end"
+            role="group"
+            aria-label={dictionary.labels.walletControls}
           >
-            {isConnecting ? dictionary.messages.waitingConfirmation : "MiniPay"}
+            {account ? (
+              <motion.button
+                ref={triggerRef}
+                type="button"
+                onClick={() => setOpen((current) => !current)}
+                whileHover={subtleLift}
+                whileTap={softTap}
+                transition={motionTransitions.micro}
+                className="rounded-full border border-white/10 bg-zinc-950/80 p-1.5 transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                aria-label={`${dictionary.labels.connectedWallet}: ${shortenAddress(account)}`}
+                aria-haspopup="dialog"
+                aria-expanded={open}
+                aria-controls={open ? panelId : undefined}
+              >
+                <AccountVisual name={profileName || account} imageUrl={profileImageUrl} />
+              </motion.button>
+            ) : isMiniPay && !isDisconnectedByUser ? (
+              <div
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+                className="rounded-full border border-white/10 bg-zinc-950/80 px-4 py-2 text-xs font-medium text-zinc-400"
+              >
+                {isConnecting ? dictionary.messages.waitingConfirmation : "MiniPay"}
+              </div>
+            ) : (
+              <Button
+                size="sm"
+                variant="outline"
+                className="h-9 w-9 px-0 sm:w-auto sm:px-3.5"
+                leftIcon={<Wallet aria-hidden="true" />}
+                disabled={isConnecting}
+                aria-busy={isConnecting ? true : undefined}
+                onClick={() => {
+                  void onConnect();
+                }}
+              >
+                <span className="sr-only sm:not-sr-only">
+                  {isConnecting
+                    ? dictionary.messages.waitingConfirmation
+                    : dictionary.actions.connectWallet}
+                </span>
+              </Button>
+            )}
           </div>
-        ) : (
-          <Button
-            size="sm"
-            variant="outline"
-            className="h-9 w-9 px-0 sm:w-auto sm:px-3.5"
-            leftIcon={<Wallet aria-hidden="true" />}
-            disabled={isConnecting}
-            aria-busy={isConnecting ? true : undefined}
-            onClick={() => {
-              void onConnect();
-            }}
-          >
-            <span className="sr-only sm:not-sr-only">
-              {isConnecting
-                ? dictionary.messages.waitingConfirmation
-                : dictionary.actions.connectWallet}
-            </span>
-          </Button>
         )}
       </header>
 
