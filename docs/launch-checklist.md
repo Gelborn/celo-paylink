@@ -11,7 +11,7 @@
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm private routes stay hidden.
 - Confirm `/sitemap.xml` lists the final HTTPS production origin, not localhost or a preview URL.
-- Open `/manifest.webmanifest` and confirm the app name, icon, and scope match the production install.
+- Open `/manifest.webmanifest` and confirm the app name, icon, scope, and `display` mode match the production install.
 - Open the manifest screenshot URL and confirm the mobile demo poster loads from the deployed origin.
 - Install the PWA once and confirm the Dashboard shortcut opens `/my`.
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
