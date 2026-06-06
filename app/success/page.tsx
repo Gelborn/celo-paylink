@@ -18,7 +18,7 @@ type SuccessPageProps = {
 export const metadata: Metadata = {
   title: "Payment receipt",
   description:
-    "View a PayLink Celo payment receipt and return to the recipient profile.",
+    "View the Celo transaction receipt for a PayLink payment and return to the recipient profile.",
   robots: {
     index: false,
     follow: false
