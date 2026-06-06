@@ -14,6 +14,15 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#09090B",
     theme_color: "#09090B",
+    screenshots: [
+      {
+        src: "/paylink-demo-poster.png",
+        type: "image/png",
+        sizes: "1200x2598",
+        form_factor: "narrow",
+        label: "MiniPay PayLink public payment flow"
+      }
+    ],
     shortcuts: [
       {
         name: "Create or manage PayLink profile",
