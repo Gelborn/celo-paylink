@@ -3,6 +3,7 @@
 Target length: 90 seconds for judging or quick product review.
 
 For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public pay page before the live MiniPay walkthrough.
+Keep the matching `/success?...&preview=1` URL from the README ready if you need to show the receipt state without a wallet.
 
 During the live pass, call out that payments settle directly to the recipient wallet with no platform custody.
 
