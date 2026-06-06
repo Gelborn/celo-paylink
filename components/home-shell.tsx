@@ -295,7 +295,7 @@ export function HomeShell({
             <HomeProofSection dictionary={dictionary} />
           </section>
 
-          <section className="landing-section space-y-6">
+          <section className="landing-section space-y-6" aria-label={dictionary.home.stepsTitle}>
             <HomeStepsSection dictionary={dictionary} />
           </section>
 
