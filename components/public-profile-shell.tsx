@@ -354,7 +354,11 @@ export function PublicProfileShell({
                       </div>
                     </div>
                   ) : (
-                    <div className="grid gap-3 sm:grid-cols-2">
+                    <div
+                      className="grid gap-3 sm:grid-cols-2"
+                      role="group"
+                      aria-label={dictionary.publicPage.visitorTitle}
+                    >
                       <Button
                         className="w-full border-[color:var(--accent)] bg-[color:var(--accent)] text-zinc-950 hover:bg-[color:var(--accent-strong)]"
                         size="lg"
