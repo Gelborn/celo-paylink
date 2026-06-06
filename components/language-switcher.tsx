@@ -20,7 +20,8 @@ export function LanguageSwitcher() {
       options={locales.map((option) => ({
         value: option,
         label: getDictionary(option).languageName,
-        description: option
+        description: option,
+        lang: option
       }))}
     />
   );

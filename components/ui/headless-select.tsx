@@ -8,6 +8,7 @@ export type HeadlessSelectOption = {
   value: string;
   label: string;
   description?: string;
+  lang?: string;
 };
 
 export function HeadlessSelect({
@@ -66,7 +67,7 @@ export function HeadlessSelect({
             </option>
           ) : null}
           {options.map((option) => (
-            <option key={option.value} value={option.value}>
+            <option key={option.value} value={option.value} lang={option.lang}>
               {option.description
                 ? `${option.label} — ${option.description}`
                 : option.label}
