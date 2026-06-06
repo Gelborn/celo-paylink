@@ -100,6 +100,7 @@ export function ProfileDiscovery({
 }: ProfileDiscoveryProps) {
   const { dictionary } = useLocale();
   const searchHintId = useId();
+  const searchResultTitleId = useId();
   const [query, setQuery] = useState("");
   const [searchState, setSearchState] = useState<SearchState>("idle");
   const [searchResult, setSearchResult] = useState<ProfileRecord | null>(null);
@@ -251,12 +252,14 @@ export function ProfileDiscovery({
         {searchResult ? (
           <motion.div
             className="space-y-3"
+            role="region"
+            aria-labelledby={searchResultTitleId}
             variants={panelSwap}
             initial="hidden"
             animate="show"
             exit="exit"
           >
-            <h3 className="text-base font-semibold text-white">
+            <h3 id={searchResultTitleId} className="text-base font-semibold text-white">
               {dictionary.profileDiscovery.searchTitle}
             </h3>
             <ProfileLinkCard
