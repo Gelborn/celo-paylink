@@ -358,7 +358,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       unavailable:
         "Profile discovery will appear after the contract is configured.",
       notFound: "No published profile matches that handle.",
-      error: "Profiles could not load right now.",
+      error: "Profiles could not load right now. Try again in a moment.",
       exactHint: "Use the full handle without @.",
       openProfile: "Open profile"
     },
@@ -625,7 +625,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       unavailable:
         "A descoberta de perfis aparecerá depois que o contrato for configurado.",
       notFound: "Nenhum perfil publicado corresponde a esse handle.",
-      error: "Não foi possível carregar os perfis agora.",
+      error: "Não foi possível carregar os perfis agora. Tente novamente em instantes.",
       exactHint: "Use o handle completo sem @.",
       openProfile: "Abrir perfil"
     },
