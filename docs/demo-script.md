@@ -14,6 +14,8 @@ Before the live pass, confirm the demo wallet has enough of the selected token f
 
 Keep the MiniPay phone unlocked on the pay link before starting the 90-second timer.
 
+Close unrelated browser tabs and wallet notifications before recording so the live pass stays focused.
+
 If the wallet connection stalls during judging, switch to the preview link and narrate where the live confirmation would happen.
 
 1. Open the landing page and explain PayLink in one sentence.
