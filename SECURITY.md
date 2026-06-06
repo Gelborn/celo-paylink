@@ -12,6 +12,7 @@ Send a report to the repository owner with:
 
 - a clear description of the issue
 - reproduction steps or a proof of concept
+- expected and actual behavior
 - the affected route or Celo network, if applicable
 - whether it affects preview/demo mode, production flows, or both
 - browser, wallet, and device details, if relevant
