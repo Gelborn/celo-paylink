@@ -80,7 +80,7 @@ export function HomeShell({
       />
 
       {account && profile ? (
-        <section className="landing-section space-y-6">
+        <section className="landing-section space-y-6" aria-label={dictionary.home.summaryTitle}>
           <div className="grid min-w-0 gap-6 lg:grid-cols-[1.08fr_0.92fr]">
             <Card variant="accent" className="overflow-hidden">
               <CardContent className="space-y-8 px-8 py-8 md:px-10 md:py-10">
