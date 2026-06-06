@@ -42,5 +42,6 @@
   - owner dashboard
   - public payment page
   - success screen
+- Confirm any QR code encodes the final HTTPS public profile URL, not localhost or a preview URL.
 - Scan the final public profile link from a QR code once and confirm it opens on mobile.
 - Record a short product demo.
