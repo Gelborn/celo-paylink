@@ -26,4 +26,5 @@
   - owner dashboard
   - public payment page
   - success screen
+- Scan the final public profile link from a QR code once and confirm it opens on mobile.
 - Record a short product demo.
