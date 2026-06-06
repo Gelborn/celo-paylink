@@ -41,6 +41,7 @@
 - Product principles
 - Direct payments
 - Minimal setup
+- Reusable request links
 - No custody
 
 ## Slide 8
