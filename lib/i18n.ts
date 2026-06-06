@@ -336,7 +336,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       chargeSection: "Request link",
       transactionsSection: "Incoming payments",
       emptyTransactions:
-        "Incoming payments will appear here after someone pays through your profile.",
+        "Incoming payments will appear here after someone pays through your public profile or request link.",
       connectPrompt:
         "Open in MiniPay or connect a browser wallet to create and manage your payment profile."
     },
@@ -603,7 +603,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       chargeSection: "Link de cobrança",
       transactionsSection: "Pagamentos recebidos",
       emptyTransactions:
-        "Os pagamentos recebidos aparecerão aqui depois que alguém pagar pelo seu perfil.",
+        "Os pagamentos recebidos aparecerão aqui depois que alguém pagar pelo seu perfil público ou link de cobrança.",
       connectPrompt:
         "Abra no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil de pagamento."
     },
