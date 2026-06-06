@@ -12,6 +12,7 @@ Send a report to the repository owner with:
 
 - a clear description of the issue
 - reproduction steps or a proof of concept
+- the affected route or Celo network, if applicable
 - impact assessment
 - any suggested mitigation
 
