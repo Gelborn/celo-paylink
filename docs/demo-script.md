@@ -9,6 +9,7 @@ Keep the matching `/success?...&preview=1` URL from the README ready if you need
 Use the same reference value in the preview fallback and live wallet pass so reviewers can compare both states quickly.
 
 During the live pass, call out that payments settle directly to the recipient wallet with no platform custody.
+Use a real created handle for the live pass; keep `demo-paylink` for preview-only fallback URLs.
 
 Before the live pass, confirm the demo wallet has enough of the selected token for the requested amount.
 
