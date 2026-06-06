@@ -133,7 +133,10 @@ export function HomeStaticShell({
               </div>
             </div>
 
-            <TrustGrid statements={dictionary.home.trustStatements} />
+            <TrustGrid
+              label={dictionary.home.proofEyebrow}
+              statements={dictionary.home.trustStatements}
+            />
           </CardContent>
         </Card>
       </motion.section>

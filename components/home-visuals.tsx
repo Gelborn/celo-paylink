@@ -166,9 +166,15 @@ export function HomeStepsSection({ dictionary }: { dictionary: Dictionary }) {
   );
 }
 
-export function TrustGrid({ statements }: { statements: string[] }) {
+export function TrustGrid({
+  label,
+  statements
+}: {
+  label: string;
+  statements: string[];
+}) {
   return (
-    <ul className="grid gap-3 md:grid-cols-3">
+    <ul className="grid gap-3 md:grid-cols-3" aria-label={label}>
       {statements.map((statement) => (
         <li
           key={statement}

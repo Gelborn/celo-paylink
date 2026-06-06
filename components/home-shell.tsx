@@ -172,7 +172,10 @@ export function HomeShell({
                       : null}
                 </FeedbackMessage>
 
-                <TrustGrid statements={dictionary.home.trustStatements} />
+                <TrustGrid
+                  label={dictionary.home.proofEyebrow}
+                  statements={dictionary.home.trustStatements}
+                />
               </CardContent>
             </Card>
 
@@ -321,7 +324,10 @@ export function HomeShell({
                   </div>
                 </div>
 
-                <TrustGrid statements={dictionary.home.trustStatements} />
+                <TrustGrid
+                  label={dictionary.home.proofEyebrow}
+                  statements={dictionary.home.trustStatements}
+                />
               </CardContent>
             </Card>
           </section>
