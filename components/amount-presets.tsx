@@ -4,18 +4,20 @@ import { motion } from "motion/react";
 import { motionTransitions, softTap, subtleLift } from "../lib/motion";
 
 type AmountPresetsProps = {
+  label: string;
   values: number[];
   selectedValue: string;
   onSelect: (value: string) => void;
 };
 
 export function AmountPresets({
+  label,
   values,
   selectedValue,
   onSelect
 }: AmountPresetsProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2" role="group" aria-label={label}>
       {values.map((value) => {
         const active = selectedValue === String(value);
 

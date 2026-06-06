@@ -424,6 +424,7 @@ export function PaymentPanelIsland({
             {dictionary.fields.suggestedAmounts}
           </p>
           <AmountPresets
+            label={dictionary.fields.suggestedAmounts}
             values={[5, 15, 25, 50]}
             selectedValue={amount}
             onSelect={setAmount}
