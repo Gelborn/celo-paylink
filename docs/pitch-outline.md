@@ -32,6 +32,7 @@
 ## Slide 6
 - MiniPay user flow
 - Open link
+- Review amount, token, and reference
 - Approve token
 - Send payment
 - See confirmation
