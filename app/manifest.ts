@@ -14,6 +14,14 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#09090B",
     theme_color: "#09090B",
+    shortcuts: [
+      {
+        name: "Create or manage PayLink profile",
+        short_name: "Dashboard",
+        description: "Open the PayLink dashboard to publish or manage a payment profile.",
+        url: "/my"
+      }
+    ],
     icons: [
       {
         src: "/icon.svg",
