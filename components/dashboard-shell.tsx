@@ -473,6 +473,7 @@ export function DashboardShell({
                       id="dashboard-panel-manage"
                       role="tabpanel"
                       aria-labelledby="dashboard-tab-manage"
+                      tabIndex={0}
                       variants={panelSwap}
                       initial="hidden"
                       animate="show"
@@ -620,6 +621,7 @@ export function DashboardShell({
                       id="dashboard-panel-transactions"
                       role="tabpanel"
                       aria-labelledby="dashboard-tab-transactions"
+                      tabIndex={0}
                       variants={panelSwap}
                       initial="hidden"
                       animate="show"
@@ -638,6 +640,7 @@ export function DashboardShell({
                       id="dashboard-panel-discover"
                       role="tabpanel"
                       aria-labelledby="dashboard-tab-discover"
+                      tabIndex={0}
                       variants={panelSwap}
                       initial="hidden"
                       animate="show"
