@@ -127,7 +127,11 @@ export function HomeProofSection({ dictionary }: { dictionary: Dictionary }) {
         title={dictionary.home.proofTitle}
         description={dictionary.home.proofDescription}
       />
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" role="list">
+      <div
+        className="grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+        role="list"
+        aria-label={dictionary.home.proofTitle}
+      >
         {dictionary.home.proofChips.map((chip, index) => (
           <ProofCard key={chip} index={index} label={chip} />
         ))}
@@ -144,7 +148,11 @@ export function HomeStepsSection({ dictionary }: { dictionary: Dictionary }) {
         title={dictionary.home.stepsTitle}
         description={dictionary.home.stepsDescription}
       />
-      <div className="grid gap-4 lg:grid-cols-3" role="list">
+      <div
+        className="grid gap-4 lg:grid-cols-3"
+        role="list"
+        aria-label={dictionary.home.stepsTitle}
+      >
         {dictionary.home.steps.map((step, index) => (
           <StepCard
             key={step.title}
