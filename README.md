@@ -176,7 +176,7 @@ npm run build
 
 ## Supported Tokens
 
-From the current Celo docs:
+From the current Celo docs. Before a mainnet deployment, re-check these addresses against the latest Celo token docs.
 
 - Mainnet
   - `USDm`: `0x765DE816845861e75A25fCA122bb6898B8B1282a`
