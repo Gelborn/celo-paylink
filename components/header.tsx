@@ -132,6 +132,7 @@ export function Header({
             className="h-9 w-9 px-0 sm:w-auto sm:px-3.5"
             leftIcon={<Wallet aria-hidden="true" />}
             disabled={isConnecting}
+            aria-busy={isConnecting ? true : undefined}
             onClick={() => {
               void onConnect();
             }}
