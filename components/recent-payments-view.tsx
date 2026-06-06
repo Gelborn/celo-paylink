@@ -26,7 +26,13 @@ export function RecentPaymentsView({
 }: RecentPaymentsViewProps) {
   if (isLoading) {
     return (
-      <Card variant="elevated" className="compact-card" aria-busy="true">
+      <Card
+        variant="elevated"
+        className="compact-card"
+        role="region"
+        aria-label={title}
+        aria-busy="true"
+      >
         <CardHeader>
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
@@ -64,7 +70,12 @@ export function RecentPaymentsView({
 
   if (payments.length === 0) {
     return (
-      <Card variant="elevated" className="compact-card">
+      <Card
+        variant="elevated"
+        className="compact-card"
+        role="region"
+        aria-label={title}
+      >
         <CardHeader>
           <CardTitle className="text-base">{title}</CardTitle>
         </CardHeader>
@@ -81,7 +92,12 @@ export function RecentPaymentsView({
   }
 
   return (
-    <Card variant="elevated" className="compact-card">
+    <Card
+      variant="elevated"
+      className="compact-card"
+      role="region"
+      aria-label={title}
+    >
       <CardHeader>
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>
