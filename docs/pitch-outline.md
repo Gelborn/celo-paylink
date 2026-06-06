@@ -26,6 +26,7 @@
 - Direct forwarding
 - No custody; payments settle directly to the recipient wallet
 - Event-based payment history
+- No backend or indexer required
 
 ## Slide 6
 - MiniPay user flow
