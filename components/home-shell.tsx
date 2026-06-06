@@ -246,7 +246,11 @@ export function HomeShell({
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <div
+                  className="flex flex-col gap-3 sm:flex-row sm:flex-wrap"
+                  role="group"
+                  aria-label={dictionary.home.eyebrow}
+                >
                   <PrimaryProfileLink>{dictionary.actions.createProfile}</PrimaryProfileLink>
                   {showConnectAction ? (
                     <Button
