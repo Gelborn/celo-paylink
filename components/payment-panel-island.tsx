@@ -496,6 +496,7 @@ export function PaymentPanelIsland({
               variant="outline"
               className="w-full sm:w-auto"
               leftIcon={<Wallet aria-hidden="true" />}
+              aria-busy={isConnecting ? true : undefined}
               onClick={() => {
                 void connect();
               }}
