@@ -122,7 +122,11 @@ export function HomeShell({
                   mono
                 />
 
-                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <div
+                  className="flex flex-col gap-3 sm:flex-row sm:flex-wrap"
+                  role="group"
+                  aria-label={dictionary.dashboard.quickActions}
+                >
                   <Link href="/my" className="w-full sm:w-auto">
                     <Button
                       size="lg"
