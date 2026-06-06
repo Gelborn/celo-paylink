@@ -273,7 +273,11 @@ export function PublicProfileShell({
               {isOwner ? (
                 <div className="space-y-4">
                   <TrustList items={trustItems} label={dictionary.home.proofEyebrow} />
-                  <div className="grid gap-3 sm:grid-cols-2">
+                  <div
+                    className="grid gap-3 sm:grid-cols-2"
+                    role="group"
+                    aria-label={dictionary.publicPage.ownerTitle}
+                  >
                     <Link href="/my" className="block">
                       <Button
                         className="w-full"
