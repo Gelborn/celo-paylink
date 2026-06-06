@@ -77,6 +77,8 @@ export async function generateMetadata({
       description,
       url: `${publicEnv.appUrl}/u/${resolvedParams.handle}`,
       siteName: "MiniPay PayLink",
+      locale: "en_US",
+      alternateLocale: ["pt_BR"],
       type: "website",
       images: [
         {
