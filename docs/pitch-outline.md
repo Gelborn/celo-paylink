@@ -34,6 +34,7 @@
 - Send payment
 - See confirmation
 - Open explorer receipt
+- Refresh profile to show the recent payment event
 
 ## Slide 7
 - Product principles
