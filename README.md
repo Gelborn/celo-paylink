@@ -197,7 +197,7 @@ From the current Celo docs. Before a mainnet deployment, re-check these addresse
 - The repo includes CI, Dependabot, `SECURITY.md`, and explicit public/private env separation.
 - CI runs contract tests, lint, typecheck, and a production build on pushes and pull requests.
 - `robots.ts` disallows private routes such as `/my` and `/success`.
-- `sitemap.ts` publishes the canonical app origin for search engines.
+- `sitemap.ts` publishes the canonical app origin for search engines; individual pay links are meant to be shared directly.
 - `manifest.ts` publishes install metadata, the Dashboard shortcut, and the mobile demo screenshot.
 
 ## Docs
