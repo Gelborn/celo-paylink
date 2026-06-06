@@ -6,6 +6,8 @@ For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&previ
 
 During the live pass, call out that payments settle directly to the recipient wallet with no platform custody.
 
+If the wallet connection stalls during judging, switch to the preview link and narrate where the live confirmation would happen.
+
 1. Open the landing page and explain PayLink in one sentence.
 2. Open `/my`, connect with MiniPay, and create or update the payment profile.
 3. Show the saved handle and copy the shareable pay link.
