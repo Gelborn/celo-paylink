@@ -28,6 +28,7 @@
 - Test a request reference with a space and confirm it stays readable after sharing the link.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
 - Confirm profile creation, profile updates, and charge-link generation.
+- Open the final avatar URL directly and confirm the image loads over HTTPS before screenshots.
 - Try a non-HTTPS avatar URL once and confirm the initials fallback appears.
 - Copy a profile link from `/my` and confirm it uses the final HTTPS origin.
 - Send at least one real payment and verify it appears in the recent payments list.
