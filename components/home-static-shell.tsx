@@ -104,6 +104,7 @@ export function HomeStaticShell({
 
       <motion.section
         className="landing-section perf-defer-section space-y-6"
+        aria-label={dictionary.home.stepsTitle}
         variants={fadeUp}
         initial="hidden"
         animate="show"
