@@ -285,7 +285,7 @@ export function HomeShell({
             <HomeStepsSection dictionary={dictionary} />
           </section>
 
-          <section className="landing-section">
+          <section className="landing-section" aria-label={dictionary.home.closingTitle}>
             <Card className="landing-cta-surface overflow-hidden border-[color:var(--accent-line)] shadow-[var(--accent-shadow),0_22px_64px_rgba(0,0,0,0.28)]">
               <CardContent className="space-y-8 px-6 py-8 md:px-10 md:py-10">
                 <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
