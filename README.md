@@ -165,7 +165,7 @@ After deployment, copy the contract address and deployment block into the matchi
 
 ## Release Checks
 
-Run this before pushing public changes:
+Run these before pushing public changes:
 
 ```bash
 npm run compile
