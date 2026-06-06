@@ -32,6 +32,7 @@
 - Approve token
 - Send payment
 - See confirmation
+- Open explorer receipt
 
 ## Slide 7
 - Product principles
