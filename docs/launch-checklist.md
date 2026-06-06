@@ -11,6 +11,7 @@
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm private routes stay hidden.
 - Open `/manifest.webmanifest` and confirm the app name, icon, and scope match the production install.
+- Install the PWA once and confirm the Dashboard shortcut opens `/my`.
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
 - Test the public pay page inside MiniPay on phone.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
