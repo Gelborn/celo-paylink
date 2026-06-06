@@ -56,10 +56,11 @@ const PaymentPanelIsland = dynamic(
   }
 );
 
-function TrustList({ items }: { items: string[] }) {
+function TrustList({ items, label }: { items: string[]; label: string }) {
   return (
     <motion.ul
       className="trust-list"
+      aria-label={label}
       variants={staggerChildren}
       initial="hidden"
       animate="show"
@@ -270,7 +271,7 @@ export function PublicProfileShell({
 
               {isOwner ? (
                 <div className="space-y-4">
-                  <TrustList items={trustItems} />
+                  <TrustList items={trustItems} label={dictionary.home.proofEyebrow} />
                   <div className="grid gap-3 sm:grid-cols-2">
                     <Link href="/my" className="block">
                       <Button
@@ -405,7 +406,7 @@ export function PublicProfileShell({
                     ) : null}
                   </AnimatePresence>
 
-                  <TrustList items={trustItems} />
+                  <TrustList items={trustItems} label={dictionary.home.proofEyebrow} />
 
                   <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap">
                     {showInvoiceView ? (
