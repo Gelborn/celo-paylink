@@ -77,7 +77,7 @@ export function ProofCard({
   const Icon = proofIcons[index % proofIcons.length];
 
   return (
-    <Card className="h-full compact-card" variant="elevated">
+    <Card className="h-full compact-card" variant="elevated" role="listitem">
       <CardContent className="flex h-full flex-col px-5 pb-5 pt-5">
         <div className="flex items-center justify-between gap-4">
           <IconFrame tone="accent">
@@ -105,7 +105,7 @@ export function StepCard({
   const Icon = stepIcons[index % stepIcons.length];
 
   return (
-    <Card className="h-full compact-card" variant="elevated">
+    <Card className="h-full compact-card" variant="elevated" role="listitem">
       <CardContent className="h-full space-y-4 px-6 pb-6 pt-6">
         <IconFrame tone="accent">
           <Icon aria-hidden="true" />
@@ -127,7 +127,7 @@ export function HomeProofSection({ dictionary }: { dictionary: Dictionary }) {
         title={dictionary.home.proofTitle}
         description={dictionary.home.proofDescription}
       />
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" role="list">
         {dictionary.home.proofChips.map((chip, index) => (
           <ProofCard key={chip} index={index} label={chip} />
         ))}
@@ -144,7 +144,7 @@ export function HomeStepsSection({ dictionary }: { dictionary: Dictionary }) {
         title={dictionary.home.stepsTitle}
         description={dictionary.home.stepsDescription}
       />
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-3" role="list">
         {dictionary.home.steps.map((step, index) => (
           <StepCard
             key={step.title}
