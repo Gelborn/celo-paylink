@@ -65,6 +65,8 @@ export const metadata: Metadata = {
       "Publish a no-custody payment profile, share request links, and receive direct Celo payments through MiniPay.",
     url: publicEnv.appUrl,
     siteName: "MiniPay PayLink",
+    locale: "en_US",
+    alternateLocale: ["pt_BR"],
     type: "website",
     images: [
       {
