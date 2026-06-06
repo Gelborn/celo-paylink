@@ -486,6 +486,7 @@ export function PaymentPanelIsland({
               isWrongChain ||
               hasInsufficientBalance
             }
+            aria-busy={isPaymentBusy ? true : undefined}
           >
             {isPaymentBusy
               ? dictionary.messages.waitingConfirmation
