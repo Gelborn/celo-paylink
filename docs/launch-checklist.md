@@ -3,6 +3,7 @@
 - Deploy `PayLinkProfile.sol` on the target Celo network.
 - Verify the contract on a block explorer.
 - Save the verified contract explorer URL with the final submission links.
+- Save the deployed app commit SHA with the final submission links.
 - Set `NEXT_PUBLIC_CONTRACT_ADDRESS_*` in the production environment.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` after deployment.
 - Confirm the deployment platform has the production environment values saved before triggering the build.
