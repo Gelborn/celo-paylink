@@ -17,6 +17,7 @@ If the wallet connection stalls during judging, switch to the preview link and n
    Pause on the copied link long enough to make the reusable request format clear.
 4. Open the public `/u/[handle]` page.
 5. Pick a token, choose a preset amount, and add a short reference.
+   Say that the reference carries through to the receipt and recent payment history.
 6. Approve the token if needed.
 7. Send the payment and wait for confirmation.
 8. Show the success page and transaction link.
