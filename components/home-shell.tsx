@@ -291,7 +291,7 @@ export function HomeShell({
             variant="carousel"
           />
 
-          <section className="landing-section space-y-6">
+          <section className="landing-section space-y-6" aria-label={dictionary.home.proofTitle}>
             <HomeProofSection dictionary={dictionary} />
           </section>
 
