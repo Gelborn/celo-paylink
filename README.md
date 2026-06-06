@@ -65,6 +65,8 @@ npm install
 cp .env.example .env
 ```
 
+For preview-only local review, keep the placeholder `PRIVATE_KEY`; replace it only before deploy, verify, or seed scripts.
+
 3. Compile contracts:
 
 ```bash
