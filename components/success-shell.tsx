@@ -132,18 +132,21 @@ export function SuccessShell({
                   ) : null}
                 </div>
 
-                <div className="trust-list mt-4 border-t border-white/10 pt-4">
+                <motion.ul
+                  className="trust-list mt-4 border-t border-white/10 pt-4"
+                  aria-label={dictionary.home.proofEyebrow}
+                >
                   {[dictionary.home.trustStatements[0], dictionary.home.trustStatements[2]].map(
                     (item) => (
-                      <motion.div key={item} className="trust-list-item" variants={fadeUp}>
+                      <motion.li key={item} className="trust-list-item" variants={fadeUp}>
                         <IconFrame tone="accent" className="h-8 w-8 rounded-md">
                           <CheckCircle2 aria-hidden="true" />
                         </IconFrame>
                         <span>{item}</span>
-                      </motion.div>
+                      </motion.li>
                     )
                   )}
-                </div>
+                </motion.ul>
 
                 <div className="mt-4 border-t border-white/10 pt-4">
                   <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
