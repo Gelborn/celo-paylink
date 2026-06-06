@@ -14,6 +14,7 @@ Send a report to the repository owner with:
 - reproduction steps or a proof of concept
 - the affected route or Celo network, if applicable
 - whether it affects preview/demo mode, production flows, or both
+- browser, wallet, and device details, if relevant
 - transaction hashes or explorer links, if applicable
 - impact assessment
 - any suggested mitigation
