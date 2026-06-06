@@ -420,6 +420,7 @@ export function DashboardShell({
                       role="tab"
                       aria-selected={activeTab === "manage"}
                       aria-controls="dashboard-panel-manage"
+                      tabIndex={activeTab === "manage" ? 0 : -1}
                       type="button"
                       onClick={() => {
                         setActiveTab("manage");
@@ -437,6 +438,7 @@ export function DashboardShell({
                       role="tab"
                       aria-selected={activeTab === "transactions"}
                       aria-controls="dashboard-panel-transactions"
+                      tabIndex={activeTab === "transactions" ? 0 : -1}
                       type="button"
                       onClick={() => setActiveTab("transactions")}
                       whileTap={softTap}
@@ -451,6 +453,7 @@ export function DashboardShell({
                       role="tab"
                       aria-selected={activeTab === "discover"}
                       aria-controls="dashboard-panel-discover"
+                      tabIndex={activeTab === "discover" ? 0 : -1}
                       type="button"
                       onClick={() => setActiveTab("discover")}
                       whileTap={softTap}
