@@ -137,7 +137,7 @@ export function ProfileDiscovery({
     const carouselProfiles = [...featuredProfiles, ...featuredProfiles];
 
     return (
-      <section className="landing-section space-y-6">
+      <section className="landing-section space-y-6" aria-label={dictionary.profileDiscovery.title}>
         <div className="max-w-3xl space-y-3">
           <Badge variant="accent">
             {dictionary.profileDiscovery.eyebrow}
