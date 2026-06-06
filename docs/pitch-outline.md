@@ -12,6 +12,7 @@
 - Product
 - Claim a handle, publish a profile, get paid in stablecoins
 - Reuse the same page or prefilled request links for repeat payments
+- Prefill amount, token, and reference for specific requests
 
 ## Slide 4
 - Why Celo
