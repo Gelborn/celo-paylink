@@ -10,6 +10,7 @@
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm private routes stay hidden.
+- Confirm `/sitemap.xml` lists the final HTTPS production origin, not localhost or a preview URL.
 - Open `/manifest.webmanifest` and confirm the app name, icon, and scope match the production install.
 - Install the PWA once and confirm the Dashboard shortcut opens `/my`.
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
