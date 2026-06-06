@@ -114,7 +114,12 @@ export function ChargeLinkPanel({
   }
 
   return (
-    <Card variant="elevated" className="compact-card">
+    <Card
+      variant="elevated"
+      className="compact-card"
+      role="region"
+      aria-label={dictionary.dashboard.chargeSection}
+    >
       <CardHeader className="space-y-2">
         <CardTitle>{dictionary.dashboard.chargeSection}</CardTitle>
         <CardDescription>{dictionary.dashboard.chargeLinkHint}</CardDescription>
