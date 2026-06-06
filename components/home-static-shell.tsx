@@ -52,7 +52,11 @@ export function HomeStaticShell({
         contractAddresses={contractAddresses}
       />
 
-      <motion.section className="landing-section" variants={fadeUp}>
+      <motion.section
+        className="landing-section"
+        aria-label={dictionary.home.title}
+        variants={fadeUp}
+      >
         <div className="grid min-w-0 gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.78fr)] lg:items-center lg:gap-10">
           <div className="min-w-0 space-y-6 lg:pt-8">
             <div className="space-y-4">
