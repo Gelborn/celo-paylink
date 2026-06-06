@@ -9,6 +9,8 @@ Keep the matching `/success?...&preview=1` URL from the README ready if you need
 
 During the live pass, call out that payments settle directly to the recipient wallet with no platform custody.
 
+Before the live pass, confirm the demo wallet has enough of the selected token for the requested amount.
+
 If the wallet connection stalls during judging, switch to the preview link and narrate where the live confirmation would happen.
 
 1. Open the landing page and explain PayLink in one sentence.
