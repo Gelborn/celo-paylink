@@ -9,6 +9,10 @@
     "payment-link"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gelborn/celo-paylink.git"
+  },
   "private": true,
   "type": "module",
   "engines": {
