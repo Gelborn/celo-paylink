@@ -6,7 +6,8 @@
     "minipay",
     "celo",
     "stablecoin",
-    "payment-link"
+    "payment-link",
+    "pwa"
   ],
   "author": "Gelborn",
   "license": "MIT",
