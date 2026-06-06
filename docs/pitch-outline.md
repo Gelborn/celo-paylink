@@ -19,7 +19,7 @@
 - Why Celo
 - MiniPay distribution
 - Stablecoin UX
-- Low transaction costs
+- Low transaction costs for small payments
 
 ## Slide 5
 - Onchain design
