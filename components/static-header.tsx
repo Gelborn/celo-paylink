@@ -3,9 +3,11 @@ import { BrandWordmark } from "./brand-wordmark";
 
 export function StaticHeader({
   actions,
+  actionsLabel,
   homeAriaLabel
 }: {
   actions?: ReactNode;
+  actionsLabel?: string;
   homeAriaLabel?: string;
 }) {
   return (
@@ -13,7 +15,15 @@ export function StaticHeader({
       <div className="min-w-0">
         <BrandWordmark ariaLabel={homeAriaLabel} className="text-lg md:text-xl" />
       </div>
-      {actions ? <div className="flex min-w-0 shrink-0 justify-end">{actions}</div> : null}
+      {actions ? (
+        <div
+          className="flex min-w-0 shrink-0 justify-end"
+          role={actionsLabel ? "group" : undefined}
+          aria-label={actionsLabel}
+        >
+          {actions}
+        </div>
+      ) : null}
     </header>
   );
 }

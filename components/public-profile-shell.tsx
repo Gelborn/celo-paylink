@@ -186,6 +186,7 @@ export function PublicProfileShell({
     <main>
       <StaticHeader
         homeAriaLabel={homeAriaLabel}
+        actionsLabel={dictionary.labels.walletControls}
         actions={
           previewMode ? null : (
             <div

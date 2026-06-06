@@ -37,6 +37,7 @@ export function HomeStaticShell({
     >
       <StaticHeader
         homeAriaLabel={`${dictionary.productName}: ${dictionary.nav.home}`}
+        actionsLabel={dictionary.labels.walletControls}
         actions={
           <div
             id="home-wallet-slot"

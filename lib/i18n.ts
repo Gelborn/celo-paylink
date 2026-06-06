@@ -156,6 +156,7 @@ export type Dictionary = {
   labels: {
     language: string;
     connectedWallet: string;
+    walletControls: string;
     network: string;
     profileLive: string;
     preferredToken: string;
@@ -417,6 +418,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     labels: {
       language: "Language",
       connectedWallet: "Connected wallet",
+      walletControls: "Wallet controls",
       network: "Network",
       profileLive: "PayLink live",
       preferredToken: "Preferred token",
@@ -684,6 +686,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     labels: {
       language: "Idioma",
       connectedWallet: "Carteira conectada",
+      walletControls: "Controles da carteira",
       network: "Rede",
       profileLive: "PayLink ativo",
       preferredToken: "Token preferido",
