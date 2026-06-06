@@ -36,6 +36,7 @@
 - Reload the public profile after payment and confirm the recent payment is still visible from chain data.
 - Open the success-screen receipt link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the success-screen amount, token, and reference match the public request link.
+- Confirm final screenshots use the same locale and deployed origin as the submitted demo links.
 - Capture final screenshots for:
   - landing page
   - owner dashboard
