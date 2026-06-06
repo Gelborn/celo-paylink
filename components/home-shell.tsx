@@ -261,7 +261,10 @@ export function HomeShell({
                   ) : null}
                 </div>
 
-                <HeroChips chips={dictionary.home.heroChips} />
+                <HeroChips
+                  chips={dictionary.home.heroChips}
+                  label={dictionary.home.eyebrow}
+                />
 
                 <p className="max-w-xl text-sm leading-7 text-zinc-500">
                   {dictionary.home.connectHint}

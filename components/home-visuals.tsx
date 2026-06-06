@@ -30,9 +30,18 @@ export function PrimaryProfileLink({ children }: { children: ReactNode }) {
   );
 }
 
-export function HeroChips({ chips }: { chips: string[] }) {
+export function HeroChips({
+  chips,
+  label
+}: {
+  chips: string[];
+  label: string;
+}) {
   return (
-    <ul className="grid max-w-full grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-2.5">
+    <ul
+      className="grid max-w-full grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-2.5"
+      aria-label={label}
+    >
       {chips.map((chip) => (
         <li
           key={chip}
