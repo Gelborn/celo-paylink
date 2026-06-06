@@ -22,6 +22,7 @@
 - Confirm profile creation, profile updates, and charge-link generation.
 - Send at least one real payment and verify it appears in the recent payments list.
 - Open the success-screen receipt link and confirm it lands on the matching Celo explorer transaction.
+- Confirm the success-screen amount, token, and reference match the public request link.
 - Capture final screenshots for:
   - landing page
   - owner dashboard
