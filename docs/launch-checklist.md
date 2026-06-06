@@ -26,6 +26,7 @@
 - Try a non-HTTPS avatar URL once and confirm the initials fallback appears.
 - Copy a profile link from `/my` and confirm it uses the final HTTPS origin.
 - Send at least one real payment and verify it appears in the recent payments list.
+- Reload the public profile after payment and confirm the recent payment is still visible from chain data.
 - Open the success-screen receipt link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the success-screen amount, token, and reference match the public request link.
 - Capture final screenshots for:
