@@ -117,11 +117,12 @@ export function PublicProfileShell({
   const [isPaymentPanelOpen, setIsPaymentPanelOpen] = useState(
     hasPrefilledInvoice
   );
+  const homeAriaLabel = `${dictionary.productName}: ${dictionary.nav.home}`;
 
   if (!contractReady) {
     return (
       <main>
-        <StaticHeader />
+        <StaticHeader homeAriaLabel={homeAriaLabel} />
         <EmptyState
           title={dictionary.publicPage.noContractTitle}
           description={dictionary.publicPage.noContractDescription}
@@ -133,7 +134,7 @@ export function PublicProfileShell({
   if (!profile) {
     return (
       <main>
-        <StaticHeader />
+        <StaticHeader homeAriaLabel={homeAriaLabel} />
         <EmptyState
           title={dictionary.publicPage.missingTitle}
           description={dictionary.publicPage.missingDescription}
@@ -183,6 +184,7 @@ export function PublicProfileShell({
   return (
     <main>
       <StaticHeader
+        homeAriaLabel={homeAriaLabel}
         actions={
           previewMode ? null : (
             <div

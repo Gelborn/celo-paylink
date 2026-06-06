@@ -94,7 +94,10 @@ export function Header({
     <>
       <header className="mb-8 flex min-w-0 items-center justify-between gap-3 md:mb-10 md:gap-4">
         <div className="min-w-0">
-          <BrandWordmark className="text-lg md:text-xl" />
+          <BrandWordmark
+            ariaLabel={`${dictionary.productName}: ${dictionary.nav.home}`}
+            className="text-lg md:text-xl"
+          />
         </div>
 
         {!showAccountControls ? null : account ? (

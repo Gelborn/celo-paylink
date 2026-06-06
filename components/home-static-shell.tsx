@@ -36,6 +36,7 @@ export function HomeStaticShell({
       animate="show"
     >
       <StaticHeader
+        homeAriaLabel={`${dictionary.productName}: ${dictionary.nav.home}`}
         actions={
           <div
             id="home-wallet-slot"
