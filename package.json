@@ -13,6 +13,7 @@
     "type": "git",
     "url": "https://github.com/Gelborn/celo-paylink.git"
   },
+  "homepage": "https://github.com/Gelborn/celo-paylink#readme",
   "private": true,
   "type": "module",
   "engines": {
