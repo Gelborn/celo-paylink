@@ -13,6 +13,9 @@
     "type": "git",
     "url": "https://github.com/Gelborn/celo-paylink.git"
   },
+  "bugs": {
+    "url": "https://github.com/Gelborn/celo-paylink/issues"
+  },
   "homepage": "https://github.com/Gelborn/celo-paylink#readme",
   "private": true,
   "type": "module",
