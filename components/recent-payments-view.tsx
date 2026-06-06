@@ -104,6 +104,7 @@ export function RecentPaymentsView({
       <CardContent className="space-y-3.5">
         <motion.ul
           className="space-y-3.5"
+          aria-label={title}
           variants={staggerChildren}
           initial="hidden"
           animate="show"
