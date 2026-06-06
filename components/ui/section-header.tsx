@@ -30,7 +30,11 @@ export function SectionHeader({
           ) : null}
         </div>
       </div>
-      {actions ? <div className="flex flex-wrap gap-3">{actions}</div> : null}
+      {actions ? (
+        <div className="flex flex-wrap gap-3" role="group" aria-label={title}>
+          {actions}
+        </div>
+      ) : null}
     </div>
   );
 }
