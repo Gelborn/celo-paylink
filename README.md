@@ -168,6 +168,7 @@ After deployment, copy the contract address and deployment block into the matchi
 Run this before pushing public changes:
 
 ```bash
+npm run compile
 npm test
 npm run lint
 npm run typecheck
