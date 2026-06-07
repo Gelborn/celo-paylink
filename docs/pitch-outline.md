@@ -45,6 +45,7 @@
 - Direct payments
 - Minimal setup
 - Reusable request links
+- No payer account required
 - No custody
 
 ## Slide 8
