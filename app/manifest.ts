@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en",
     description:
       "A MiniPay-ready payment profile for direct Celo stablecoin payments and reusable request links.",
-    categories: ["finance", "productivity"],
+    categories: ["business", "finance", "productivity"],
     start_url: "/",
     scope: "/",
     display: "standalone",
