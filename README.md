@@ -7,6 +7,7 @@ Create a public page, add your handle and avatar, and receive stablecoin payment
 `/u/user?amount=5&ref=coffee`
 
 When building a link by hand, URL-encode references with spaces or symbols before sharing.
+Keep `ref` concise because it appears on receipts and recent payment history.
 The dashboard charge-link form handles encoding for generated links.
 Use a supported token symbol such as `USDC` or a deployed token address for the optional `token` query.
 Omit `token` to use the recipient's preferred token from their profile.
