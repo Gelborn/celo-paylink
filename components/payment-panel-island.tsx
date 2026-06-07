@@ -456,6 +456,7 @@ export function PaymentPanelIsland({
               value={reference}
               autoComplete="off"
               enterKeyHint="done"
+              maxLength={140}
               onChange={(event) => setReference(event.target.value)}
               placeholder={dictionary.placeholders.note}
             />

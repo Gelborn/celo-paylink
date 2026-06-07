@@ -88,6 +88,7 @@ export function ChargeLinkPanel({
             value={note}
             autoComplete="off"
             enterKeyHint="done"
+            maxLength={140}
             onChange={(event) => setNote(event.target.value)}
             placeholder={dictionary.placeholders.note}
           />
