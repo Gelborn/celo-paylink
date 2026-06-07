@@ -34,7 +34,8 @@ export const metadata: Metadata = {
     "stablecoin",
     "payments",
     "payment link",
-    "creator payments"
+    "creator payments",
+    "freelancer payments"
   ],
   category: "finance",
   creator: "MiniPay PayLink",
