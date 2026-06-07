@@ -7,6 +7,7 @@ Create a public page, add your handle and avatar, and receive stablecoin payment
 `/u/user?amount=5&ref=coffee`
 
 When building a link by hand, URL-encode references with spaces or symbols before sharing.
+Use a supported token symbol such as `USDC` or a deployed token address for the optional `token` query.
 
 ## Mainnet Status
 
