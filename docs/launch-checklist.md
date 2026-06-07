@@ -33,6 +33,7 @@
 - Increase browser text size once and confirm the public payment controls remain usable.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Open the copied request link in a private browser window and confirm it does not rely on owner session state.
+- Test an unsupported `token` query once and confirm the page falls back to a supported token.
 - Test a request reference with a space and confirm it stays readable after sharing the link.
 - Test a request amount with cents and confirm the payment and receipt keep the decimal value readable.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
