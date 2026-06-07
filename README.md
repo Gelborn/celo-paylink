@@ -6,6 +6,8 @@ Create a public page, add your handle and avatar, and receive stablecoin payment
 
 `/u/user?amount=5&ref=coffee`
 
+When building a link by hand, URL-encode references with spaces or symbols before sharing.
+
 ## Mainnet Status
 
 - The app is ready to run against Celo mainnet.
