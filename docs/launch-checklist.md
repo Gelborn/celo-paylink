@@ -27,6 +27,7 @@
 - Confirm the wallet is on Celo before approving or sending the payment.
 - Confirm the selected token and amount match PayLink before approving or sending in the wallet.
 - Open the same public pay page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
+- Open the public profile URL without query parameters and confirm the default payment prompt is clear.
 - Navigate the public pay page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Open the copied request link in a private browser window and confirm it does not rely on owner session state.
