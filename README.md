@@ -110,6 +110,7 @@ To preview the matching receipt state, open:
 `http://localhost:3000/success?tx=0x51f0ed1f7cf8e3d4860ef65bfb30e94c877ce4bfc0a463ce84f674fed0ef8e2c&handle=demo-paylink&amount=5&token=USDC&ref=coffee&preview=1`
 
 If you change the demo amount, token, or reference, keep the same values in both preview URLs.
+Use the same browser locale for both preview URLs so the pay page and receipt copy match.
 
 The demo receipt URL uses a fixed transaction hash for UI review; live receipts should use the hash returned by the wallet flow.
 
