@@ -27,7 +27,7 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         name: "Create or manage PayLink profile",
         short_name: "Dashboard",
-        description: "Open the PayLink dashboard to publish or manage a payment profile.",
+        description: "Open the PayLink dashboard to manage a profile and create request links.",
         url: "/my",
         icons: [
           {
