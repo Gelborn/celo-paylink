@@ -44,7 +44,10 @@ function ProfileLinkCard({
         />
         <div className="min-w-0 space-y-2">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="max-w-[12rem] truncate rounded-md border border-white/10 bg-zinc-950/60 px-3 py-1 text-xs font-medium text-zinc-300">
+            <span
+              className="max-w-[12rem] truncate rounded-md border border-white/10 bg-zinc-950/60 px-3 py-1 text-xs font-medium text-zinc-300"
+              title={`@${profile.handle}`}
+            >
               @{profile.handle}
             </span>
             {token ? (
@@ -53,7 +56,10 @@ function ProfileLinkCard({
               </span>
             ) : null}
           </div>
-          <h3 className="truncate text-base font-semibold text-white">
+          <h3
+            className="truncate text-base font-semibold text-white"
+            title={profile.displayName || `@${profile.handle}`}
+          >
             {profile.displayName || `@${profile.handle}`}
           </h3>
         </div>
