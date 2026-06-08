@@ -358,7 +358,7 @@ export function DashboardShell({
                         @{profile.handle} · {shortenAddress(account)}
                       </p>
                       {preferredToken ? (
-                        <p className="text-xs text-zinc-500">
+                        <p className="text-xs text-zinc-500" title={preferredToken.name}>
                           {dictionary.labels.preferredToken}: {preferredToken.symbol}
                         </p>
                       ) : null}
