@@ -52,6 +52,7 @@ export function DetailTile({
   icon,
   label,
   value,
+  valueTitle,
   description,
   tone = "neutral",
   mono = false,
@@ -60,6 +61,7 @@ export function DetailTile({
   icon?: ReactNode;
   label: ReactNode;
   value: ReactNode;
+  valueTitle?: string;
   description?: ReactNode;
   tone?: Tone;
   mono?: boolean;
@@ -80,6 +82,7 @@ export function DetailTile({
             {label}
           </p>
           <div
+            title={valueTitle}
             className={clsx(
               "mt-1.5 min-w-0 break-words text-base font-semibold leading-6 text-white",
               mono && "font-mono text-sm font-medium text-zinc-200"

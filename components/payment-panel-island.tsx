@@ -518,6 +518,7 @@ export function PaymentPanelIsland({
           icon={<Wallet aria-hidden="true" />}
           label={dictionary.labels.payingFrom}
           value={account ? shortenAddress(account) : dictionary.labels.notConnected}
+          valueTitle={account || undefined}
           className="bg-zinc-950/35 py-3"
           description={
             balance !== null && selectedToken
