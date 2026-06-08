@@ -267,6 +267,7 @@ export function Header({
                             <p
                               id={descriptionId}
                               className="line-clamp-2 text-xs leading-5 text-zinc-500"
+                              title={dictionary.productTagline}
                             >
                               {dictionary.productTagline}
                             </p>
