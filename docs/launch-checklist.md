@@ -48,6 +48,7 @@
 - Copy a profile link from `/my` and confirm it uses the final HTTPS origin.
 - Use the mobile share action once and confirm the shared text includes the final public profile URL.
 - Send at least one real payment and verify it appears in the recent payments list.
+- Save the live demo transaction hash with the final submission notes after the successful payment.
 - Reload the public profile after payment and confirm the recent payment is still visible from chain data.
 - Open the success-screen receipt link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the success-screen amount, token, and reference match the public request link.
