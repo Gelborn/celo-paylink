@@ -37,4 +37,4 @@ If the wallet connection stalls during judging, switch to the preview link and n
 8. Show the success page and transaction link.
    Mention the amount, token, reference, and handle shown on the receipt.
    Keep the explorer receipt visible long enough to make the onchain proof clear.
-9. Refresh the public card and show the recent payment event rendered from chain data.
+9. Refresh the public profile and show the recent payment event rendered from chain data.
