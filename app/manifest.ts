@@ -21,7 +21,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
         sizes: "1200x2598",
         form_factor: "narrow",
-        label: "MiniPay PayLink public payment flow"
+        label: "MiniPay PayLink prefilled public payment flow"
       }
     ],
     shortcuts: [
