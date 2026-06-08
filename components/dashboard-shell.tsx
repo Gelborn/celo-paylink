@@ -354,7 +354,7 @@ export function DashboardShell({
                       <h2 className="text-2xl font-semibold text-white">
                         {profile.displayName}
                       </h2>
-                      <p className="text-sm text-zinc-400">
+                      <p className="text-sm text-zinc-400" title={`@${profile.handle} · ${account}`}>
                         @{profile.handle} · {shortenAddress(account)}
                       </p>
                       {preferredToken ? (
