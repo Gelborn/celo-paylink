@@ -37,7 +37,7 @@
 - Approve token
 - Send payment
 - See the PayLink receipt
-- Open explorer receipt
+- Open the Celo explorer receipt
 - Refresh the public profile to show the recent payment event
 
 ## Slide 7
