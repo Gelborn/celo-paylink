@@ -326,6 +326,7 @@ export function PublicProfileShell({
                                 {initialAmount} {selectedToken?.symbol}
                               </span>
                             }
+                            valueTitle={selectedToken?.name}
                             tone="accent"
                             className="min-h-[4.5rem] px-3 py-3"
                           />
@@ -339,6 +340,7 @@ export function PublicProfileShell({
                                 {selectedToken?.symbol}
                               </span>
                             }
+                            valueTitle={selectedToken?.name}
                             tone="accent"
                             className="min-h-[4.5rem] px-3 py-3"
                           />
