@@ -23,6 +23,7 @@
 - Open the manifest screenshot URL and confirm the mobile demo poster loads from the deployed origin.
 - Install the PWA once and confirm the Dashboard shortcut opens `/my`.
 - Launch the installed PWA from its icon and confirm it opens the home page in standalone mode.
+- Rotate the phone once and confirm the installed PWA keeps the payment flow in portrait orientation.
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
 - Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
 - Test the public pay page inside MiniPay on phone.
