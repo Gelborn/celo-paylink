@@ -24,7 +24,7 @@
 
 ## Slide 5
 - Onchain design
-- Verified contract
+- Verified PayLinkProfile contract
 - Direct forwarding
 - No custody; payments settle directly to the recipient wallet
 - Event-based payment history
