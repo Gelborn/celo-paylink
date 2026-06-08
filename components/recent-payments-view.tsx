@@ -142,7 +142,9 @@ export function RecentPaymentsView({
                         </div>
                         <p className="text-sm text-zinc-400">
                           {dictionary.labels.payingFrom}{" "}
-                          <span className="text-zinc-200">{shortenAddress(payment.payer)}</span>
+                          <span className="text-zinc-200" title={payment.payer}>
+                            {shortenAddress(payment.payer)}
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -166,7 +168,7 @@ export function RecentPaymentsView({
 
                   <div className="flex items-center justify-between gap-3 text-xs text-zinc-500">
                     <span>{dictionary.labels.transaction}</span>
-                    <span className="transition group-hover:text-zinc-300">
+                    <span className="transition group-hover:text-zinc-300" title={payment.txHash}>
                       {shortenAddress(payment.txHash)}
                     </span>
                     <ExternalLink
