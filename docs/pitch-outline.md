@@ -38,7 +38,7 @@
 - Send payment
 - See the PayLink receipt
 - Open explorer receipt
-- Refresh profile to show the recent payment event
+- Refresh the public profile to show the recent payment event
 
 ## Slide 7
 - Product principles
