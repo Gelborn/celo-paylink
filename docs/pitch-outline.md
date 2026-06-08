@@ -36,7 +36,7 @@
 - Review amount, token, and reference
 - Approve token
 - Send payment
-- See confirmation
+- See the PayLink receipt
 - Open explorer receipt
 - Refresh profile to show the recent payment event
 
