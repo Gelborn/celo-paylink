@@ -257,7 +257,11 @@ export function Header({
                             </span>
                           )}
                           <div className="min-w-0">
-                            <p id={titleId} className="truncate text-sm font-medium text-white">
+                            <p
+                              id={titleId}
+                              className="truncate text-sm font-medium text-white"
+                              title={profileName || account}
+                            >
                               {profileName || shortenAddress(account)}
                             </p>
                             <p
