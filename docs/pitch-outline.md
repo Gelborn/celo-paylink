@@ -52,4 +52,4 @@
 - Next steps
 - Shareable QR codes for in-person payments
 - Lightweight invoice templates
-- Merchant-specific presets
+- Merchant-specific amount presets
