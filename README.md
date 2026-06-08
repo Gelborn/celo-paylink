@@ -212,6 +212,7 @@ From the current Celo docs. Before a mainnet deployment, re-check these addresse
 - `robots.ts` disallows private routes such as `/my` and `/success`.
 - `sitemap.ts` publishes the canonical app origin for search engines; individual pay links are meant to be shared directly.
 - `manifest.ts` publishes install metadata, the install icon, the Dashboard shortcut, and the mobile demo screenshot.
+- Demo, launch, and pitch notes live in `docs/` so review assets stay separate from implementation code.
 
 ## Docs
 
