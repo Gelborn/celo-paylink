@@ -68,7 +68,10 @@ function ProfileLinkCard({
         </div>
       </div>
 
-      <p className="mt-4 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-zinc-400">
+      <p
+        className="mt-4 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-zinc-400"
+        title={profile.bio || profile.paymentMessage || dictionary.productTagline}
+      >
         {profile.bio || profile.paymentMessage || dictionary.productTagline}
       </p>
 
