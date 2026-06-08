@@ -39,6 +39,7 @@ export function HomeWalletControls({
       href="/my"
       className="inline-flex h-9 items-center gap-2 rounded-full border border-white/10 bg-zinc-950/80 px-3 text-sm font-medium text-zinc-100 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-white/20 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
       aria-label={`${dictionary.labels.connectedWallet}: ${shortenAddress(account)}. ${dictionary.actions.openDashboard}`}
+      title={account}
     >
       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-900">
         <Wallet aria-hidden="true" className="h-4 w-4 text-zinc-200" />
