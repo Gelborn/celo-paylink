@@ -50,6 +50,6 @@
 
 ## Slide 8
 - Next steps
-- Shareable QR codes for in-person payments
+- Shareable PayLink QR codes for in-person payments
 - Lightweight invoice templates
 - Merchant-specific amount presets
