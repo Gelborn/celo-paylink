@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s · MiniPay PayLink"
   },
   description:
-    "Create a MiniPay PayLink profile and receive direct Celo payments through one trusted link.",
+    "Create a MiniPay PayLink profile and receive direct Celo payments through one trusted profile link.",
   metadataBase: new URL(publicEnv.appUrl),
   keywords: [
     "MiniPay",
