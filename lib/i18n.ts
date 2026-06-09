@@ -366,7 +366,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     publicPage: {
       ownerTitle: "This is your public PayLink profile.",
       ownerDescription:
-        "Visitors see the payment form here. Share it as-is, or open the dashboard to update details and create prefilled request links.",
+        "Visitors see the payment form here. Share this public profile as-is, or open the dashboard to update details and create prefilled request links.",
       visitorTitle: "Send a direct Celo payment",
       visitorDescription:
         "Review the recipient, amount, and token before confirming the payment in your wallet.",
@@ -634,7 +634,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     publicPage: {
       ownerTitle: "Este é o seu perfil público do PayLink.",
       ownerDescription:
-        "Visitantes veem o formulário de pagamento aqui. Compartilhe como está ou abra o painel para atualizar dados e criar links de cobrança preenchidos.",
+        "Visitantes veem o formulário de pagamento aqui. Compartilhe este perfil público como está ou abra o painel para atualizar dados e criar links de cobrança preenchidos.",
       visitorTitle: "Enviar pagamento direto na Celo",
       visitorDescription:
         "Confira quem recebe, valor e token antes de confirmar o pagamento na sua carteira.",
