@@ -320,7 +320,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       descriptionNoProfile:
         "Claim a handle, add your public details, and publish the profile people will use to pay you.",
       descriptionWithProfile:
-        "Manage profile details, request links, and incoming payments.",
+        "Manage profile details, prefilled request links, and incoming payments.",
       actionsTab: "Profile and links",
       manageTab: "Profile",
       transactionsTab: "Payments",
@@ -588,7 +588,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       descriptionNoProfile:
         "Escolha um handle, adicione seus dados públicos e publique o perfil que as pessoas vão usar para pagar você.",
       descriptionWithProfile:
-        "Gerencie dados do perfil, links de cobrança e pagamentos recebidos.",
+        "Gerencie dados do perfil, links de cobrança preenchidos e pagamentos recebidos.",
       actionsTab: "Perfil e links",
       manageTab: "Perfil",
       transactionsTab: "Pagamentos",
