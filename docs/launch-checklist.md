@@ -41,7 +41,7 @@
 - Test a request reference with a space and confirm it stays readable after sharing the link.
 - Test a request amount with cents and confirm the payment and receipt keep the decimal value readable.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
-- Confirm profile creation, profile updates, and charge-link generation.
+- Confirm profile creation, profile updates, and request-link generation.
 - Open a fresh profile with no payments and confirm the recent-payments empty state is clear.
 - Open the final avatar URL directly and confirm the image loads over HTTPS before screenshots.
 - Try a non-HTTPS avatar URL once and confirm the initials fallback appears.
