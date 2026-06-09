@@ -26,7 +26,7 @@
 - Rotate the phone once and confirm the installed PWA keeps the payment flow in portrait orientation.
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
 - Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
-- Save the exact demo pay link with its amount, token, and reference values for the final submission notes.
+- Save the exact demo request link with its amount, token, and reference values for the final submission notes.
 - Test the public payment page inside MiniPay on phone.
 - Confirm the wallet is on Celo before approving or sending the payment.
 - Confirm the selected token and amount match PayLink before approving or sending in the wallet.
