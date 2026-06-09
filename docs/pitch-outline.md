@@ -44,7 +44,7 @@
 - Product principles
 - Direct payments
 - Minimal setup
-- Reusable request links
+- Prefilled request links
 - No payer account required
 - No custody
 
