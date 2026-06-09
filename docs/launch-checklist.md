@@ -27,12 +27,12 @@
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
 - Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
 - Save the exact demo pay link with its amount, token, and reference values for the final submission notes.
-- Test the public pay page inside MiniPay on phone.
+- Test the public payment page inside MiniPay on phone.
 - Confirm the wallet is on Celo before approving or sending the payment.
 - Confirm the selected token and amount match PayLink before approving or sending in the wallet.
-- Open the same public pay page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
+- Open the same public payment page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
 - Open the public profile URL without query parameters and confirm the default payment prompt is clear.
-- Navigate the public pay page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
+- Navigate the public payment page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
 - Enable reduced motion once and confirm the home demo remains understandable without animation.
 - Increase browser text size once and confirm the public payment controls remain usable.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
