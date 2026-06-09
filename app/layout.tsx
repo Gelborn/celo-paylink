@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Celo",
     "stablecoin",
     "payments",
-    "payment link",
+    "profile payment link",
     "creator payments",
     "freelancer payments"
   ],
