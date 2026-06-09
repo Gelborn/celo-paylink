@@ -221,7 +221,7 @@ export function ProfileDiscovery({
                 }}
                 placeholder={dictionary.profileDiscovery.searchPlaceholder}
                 disabled={!contractAddress}
-                aria-label={dictionary.fields.handle}
+                aria-label={`${dictionary.profileDiscovery.searchTitle}: ${dictionary.fields.handle}`}
                 aria-describedby={searchHintId}
                 autoComplete="off"
                 autoCapitalize="none"
