@@ -306,7 +306,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       closingEyebrow: "Ready when you are",
       closingTitle: "Publish your PayLink before the next payment request.",
       closingDescription:
-        "Open the dashboard, create your profile, and share your profile link anywhere you get paid.",
+        "Open the dashboard, create your profile, and share your public profile link anywhere you get paid.",
       summaryTitle: "Your PayLink is live.",
       summaryDescription:
         "Share your public profile, create prefilled request links, and review incoming payments from one dashboard.",
@@ -574,7 +574,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       closingEyebrow: "Pronto para receber",
       closingTitle: "Publique seu PayLink antes da próxima cobrança.",
       closingDescription:
-        "Abra o painel, crie seu perfil e compartilhe o link do seu perfil onde você recebe pagamentos.",
+        "Abra o painel, crie seu perfil e compartilhe o link do seu perfil público onde você recebe pagamentos.",
       summaryTitle: "Seu PayLink está no ar.",
       summaryDescription:
         "Compartilhe seu perfil público, crie links de cobrança preenchidos e acompanhe pagamentos recebidos em um painel.",
