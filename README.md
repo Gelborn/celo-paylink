@@ -102,7 +102,7 @@ For a quick reviewer demo without connecting a wallet or deploying a contract, o
 
 `http://localhost:3000/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1`
 
-This opens a prefilled public payment page with the demo amount, token, and reference already set.
+This opens a prefilled public profile payment page with the demo amount, token, and reference already set.
 Keep `demo-paylink` for local preview; use a real created handle for final demo links.
 
 If Next.js starts on a different local port, replace `3000` in the preview URLs.
