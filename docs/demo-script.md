@@ -26,7 +26,7 @@ If the wallet connection stalls during judging, switch to the preview link and n
 1. Open the landing page and explain PayLink in one sentence.
 2. Open `/my`, connect with MiniPay, and create or update the payment profile.
 3. Show the saved handle and copy the shareable pay link.
-   Pause on the copied link long enough to make the reusable request format clear.
+   Pause on the copied link long enough to make the shareable link format clear.
 4. Open the public `/u/[handle]` page.
 5. Pick a token, choose a preset amount, and add a short reference.
    Say that the reference carries through to the receipt and recent payment history.
