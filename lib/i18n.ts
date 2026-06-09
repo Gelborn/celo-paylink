@@ -309,7 +309,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Open the dashboard, create your profile, and share your profile link anywhere you get paid.",
       summaryTitle: "Your PayLink is live.",
       summaryDescription:
-        "Share your profile, create prefilled request links, and review incoming payments from one dashboard.",
+        "Share your public profile, create prefilled request links, and review incoming payments from one dashboard.",
       connectHint:
         "Open PayLink in MiniPay or connect a wallet to publish your profile."
     },
@@ -577,7 +577,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Abra o painel, crie seu perfil e compartilhe o link do seu perfil onde você recebe pagamentos.",
       summaryTitle: "Seu PayLink está no ar.",
       summaryDescription:
-        "Compartilhe seu perfil, crie links de cobrança preenchidos e acompanhe pagamentos recebidos em um painel.",
+        "Compartilhe seu perfil público, crie links de cobrança preenchidos e acompanhe pagamentos recebidos em um painel.",
       connectHint:
         "Abra o PayLink no MiniPay ou conecte uma carteira para publicar seu perfil."
     },
