@@ -4,7 +4,7 @@ Target length: 90 seconds for judging or quick product review.
 
 Set the app language before recording so the narration, screenshots, and visible copy stay in the same locale.
 
-For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public pay page before the live MiniPay walkthrough.
+For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public payment page before the live MiniPay walkthrough.
 Keep the matching `/success?...&preview=1` URL from the README ready if you need to show the receipt state without a wallet.
 Use the same amount, token, and reference values in the preview fallback and live wallet pass so reviewers can compare both states quickly.
 Keep the live reference short so it stays legible in the wallet and receipt screens.
