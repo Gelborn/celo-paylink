@@ -102,7 +102,7 @@ For a quick reviewer demo without connecting a wallet or deploying a contract, o
 
 `http://localhost:3000/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1`
 
-This opens a prefilled public pay page with the demo amount, token, and reference already set.
+This opens a prefilled public payment page with the demo amount, token, and reference already set.
 Keep `demo-paylink` for local preview; use a real created handle for final demo links.
 
 If Next.js starts on a different local port, replace `3000` in the preview URLs.
@@ -112,7 +112,7 @@ To preview the matching receipt state, open:
 `http://localhost:3000/success?tx=0x51f0ed1f7cf8e3d4860ef65bfb30e94c877ce4bfc0a463ce84f674fed0ef8e2c&handle=demo-paylink&amount=5&token=USDC&ref=coffee&preview=1`
 
 If you change the demo amount, token, or reference, keep the same values in both preview URLs.
-Use the same browser locale for both preview URLs so the pay page and receipt copy match.
+Use the same browser locale for both preview URLs so the payment page and receipt copy match.
 
 The demo receipt URL uses a fixed transaction hash for UI review; live receipts should use the hash returned by the wallet flow.
 
