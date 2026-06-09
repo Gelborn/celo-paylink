@@ -14,7 +14,7 @@ Use a real created handle for the live pass; keep `demo-paylink` for preview-onl
 
 Before the live pass, confirm the demo wallet has enough of the selected token for the requested amount.
 
-Keep the MiniPay phone unlocked on the pay link before starting the 90-second timer.
+Keep the MiniPay phone unlocked on the public payment page before starting the 90-second timer.
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
 Disable auto-lock for the recording window so the phone does not sleep mid-flow.
 
