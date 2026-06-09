@@ -1,7 +1,7 @@
 {
   "name": "celo-paylink",
   "version": "0.1.0",
-  "description": "MiniPay-ready payment profile for direct Celo stablecoin payments.",
+  "description": "MiniPay-ready public payment profile for direct Celo stablecoin payments.",
   "keywords": [
     "minipay",
     "celo",
