@@ -116,7 +116,7 @@ Use the same browser locale for both preview URLs so the payment page and receip
 
 The demo receipt URL uses a fixed transaction hash for UI review; live receipts should use the hash returned by the wallet flow.
 
-`preview=1` only works outside production; production public payment pages should use the deployed `PayLinkProfile` contract.
+`preview=1` only works outside production; production public profile payment pages should use the deployed `PayLinkProfile` contract.
 
 ## Production Configuration
 
@@ -175,7 +175,7 @@ After deployment, copy the contract address and deployment block into the matchi
 - Primary target: MiniPay on Celo.
 - Use MiniPay for the canonical mobile review before retesting the same public profile link in other injected wallets.
 - Any injected wallet that can switch to Celo, approve ERC-20 allowances, and submit contract writes can exercise the same profile and payment flows.
-- Public payment pages, success receipts, and recent payments are designed to work without a backend or indexer.
+- Public profile payment pages, success receipts, and recent payments are designed to work without a backend or indexer.
 
 ## Release Checks
 
