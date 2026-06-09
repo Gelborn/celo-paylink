@@ -255,7 +255,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     home: {
       eyebrow: "Payment profiles for MiniPay",
-      title: "A trusted profile link for direct Celo payments.",
+      title: "A trusted public profile link for direct Celo payments.",
       description:
         "Create a public profile, choose the token you accept, and send clients one clean way to pay you on Celo.",
       heroSupport:
@@ -523,7 +523,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     home: {
       eyebrow: "Perfis de pagamento para MiniPay",
-      title: "Um link de perfil confiável para pagamentos diretos na Celo.",
+      title: "Um link de perfil público confiável para pagamentos diretos na Celo.",
       description:
         "Crie um perfil público, escolha o token que aceita e envie aos clientes uma forma simples de pagar você na Celo.",
       heroSupport:
