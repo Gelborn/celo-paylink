@@ -33,6 +33,7 @@
 - Confirm the selected token and amount match PayLink before approving or sending in the wallet.
 - Open the same public profile payment page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
 - Open the public profile URL without query parameters and confirm the default payment prompt is clear.
+- Tap each suggested amount once on mobile and confirm the amount field updates without layout shift.
 - Navigate the public profile payment page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
 - Enable reduced motion once and confirm the home demo remains understandable without animation.
 - Increase browser text size once and confirm the public profile payment controls remain usable.
