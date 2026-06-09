@@ -31,6 +31,7 @@ If the wallet connection stalls during judging, switch to the preview link and n
 5. Pick a token, choose a preset amount, and add a short reference.
    Say that the reference carries through to the receipt and recent payment history.
 6. Approve the token if needed.
+   If the wallet shows a separate approval prompt, call it out before the payment confirmation.
 7. Send the payment and wait for confirmation.
    Keep the wallet confirmation visible briefly so the amount and token are legible.
    Wait for PayLink to return to the success receipt before stopping the recording.
