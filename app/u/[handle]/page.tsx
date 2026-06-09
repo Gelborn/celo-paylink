@@ -61,7 +61,7 @@ export async function generateMetadata({
     ? `${profile.displayName} (${handleLabel})`
     : `${handleLabel} · MiniPay PayLink`;
   const description = profile
-    ? profile.bio || profile.paymentMessage || "Send a direct Celo stablecoin payment through MiniPay PayLink."
+    ? profile.bio || profile.paymentMessage || "Send a direct Celo stablecoin payment through this MiniPay PayLink public profile."
     : previewMode
       ? "Preview a MiniPay PayLink public payment profile."
       : `Open ${handleLabel} on MiniPay PayLink to send a direct Celo payment.`;
