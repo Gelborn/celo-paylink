@@ -2,7 +2,7 @@
 
 ## Slide 1
 - MiniPay PayLink
-- A shareable stablecoin payment profile for freelancers and solo merchants
+- A public stablecoin payment profile for freelancers and solo merchants
 
 ## Slide 2
 - Problem
