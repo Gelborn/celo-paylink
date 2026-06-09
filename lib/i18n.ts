@@ -262,7 +262,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Payments settle directly in your wallet. PayLink never takes custody.",
       heroChips: [
         "Direct wallet settlement",
-        "Reusable request links",
+        "Prefilled request links",
         "Built for MiniPay"
       ],
       demoCaption:
@@ -530,7 +530,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "O pagamento liquida direto na sua carteira. O PayLink nunca fica com os fundos.",
       heroChips: [
         "Liquidação direta na carteira",
-        "Links de cobrança reutilizáveis",
+        "Links de cobrança preenchidos",
         "Feito para MiniPay"
       ],
       demoCaption:
