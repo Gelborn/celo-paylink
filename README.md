@@ -173,7 +173,7 @@ After deployment, copy the contract address and deployment block into the matchi
 ## Wallet Support
 
 - Primary target: MiniPay on Celo.
-- Use MiniPay for the canonical mobile review before retesting the same pay link in other injected wallets.
+- Use MiniPay for the canonical mobile review before retesting the same profile link in other injected wallets.
 - Any injected wallet that can switch to Celo, approve ERC-20 allowances, and submit contract writes can exercise the same profile and payment flows.
 - Public payment pages, success receipts, and recent payments are designed to work without a backend or indexer.
 
