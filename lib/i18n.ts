@@ -266,7 +266,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Built for MiniPay"
       ],
       demoCaption:
-        "Public page, wallet confirmation, and receipt in one flow.",
+        "Public profile, wallet confirmation, and receipt in one flow.",
       proofEyebrow: "Trust built in",
       proofTitle: "Clear payment details before anyone sends.",
       proofDescription:
@@ -534,7 +534,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Feito para MiniPay"
       ],
       demoCaption:
-        "Página pública, confirmação na carteira e comprovante em um só fluxo.",
+        "Perfil público, confirmação na carteira e comprovante em um só fluxo.",
       proofEyebrow: "Confiança integrada",
       proofTitle: "Dados claros antes de qualquer pagamento.",
       proofDescription:
