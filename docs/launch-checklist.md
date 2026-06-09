@@ -44,6 +44,7 @@
 - Test a request reference with a space and confirm it stays readable after sharing the link.
 - Test a request amount with cents and confirm the payment and receipt keep the decimal value readable.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
+- Reload after switching locale and confirm the selected language remains consistent.
 - Confirm profile creation, profile updates, and request-link generation.
 - Open a fresh profile with no payments and confirm the recent-payments empty state is clear.
 - Open the final avatar URL directly and confirm the image loads over HTTPS before screenshots.
