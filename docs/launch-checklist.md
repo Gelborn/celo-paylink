@@ -14,6 +14,7 @@
 - Re-check supported token addresses against the latest Celo token docs before mainnet release.
 - Run `npm run build` once with the production environment values.
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
+- Confirm the public profile preview uses the submitted handle and display name, not the demo fallback copy.
 - Open `/og.svg` on the deployed origin and confirm the social preview image is reachable over HTTPS.
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm private routes stay hidden.
