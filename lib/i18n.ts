@@ -315,7 +315,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     dashboard: {
       eyebrow: "Dashboard",
-      titleNoProfile: "Publish your payment profile",
+      titleNoProfile: "Publish your public profile",
       titleWithProfile: "Manage your PayLink",
       descriptionNoProfile:
         "Claim a handle, add your public details, and publish the profile people will use to pay you.",
@@ -339,7 +339,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       emptyTransactions:
         "Incoming payments will appear here after someone pays through your public profile or request link.",
       connectPrompt:
-        "Open in MiniPay or connect a browser wallet to create and manage your payment profile."
+        "Open in MiniPay or connect a browser wallet to create and manage your public profile."
     },
     profileDiscovery: {
       eyebrow: "Published profiles",
@@ -583,7 +583,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     dashboard: {
       eyebrow: "Painel",
-      titleNoProfile: "Publique seu perfil de pagamentos",
+      titleNoProfile: "Publique seu perfil público",
       titleWithProfile: "Gerencie seu PayLink",
       descriptionNoProfile:
         "Escolha um handle, adicione seus dados públicos e publique o perfil que as pessoas vão usar para pagar você.",
@@ -607,7 +607,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       emptyTransactions:
         "Os pagamentos recebidos aparecerão aqui depois que alguém pagar pelo seu perfil público ou link de cobrança.",
       connectPrompt:
-        "Abra no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil de pagamento."
+        "Abra no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil público."
     },
     profileDiscovery: {
       eyebrow: "Perfis publicados",
