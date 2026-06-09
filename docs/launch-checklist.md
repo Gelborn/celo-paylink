@@ -31,6 +31,7 @@
 - Test the public profile payment page inside MiniPay on phone.
 - Confirm the wallet is on Celo before approving or sending the payment.
 - Confirm the selected token and amount match PayLink before approving or sending in the wallet.
+- Reject one wallet prompt and confirm the page shows a clear retry path.
 - Open the same public profile payment page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
 - Open the public profile URL without query parameters and confirm the default payment prompt is clear.
 - Tap each suggested amount once on mobile and confirm the amount field updates without layout shift.
