@@ -429,7 +429,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       checking: "Checking...",
       transaction: "Transaction",
       owner: "Owner view",
-      visitor: "Public view"
+      visitor: "Public profile"
     },
     messages: {
       contractReady: "Profile updates are written directly to the deployed PayLink contract.",
@@ -697,7 +697,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       checking: "Verificando...",
       transaction: "Transação",
       owner: "Seu perfil",
-      visitor: "Página pública"
+      visitor: "Perfil público"
     },
     messages: {
       contractReady: "As alterações do perfil são gravadas direto no contrato do PayLink.",
