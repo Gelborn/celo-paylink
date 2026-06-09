@@ -95,6 +95,7 @@ npm run dev
 ```
 
 For phone testing on the same network, run `npm run dev:mobile` and open the printed network URL from MiniPay.
+Use that printed network URL for local QR-code or share-link tests on the phone.
 Keep the phone and dev machine on the same Wi-Fi; `localhost` only works from the machine running Next.js.
 
 For a quick reviewer demo without connecting a wallet or deploying a contract, open:
