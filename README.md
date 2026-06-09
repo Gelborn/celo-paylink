@@ -29,7 +29,7 @@ Use human-readable decimal amounts such as `5` or `5.50`; do not use token base 
 MiniPay PayLink is built around one simple flow:
 
 1. Create a public payment profile.
-2. Share your public page or a prefilled charge link.
+2. Share your public page or a prefilled request link.
 3. Get paid directly in Celo stablecoins.
 
 ## Features
