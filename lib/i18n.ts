@@ -349,7 +349,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       searchTab: "Search",
       searchTitle: "Find a profile",
       searchDescription:
-        "Enter an exact handle to open its public payment profile.",
+        "Enter an exact handle to open its public profile.",
       searchPlaceholder: "creator_handle",
       latestTitle: "Recent profiles",
       latestDescription:
@@ -617,7 +617,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       searchTab: "Buscar",
       searchTitle: "Buscar perfil",
       searchDescription:
-        "Digite o handle exato para abrir o perfil público de pagamento.",
+        "Digite o handle exato para abrir o perfil público.",
       searchPlaceholder: "criador_handle",
       latestTitle: "Perfis recentes",
       latestDescription:
