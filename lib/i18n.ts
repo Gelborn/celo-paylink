@@ -222,7 +222,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     nav: {
       home: "Home",
       dashboard: "Dashboard",
-      publicPage: "Public page"
+      publicPage: "Public profile"
     },
     actions: {
       createProfile: "Create profile",
@@ -490,7 +490,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     nav: {
       home: "Início",
       dashboard: "Painel",
-      publicPage: "Página pública"
+      publicPage: "Perfil público"
     },
     actions: {
       createProfile: "Criar perfil",
