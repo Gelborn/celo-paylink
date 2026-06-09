@@ -41,6 +41,8 @@ const PaymentPanelIsland = dynamic(
       <div
         id="paylink-payment-panel"
         className="space-y-5 rounded-lg border border-white/10 bg-zinc-950 px-5 py-5"
+        role="status"
+        aria-label="Loading payment form"
         aria-busy="true"
       >
         <div className="space-y-3">
