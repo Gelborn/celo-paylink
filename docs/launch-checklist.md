@@ -34,7 +34,7 @@
 - Open the public profile URL without query parameters and confirm the default payment prompt is clear.
 - Navigate the public profile payment page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
 - Enable reduced motion once and confirm the home demo remains understandable without animation.
-- Increase browser text size once and confirm the public payment controls remain usable.
+- Increase browser text size once and confirm the public profile payment controls remain usable.
 - Open the copied request link on a second device and confirm the amount, token, and reference are prefilled.
 - Open the copied request link in a private browser window and confirm it does not rely on owner session state.
 - Test an unsupported `token` query once and confirm the page falls back to a supported token.
