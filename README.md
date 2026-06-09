@@ -116,7 +116,7 @@ Use the same browser locale for both preview URLs so the payment page and receip
 
 The demo receipt URL uses a fixed transaction hash for UI review; live receipts should use the hash returned by the wallet flow.
 
-`preview=1` only works outside production; production public pages should use the deployed `PayLinkProfile` contract.
+`preview=1` only works outside production; production public payment pages should use the deployed `PayLinkProfile` contract.
 
 ## Production Configuration
 
