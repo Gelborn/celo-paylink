@@ -57,6 +57,8 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
   const content = (
     <motion.div
       className="rounded-lg border border-white/10 bg-zinc-950/45 p-3"
+      role="group"
+      aria-label={label}
       variants={fadeUp}
       initial="hidden"
       animate="show"
