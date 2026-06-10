@@ -447,7 +447,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       paymentComplete: "Payment complete.",
       connectBeforeSave: "Connect your wallet before publishing this profile.",
       connectBeforePay: "Connect a wallet to send this payment.",
-      fillAllFields: "Complete the required fields before publishing.",
+      fillAllFields: "Complete handle, display name, bio, and token before publishing.",
       invalidImage:
         "Avatar URL must be blank or start with https://.",
       missingAmount: "Enter an amount to continue.",
@@ -715,7 +715,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       paymentComplete: "Pagamento concluído.",
       connectBeforeSave: "Conecte sua carteira antes de publicar este perfil.",
       connectBeforePay: "Conecte uma carteira para enviar este pagamento.",
-      fillAllFields: "Preencha os campos obrigatórios antes de publicar.",
+      fillAllFields: "Preencha handle, nome exibido, bio e token antes de publicar.",
       invalidImage:
         "A URL do avatar deve ficar vazia ou começar com https://.",
       missingAmount: "Informe um valor para continuar.",
