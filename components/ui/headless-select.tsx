@@ -20,6 +20,7 @@ export function HeadlessSelect({
   className,
   triggerClassName,
   invalid = false,
+  disabled = false,
   align = "left"
 }: {
   label?: string;
@@ -30,6 +31,7 @@ export function HeadlessSelect({
   className?: string;
   triggerClassName?: string;
   invalid?: boolean;
+  disabled?: boolean;
   align?: "left" | "right";
 }) {
   const selectId = useId();
@@ -52,11 +54,12 @@ export function HeadlessSelect({
           id={selectId}
           aria-label={label ? undefined : accessibleLabel}
           aria-invalid={invalid ? true : undefined}
+          disabled={disabled}
           lang={selected?.lang}
           value={value}
           onChange={(event) => onChange(event.target.value)}
           className={clsx(
-            "min-h-12 min-w-0 w-full appearance-none rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(20,21,24,0.9),rgba(11,12,14,0.96))] px-4 py-3 pr-11 text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] transition-[background-color,border-color,box-shadow] duration-200 hover:border-white/20 focus:border-[color:var(--accent-line)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]",
+            "min-h-12 min-w-0 w-full appearance-none rounded-lg border border-white/10 bg-[linear-gradient(180deg,rgba(20,21,24,0.9),rgba(11,12,14,0.96))] px-4 py-3 pr-11 text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] transition-[background-color,border-color,box-shadow] duration-200 hover:border-white/20 focus:border-[color:var(--accent-line)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] disabled:cursor-not-allowed disabled:opacity-55",
             invalid &&
               "border-red-400/70 focus:border-red-400 focus-visible:ring-red-400/30",
             triggerClassName
