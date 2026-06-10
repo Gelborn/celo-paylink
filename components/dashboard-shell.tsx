@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   CheckCircle2,
@@ -54,6 +54,7 @@ export function DashboardShell({
 }) {
   const { dictionary } = useLocale();
   const router = useRouter();
+  const chargeViewTitleId = useId();
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [publishStage, setPublishStage] = useState<PublishStage | null>(null);
   const [activeTab, setActiveTab] = useState<DashboardTab>("manage");
@@ -495,14 +496,21 @@ export function DashboardShell({
                       exit="exit"
                     >
                       {manageView === "invoice" ? (
-                        <Card className="compact-card">
+                        <Card
+                          className="compact-card"
+                          role="region"
+                          aria-labelledby={chargeViewTitleId}
+                        >
                           <CardContent className="space-y-6 px-5 py-5 sm:px-6 sm:py-6">
                             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                               <div>
                                 <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                                   {dictionary.dashboard.chargeSection}
                                 </p>
-                                <h3 className="mt-2 text-xl font-semibold text-white">
+                                <h3
+                                  id={chargeViewTitleId}
+                                  className="mt-2 text-xl font-semibold text-white"
+                                >
                                   {dictionary.actions.createChargeLink}
                                 </h3>
                                 <p className="mt-2 max-w-2xl text-sm leading-7 text-zinc-400">
