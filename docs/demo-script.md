@@ -12,7 +12,7 @@ Keep the live reference short so it stays legible in the wallet and receipt scre
 During the live pass, call out that payments settle directly to the recipient wallet with no platform custody.
 Use a real created handle for the live pass; keep `demo-paylink` for preview-only fallback URLs.
 
-Before the live pass, confirm the demo wallet has enough of the selected token for the requested amount.
+Before the live pass, confirm the demo wallet has enough of the selected token for the requested amount and a little CELO for network fees.
 
 Keep the MiniPay phone unlocked on the public profile payment page before starting the 90-second timer.
 Keep the final request link open in a second tab in case the phone needs a quick reload.
