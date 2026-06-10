@@ -4,6 +4,7 @@
   "description": "MiniPay-ready public payment profile and request links for direct Celo stablecoin payments.",
   "keywords": [
     "minipay",
+    "paylink",
     "celo",
     "celo-payments",
     "stablecoin",
