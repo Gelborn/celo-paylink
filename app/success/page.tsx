@@ -26,6 +26,8 @@ export const metadata: Metadata = {
     title: receiptTitle,
     description: receiptDescription,
     siteName: "MiniPay PayLink",
+    locale: "en_US",
+    alternateLocale: ["pt_BR"],
     type: "website",
     images: [
       {
