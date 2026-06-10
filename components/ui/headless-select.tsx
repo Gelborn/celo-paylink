@@ -50,7 +50,7 @@ export function HeadlessSelect({
       <div className="relative min-w-0">
         <select
           id={selectId}
-          aria-label={accessibleLabel}
+          aria-label={label ? undefined : accessibleLabel}
           aria-invalid={invalid ? true : undefined}
           lang={selected?.lang}
           value={value}
