@@ -67,7 +67,7 @@ export function HomeSectionIntro({
     <div className="max-w-3xl space-y-3">
       <AccentBadge>{eyebrow}</AccentBadge>
       <div className="space-y-3">
-        <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+        <h2 className="text-3xl font-semibold tracking-normal text-white md:text-4xl">
           {title}
         </h2>
         <p className="text-base leading-8 text-zinc-400">{description}</p>
