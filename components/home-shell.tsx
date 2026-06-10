@@ -69,6 +69,9 @@ export function HomeShell({
   const openPublicPageLabel = profile
     ? `${dictionary.actions.openPublicPage}: @${profile.handle}`
     : dictionary.actions.openPublicPage;
+  const openDashboardLabel = profile
+    ? `${dictionary.actions.openDashboard}: @${profile.handle}`
+    : dictionary.actions.openDashboard;
   const showConnectAction =
     hasProvider && !account && (!isMiniPay || isDisconnectedByUser);
 
@@ -142,6 +145,7 @@ export function HomeShell({
                       size="lg"
                       className="w-full sm:w-auto"
                       leftIcon={<LayoutDashboard aria-hidden="true" />}
+                      aria-label={openDashboardLabel}
                     >
                       {dictionary.actions.openDashboard}
                     </Button>
