@@ -22,6 +22,9 @@ const receiptDescription =
 export const metadata: Metadata = {
   title: receiptTitle,
   description: receiptDescription,
+  alternates: {
+    canonical: "/success"
+  },
   openGraph: {
     title: receiptTitle,
     description: receiptDescription,
