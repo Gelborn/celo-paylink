@@ -130,7 +130,7 @@ export function HomeStaticShell({
               <div className="space-y-4">
                 <AccentBadge>{dictionary.home.closingEyebrow}</AccentBadge>
                 <div className="space-y-3">
-                  <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                  <h2 className="max-w-3xl text-3xl font-semibold tracking-normal text-white md:text-4xl">
                     {dictionary.home.closingTitle}
                   </h2>
                   <p className="max-w-2xl text-base leading-8 text-zinc-300">
