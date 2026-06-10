@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     "stablecoin",
     "payments",
     "payment links",
+    "request links",
     "public payment profile",
     "creator payments",
     "freelancer payments"
