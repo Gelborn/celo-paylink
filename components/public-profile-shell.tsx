@@ -172,6 +172,7 @@ export function PublicProfileShell({
   ];
   const shareProfileLabel = `${dictionary.actions.shareProfile}: @${profile.handle}`;
   const shareCreatorLinkLabel = `${dictionary.actions.shareCreatorLink}: @${profile.handle}`;
+  const openDashboardLabel = `${dictionary.actions.openDashboard}: @${profile.handle}`;
 
   async function handleSharePublicPage() {
     try {
@@ -294,6 +295,7 @@ export function PublicProfileShell({
                       <Button
                         className="w-full"
                         leftIcon={<LayoutDashboard aria-hidden="true" />}
+                        aria-label={openDashboardLabel}
                       >
                         {dictionary.actions.openDashboard}
                       </Button>
