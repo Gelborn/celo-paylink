@@ -51,5 +51,6 @@
 ## Slide 8
 - Next steps
 - Shareable PayLink QR codes for in-person payments
+- Saved receipt links for client bookkeeping
 - Lightweight invoice templates
 - Merchant-specific amount presets
