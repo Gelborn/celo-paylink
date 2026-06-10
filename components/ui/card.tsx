@@ -46,7 +46,7 @@ export function CardTitle({
   ...props
 }: HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h2 className={clsx("text-lg font-semibold tracking-tight text-white sm:text-xl", className)} {...props} />
+    <h2 className={clsx("text-lg font-semibold tracking-normal text-white sm:text-xl", className)} {...props} />
   );
 }
 
