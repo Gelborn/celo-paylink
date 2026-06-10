@@ -98,6 +98,9 @@ export function DashboardShell({
         ? `${dictionary.labels.shared}: ${publicLinkLabel}`
         : `${dictionary.actions.copyLink}: ${publicLinkLabel}`;
   const sharePublicLinkLabel = `${dictionary.actions.shareLink}: ${publicLinkLabel}`;
+  const openPublicPageLabel = profile
+    ? `${dictionary.actions.openPublicPage}: @${profile.handle}`
+    : dictionary.actions.openPublicPage;
   const preferredToken = profile
     ? getTokenByAddress(profile.preferredToken, initialChainId)
     : null;
@@ -601,6 +604,7 @@ export function DashboardShell({
                                     variant="secondary"
                                     className="w-full sm:min-w-[12rem]"
                                     leftIcon={<Eye aria-hidden="true" />}
+                                    aria-label={openPublicPageLabel}
                                   >
                                     {dictionary.actions.openPublicPage}
                                   </Button>
