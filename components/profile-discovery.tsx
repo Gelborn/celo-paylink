@@ -275,6 +275,7 @@ export function ProfileDiscovery({
             role="region"
             aria-labelledby={searchResultTitleId}
             aria-live="polite"
+            aria-atomic="true"
             variants={panelSwap}
             initial="hidden"
             animate="show"
