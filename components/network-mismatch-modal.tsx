@@ -59,7 +59,7 @@ export function NetworkMismatchModal({
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
             {eyebrow}
           </p>
-          <h2 id={titleId} className="mt-4 text-3xl font-semibold tracking-tight text-white">
+          <h2 id={titleId} className="mt-4 text-3xl font-semibold tracking-normal text-white">
             {title}
           </h2>
           <p id={descriptionId} className="mt-4 text-sm leading-7 text-zinc-400">
