@@ -13,6 +13,7 @@
 - Confirm `NEXT_PUBLIC_DEFAULT_CHAIN=celo` for the production build.
 - Confirm `NEXT_PUBLIC_CELO_MAINNET_RPC_URL` uses a browser-safe Celo mainnet endpoint for production.
 - Re-check supported token addresses against the latest Celo token docs before mainnet release.
+- Run `npm run lint` before recording final screenshots or demo footage.
 - Run `npm run build` once with the production environment values.
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
 - Confirm the public profile preview uses the submitted handle and display name, not the demo fallback copy.
