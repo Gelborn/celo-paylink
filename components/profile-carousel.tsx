@@ -105,7 +105,7 @@ export function ProfileCarousel({
           {dictionary.profileDiscovery.eyebrow}
         </Badge>
         <div className="space-y-3">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-normal text-white md:text-4xl">
             {dictionary.profileDiscovery.title}
           </h2>
           <p className="text-base leading-8 text-zinc-400">
