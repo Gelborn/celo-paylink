@@ -9,6 +9,7 @@
     "celo-payments",
     "stablecoin",
     "stablecoin-payments",
+    "payment-links",
     "payment-profile",
     "request-links",
     "payment-receipts",
