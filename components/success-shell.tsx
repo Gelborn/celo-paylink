@@ -172,7 +172,7 @@ export function SuccessShell({
                   </Link>
                 ) : null}
                 {handle ? (
-                  <Link href={`/u/${handle}`}>
+                  <Link href={`/u/${handle}`} aria-label={`${dictionary.actions.viewProfile}: @${handle}`}>
                     <Button size="lg" leftIcon={<UserRound aria-hidden="true" />}>
                       {dictionary.actions.viewProfile} @{handle}
                     </Button>
