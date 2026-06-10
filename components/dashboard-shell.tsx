@@ -148,7 +148,7 @@ export function DashboardShell({
     if (!publicUrl) return;
 
     try {
-      const nextStatus = await shareOrCopyUrl(publicUrl);
+      const nextStatus = await shareOrCopyUrl(publicUrl, publicLinkLabel);
       setShareStatus(nextStatus);
       window.setTimeout(() => setShareStatus("idle"), 1600);
     } catch (error) {

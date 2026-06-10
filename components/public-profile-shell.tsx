@@ -189,7 +189,7 @@ export function PublicProfileShell({
 
   async function handleSharePublicPage() {
     try {
-      const nextStatus = await shareOrCopyUrl(publicUrl);
+      const nextStatus = await shareOrCopyUrl(publicUrl, shareProfileLabel);
       setShareStatus(nextStatus);
       window.setTimeout(() => setShareStatus("idle"), 1600);
     } catch (error) {
