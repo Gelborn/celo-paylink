@@ -253,7 +253,7 @@ export function ProfileDiscovery({
         </div>
 
         <FeedbackMessage
-          tone={searchState === "error" ? "error" : "muted"}
+          tone={searchState === "error" || searchState === "too-short" ? "error" : "muted"}
           className="mt-4"
         >
           {!contractAddress
