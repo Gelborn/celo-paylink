@@ -279,7 +279,7 @@ export function PublicProfileShell({
                 <div className="min-w-0 space-y-2">
                   <Badge variant={isOwner ? "accent" : "neutral"}>@{profile.handle}</Badge>
                   <div>
-                    <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-[2rem]">
+                    <h2 className="text-2xl font-semibold tracking-normal text-white sm:text-[2rem]">
                       {profile.displayName}
                     </h2>
                     <p className="mt-1 text-sm leading-6 text-zinc-400">{profile.bio}</p>
