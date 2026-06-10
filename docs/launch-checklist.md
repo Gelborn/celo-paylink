@@ -15,6 +15,7 @@
 - Confirm `NEXT_PUBLIC_CELO_MAINNET_RPC_URL` uses a browser-safe Celo mainnet endpoint for production.
 - Re-check supported token addresses against the latest Celo token docs before mainnet release.
 - Run `npm run lint` before recording final screenshots or demo footage.
+- Run `npm run compile` before contract tests so the latest ABI and bytecode are checked.
 - Run `npm test` before the production build so contract coverage is fresh.
 - Run `npm run typecheck` before the production build so generated Next.js types are current.
 - Run `npm run build` once with the production environment values.
