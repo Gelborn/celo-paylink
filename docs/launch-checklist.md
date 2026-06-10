@@ -70,6 +70,7 @@
 - Confirm the success-screen amount, token, and reference match the public request link.
 - Confirm the final request link and receipt URL use the same public profile handle.
 - Confirm any copied PayLink receipt URL uses the final HTTPS origin before sharing it.
+- Share one PayLink receipt URL in a link preview tool and confirm the receipt title and image render correctly.
 - Reopen the success URL in a private browser window and confirm receipt details remain visible.
 - Use browser back from the success screen and confirm it returns to the public profile without an error.
 - Confirm final screenshots use the same locale and deployed origin as the submitted demo links.
