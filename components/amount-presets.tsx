@@ -30,7 +30,7 @@ export function AmountPresets({
             whileTap={softTap}
             transition={motionTransitions.spring}
             onClick={() => onSelect(String(value))}
-            aria-label={`${label}: ${value}`}
+            aria-label={`${label}: $${value}`}
             aria-pressed={active}
             className={`min-w-12 rounded-lg border px-3.5 py-2 text-sm font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] ${
               active
