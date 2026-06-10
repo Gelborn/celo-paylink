@@ -31,7 +31,7 @@
 - Open `/manifest.webmanifest` and confirm the app name, description, maskable icon, scope, and `display` mode match the production install.
 - Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS.
 - Open the manifest screenshot URL and confirm the mobile demo poster loads from the deployed origin.
-- Install the PWA once and confirm the Dashboard shortcut opens `/my`.
+- Install the PWA once and confirm the `Manage PayLink public profile` Dashboard shortcut opens `/my`.
 - Launch the installed PWA from its icon and confirm it opens the home page in standalone mode.
 - Rotate the phone once and confirm the installed PWA keeps the payment flow in portrait orientation.
 - Open a `preview=1` public profile URL on production and confirm demo data stays disabled.
