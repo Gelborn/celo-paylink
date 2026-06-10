@@ -8,9 +8,12 @@ export async function copyTextToClipboard(text: string) {
   await navigator.clipboard.writeText(text);
 }
 
-export async function shareOrCopyUrl(url: string): Promise<"shared" | "copied"> {
+export async function shareOrCopyUrl(
+  url: string,
+  title?: string
+): Promise<"shared" | "copied"> {
   if (navigator.share) {
-    await navigator.share({ url });
+    await navigator.share({ title, url });
     return "shared";
   }
 

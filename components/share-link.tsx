@@ -41,7 +41,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
 
   async function handleShare() {
     try {
-      const nextStatus = await shareOrCopyUrl(url);
+      const nextStatus = await shareOrCopyUrl(url, label);
       setStatus(nextStatus);
       window.setTimeout(() => setStatus("idle"), 1600);
     } catch (error) {
