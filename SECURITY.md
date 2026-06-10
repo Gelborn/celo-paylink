@@ -20,7 +20,7 @@ Send a report to the repository owner with:
 - browser, wallet, and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
 - approximate time observed, including timezone, if it happened on a live deployment
-- transaction hashes or explorer links, if applicable
+- transaction hashes or explorer links, if applicable and safe to share
 - impact assessment
 - whether funds, profile metadata, or receipt display were affected
 - any suggested mitigation
