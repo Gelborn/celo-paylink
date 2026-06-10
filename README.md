@@ -115,6 +115,7 @@ To preview the matching receipt state, open:
 If you change the demo amount, token, or reference, keep the same values in both preview URLs.
 Keep the same handle in both preview URLs so the payment and receipt states point to the same profile.
 Use the same browser locale for both preview URLs so the payment page and receipt copy match.
+For Portuguese screenshots, switch the browser language to Portuguese (Brazil) before opening both preview URLs.
 Use the same mobile viewport for both preview URLs so screenshots show the payment and receipt states at matching scale.
 
 The demo receipt URL uses a fixed transaction hash for UI review; live receipts should use the hash returned by the wallet flow.
