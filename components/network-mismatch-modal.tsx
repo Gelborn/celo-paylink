@@ -42,7 +42,7 @@ export function NetworkMismatchModal({
         className="w-full max-w-md"
       >
         <Card
-        role="dialog"
+        role="alertdialog"
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
