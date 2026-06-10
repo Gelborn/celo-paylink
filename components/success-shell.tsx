@@ -37,6 +37,7 @@ export function SuccessShell({
 }) {
   const { dictionary } = useLocale();
   const successTitleId = useId();
+  const transactionLabelId = useId();
   const {
     account,
     connect,
@@ -154,8 +155,15 @@ export function SuccessShell({
                   )}
                 </motion.ul>
 
-                <div className="mt-4 border-t border-white/10 pt-4">
-                  <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+                <div
+                  className="mt-4 border-t border-white/10 pt-4"
+                  role="group"
+                  aria-labelledby={transactionLabelId}
+                >
+                  <p
+                    id={transactionLabelId}
+                    className="text-xs uppercase tracking-[0.16em] text-zinc-500"
+                  >
                     {dictionary.labels.transaction}
                   </p>
                   <code className="mt-2 block break-all text-sm text-zinc-300">
