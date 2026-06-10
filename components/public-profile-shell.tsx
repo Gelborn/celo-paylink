@@ -173,6 +173,7 @@ export function PublicProfileShell({
   const shareProfileLabel = `${dictionary.actions.shareProfile}: @${profile.handle}`;
   const shareCreatorLinkLabel = `${dictionary.actions.shareCreatorLink}: @${profile.handle}`;
   const openDashboardLabel = `${dictionary.actions.openDashboard}: @${profile.handle}`;
+  const payCreatorLabel = `${dictionary.actions.payCreator}: @${profile.handle}`;
 
   async function handleSharePublicPage() {
     try {
@@ -390,6 +391,7 @@ export function PublicProfileShell({
                         onClick={() => setIsPaymentPanelOpen(true)}
                         aria-expanded={isPaymentPanelOpen}
                         aria-controls="paylink-payment-panel"
+                        aria-label={payCreatorLabel}
                       >
                         {dictionary.actions.payCreator}
                       </Button>
