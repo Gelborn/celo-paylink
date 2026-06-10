@@ -72,6 +72,9 @@ export function HomeShell({
   const openDashboardLabel = profile
     ? `${dictionary.actions.openDashboard}: @${profile.handle}`
     : dictionary.actions.openDashboard;
+  const viewProfileLabel = profile
+    ? `${dictionary.actions.viewProfile}: @${profile.handle}`
+    : dictionary.actions.viewProfile;
   const showConnectAction =
     hasProvider && !account && (!isMiniPay || isDisconnectedByUser);
 
@@ -233,6 +236,7 @@ export function HomeShell({
                       variant="outline"
                       className="w-full"
                       leftIcon={<Eye aria-hidden="true" />}
+                      aria-label={viewProfileLabel}
                     >
                       {dictionary.actions.viewProfile}
                     </Button>
