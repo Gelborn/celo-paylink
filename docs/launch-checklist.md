@@ -30,6 +30,7 @@
 - Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
 - Save the exact demo request link with its amount, token, and reference values for the final submission notes.
 - Test the public profile payment page inside MiniPay on phone.
+- Confirm the profile owner wallet and payer wallet are separate for the live payment test.
 - Confirm the wallet is on Celo before approving or sending the payment.
 - Confirm the selected token and amount match PayLink before approving or sending in the wallet.
 - Reject one wallet prompt and confirm the page shows a clear retry path.
