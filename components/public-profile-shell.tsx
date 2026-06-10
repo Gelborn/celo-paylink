@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useState, type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import {
   CheckCircle2,
   Coins,
@@ -108,6 +108,7 @@ export function PublicProfileShell({
   recentPaymentsSlot?: ReactNode;
 }) {
   const { dictionary } = useLocale();
+  const requestSummaryId = useId();
   const [shareStatus, setShareStatus] = useState<
     "idle" | "copied" | "shared" | "error"
   >("idle");
@@ -321,8 +322,15 @@ export function PublicProfileShell({
               ) : (
                 <div className="space-y-4">
                   {showInvoiceView ? (
-                    <div className="rounded-lg border border-white/10 bg-zinc-950/45 px-3.5 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:px-4 sm:py-4">
-                      <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
+                    <div
+                      className="rounded-lg border border-white/10 bg-zinc-950/45 px-3.5 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:px-4 sm:py-4"
+                      role="group"
+                      aria-labelledby={requestSummaryId}
+                    >
+                      <p
+                        id={requestSummaryId}
+                        className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500"
+                      >
                         {dictionary.publicPage.requestSummaryLabel}
                       </p>
                       <div className="mt-3 grid min-w-0 gap-2.5 sm:grid-cols-2 sm:gap-3">
