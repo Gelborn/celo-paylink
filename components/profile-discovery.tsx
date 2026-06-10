@@ -116,6 +116,13 @@ export function ProfileDiscovery({
   const [query, setQuery] = useState("");
   const [searchState, setSearchState] = useState<SearchState>("idle");
   const [searchResult, setSearchResult] = useState<ProfileRecord | null>(null);
+  const searchButtonAction =
+    searchState === "loading"
+      ? dictionary.profileDiscovery.loading
+      : dictionary.profileDiscovery.searchTab;
+  const searchButtonLabel = query
+    ? `${searchButtonAction}: @${query}`
+    : `${searchButtonAction}: ${dictionary.fields.handle}`;
 
   async function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -240,6 +247,7 @@ export function ProfileDiscovery({
                 className="w-full sm:w-auto sm:min-w-[8rem]"
                 leftIcon={<Search aria-hidden="true" />}
                 disabled={!contractAddress || searchState === "loading"}
+                aria-label={searchButtonLabel}
               >
                 {searchState === "loading"
                   ? dictionary.profileDiscovery.loading
