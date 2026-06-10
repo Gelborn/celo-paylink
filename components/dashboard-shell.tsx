@@ -521,6 +521,7 @@ export function DashboardShell({
                                 variant="ghost"
                                 leftIcon={<LayoutDashboard aria-hidden="true" />}
                                 onClick={() => setManageView("overview")}
+                                aria-label={`${dictionary.actions.cancel}: ${dictionary.actions.createChargeLink}`}
                               >
                                 {dictionary.actions.cancel}
                               </Button>
