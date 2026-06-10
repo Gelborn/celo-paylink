@@ -21,6 +21,12 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
     "idle" | "copied" | "shared" | "copy-error" | "share-error"
   >("idle");
   const { dictionary } = useLocale();
+  const copyButtonLabel =
+    status === "copied"
+      ? `${dictionary.labels.copied}: ${label}`
+      : status === "shared"
+        ? `${dictionary.labels.shared}: ${label}`
+        : `${dictionary.actions.copyLink}: ${label}`;
 
   async function handleCopy() {
     try {
@@ -68,7 +74,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
           variant="primary"
           className="w-full sm:w-auto"
           leftIcon={<Copy aria-hidden="true" />}
-          aria-label={`${dictionary.actions.copyLink}: ${label}`}
+          aria-label={copyButtonLabel}
         >
           {status === "copied"
             ? dictionary.labels.copied
