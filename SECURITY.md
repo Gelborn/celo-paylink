@@ -14,6 +14,7 @@ Send a report to the repository owner with:
 - reproduction steps or a proof of concept
 - expected and actual behavior
 - the affected route or Celo network, if applicable
+- the contract address and chain ID, if the report involves a live contract
 - the public handle involved, if safe to share
 - deployed URL or commit SHA, if known
 - whether it affects preview/demo mode, production flows, or both
