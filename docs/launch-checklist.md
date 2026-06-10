@@ -17,7 +17,7 @@
 - Confirm the public profile preview uses the submitted handle and display name, not the demo fallback copy.
 - Open `/og.svg` on the deployed origin and confirm the social preview image is reachable over HTTPS.
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
-- Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm private routes stay hidden.
+- Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes and receipt URLs stay unindexed.
 - Confirm `/sitemap.xml` lists the final HTTPS production origin, not localhost or a preview URL.
 - Open `/manifest.webmanifest` and confirm the app name, icon, scope, and `display` mode match the production install.
 - Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS.
