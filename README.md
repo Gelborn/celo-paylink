@@ -194,6 +194,7 @@ npm run build
 
 - Arbitrary remote avatar sources are allowed for this POC.
 - Avatar URLs must be `https://`.
+- Square images work best because PayLink displays avatars in a circular crop.
 - Invalid or non-HTTPS avatar URLs fall back to initials.
 
 ## Supported Tokens
