@@ -88,6 +88,16 @@ export function DashboardShell({
   });
 
   const publicUrl = profile ? buildShareUrl(appUrl, profile.handle) : "";
+  const publicLinkLabel = profile
+    ? `${dictionary.fields.publicLink}: @${profile.handle}`
+    : dictionary.fields.publicLink;
+  const copyPublicLinkLabel =
+    shareStatus === "copied"
+      ? `${dictionary.labels.copied}: ${publicLinkLabel}`
+      : shareStatus === "shared"
+        ? `${dictionary.labels.shared}: ${publicLinkLabel}`
+        : `${dictionary.actions.copyLink}: ${publicLinkLabel}`;
+  const sharePublicLinkLabel = `${dictionary.actions.shareLink}: ${publicLinkLabel}`;
   const preferredToken = profile
     ? getTokenByAddress(profile.preferredToken, initialChainId)
     : null;
@@ -538,7 +548,7 @@ export function DashboardShell({
                                   variant="outline"
                                   className="w-full sm:min-w-[10rem]"
                                   leftIcon={<Copy aria-hidden="true" />}
-                                  aria-label={`${dictionary.actions.copyLink}: ${dictionary.fields.publicLink}`}
+                                  aria-label={copyPublicLinkLabel}
                                   onClick={() => {
                                     void handleCopyProfileLink();
                                   }}
@@ -552,7 +562,7 @@ export function DashboardShell({
                                 <Button
                                   className="w-full sm:min-w-[10rem]"
                                   leftIcon={<Share2 aria-hidden="true" />}
-                                  aria-label={`${dictionary.actions.shareLink}: ${dictionary.fields.publicLink}`}
+                                  aria-label={sharePublicLinkLabel}
                                   onClick={() => {
                                     void handleShareProfile();
                                   }}
