@@ -201,7 +201,7 @@ export function DashboardShell({
     void switchToDefaultChain();
   };
   const tabButtonClassName = (selected: boolean) =>
-    `inline-flex min-w-[6.75rem] items-center justify-center gap-1.5 rounded-md border px-3 py-2 text-xs font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] sm:min-w-[8rem] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm [&>svg]:h-4 [&>svg]:w-4 ${
+    `inline-flex min-w-[6.75rem] items-center justify-center gap-1.5 rounded-md border px-3 py-2 text-xs font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] sm:min-w-[8rem] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm [&>svg]:h-4 [&>svg]:w-4 ${
       selected
         ? "border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)]"
         : "border-transparent text-zinc-400 hover:bg-white/5 hover:text-white"
