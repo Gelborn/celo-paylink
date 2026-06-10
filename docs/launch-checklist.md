@@ -8,6 +8,7 @@
 - Save the deployed app commit SHA with the final submission links.
 - Set `NEXT_PUBLIC_CONTRACT_ADDRESS_*` in the production environment.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` after deployment.
+- Confirm the deployment block value is the contract creation block, not the verification or first-payment block.
 - Confirm the deployment platform has the production environment values saved before triggering the build.
 - Confirm `NEXT_PUBLIC_APP_URL` points to the final public origin before recording or sharing screenshots.
 - Confirm `NEXT_PUBLIC_DEFAULT_CHAIN=celo` for the production build.
