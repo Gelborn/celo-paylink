@@ -337,6 +337,8 @@ export function ProfileEditor({
                 autoCapitalize="none"
                 autoCorrect="off"
                 enterKeyHint="next"
+                minLength={3}
+                maxLength={32}
                 spellCheck={false}
                 className={invalidFields.handle ? "border-red-400/70 focus:border-red-400" : undefined}
                 onChange={(event) =>
