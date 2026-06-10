@@ -50,6 +50,8 @@ export async function generateMetadata({
 }: HandlePageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
+  const locale = resolveLocaleFromRequest(await cookies(), await headers());
+  const openGraphLocale = locale === "pt-BR" ? "pt_BR" : "en_US";
   const chainId = getDefaultChainId();
   const contractAddress = getContractAddress(chainId);
   const previewMode = shouldUseDemoPreview(resolvedSearchParams.preview);
@@ -77,8 +79,8 @@ export async function generateMetadata({
       description,
       url: `${publicEnv.appUrl}/u/${resolvedParams.handle}`,
       siteName: "MiniPay PayLink",
-      locale: "en_US",
-      alternateLocale: ["pt_BR"],
+      locale: openGraphLocale,
+      alternateLocale: [openGraphLocale === "pt_BR" ? "en_US" : "pt_BR"],
       type: "website",
       images: [
         {
