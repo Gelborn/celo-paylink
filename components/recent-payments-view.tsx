@@ -16,6 +16,17 @@ type RecentPaymentsViewProps = {
   isLoading?: boolean;
 };
 
+function getRecentPaymentsTitleId(title: string, state: string) {
+  const slug = title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return `recent-payments-${slug || "section"}-${state}`;
+}
+
 export function RecentPaymentsView({
   payments,
   chainId,
@@ -24,17 +35,22 @@ export function RecentPaymentsView({
   locale,
   isLoading = false
 }: RecentPaymentsViewProps) {
+  const titleId = getRecentPaymentsTitleId(
+    title,
+    isLoading ? "loading" : payments.length === 0 ? "empty" : "list"
+  );
+
   if (isLoading) {
     return (
       <Card
         variant="elevated"
         className="compact-card"
         role="region"
-        aria-label={title}
+        aria-labelledby={titleId}
         aria-busy="true"
       >
         <CardHeader>
-          <CardTitle className="text-base">{title}</CardTitle>
+          <CardTitle id={titleId} className="text-base">{title}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3.5">
           <p
@@ -74,10 +90,10 @@ export function RecentPaymentsView({
         variant="elevated"
         className="compact-card"
         role="region"
-        aria-label={title}
+        aria-labelledby={titleId}
       >
         <CardHeader>
-          <CardTitle className="text-base">{title}</CardTitle>
+          <CardTitle id={titleId} className="text-base">{title}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-start gap-3 rounded-lg border border-dashed border-white/10 bg-zinc-950/45 px-4 py-5 text-sm leading-7 text-zinc-400">
@@ -96,10 +112,10 @@ export function RecentPaymentsView({
       variant="elevated"
       className="compact-card"
       role="region"
-      aria-label={title}
+      aria-labelledby={titleId}
     >
       <CardHeader>
-        <CardTitle className="text-base">{title}</CardTitle>
+        <CardTitle id={titleId} className="text-base">{title}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3.5">
         <motion.ul
