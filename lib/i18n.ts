@@ -631,7 +631,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       tooShort: "Digite pelo menos 3 caracteres do handle para buscar.",
       notFound: "Nenhum perfil publicado corresponde a esse handle.",
       error: "Não foi possível carregar os perfis agora. Tente novamente em instantes.",
-      exactHint: "Use o handle completo sem @. Letras, números, hífens e underscores são aceitos.",
+      exactHint: "Use o handle completo sem @. Letras, números, hífens e sublinhados são aceitos.",
       openProfile: "Abrir perfil"
     },
     publicPage: {
