@@ -158,7 +158,7 @@ npm run verify:sepolia
 npm run verify:mainnet
 ```
 
-After deployment, copy the contract address and numeric creation block into the matching `NEXT_PUBLIC_*` values before building the frontend.
+After deployment, copy the contract address and numeric creation block into the matching `NEXT_PUBLIC_*` values, then run the production build with those values in place.
 
 ## Environment Notes
 
