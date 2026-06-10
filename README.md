@@ -220,7 +220,7 @@ From the current Celo docs. Before a mainnet deployment, re-check these addresse
 
 - The repo includes CI, Dependabot, `SECURITY.md`, and explicit public/private env separation.
 - CI runs contract tests, lint, typecheck, and a production build on pushes and pull requests.
-- `robots.ts` and dashboard page metadata keep private dashboard routes out of indexing while receipts remain directly shareable.
+- `robots.ts` and page metadata keep dashboard and receipt routes out of indexing while receipt URLs remain directly shareable.
 - `sitemap.ts` publishes the canonical app origin for search engines; dynamic profile links are shared directly instead of being enumerated.
 - `manifest.ts` publishes install metadata, maskable install icons, the Dashboard shortcut, and the mobile demo screenshot.
 - Demo, launch, and pitch notes live in `docs/` so review assets stay separate from implementation code.
