@@ -32,6 +32,7 @@
 - Test the public profile payment page inside MiniPay on phone.
 - Confirm the profile owner wallet and payer wallet are separate for the live payment test.
 - Confirm the wallet is on Celo before approving or sending the payment.
+- Confirm the payer wallet has the selected token and a little CELO for network fees.
 - Confirm the selected token and amount match PayLink before approving or sending in the wallet.
 - Reject one wallet prompt and confirm the page shows a clear retry path.
 - Open the same public profile payment page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
