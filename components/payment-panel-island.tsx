@@ -296,6 +296,9 @@ export function PaymentPanelIsland({
     return (
       <motion.div
         className="space-y-5 rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] px-5 py-6 text-center sm:px-6"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
         variants={panelSwap}
         initial="hidden"
         animate="show"
