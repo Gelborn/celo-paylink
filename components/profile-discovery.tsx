@@ -53,7 +53,7 @@ function ProfileLinkCard({
       aria-label={`${dictionary.profileDiscovery.openProfile}: ${profileLabel}`}
       tabIndex={isDuplicate ? -1 : undefined}
       className={clsx(
-        "compact-card group flex h-full min-w-0 flex-col p-5 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70",
+        "compact-card group flex h-full min-w-0 flex-col p-5 transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)]",
         variant === "carousel" && "w-[min(19rem,calc(100vw-2rem))] shrink-0",
         variant === "result" && "border-[color:var(--accent-line)]"
       )}
