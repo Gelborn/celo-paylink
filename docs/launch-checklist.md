@@ -59,6 +59,7 @@
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
 - Reload after switching locale and confirm the selected language remains consistent.
 - Confirm profile creation, profile updates, and request-link generation.
+- Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear handle guidance.
 - Open a fresh profile with no payments and confirm the recent-payments empty state is clear.
 - Open the final avatar URL directly and confirm the image loads over HTTPS before screenshots.
 - Try a non-HTTPS avatar URL once and confirm the initials fallback appears.
