@@ -219,6 +219,11 @@ export function PublicProfileShell({
 
       <motion.section
         className="space-y-5"
+        aria-label={
+          isOwner
+            ? dictionary.publicPage.ownerTitle
+            : dictionary.publicPage.visitorTitle
+        }
         variants={fadeUp}
         initial="hidden"
         animate="show"
