@@ -170,6 +170,8 @@ export function PublicProfileShell({
       tokens: tokens.map((token) => token.symbol).join(", ")
     })
   ];
+  const shareProfileLabel = `${dictionary.actions.shareProfile}: @${profile.handle}`;
+  const shareCreatorLinkLabel = `${dictionary.actions.shareCreatorLink}: @${profile.handle}`;
 
   async function handleSharePublicPage() {
     try {
@@ -303,6 +305,7 @@ export function PublicProfileShell({
                       onClick={() => {
                         void handleSharePublicPage();
                       }}
+                      aria-label={shareProfileLabel}
                     >
                       {dictionary.actions.shareProfile}
                     </Button>
@@ -395,6 +398,7 @@ export function PublicProfileShell({
                         onClick={() => {
                           void handleSharePublicPage();
                         }}
+                        aria-label={shareCreatorLinkLabel}
                       >
                         {dictionary.actions.shareCreatorLink}
                       </Button>
@@ -445,6 +449,7 @@ export function PublicProfileShell({
                         onClick={() => {
                           void handleSharePublicPage();
                         }}
+                        aria-label={shareCreatorLinkLabel}
                       >
                         {dictionary.actions.shareCreatorLink}
                       </Button>
