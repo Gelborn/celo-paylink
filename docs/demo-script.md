@@ -31,7 +31,7 @@ If the explorer is slow during recording, keep the PayLink receipt visible and p
 2. Open `/my`, connect with MiniPay, and create or update the payment profile.
 3. Show the saved handle and copy the public profile link.
    Pause on the copied link long enough to make the public profile URL format clear.
-4. Open the public `/u/[handle]` page.
+4. Open the copied public `/u/[handle]` link so the final origin is visible.
 5. Pick a token, choose a preset amount, and add a short reference.
    Say that the reference carries through to the receipt and recent payment history.
 6. Approve the token if needed.
