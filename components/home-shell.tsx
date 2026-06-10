@@ -152,6 +152,7 @@ export function HomeShell({
                       size="lg"
                       className="w-full sm:w-auto"
                       leftIcon={<Copy aria-hidden="true" />}
+                      aria-label={`${dictionary.actions.copyProfile}: ${dictionary.fields.publicLink}`}
                       onClick={async () => {
                         try {
                           await copyTextToClipboard(publicUrl);
