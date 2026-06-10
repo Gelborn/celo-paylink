@@ -262,7 +262,7 @@ export function DashboardShell({
                   <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                     {dictionary.dashboard.profileSection}
                   </p>
-                  <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                  <h2 className="text-3xl font-semibold tracking-normal text-white sm:text-4xl">
                     {publishFlowCopy.title}
                   </h2>
                   <p className="mx-auto max-w-xl text-sm leading-7 text-zinc-400">
