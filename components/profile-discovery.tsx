@@ -21,7 +21,7 @@ import { FeedbackMessage } from "./ui/feedback-message";
 import { Input } from "./ui/input";
 import { useLocale } from "./locale-provider";
 
-type SearchState = "idle" | "loading" | "found" | "not-found" | "error";
+type SearchState = "idle" | "loading" | "found" | "too-short" | "not-found" | "error";
 
 type ProfileDiscoveryProps = {
   chainId: number;
@@ -124,8 +124,13 @@ export function ProfileDiscovery({
     setQuery(handle);
     setSearchResult(null);
 
-    if (!contractAddress || handle.length < 3) {
+    if (!contractAddress) {
       setSearchState("not-found");
+      return;
+    }
+
+    if (handle.length < 3) {
+      setSearchState("too-short");
       return;
     }
 
@@ -252,6 +257,8 @@ export function ProfileDiscovery({
         >
           {!contractAddress
             ? dictionary.profileDiscovery.unavailable
+            : searchState === "too-short"
+              ? dictionary.profileDiscovery.tooShort
             : searchState === "not-found"
               ? dictionary.profileDiscovery.notFound
               : searchState === "error"

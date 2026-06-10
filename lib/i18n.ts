@@ -103,6 +103,7 @@ export type Dictionary = {
     loading: string;
     empty: string;
     unavailable: string;
+    tooShort: string;
     notFound: string;
     error: string;
     exactHint: string;
@@ -358,6 +359,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       empty: "No published profiles found yet.",
       unavailable:
         "Profile discovery will appear after the contract is configured.",
+      tooShort: "Enter at least 3 handle characters to search.",
       notFound: "No published profile matches that handle.",
       error: "Profiles could not load right now. Try again in a moment.",
       exactHint: "Use the full handle without @. Letters, numbers, hyphens, and underscores are accepted.",
@@ -626,6 +628,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       empty: "Nenhum perfil publicado encontrado ainda.",
       unavailable:
         "A descoberta de perfis aparecerá depois que o contrato for configurado.",
+      tooShort: "Digite pelo menos 3 caracteres do handle para buscar.",
       notFound: "Nenhum perfil publicado corresponde a esse handle.",
       error: "Não foi possível carregar os perfis agora. Tente novamente em instantes.",
       exactHint: "Use o handle completo sem @. Letras, números, hífens e underscores são aceitos.",
