@@ -118,6 +118,7 @@ export type Dictionary = {
     invoiceDescription: string;
     paymentFormTitle: string;
     paymentFormDescription: string;
+    paymentFormLoading: string;
     requestSummaryLabel: string;
     missingTitle: string;
     missingDescription: string;
@@ -378,6 +379,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       paymentFormTitle: "Payment details",
       paymentFormDescription:
         "Choose an amount, token, and optional reference. If prompted, approve the token first, then confirm the payment.",
+      paymentFormLoading: "Loading payment form",
       requestSummaryLabel: "Prefilled request",
       missingTitle: "This PayLink is not published yet.",
       missingDescription:
@@ -647,6 +649,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       paymentFormTitle: "Dados do pagamento",
       paymentFormDescription:
         "Escolha valor, token e referência opcional. Se solicitado, aprove o token primeiro e depois confirme o pagamento.",
+      paymentFormLoading: "Carregando formulário de pagamento",
       requestSummaryLabel: "Cobrança preenchida",
       missingTitle: "Este PayLink ainda não foi publicado.",
       missingDescription:

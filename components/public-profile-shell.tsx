@@ -33,29 +33,35 @@ import { FeedbackMessage } from "./ui/feedback-message";
 import { DetailTile, IconFrame } from "./ui/patterns";
 import { SectionHeader } from "./ui/section-header";
 
+function PaymentPanelLoadingFallback() {
+  const { dictionary } = useLocale();
+
+  return (
+    <div
+      id="paylink-payment-panel"
+      className="space-y-5 rounded-lg border border-white/10 bg-zinc-950 px-5 py-5"
+      role="status"
+      aria-label={dictionary.publicPage.paymentFormLoading}
+      aria-busy="true"
+      aria-atomic="true"
+    >
+      <div className="space-y-3">
+        <div className="motion-shimmer h-4 w-40 animate-pulse rounded-full bg-white/10" />
+        <div className="motion-shimmer h-4 w-full animate-pulse rounded-full bg-white/5" />
+        <div className="motion-shimmer h-4 w-3/4 animate-pulse rounded-full bg-white/5" />
+      </div>
+      <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
+      <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
+      <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
+    </div>
+  );
+}
+
 const PaymentPanelIsland = dynamic(
   () => import("./payment-panel-island").then((module) => module.PaymentPanelIsland),
   {
     ssr: false,
-    loading: () => (
-      <div
-        id="paylink-payment-panel"
-        className="space-y-5 rounded-lg border border-white/10 bg-zinc-950 px-5 py-5"
-        role="status"
-        aria-label="Loading payment form"
-        aria-busy="true"
-        aria-atomic="true"
-      >
-        <div className="space-y-3">
-          <div className="motion-shimmer h-4 w-40 animate-pulse rounded-full bg-white/10" />
-          <div className="motion-shimmer h-4 w-full animate-pulse rounded-full bg-white/5" />
-          <div className="motion-shimmer h-4 w-3/4 animate-pulse rounded-full bg-white/5" />
-        </div>
-        <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
-        <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
-        <div className="motion-shimmer h-12 animate-pulse rounded-lg bg-white/5" />
-      </div>
-    )
+    loading: PaymentPanelLoadingFallback
   }
 );
 
