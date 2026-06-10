@@ -120,7 +120,7 @@ export function StepCard({
           <Icon aria-hidden="true" />
         </IconFrame>
         <div className="space-y-3">
-          <h3 className="text-xl font-semibold tracking-tight text-white">{title}</h3>
+          <h3 className="text-xl font-semibold tracking-normal text-white">{title}</h3>
           <p className="text-sm leading-7 text-zinc-400">{description}</p>
         </div>
       </CardContent>
