@@ -417,6 +417,7 @@ export function DashboardShell({
                   <div
                     role="tablist"
                     aria-label={dictionary.dashboard.eyebrow}
+                    aria-orientation="horizontal"
                     className="inline-flex min-w-full rounded-lg border border-white/10 bg-zinc-950/70 p-1 sm:min-w-0"
                   >
                     <motion.button
