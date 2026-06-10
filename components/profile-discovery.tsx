@@ -228,6 +228,7 @@ export function ProfileDiscovery({
                 disabled={!contractAddress}
                 aria-label={`${dictionary.profileDiscovery.searchTitle}: ${dictionary.fields.handle}`}
                 aria-describedby={searchHintId}
+                aria-invalid={searchState === "too-short" ? "true" : undefined}
                 autoComplete="off"
                 autoCapitalize="none"
                 autoCorrect="off"
