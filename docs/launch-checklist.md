@@ -22,6 +22,7 @@
 - Run `npm run build` once with the production environment values.
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
 - Confirm the public profile preview uses the submitted handle and display name, not the demo fallback copy.
+- View source for one public profile URL in `pt-BR` and confirm `og:locale` is `pt_BR`.
 - Open `/og.svg` on the deployed origin and confirm the social preview image is reachable over HTTPS.
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes and receipt URLs stay unindexed.
