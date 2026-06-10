@@ -488,6 +488,13 @@ export function PaymentPanelIsland({
               hasInsufficientBalance
             }
             aria-busy={isPaymentBusy ? true : undefined}
+            aria-label={
+              isPaymentBusy
+                ? dictionary.messages.waitingConfirmation
+                : selectedToken
+                  ? `${dictionary.actions.payNow}: ${amount || dictionary.placeholders.amount} ${selectedToken.symbol}`
+                  : dictionary.actions.payNow
+            }
           >
             {isPaymentBusy
               ? dictionary.messages.waitingConfirmation
