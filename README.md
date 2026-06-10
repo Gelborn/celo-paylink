@@ -222,7 +222,7 @@ From the current Celo docs. Before a mainnet deployment, re-check these addresse
 - CI runs contract tests, lint, typecheck, and a production build on pushes and pull requests.
 - `robots.ts` and page metadata keep dashboard and receipt routes out of indexing while receipt URLs remain directly shareable.
 - `sitemap.ts` publishes the canonical app origin for search engines; dynamic profile links are shared directly instead of being enumerated.
-- `manifest.ts` publishes install metadata, maskable install icons, the Dashboard shortcut, and the mobile demo screenshot.
+- `manifest.ts` publishes install metadata, maskable install icons, the `Manage PayLink public profile` shortcut, and the mobile demo screenshot.
 - Demo, launch, and pitch notes live in `docs/`, including preview URLs and launch checks that stay separate from implementation code.
 
 ## Docs
