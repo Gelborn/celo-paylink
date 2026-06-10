@@ -59,6 +59,13 @@ export function HomeShell({
   });
 
   const publicUrl = profile ? buildShareUrl(appUrl, profile.handle) : null;
+  const publicLinkLabel = profile
+    ? `${dictionary.fields.publicLink}: @${profile.handle}`
+    : dictionary.fields.publicLink;
+  const copyProfileLabel =
+    copyStatus === "copied"
+      ? `${dictionary.labels.copied}: ${publicLinkLabel}`
+      : `${dictionary.actions.copyProfile}: ${publicLinkLabel}`;
   const showConnectAction =
     hasProvider && !account && (!isMiniPay || isDisconnectedByUser);
 
@@ -152,7 +159,7 @@ export function HomeShell({
                       size="lg"
                       className="w-full sm:w-auto"
                       leftIcon={<Copy aria-hidden="true" />}
-                      aria-label={`${dictionary.actions.copyProfile}: ${dictionary.fields.publicLink}`}
+                      aria-label={copyProfileLabel}
                       onClick={async () => {
                         try {
                           await copyTextToClipboard(publicUrl);
