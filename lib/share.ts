@@ -13,7 +13,7 @@ export async function shareOrCopyUrl(
   title?: string
 ): Promise<"shared" | "copied"> {
   if (navigator.share) {
-    await navigator.share({ title, url });
+    await navigator.share(title ? { title, text: title, url } : { url });
     return "shared";
   }
 
