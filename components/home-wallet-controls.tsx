@@ -37,7 +37,7 @@ export function HomeWalletControls({
   const controls = account ? (
     <Link
       href="/my"
-      className="inline-flex h-9 items-center gap-2 rounded-full border border-white/10 bg-zinc-950/80 px-3 text-sm font-medium text-zinc-100 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-white/20 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+      className="inline-flex h-9 items-center gap-2 rounded-full border border-white/10 bg-zinc-950/80 px-3 text-sm font-medium text-zinc-100 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-white/20 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)]"
       aria-label={`${dictionary.labels.connectedWallet}: ${shortenAddress(account)}. ${dictionary.actions.openDashboard}`}
       title={account}
     >
