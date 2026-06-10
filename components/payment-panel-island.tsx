@@ -404,7 +404,7 @@ export function PaymentPanelIsland({
               <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                 {paymentOverlayCopy.eyebrow}
               </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white">
+              <h2 className="mt-3 text-2xl font-semibold tracking-normal text-white">
                 {paymentOverlayCopy.title}
               </h2>
               <p className="mt-2 text-sm leading-7 text-zinc-400">
