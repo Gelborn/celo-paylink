@@ -74,6 +74,11 @@ export function Header({
   const titleId = useId();
   const descriptionId = useId();
   const panelId = useId();
+  const connectedWalletLabel = account
+    ? profileName
+      ? `${dictionary.labels.connectedWallet}: ${profileName}, ${shortenAddress(account)}`
+      : `${dictionary.labels.connectedWallet}: ${shortenAddress(account)}`
+    : dictionary.labels.connectedWallet;
 
   useEffect(() => {
     if (!account) {
@@ -115,7 +120,7 @@ export function Header({
                 whileTap={softTap}
                 transition={motionTransitions.micro}
                 className="rounded-full border border-white/10 bg-zinc-950/80 p-1.5 transition hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
-                aria-label={`${dictionary.labels.connectedWallet}: ${shortenAddress(account)}`}
+                aria-label={connectedWalletLabel}
                 title={account}
                 aria-haspopup="dialog"
                 aria-expanded={open}
