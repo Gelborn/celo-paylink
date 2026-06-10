@@ -22,6 +22,7 @@ Send a report to the repository owner with:
 - screenshots or screen recordings with secrets redacted, if helpful
 - approximate time observed, including timezone, if it happened on a live deployment
 - transaction hashes or explorer links, if applicable and safe to share
+- affected token and amount, if funds or receipt display were involved
 - impact assessment
 - whether funds, profile metadata, or receipt display were affected
 - any suggested mitigation
