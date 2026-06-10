@@ -174,6 +174,7 @@ export function PublicProfileShell({
   const shareCreatorLinkLabel = `${dictionary.actions.shareCreatorLink}: @${profile.handle}`;
   const openDashboardLabel = `${dictionary.actions.openDashboard}: @${profile.handle}`;
   const payCreatorLabel = `${dictionary.actions.payCreator}: @${profile.handle}`;
+  const createYourOwnLabel = `${dictionary.actions.createYourOwn}: @${profile.handle}`;
 
   async function handleSharePublicPage() {
     try {
@@ -463,6 +464,7 @@ export function PublicProfileShell({
                         variant="secondary"
                         className="w-full sm:w-auto"
                         leftIcon={<UserRound aria-hidden="true" />}
+                        aria-label={createYourOwnLabel}
                       >
                         {dictionary.actions.createYourOwn}
                       </Button>
