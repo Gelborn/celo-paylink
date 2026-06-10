@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useId } from "react";
 import { CheckCircle2, Coins, ExternalLink, FileText, UserRound } from "lucide-react";
 import { motion } from "motion/react";
 import { getExplorerBaseUrl } from "../lib/chains";
@@ -35,6 +36,7 @@ export function SuccessShell({
   previewMode?: boolean;
 }) {
   const { dictionary } = useLocale();
+  const successTitleId = useId();
   const {
     account,
     connect,
@@ -64,6 +66,7 @@ export function SuccessShell({
       />
       <motion.section
         className="space-y-5"
+        aria-labelledby={successTitleId}
         variants={staggerChildren}
         initial="hidden"
         animate="show"
@@ -105,7 +108,10 @@ export function SuccessShell({
                 <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">
                   {dictionary.success.eyebrow}
                 </p>
-                <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                <h1
+                  id={successTitleId}
+                  className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+                >
                   {dictionary.success.title}
                 </h1>
                 <p className="mx-auto max-w-2xl text-sm leading-7 text-zinc-400">
