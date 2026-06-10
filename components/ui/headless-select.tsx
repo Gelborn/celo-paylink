@@ -52,6 +52,7 @@ export function HeadlessSelect({
           id={selectId}
           aria-label={accessibleLabel}
           aria-invalid={invalid ? true : undefined}
+          lang={selected?.lang}
           value={value}
           onChange={(event) => onChange(event.target.value)}
           className={clsx(
