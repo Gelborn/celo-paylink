@@ -113,6 +113,7 @@ To preview the matching receipt state, open:
 `http://localhost:3000/success?tx=0x51f0ed1f7cf8e3d4860ef65bfb30e94c877ce4bfc0a463ce84f674fed0ef8e2c&handle=demo-paylink&amount=5&token=USDC&ref=coffee&preview=1`
 
 If you change the demo amount, token, or reference, keep the same values in both preview URLs.
+Keep the same handle in both preview URLs so the payment and receipt states point to the same profile.
 Use the same browser locale for both preview URLs so the payment page and receipt copy match.
 Use the same mobile viewport for both preview URLs so screenshots show the payment and receipt states at matching scale.
 
