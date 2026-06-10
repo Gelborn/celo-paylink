@@ -274,6 +274,7 @@ export function ProfileDiscovery({
             className="space-y-3"
             role="region"
             aria-labelledby={searchResultTitleId}
+            aria-live="polite"
             variants={panelSwap}
             initial="hidden"
             animate="show"
