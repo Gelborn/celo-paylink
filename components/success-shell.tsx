@@ -111,7 +111,7 @@ export function SuccessShell({
                 </p>
                 <h1
                   id={successTitleId}
-                  className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+                  className="text-3xl font-semibold tracking-normal text-white sm:text-4xl"
                 >
                   {dictionary.success.title}
                 </h1>
