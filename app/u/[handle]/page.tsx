@@ -51,6 +51,7 @@ export async function generateMetadata({
   const resolvedParams = await params;
   const resolvedSearchParams = await searchParams;
   const locale = resolveLocaleFromRequest(await cookies(), await headers());
+  const dictionary = getDictionary(locale);
   const openGraphLocale = locale === "pt-BR" ? "pt_BR" : "en_US";
   const chainId = getDefaultChainId();
   const contractAddress = getContractAddress(chainId);
@@ -63,10 +64,10 @@ export async function generateMetadata({
     ? `${profile.displayName} (${handleLabel})`
     : `${handleLabel} · MiniPay PayLink`;
   const description = profile
-    ? profile.bio || profile.paymentMessage || "Send a direct Celo stablecoin payment through this MiniPay PayLink public profile."
+    ? profile.bio || profile.paymentMessage || dictionary.publicPage.visitorDescription
     : previewMode
-      ? "Preview a MiniPay PayLink public payment profile."
-      : `Open ${handleLabel} on MiniPay PayLink to send a direct Celo payment.`;
+      ? dictionary.publicPage.visitorDescription
+      : dictionary.publicPage.missingDescription;
 
   return {
     title,
