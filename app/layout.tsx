@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(publicEnv.appUrl),
   keywords: [
     "MiniPay",
+    "PayLink",
     "Celo",
     "stablecoin",
     "payments",
