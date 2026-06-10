@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { Coins } from "lucide-react";
 import { buildShareUrl, sanitizeCurrencyInput } from "../lib/format";
 import { getSupportedTokens, getTokenByAddress, type SupportedTokenSymbol } from "../lib/tokens";
@@ -26,6 +26,8 @@ export function ChargeLinkPanel({
 }) {
   const { dictionary } = useLocale();
   const tokens = getSupportedTokens(chainId);
+  const chargeSectionTitleId = useId();
+  const chargeSectionDescriptionId = useId();
   const [amount, setAmount] = useState("25");
   const [note, setNote] = useState("");
   const [tokenAddress, setTokenAddress] = useState<string>(profile.preferredToken);
@@ -119,11 +121,12 @@ export function ChargeLinkPanel({
       variant="elevated"
       className="compact-card"
       role="region"
-      aria-label={dictionary.dashboard.chargeSection}
+      aria-labelledby={chargeSectionTitleId}
+      aria-describedby={chargeSectionDescriptionId}
     >
       <CardHeader className="space-y-2">
-        <CardTitle>{dictionary.dashboard.chargeSection}</CardTitle>
-        <CardDescription>{dictionary.dashboard.chargeLinkHint}</CardDescription>
+        <CardTitle id={chargeSectionTitleId}>{dictionary.dashboard.chargeSection}</CardTitle>
+        <CardDescription id={chargeSectionDescriptionId}>{dictionary.dashboard.chargeLinkHint}</CardDescription>
       </CardHeader>
       <CardContent className="pt-0">{content}</CardContent>
     </Card>
