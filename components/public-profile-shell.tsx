@@ -44,6 +44,7 @@ const PaymentPanelIsland = dynamic(
         role="status"
         aria-label="Loading payment form"
         aria-busy="true"
+        aria-atomic="true"
       >
         <div className="space-y-3">
           <div className="motion-shimmer h-4 w-40 animate-pulse rounded-full bg-white/10" />
