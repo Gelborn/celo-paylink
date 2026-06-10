@@ -56,13 +56,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       {...props}
     >
       {leftIcon ? (
-        <span className="pointer-events-none inline-flex h-4 w-4 shrink-0 items-center justify-center [&>svg]:h-4 [&>svg]:w-4">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none inline-flex h-4 w-4 shrink-0 items-center justify-center [&>svg]:h-4 [&>svg]:w-4"
+        >
           {leftIcon}
         </span>
       ) : null}
       {children}
       {rightIcon ? (
-        <span className="pointer-events-none inline-flex h-4 w-4 shrink-0 items-center justify-center [&>svg]:h-4 [&>svg]:w-4">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none inline-flex h-4 w-4 shrink-0 items-center justify-center [&>svg]:h-4 [&>svg]:w-4"
+        >
           {rightIcon}
         </span>
       ) : null}
