@@ -89,6 +89,7 @@ export function PublicProfileShell({
   initialReference,
   initialTokenQuery,
   contractReady,
+  handle,
   previewMode = false,
   recentPaymentsSlot
 }: {
@@ -123,6 +124,7 @@ export function PublicProfileShell({
     hasPrefilledInvoice
   );
   const homeAriaLabel = `${dictionary.productName}: ${dictionary.nav.home}`;
+  const createMissingProfileLabel = `${dictionary.publicPage.createYours}: @${handle}`;
 
   if (!contractReady) {
     return (
@@ -145,7 +147,10 @@ export function PublicProfileShell({
           description={dictionary.publicPage.missingDescription}
           actions={
             <Link href="/my">
-              <Button leftIcon={<UserRound aria-hidden="true" />}>
+              <Button
+                leftIcon={<UserRound aria-hidden="true" />}
+                aria-label={createMissingProfileLabel}
+              >
                 {dictionary.publicPage.createYours}
               </Button>
             </Link>
