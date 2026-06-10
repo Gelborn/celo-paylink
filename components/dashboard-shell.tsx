@@ -302,7 +302,7 @@ export function DashboardShell({
                     <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-lg border border-[color:var(--accent-line)] bg-[color:var(--accent-soft)] text-[color:var(--accent)] lg:mx-0">
                       <Wallet aria-hidden="true" className="h-5 w-5" />
                     </span>
-                    <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                    <h2 className="mt-4 text-3xl font-semibold tracking-normal text-white sm:text-4xl">
                       {dictionary.actions.connectWallet}
                     </h2>
                     <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-zinc-400 lg:mx-0">
