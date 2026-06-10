@@ -23,6 +23,7 @@ export function NetworkMismatchModal({
   const actionRef = useRef<HTMLButtonElement | null>(null);
   const titleId = useId();
   const descriptionId = useId();
+  const actionAriaLabel = `${actionLabel}: ${title}`;
 
   useEffect(() => {
     actionRef.current?.focus();
@@ -70,6 +71,7 @@ export function NetworkMismatchModal({
             className="mt-8 min-w-[13rem]"
             leftIcon={<RefreshCw aria-hidden="true" />}
             onClick={onAction}
+            aria-label={actionAriaLabel}
           >
             {actionLabel}
           </Button>
