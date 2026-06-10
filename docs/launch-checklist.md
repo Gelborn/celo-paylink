@@ -11,7 +11,7 @@
 - Confirm the deployment block value is the contract creation block, not the verification or first-payment block.
 - Confirm the deployment platform has the production environment values saved before triggering the build.
 - Confirm the deployment platform uses Node `22.13.0` or newer before triggering the production build.
-- Confirm `NEXT_PUBLIC_APP_URL` points to the final public origin before recording or sharing screenshots.
+- Confirm `NEXT_PUBLIC_APP_URL` points to the final public origin without a trailing slash before recording or sharing screenshots.
 - Confirm `NEXT_PUBLIC_DEFAULT_CHAIN=celo` for the production build.
 - Confirm `NEXT_PUBLIC_CELO_MAINNET_RPC_URL` uses a browser-safe Celo mainnet endpoint for production.
 - Re-check supported token addresses against the latest Celo token docs before mainnet release.
