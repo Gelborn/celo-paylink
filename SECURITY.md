@@ -21,6 +21,7 @@ Send a report to the repository owner with:
 - approximate time observed, including timezone, if it happened on a live deployment
 - transaction hashes or explorer links, if applicable
 - impact assessment
+- whether funds, profile metadata, or receipt display were affected
 - any suggested mitigation
 
 Do not include private keys, seed phrases, wallet passphrases, or production RPC secrets in the report.
