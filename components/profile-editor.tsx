@@ -292,6 +292,14 @@ export function ProfileEditor({
       : handleAvailability === "taken" || handleAvailability === "invalid"
         ? "text-red-300"
         : "text-zinc-500";
+  const submitActionLabel = isSubmitting
+    ? dictionary.messages.waitingConfirmation
+    : profile
+      ? dictionary.actions.updateProfile
+      : dictionary.actions.saveProfile;
+  const submitButtonLabel = form.handle
+    ? `${submitActionLabel}: @${form.handle}`
+    : `${submitActionLabel}: ${dictionary.dashboard.profileSection}`;
 
   return (
     <Card
@@ -471,12 +479,9 @@ export function ProfileEditor({
               }
               disabled={isSubmitting}
               aria-busy={isSubmitting ? true : undefined}
+              aria-label={submitButtonLabel}
             >
-              {isSubmitting
-                ? dictionary.messages.waitingConfirmation
-                : profile
-                  ? dictionary.actions.updateProfile
-                  : dictionary.actions.saveProfile}
+              {submitActionLabel}
             </Button>
           </div>
         </form>
