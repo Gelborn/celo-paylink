@@ -66,6 +66,9 @@ export function HomeShell({
     copyStatus === "copied"
       ? `${dictionary.labels.copied}: ${publicLinkLabel}`
       : `${dictionary.actions.copyProfile}: ${publicLinkLabel}`;
+  const openPublicPageLabel = profile
+    ? `${dictionary.actions.openPublicPage}: @${profile.handle}`
+    : dictionary.actions.openPublicPage;
   const showConnectAction =
     hasProvider && !account && (!isMiniPay || isDisconnectedByUser);
 
@@ -149,6 +152,7 @@ export function HomeShell({
                       size="lg"
                       className="w-full sm:w-auto"
                       leftIcon={<Eye aria-hidden="true" />}
+                      aria-label={openPublicPageLabel}
                     >
                       {dictionary.actions.openPublicPage}
                     </Button>
