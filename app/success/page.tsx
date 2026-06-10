@@ -15,10 +15,40 @@ type SuccessPageProps = {
   }>;
 };
 
+const receiptTitle = "PayLink payment receipt";
+const receiptDescription =
+  "View a PayLink payment receipt with the Celo explorer transaction link and a path back to the recipient public profile.";
+
 export const metadata: Metadata = {
-  title: "PayLink payment receipt",
-  description:
-    "View a PayLink payment receipt with the Celo explorer transaction link and a path back to the recipient public profile.",
+  title: receiptTitle,
+  description: receiptDescription,
+  openGraph: {
+    title: receiptTitle,
+    description: receiptDescription,
+    siteName: "MiniPay PayLink",
+    type: "website",
+    images: [
+      {
+        url: "/og.svg",
+        width: 1200,
+        height: 630,
+        alt: "MiniPay PayLink payment receipt preview"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: receiptTitle,
+    description: receiptDescription,
+    images: [
+      {
+        url: "/og.svg",
+        width: 1200,
+        height: 630,
+        alt: "MiniPay PayLink payment receipt preview"
+      }
+    ]
+  },
   robots: {
     index: false,
     follow: false
