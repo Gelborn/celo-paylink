@@ -79,6 +79,8 @@ export function ProfileEditor({
     paymentMessage: false,
     preferredToken: false
   });
+  const profileSectionTitleId = useId();
+  const profileSectionDescriptionId = useId();
   const handleStatusId = useId();
   const tokens = getSupportedTokens(chainId);
   const defaultTokenAddress = tokens[0]?.address || "";
@@ -296,11 +298,12 @@ export function ProfileEditor({
       variant="elevated"
       className="compact-card"
       role="region"
-      aria-label={dictionary.dashboard.profileSection}
+      aria-labelledby={profileSectionTitleId}
+      aria-describedby={profileSectionDescriptionId}
     >
       <CardHeader className="space-y-2">
-        <CardTitle>{dictionary.dashboard.profileSection}</CardTitle>
-        <CardDescription>
+        <CardTitle id={profileSectionTitleId}>{dictionary.dashboard.profileSection}</CardTitle>
+        <CardDescription id={profileSectionDescriptionId}>
           {profile
             ? dictionary.dashboard.descriptionWithProfile
             : dictionary.dashboard.descriptionNoProfile}
