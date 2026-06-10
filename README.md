@@ -123,7 +123,7 @@ The demo receipt URL uses a fixed transaction hash for UI review; live receipts 
 
 These values should be set explicitly for a public deployment:
 
-- `NEXT_PUBLIC_APP_URL`: canonical public origin used by metadata, receipts, robots, and sitemap output.
+- `NEXT_PUBLIC_APP_URL`: canonical public origin, without a path, used by metadata, receipts, robots, and sitemap output.
 - `NEXT_PUBLIC_DEFAULT_CHAIN`: `celo` for mainnet, `celoSepolia` for testing.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_MAINNET`: deployed `PayLinkProfile` address on Celo mainnet.
 - `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_MAINNET`: deployment block used to bound event reads for payment history.
