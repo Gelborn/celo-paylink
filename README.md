@@ -12,6 +12,7 @@ The dashboard request-link form handles encoding for generated links.
 Use a supported token symbol such as `USDC` or a deployed token address for the optional `token` query.
 Omit `token` to use the recipient's preferred token from their profile.
 Use human-readable decimal amounts such as `5` or `5.50`; do not use token base units in the URL.
+Use a period as the decimal separator in shared URLs so wallets and receipts read the amount consistently.
 
 ## Mainnet Status
 
