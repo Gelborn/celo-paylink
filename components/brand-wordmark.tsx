@@ -68,7 +68,10 @@ export function BrandWordmark({
     <Link
       href={href}
       aria-label={ariaLabel}
-      className={clsx("inline-flex items-center gap-2", className)}
+      className={clsx(
+        "inline-flex items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)]",
+        className
+      )}
     >
       <BrandGlyph className="h-5 w-5 md:h-6 md:w-6" />
       <span className="text-[1.15rem] font-semibold tracking-normal text-white md:text-[1.3rem]">
