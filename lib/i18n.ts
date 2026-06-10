@@ -131,6 +131,7 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     description: string;
+    receiptDetails: string;
   };
   fields: {
     handle: string;
@@ -394,7 +395,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Payment sent",
       title: "Payment sent.",
       description:
-        "Your transfer was submitted on Celo. Use the receipt as proof, then return to the profile for the latest activity."
+        "Your transfer was submitted on Celo. Use the receipt as proof, then return to the profile for the latest activity.",
+      receiptDetails: "Receipt details"
     },
     fields: {
       handle: "Handle",
@@ -664,7 +666,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Pagamento enviado",
       title: "Pagamento enviado.",
       description:
-        "Sua transferência foi enviada na Celo. Use o comprovante como confirmação e volte ao perfil para ver a atividade mais recente."
+        "Sua transferência foi enviada na Celo. Use o comprovante como confirmação e volte ao perfil para ver a atividade mais recente.",
+      receiptDetails: "Dados do comprovante"
     },
     fields: {
       handle: "Handle",

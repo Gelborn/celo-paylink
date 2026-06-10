@@ -120,7 +120,11 @@ export function SuccessShell({
                 </p>
               </div>
 
-              <div className="rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 text-left sm:px-5 sm:py-5">
+              <div
+                className="rounded-lg border border-white/10 bg-zinc-950/50 px-4 py-4 text-left sm:px-5 sm:py-5"
+                role="group"
+                aria-label={dictionary.success.receiptDetails}
+              >
                 <div className="grid gap-3 sm:grid-cols-2">
                   {amount && token ? (
                     <DetailTile
