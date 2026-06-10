@@ -22,6 +22,7 @@ Close unrelated browser tabs and wallet notifications before recording so the li
 Keep browser zoom at 100% so the wallet handoff, receipt, and explorer proof stay readable.
 
 If the wallet connection stalls during judging, switch to the preview link and narrate where the live confirmation would happen.
+If the explorer is slow during recording, keep the PayLink receipt visible and point out that the explorer link uses the same transaction hash.
 
 1. Open the landing page and explain PayLink in one sentence.
 2. Open `/my`, connect with MiniPay, and create or update the payment profile.
