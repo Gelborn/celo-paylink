@@ -310,7 +310,7 @@ export function PaymentPanelIsland({
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[color:var(--accent)]">
             {dictionary.success.eyebrow}
           </p>
-          <h2 className="text-3xl font-semibold tracking-tight text-white">
+          <h2 className="text-3xl font-semibold tracking-normal text-white">
             {dictionary.success.title}
           </h2>
           <p className="mx-auto max-w-2xl text-sm leading-7 text-zinc-400">
