@@ -37,6 +37,7 @@ export function IconFrame({
 }) {
   return (
     <span
+      aria-hidden="true"
       className={clsx(
         "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] [&>svg]:h-4 [&>svg]:w-4",
         toneClasses[tone],
