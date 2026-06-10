@@ -46,6 +46,7 @@
 - Direct payments
 - Minimal setup
 - Prefilled request links
+- Shareable receipt proof
 - No payer account required
 - No custody
 
