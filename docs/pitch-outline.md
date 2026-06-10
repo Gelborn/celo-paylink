@@ -38,6 +38,7 @@
 - Send payment
 - See the PayLink receipt
 - Open the Celo explorer receipt
+- Share the PayLink receipt URL as fallback proof
 - Refresh the public profile to show the recent payment event
 
 ## Slide 7
