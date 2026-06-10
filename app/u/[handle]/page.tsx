@@ -68,6 +68,7 @@ export async function generateMetadata({
     : previewMode
       ? dictionary.publicPage.visitorDescription
       : dictionary.publicPage.missingDescription;
+  const socialImageAlt = `${title}: ${dictionary.publicPage.visitorTitle}`;
 
   return {
     title,
@@ -88,7 +89,7 @@ export async function generateMetadata({
           url: "/og.svg",
           width: 1200,
           height: 630,
-          alt: `${title} public profile payment preview`
+          alt: socialImageAlt
         }
       ]
     },
@@ -101,7 +102,7 @@ export async function generateMetadata({
           url: "/og.svg",
           width: 1200,
           height: 630,
-          alt: `${title} public profile payment preview`
+          alt: socialImageAlt
         }
       ]
     },
