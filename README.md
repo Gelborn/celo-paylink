@@ -67,7 +67,7 @@ Use Node `22.13.0` or newer. The repo includes [.nvmrc](./.nvmrc) for local setu
 npm install
 ```
 
-2. Copy the environment file:
+2. Copy the example environment file:
 
 ```bash
 cp .env.example .env
