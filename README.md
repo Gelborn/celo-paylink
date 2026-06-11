@@ -54,7 +54,7 @@ celo-paylink/
 ├── lib/                  # Shared Celo, MiniPay, and formatting helpers
 ├── public/               # Icons, OG image, and demo media
 ├── scripts/              # Deploy, verify, seed, ABI export
-└── test/                 # Hardhat tests
+└── test/                 # Hardhat contract tests
 ```
 
 ## Quick Start
