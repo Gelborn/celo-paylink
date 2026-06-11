@@ -42,6 +42,7 @@ export function HomeStaticShell({
           <div
             id="home-wallet-slot"
             className="flex min-h-9 min-w-9 justify-end sm:min-w-[5.5rem]"
+            role="status"
             aria-label={dictionary.labels.walletControls}
             aria-live="polite"
             aria-atomic="true"
