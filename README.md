@@ -152,7 +152,7 @@ Deploy to Celo mainnet:
 npm run deploy:mainnet
 ```
 
-Verify after deployment:
+Verify the deployed contract after deployment:
 
 ```bash
 npm run verify:sepolia
