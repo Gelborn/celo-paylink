@@ -47,13 +47,13 @@
 - Direct payments
 - Minimal setup
 - Prefilled request links
-- Shareable receipt proof
+- Shareable PayLink receipt proof
 - No payer account required
 - No custody
 
 ## Slide 8
 - Next steps
 - Shareable PayLink QR codes for in-person payments
-- Saved receipt links for client bookkeeping
+- Saved PayLink receipt links for client bookkeeping
 - Lightweight invoice templates
 - Merchant-specific amount presets
