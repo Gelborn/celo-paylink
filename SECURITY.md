@@ -8,7 +8,7 @@ Only the latest version on the default branch is supported for security fixes.
 
 Please do not open a public GitHub issue for suspected vulnerabilities.
 
-Send a report to the repository owner with:
+Send a private report to the repository owner with:
 
 - a clear description of the issue
 - reproduction steps or a proof of concept
