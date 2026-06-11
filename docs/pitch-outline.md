@@ -7,7 +7,7 @@
 ## Slide 2
 - Problem
 - Small creators and freelancers need a public payment profile that feels native to MiniPay
-- Wallet-address copy/paste makes small repeat payments harder to trust
+- Copying and pasting wallet addresses makes small repeat payments harder to trust
 
 ## Slide 3
 - Product
