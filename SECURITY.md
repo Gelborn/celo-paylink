@@ -25,7 +25,7 @@ Send a private report to the repository owner with:
 - affected token and amount, if funds or receipt display were involved
 - impact assessment
 - whether funds, profile metadata, or receipt display were affected
-- any suggested mitigation
+- any suggested mitigation or workaround
 
 Do not include private keys, seed phrases, wallet passphrases, or production RPC secrets in the report.
 
