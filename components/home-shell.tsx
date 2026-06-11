@@ -254,7 +254,7 @@ export function HomeShell({
                 <div className="space-y-5">
                   <AccentBadge>{dictionary.home.eyebrow}</AccentBadge>
                   <div className="space-y-4">
-                    <h1 className="max-w-3xl text-[2.65rem] font-semibold leading-[1.04] tracking-tight text-white sm:text-5xl md:text-6xl md:leading-[1.02]">
+                    <h1 className="max-w-3xl text-[2.65rem] font-semibold leading-[1.04] tracking-normal text-white sm:text-5xl md:text-6xl md:leading-[1.02]">
                       {dictionary.home.title}
                     </h1>
                     <p className="max-w-2xl text-base leading-7 text-zinc-300 sm:text-lg md:text-xl md:leading-8">
