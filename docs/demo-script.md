@@ -20,7 +20,7 @@ Before the live pass, confirm the payer wallet has enough of the selected token 
 Keep the MiniPay phone unlocked on the public profile payment page before starting the 90-second timer.
 Keep the final request link open in a second tab in case the phone needs a quick reload.
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
-Disable auto-lock for the recording window so the phone does not sleep mid-flow.
+Disable auto-lock on the phone so it does not sleep mid-flow.
 
 Close unrelated browser tabs and wallet notifications before recording so the live pass stays focused.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
