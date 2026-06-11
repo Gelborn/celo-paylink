@@ -232,7 +232,7 @@ From the current Celo docs. Before a mainnet deployment, re-check these addresse
 
 ## Docs
 
-See:
+See the launch and review notes:
 
 - [docs/launch-checklist.md](./docs/launch-checklist.md)
 - [docs/demo-script.md](./docs/demo-script.md)
