@@ -1,7 +1,7 @@
 # Launch Checklist
 
 - Deploy `PayLinkProfile.sol` on the target Celo network.
-- Save the deployment transaction hash with the final submission links.
+- Save the deployment transaction hash alongside the final submission links.
 - Confirm `CELOSCAN_API_KEY` is set before running explorer verification scripts.
 - Verify the contract on a block explorer.
 - Save the verified contract explorer URL with the final submission links.
