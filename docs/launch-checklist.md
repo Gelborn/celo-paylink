@@ -71,7 +71,7 @@
 - Reload the public profile after payment and confirm the recent payment is still visible from chain data.
 - Open the success-screen receipt link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the success-screen amount, token, and reference match the public request link.
-- Confirm the final request link and receipt URL use the same public profile handle.
+- Confirm the final request link and PayLink receipt URL use the same public profile handle.
 - Confirm the submitted PayLink receipt URL uses the live wallet transaction hash, not the fixed preview hash from the README.
 - Confirm any copied PayLink receipt URL uses the final HTTPS origin before sharing it.
 - Share one PayLink receipt URL in a link preview tool and confirm the receipt title and image render correctly.
