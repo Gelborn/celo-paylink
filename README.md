@@ -11,7 +11,7 @@ Keep `ref` concise because it appears on receipts and recent payment history.
 The dashboard request-link form handles this encoding for generated links.
 Use a supported token symbol such as `USDC` or a supported token contract address for the optional `token` query.
 Omit `token` to use the recipient's preferred token from their profile.
-Use human-readable decimal amounts such as `5` or `5.50`; do not use token base units in the URL.
+Use human-readable decimal amounts such as `5` or `5.50`; do not put token base units in request URLs.
 Use a period as the decimal separator in shared URLs so wallets and receipts read the amount consistently.
 
 ## Mainnet Status
