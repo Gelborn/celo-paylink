@@ -20,7 +20,7 @@ export function SectionHeader({
           </p>
         ) : null}
         <div className="space-y-2">
-          <h1 className="max-w-full text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl">
+          <h1 className="max-w-full text-3xl font-semibold leading-tight tracking-normal text-white md:text-4xl">
             {title}
           </h1>
           {description ? (
