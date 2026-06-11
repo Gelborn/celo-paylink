@@ -34,7 +34,7 @@
 - MiniPay user flow
 - Open the PayLink in MiniPay
 - Review amount, token, and reference
-- Approve token
+- Approve token if prompted
 - Send payment
 - See the PayLink receipt
 - Open the Celo explorer receipt
