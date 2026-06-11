@@ -119,7 +119,7 @@ Use the same browser locale for both preview URLs so the payment page and receip
 For Portuguese screenshots, switch the browser language to Portuguese (Brazil) before opening both preview URLs.
 Use the same mobile viewport for both preview URLs so screenshots show the payment and receipt states at matching scale.
 
-The demo receipt URL uses a fixed transaction hash for UI review; live receipts should use the hash returned by the wallet flow.
+The demo receipt URL uses a fixed transaction hash for UI review only; live receipts should use the hash returned by the wallet flow.
 
 `preview=1` only works outside production; production public profile payment pages should use the deployed `PayLinkProfile` contract.
 
