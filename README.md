@@ -52,7 +52,7 @@ celo-paylink/
 ├── contracts/            # Solidity contracts
 ├── docs/                 # Demo script, launch checklist, and pitch outline
 ├── lib/                  # Shared Celo, MiniPay, and formatting helpers
-├── public/               # Static assets
+├── public/               # Icons, OG image, and demo media
 ├── scripts/              # Deploy, verify, seed, ABI export
 └── test/                 # Hardhat tests
 ```
