@@ -304,7 +304,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       trustStatements: [
         "Settles to your wallet",
         "No PayLink custody",
-        "PayLink and explorer proof"
+        "PayLink and Celo explorer proof"
       ],
       closingEyebrow: "Ready when you are",
       closingTitle: "Publish your PayLink before the next payment request.",
@@ -575,7 +575,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       trustStatements: [
         "Liquida na sua carteira",
         "Sem custódia do PayLink",
-        "Prova no PayLink e explorer"
+        "Prova no PayLink e explorer da Celo"
       ],
       closingEyebrow: "Pronto para receber",
       closingTitle: "Publique seu PayLink antes da próxima cobrança.",
