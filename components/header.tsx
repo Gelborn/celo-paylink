@@ -76,9 +76,9 @@ export function Header({
   const panelId = useId();
   const connectedWalletLabel = account
     ? profileName
-      ? `${dictionary.labels.connectedWallet}: ${profileName}, ${shortenAddress(account)}`
-      : `${dictionary.labels.connectedWallet}: ${shortenAddress(account)}`
-    : dictionary.labels.connectedWallet;
+      ? `${dictionary.labels.walletControls}: ${dictionary.labels.connectedWallet}: ${profileName}, ${shortenAddress(account)}`
+      : `${dictionary.labels.walletControls}: ${dictionary.labels.connectedWallet}: ${shortenAddress(account)}`
+    : dictionary.labels.walletControls;
 
   useEffect(() => {
     if (!account) {
