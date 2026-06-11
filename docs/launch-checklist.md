@@ -88,6 +88,6 @@
   - success screen
 - Confirm any QR code encodes the final HTTPS public profile URL, not localhost or a preview URL.
 - Scan the final public profile link from a QR code once and confirm it opens on mobile.
-- Watch the exported demo once muted and confirm the visible flow still explains the payment path.
+- Watch the exported demo once with audio muted and confirm the visible flow still explains the payment path.
 - Confirm the exported demo shows the wallet confirmation amount, token, and Celo explorer proof clearly.
 - Record a short product demo.
