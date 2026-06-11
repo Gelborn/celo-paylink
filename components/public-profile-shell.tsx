@@ -42,6 +42,7 @@ function PaymentPanelLoadingFallback() {
       className="space-y-5 rounded-lg border border-white/10 bg-zinc-950 px-5 py-5"
       role="status"
       aria-label={dictionary.publicPage.paymentFormLoading}
+      aria-live="polite"
       aria-busy="true"
       aria-atomic="true"
     >
