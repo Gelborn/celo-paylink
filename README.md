@@ -172,7 +172,7 @@ After deployment, copy the contract address and numeric creation block into the 
 - `CELO_*` values are private RPC settings for Hardhat and scripts only.
 - `NEXT_PUBLIC_CELO_*` values are the browser-facing RPC endpoints used by the frontend.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_*` powers the frontend.
-- `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` limits payment history reads to the contract creation block.
+- `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` limits payment history reads to the decimal contract creation block height.
 - `PAYLINK_CONTRACT_ADDRESS_*` is used by the verification and seeding scripts.
 - Keep `PAYLINK_CONTRACT_ADDRESS_*` aligned with the matching `NEXT_PUBLIC_CONTRACT_ADDRESS_*` when running scripts.
 - `ETHERSCAN_API_KEY` and `CELOSCAN_API_KEY` are only needed when running explorer verification scripts.
