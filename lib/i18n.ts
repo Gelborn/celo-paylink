@@ -387,7 +387,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "That handle has not been published. Create your profile to start receiving direct payments.",
       noContractTitle: "Contract not configured",
       noContractDescription:
-        "Set a PayLink contract address in the environment before opening public profiles.",
+        "Set a PayLink contract address in the environment so public profiles can load.",
       recentPayments: "Recent payments",
       createYours: "Create your profile"
     },
@@ -658,7 +658,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Esse handle ainda não foi publicado. Crie seu perfil para começar a receber pagamentos diretos.",
       noContractTitle: "Contrato não configurado",
       noContractDescription:
-        "Defina o endereço do contrato do PayLink no ambiente antes de abrir perfis públicos.",
+        "Defina o endereço do contrato do PayLink no ambiente para carregar perfis públicos.",
       recentPayments: "Pagamentos recentes",
       createYours: "Criar seu perfil"
     },
