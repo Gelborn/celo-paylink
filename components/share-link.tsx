@@ -27,6 +27,10 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
       : status === "shared"
         ? `${dictionary.labels.shared}: ${label}`
         : `${dictionary.actions.copyLink}: ${label}`;
+  const shareButtonLabel =
+    status === "shared"
+      ? `${dictionary.labels.shared}: ${label}`
+      : `${dictionary.actions.shareLink}: ${label}`;
 
   async function handleCopy() {
     try {
@@ -91,7 +95,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
           variant="outline"
           className="w-full sm:w-auto"
           leftIcon={<Share2 aria-hidden="true" />}
-          aria-label={`${dictionary.actions.shareLink}: ${label}`}
+          aria-label={shareButtonLabel}
         >
           {dictionary.actions.shareLink}
         </Button>
