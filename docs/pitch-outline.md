@@ -54,6 +54,6 @@
 ## Slide 8
 - Next steps
 - Shareable PayLink QR codes for in-person payments
-- Saved PayLink receipt links for client bookkeeping
+- Saved PayLink receipt links with explorer proof for client bookkeeping
 - Lightweight invoice templates
 - Merchant-specific amount presets
