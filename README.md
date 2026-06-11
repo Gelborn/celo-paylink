@@ -136,7 +136,7 @@ These values should be set explicitly for a public deployment:
 
 For Celo Sepolia staging, use the matching `_SEPOLIA` contract address and numeric creation block with `NEXT_PUBLIC_DEFAULT_CHAIN=celoSepolia`.
 
-Do not leave `NEXT_PUBLIC_APP_URL=http://localhost:3000` in a production build.
+Do not leave `NEXT_PUBLIC_APP_URL=http://localhost:3000` in a public production build.
 
 ## Deploy
 
