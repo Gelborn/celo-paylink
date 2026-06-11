@@ -447,7 +447,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       miniPayWrongNetwork:
         "MiniPay is on the wrong network. Open MiniPay settings and switch to {network}.",
       couldNotSwitchNetwork: "Could not switch to {network}. Switch manually in your wallet and try again.",
-      unsupportedNetwork: "Unsupported network ({chainId}).",
+      unsupportedNetwork: "Unsupported network ({chainId}). Switch to a supported Celo network.",
       waitingConfirmation: "Waiting for confirmation...",
       profilePublished: "Profile published. Public link is ready.",
       paymentComplete: "Payment complete.",
@@ -718,7 +718,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       miniPayWrongNetwork:
         "O MiniPay está na rede errada. Abra as configurações do MiniPay e troque para {network}.",
       couldNotSwitchNetwork: "Não foi possível trocar para {network}. Troque manualmente na carteira e tente novamente.",
-      unsupportedNetwork: "Rede não suportada ({chainId}).",
+      unsupportedNetwork: "Rede não suportada ({chainId}). Troque para uma rede Celo compatível.",
       waitingConfirmation: "Aguardando confirmação...",
       profilePublished: "Perfil publicado. Link público pronto.",
       paymentComplete: "Pagamento concluído.",
