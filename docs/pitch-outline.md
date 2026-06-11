@@ -48,7 +48,7 @@
 - Minimal setup
 - Prefilled request links
 - Shareable PayLink receipt proof
-- No payer account required
+- No payer PayLink account required
 - No custody
 
 ## Slide 8
