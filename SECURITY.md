@@ -16,7 +16,7 @@ Send a private report to the repository owner with:
 - the affected route or Celo network, if applicable
 - the contract address and chain ID, if the report involves a live contract
 - the public handle involved, if safe to share
-- deployed URL or commit SHA, if known
+- deployed URL and commit SHA, when available
 - whether it affects preview/demo mode, production flows, or both
 - browser, wallet type (MiniPay or another injected wallet), and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
