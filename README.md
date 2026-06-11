@@ -41,7 +41,7 @@ MiniPay PayLink is built around one simple flow:
 - Accept Celo stablecoins (`USDm`, `USDC`, or `USD₮`) directly from MiniPay-compatible wallets
 - Forward funds straight to the recipient with no platform custody
 - Render recent payments from PayLink contract events without a backend or indexer
-- Support English (`en`) and Brazilian Portuguese (`pt-BR`) with automatic locale detection
+- Support English (`en`) and Brazilian Portuguese (`pt-BR`) with automatic locale detection and a manual language switcher
 
 ## Repo Layout
 
