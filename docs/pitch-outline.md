@@ -44,7 +44,7 @@
 
 ## Slide 7
 - Product principles
-- Direct payments
+- Direct wallet settlement
 - Minimal setup
 - Prefilled request links
 - Shareable PayLink receipt proof
