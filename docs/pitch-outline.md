@@ -36,7 +36,7 @@
 - Review amount, token, and reference
 - Approve token if prompted
 - Send payment
-- See the PayLink receipt
+- See the in-app PayLink receipt
 - Open the Celo explorer transaction receipt
 - Point out that both proof surfaces use the same transaction hash
 - Share the PayLink receipt URL as fallback proof
