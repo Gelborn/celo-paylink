@@ -22,6 +22,7 @@ Turn on Do Not Disturb so notification banners do not cover wallet confirmations
 Disable auto-lock for the recording window so the phone does not sleep mid-flow.
 
 Close unrelated browser tabs and wallet notifications before recording so the live pass stays focused.
+Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
 Keep browser zoom at 100% so the wallet handoff, receipt, and explorer proof stay readable.
 
 If the wallet connection stalls during judging, switch to the preview link and narrate where the live confirmation would happen.
