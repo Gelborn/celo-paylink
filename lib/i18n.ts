@@ -360,7 +360,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       loading: "Loading profiles...",
       empty: "No published profiles found yet.",
       unavailable:
-        "Profile discovery will appear after the contract is configured.",
+        "Profile discovery will appear after the PayLink contract address is configured.",
       tooShort: "Enter at least 3 handle characters to search.",
       notFound: "No published profile matches that handle.",
       error: "Profiles could not load right now. Try again in a moment.",
@@ -631,7 +631,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       loading: "Carregando perfis...",
       empty: "Nenhum perfil publicado encontrado ainda.",
       unavailable:
-        "A descoberta de perfis aparecerá depois que o contrato for configurado.",
+        "A descoberta de perfis aparecerá quando o endereço do contrato do PayLink estiver configurado.",
       tooShort: "Digite pelo menos 3 caracteres do handle para buscar.",
       notFound: "Nenhum perfil publicado corresponde a esse handle.",
       error: "Não foi possível carregar os perfis agora. Tente novamente em instantes.",
