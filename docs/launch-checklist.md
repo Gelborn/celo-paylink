@@ -9,7 +9,7 @@
 - Set `NEXT_PUBLIC_CONTRACT_ADDRESS_*` for the selected production chain.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` for the selected production chain after deployment.
 - Confirm the deployment block value is the decimal contract creation block height, not the verification or first-payment block.
-- Confirm the deployment platform has the production environment values saved before triggering the build.
+- Confirm the deployment platform has all production environment values saved before triggering the build.
 - Confirm the deployment platform uses Node `22.13.0` or newer before triggering the production build.
 - Confirm `NEXT_PUBLIC_APP_URL` points to the final public origin without a trailing slash before recording or sharing screenshots.
 - Confirm `NEXT_PUBLIC_DEFAULT_CHAIN=celo` for the production build.
