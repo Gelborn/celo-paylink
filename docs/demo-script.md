@@ -28,7 +28,7 @@ Keep wallet account switchers closed unless you need to explain the two-wallet s
 Keep private keys, seed phrases, and deployment env files out of the recording.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
 Open both prepared preview URLs once before recording so local Next.js routes are warm when the camera starts.
-Keep browser zoom at 100% so the wallet handoff, receipt, and explorer proof stay readable.
+Keep browser zoom at 100% in both preview and live tabs so the wallet handoff, receipt, and explorer proof stay readable.
 
 If the wallet connection stalls during judging, switch to the preview link and narrate where the live confirmation would happen.
 If the explorer is slow during recording, keep the PayLink receipt visible and point out that the explorer link uses the same transaction hash.
