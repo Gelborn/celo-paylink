@@ -31,7 +31,7 @@ MiniPay PayLink is built around one simple flow:
 
 1. Create a public payment profile.
 2. Share your public profile or a prefilled request link.
-3. Get paid directly in Celo stablecoins.
+3. Get paid directly in Celo stablecoins with an in-app receipt.
 
 ## Features
 
