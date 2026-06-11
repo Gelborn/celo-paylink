@@ -13,7 +13,7 @@
 - Confirm the deployment platform uses Node `22.13.0` or newer before triggering the production build.
 - Confirm `NEXT_PUBLIC_APP_URL` points to the final public origin without a trailing slash before recording or sharing screenshots.
 - Confirm `NEXT_PUBLIC_DEFAULT_CHAIN=celo` for the production build.
-- Confirm `NEXT_PUBLIC_CELO_MAINNET_RPC_URL` uses a browser-safe Celo mainnet endpoint for production.
+- Confirm `NEXT_PUBLIC_CELO_MAINNET_RPC_URL` uses a browser-safe Celo mainnet endpoint without private provider credentials.
 - Re-check supported token addresses against the latest Celo token docs before mainnet release.
 - Run `npm run lint` before recording final screenshots or demo footage.
 - Run `npm run compile` before contract tests so the latest ABI and bytecode are checked.
