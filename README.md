@@ -48,7 +48,7 @@ MiniPay PayLink is built around one simple flow:
 ```text
 celo-paylink/
 ├── app/                  # Next.js App Router pages
-├── components/           # UI building blocks
+├── components/           # Shared dashboard and public payment UI
 ├── contracts/            # Solidity contracts
 ├── docs/                 # Demo script, launch checklist, and pitch outline
 ├── lib/                  # Shared Celo, MiniPay, and formatting helpers
