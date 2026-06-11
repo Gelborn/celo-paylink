@@ -69,7 +69,7 @@
 - Open the final avatar URL directly and confirm the image loads over HTTPS before screenshots.
 - Try a non-HTTPS avatar URL once and confirm the initials fallback appears.
 - Copy the public profile link from `/my` and confirm it uses the final HTTPS origin.
-- Use the mobile share action once and confirm the share title names the profile and the shared text includes the final public profile URL.
+- Use the mobile share action once and confirm the share title names the profile and the shared URL is the final public profile URL.
 - Send at least one real payment and verify it appears in the recent payments list.
 - Save the live demo transaction hash with the final submission notes after the successful payment.
 - Save the matching PayLink receipt URL beside the transaction hash so reviewers can reopen the in-app proof.
