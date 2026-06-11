@@ -356,7 +356,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       searchPlaceholder: "creator_handle",
       latestTitle: "Recent profiles",
       latestDescription:
-        "Newest profiles published from onchain events.",
+        "Newest profiles published by PayLink contract events.",
       loading: "Loading profiles...",
       empty: "No published profiles found yet.",
       unavailable:
@@ -627,7 +627,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       searchPlaceholder: "criador_handle",
       latestTitle: "Perfis recentes",
       latestDescription:
-        "Perfis mais novos publicados por eventos onchain.",
+        "Perfis mais novos publicados por eventos do contrato PayLink.",
       loading: "Carregando perfis...",
       empty: "Nenhum perfil publicado encontrado ainda.",
       unavailable:
