@@ -10,12 +10,12 @@ const DEMO_MEDIA = {
   en: {
     poster: "/paylink-demo-poster.webp",
     video: "/paylink-demo-loop.webm",
-    alt: "MiniPay PayLink public profile payment flow preview"
+    alt: "MiniPay PayLink public profile payment and receipt flow preview"
   },
   "pt-BR": {
     poster: "/paylink-demo-pt-br-poster.webp",
     video: "/paylink-demo-pt-br-loop.webm",
-    alt: "Prévia do fluxo de pagamento do perfil público do MiniPay PayLink"
+    alt: "Prévia do fluxo de pagamento e comprovante do perfil público do MiniPay PayLink"
   }
 } as const;
 
