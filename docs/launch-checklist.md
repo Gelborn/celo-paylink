@@ -20,6 +20,7 @@
 - Run `npm test` before the production build so contract coverage is fresh.
 - Run `npm run typecheck` before the production build so generated Next.js types are current.
 - Run `npm run build` once with the production environment values.
+- Open the deployed home URL in a signed-out browser and confirm it loads without a wallet connection.
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
 - Confirm the public profile preview uses the submitted handle and display name, not the demo fallback copy.
 - View source for one public profile URL in `pt-BR` and confirm `og:locale` is `pt_BR`.
