@@ -484,7 +484,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       linkCopied: "Link copied to clipboard.",
       shareOpened: "Share sheet opened for this link.",
       copyFailed: "Could not copy the link on this device. Select the URL and copy it manually.",
-      shareFailed: "Could not share the link right now. Copy the link instead.",
+      shareFailed: "Could not share the link right now. Copy it manually instead.",
       loadingPayments: "Reading recent payments from Celo...",
       supportsTokens: "Accepts {tokens}."
     }
@@ -755,7 +755,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       linkCopied: "Link copiado para a área de transferência.",
       shareOpened: "Janela de compartilhamento aberta para este link.",
       copyFailed: "Não foi possível copiar o link neste dispositivo. Selecione a URL e copie manualmente.",
-      shareFailed: "Não foi possível compartilhar o link agora. Copie o link em vez disso.",
+      shareFailed: "Não foi possível compartilhar o link agora. Copie manualmente.",
       loadingPayments: "Lendo pagamentos recentes na Celo...",
       supportsTokens: "Aceita {tokens}."
     }
