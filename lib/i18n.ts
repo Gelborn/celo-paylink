@@ -439,7 +439,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     messages: {
       contractReady: "Profile updates are written directly to the deployed PayLink contract.",
-      missingContract: "Set a PayLink contract address in .env before using the app.",
+      missingContract: "Set the PayLink contract address in .env before publishing profiles or accepting payments.",
       noWalletFound:
         "No wallet found. Open PayLink in MiniPay or use a browser with an injected wallet.",
       couldNotConnectWallet: "Could not connect to the wallet. Check the wallet prompt and try again.",
@@ -710,7 +710,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     messages: {
       contractReady: "As alterações do perfil são gravadas direto no contrato do PayLink.",
-      missingContract: "Defina o endereço do contrato do PayLink no .env antes de usar o app.",
+      missingContract: "Defina o endereço do contrato do PayLink no .env antes de publicar perfis ou receber pagamentos.",
       noWalletFound:
         "Nenhuma carteira foi encontrada. Abra o PayLink no MiniPay ou use um navegador com carteira integrada.",
       couldNotConnectWallet: "Não foi possível conectar à carteira. Confira a solicitação na carteira e tente novamente.",
