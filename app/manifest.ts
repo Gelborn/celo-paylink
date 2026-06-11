@@ -29,7 +29,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
         sizes: "1200x2598",
         form_factor: "narrow",
-        label: "MiniPay PayLink pt-BR mobile public profile payment preview"
+        label: "MiniPay PayLink Brazilian Portuguese mobile public profile payment preview"
       }
     ],
     shortcuts: [
