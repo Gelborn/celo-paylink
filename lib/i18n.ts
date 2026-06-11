@@ -395,7 +395,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Payment sent",
       title: "Payment sent.",
       description:
-        "Your transfer was submitted on Celo. Use the receipt as proof, then return to the profile for the latest activity.",
+        "Your transfer was submitted on Celo. Use the PayLink receipt as proof, then return to the profile for the latest activity.",
       receiptDetails: "Receipt details"
     },
     fields: {
@@ -666,7 +666,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Pagamento enviado",
       title: "Pagamento enviado.",
       description:
-        "Sua transferência foi enviada na Celo. Use o comprovante como confirmação e volte ao perfil para ver a atividade mais recente.",
+        "Sua transferência foi enviada na Celo. Use o comprovante do PayLink como confirmação e volte ao perfil para ver a atividade mais recente.",
       receiptDetails: "Dados do comprovante"
     },
     fields: {
