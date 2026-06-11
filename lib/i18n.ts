@@ -277,7 +277,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       proofChips: [
         "Funds move directly to the recipient wallet",
         "Amount, token, and reference stay in the link",
-        "Every payment includes an explorer receipt",
+        "Every payment includes PayLink and explorer proof",
         "Accept USDm, USDC, and USD₮"
       ],
       stepsEyebrow: "How it works",
@@ -548,7 +548,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       proofChips: [
         "Os fundos vão direto para a carteira de quem recebe",
         "Valor, token e referência ficam no link",
-        "Todo pagamento inclui comprovante no explorer",
+        "Todo pagamento inclui prova no PayLink e no explorer",
         "Aceite USDm, USDC e USD₮"
       ],
       stepsEyebrow: "Como funciona",
