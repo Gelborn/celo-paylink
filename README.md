@@ -40,7 +40,7 @@ MiniPay PayLink is built around one simple flow:
 - Update profile metadata without changing the handle
 - Accept `USDm`, `USDC`, or `USD₮` directly from MiniPay-compatible wallets
 - Forward funds straight to the recipient with no platform custody
-- Render recent payments from onchain events without a backend or indexer
+- Render recent payments from PayLink contract events without a backend or indexer
 - Support English (`en`) and Brazilian Portuguese (`pt-BR`) with automatic language detection
 
 ## Repo Layout
