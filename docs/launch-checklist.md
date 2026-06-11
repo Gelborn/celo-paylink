@@ -5,7 +5,7 @@
 - Confirm `CELOSCAN_API_KEY` is set before running explorer verification scripts.
 - Verify the contract on a block explorer.
 - Save the verified contract explorer URL with the final submission links.
-- Save the deployed app commit SHA with the final submission links.
+- Save the deployed app commit SHA alongside the final submission links.
 - Set `NEXT_PUBLIC_CONTRACT_ADDRESS_*` in the production environment.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` after deployment.
 - Confirm the deployment block value is the contract creation block, not the verification or first-payment block.
