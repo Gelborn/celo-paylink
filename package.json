@@ -4,6 +4,7 @@
   "description": "Mobile-first MiniPay-ready public payment profiles, request links, and PayLink receipts for direct Celo stablecoin payments.",
   "keywords": [
     "minipay",
+    "minipay-payments",
     "paylink",
     "celo",
     "celo-payments",
