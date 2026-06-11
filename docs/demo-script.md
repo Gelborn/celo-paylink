@@ -24,6 +24,7 @@ Turn on Do Not Disturb so notification banners do not cover wallet confirmations
 Disable auto-lock on the phone so it does not sleep mid-flow.
 
 Close unrelated browser tabs and dismiss wallet notifications before recording so the live pass stays focused.
+Keep wallet account switchers closed unless the two-wallet setup needs explaining.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
 Open both prepared preview URLs once before recording so local Next.js routes are warm when the camera starts.
 Keep browser zoom at 100% so the wallet handoff, receipt, and explorer proof stay readable.
