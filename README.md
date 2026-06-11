@@ -89,7 +89,7 @@ npm run lint
 npm run typecheck
 ```
 
-5. Run the frontend:
+5. Run the local frontend:
 
 ```bash
 npm run dev
