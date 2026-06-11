@@ -41,6 +41,7 @@ If the explorer is slow during recording, keep the PayLink receipt visible and p
    Wait for PayLink to return to the success receipt before stopping the recording.
 8. Show the success page and Celo explorer transaction link.
    Mention the amount, token, reference, and handle shown on the receipt.
+   Pause on the PayLink receipt URL briefly before opening the explorer so the final origin is visible.
    Keep the Celo explorer receipt visible long enough to make the onchain proof clear.
    Copy the PayLink receipt URL after the live pass if final submission notes need a fallback link.
    Label the copied PayLink receipt URL as fallback proof in the final submission notes.
