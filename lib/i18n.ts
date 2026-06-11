@@ -381,7 +381,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       paymentFormDescription:
         "Choose an amount, token, and optional reference. If prompted, approve the token first, then confirm the payment.",
       paymentFormLoading: "Loading payment details",
-      requestSummaryLabel: "Prefilled request",
+      requestSummaryLabel: "Request summary",
       missingTitle: "This PayLink is not published yet.",
       missingDescription:
         "That handle has not been published. Create your profile to start receiving direct payments.",
@@ -652,7 +652,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       paymentFormDescription:
         "Escolha valor, token e referência opcional. Se solicitado, aprove o token primeiro e depois confirme o pagamento.",
       paymentFormLoading: "Carregando dados do pagamento",
-      requestSummaryLabel: "Cobrança preenchida",
+      requestSummaryLabel: "Resumo da cobrança",
       missingTitle: "Este PayLink ainda não foi publicado.",
       missingDescription:
         "Esse handle ainda não foi publicado. Crie seu perfil para começar a receber pagamentos diretos.",
