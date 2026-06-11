@@ -40,6 +40,7 @@
 - For local phone rehearsal, confirm preview links use the `npm run dev:mobile` network host instead of `localhost`.
 - Save the exact demo request link with its amount, token, and reference values for the final submission notes.
 - Confirm the saved demo request link uses the final HTTPS origin before adding it to submission notes.
+- Confirm the final submission notes label the home URL, public profile URL, request link, and receipt URL separately.
 - Test the saved demo request link inside MiniPay on a phone.
 - Confirm the profile owner wallet and payer wallet are separate for the live payment test.
 - Confirm the wallet is on Celo before approving or sending the payment.
