@@ -32,7 +32,7 @@
 
 ## Slide 6
 - MiniPay user flow
-- Open the PayLink in MiniPay
+- Open the public PayLink in MiniPay
 - Review amount, token, and reference
 - Approve token if prompted
 - Send payment
