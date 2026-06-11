@@ -18,7 +18,7 @@ Send a report to the repository owner with:
 - the public handle involved, if safe to share
 - deployed URL or commit SHA, if known
 - whether it affects preview/demo mode, production flows, or both
-- browser, wallet, and device details, if relevant
+- browser, wallet type (MiniPay or another injected wallet), and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
 - approximate time observed, including timezone, if it happened on a live deployment
 - transaction hashes, PayLink receipt URLs, or explorer links, if applicable and safe to share
