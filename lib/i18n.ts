@@ -456,7 +456,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       fillAllFields: "Complete handle, display name, bio, and token before publishing.",
       invalidImage:
         "Avatar URL must be blank or start with https://.",
-      missingAmount: "Enter an amount to continue.",
+      missingAmount: "Enter a payment amount to continue.",
       positiveAmount: "Enter an amount greater than zero.",
       handleAvailable: "Handle is available.",
       handleTaken: "That handle is already taken. Try another one.",
@@ -727,7 +727,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       fillAllFields: "Preencha handle, nome exibido, bio e token antes de publicar.",
       invalidImage:
         "A URL do avatar deve ficar vazia ou começar com https://.",
-      missingAmount: "Informe um valor para continuar.",
+      missingAmount: "Informe um valor de pagamento para continuar.",
       positiveAmount: "Informe um valor maior que zero.",
       handleAvailable: "Handle disponível.",
       handleTaken: "Esse handle já está em uso. Tente outro.",
