@@ -12,7 +12,7 @@ Send a private report to the repository owner with:
 
 - a clear description of the issue
 - reproduction steps or a proof of concept
-- expected and actual behavior
+- expected behavior and what happened instead
 - the affected route or Celo network, if applicable
 - the contract address and chain ID, if the report involves a live contract
 - the public handle involved, if safe to share
