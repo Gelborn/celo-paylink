@@ -16,6 +16,7 @@
     "request-links",
     "payment-receipts",
     "paylink-receipts",
+    "no-custody-payments",
     "creator-payments",
     "freelancer-payments",
     "pwa"
