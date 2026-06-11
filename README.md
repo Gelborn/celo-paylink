@@ -51,7 +51,7 @@ celo-paylink/
 ├── components/           # Shared dashboard and public payment UI
 ├── contracts/            # PayLinkProfile Solidity contract
 ├── docs/                 # Demo script, launch checklist, and pitch outline
-├── lib/                  # Shared Celo, MiniPay, and formatting helpers
+├── lib/                  # Shared Celo, MiniPay, localization, and formatting helpers
 ├── public/               # Icons, OG image, and demo media
 ├── scripts/              # Contract deploy, verify, seed, and ABI export helpers
 └── test/                 # Hardhat contract tests
