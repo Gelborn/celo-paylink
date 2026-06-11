@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     "PayLink",
     "Celo",
     "stablecoin",
+    "mobile payments",
     "payments",
     "payment links",
     "request links",
