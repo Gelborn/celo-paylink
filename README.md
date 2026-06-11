@@ -50,7 +50,7 @@ celo-paylink/
 ├── app/                  # Next.js App Router pages
 ├── components/           # UI building blocks
 ├── contracts/            # Solidity contracts
-├── docs/                 # Product notes and launch assets
+├── docs/                 # Demo script, launch checklist, and pitch outline
 ├── lib/                  # Shared Celo, MiniPay, and formatting helpers
 ├── public/               # Static assets
 ├── scripts/              # Deploy, verify, seed, ABI export
