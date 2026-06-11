@@ -27,6 +27,6 @@ Send a private report to the repository owner with:
 - whether funds, profile metadata, or receipt display were affected
 - any suggested mitigation or workaround
 
-Do not include private keys, seed phrases, wallet passphrases, or production RPC secrets in the report.
+Do not include private keys, seed or recovery phrases, wallet passphrases, or production RPC secrets in the report.
 
 If the report is valid, fixes will be prepared privately and disclosed after a patch is available.
