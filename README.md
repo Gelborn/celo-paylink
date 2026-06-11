@@ -164,7 +164,7 @@ After deployment, copy the contract address and numeric creation block into the 
 
 ## Environment Notes
 
-- `NEXT_PUBLIC_DEFAULT_CHAIN` should be `celoSepolia` while testing and `celo` for production.
+- `NEXT_PUBLIC_DEFAULT_CHAIN` should be `celoSepolia` while testing and exactly `celo` for production; other values fall back to `celoSepolia`.
 - `NEXT_PUBLIC_APP_URL` should be an HTTPS origin without a trailing slash or path for production.
 - Vercel, CI, and any machine running `npm install`, `npm run compile`, `npm test`, deploy, or verify scripts should use Node `22.13.0` or newer.
 - `NEXT_PUBLIC_*` values are safe to expose to the browser.
