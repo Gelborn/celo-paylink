@@ -17,7 +17,7 @@ Send a private report to the repository owner with:
 - the contract address and chain ID, if the report involves a live contract
 - the public handle involved, if safe to share
 - deployed URL and commit SHA, when available
-- whether it affects preview/demo mode, production flows, or both
+- whether it affects preview/demo mode, production payment flows, or both
 - browser, wallet type (MiniPay or another injected wallet), OS, and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
 - approximate date and time observed, including timezone, if it happened on a live deployment
