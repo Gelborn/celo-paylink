@@ -98,7 +98,10 @@ export function DashboardShell({
       : shareStatus === "shared"
         ? `${dictionary.labels.shared}: ${publicLinkLabel}`
         : `${dictionary.actions.copyLink}: ${publicLinkLabel}`;
-  const sharePublicLinkLabel = `${dictionary.actions.shareLink}: ${publicLinkLabel}`;
+  const sharePublicLinkLabel =
+    shareStatus === "shared"
+      ? `${dictionary.labels.shared}: ${publicLinkLabel}`
+      : `${dictionary.actions.shareLink}: ${publicLinkLabel}`;
   const openPublicPageLabel = profile
     ? `${dictionary.actions.openPublicPage}: @${profile.handle}`
     : dictionary.actions.openPublicPage;
