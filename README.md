@@ -208,7 +208,7 @@ npm run build
 - Use a direct image URL rather than a profile page or gallery link.
 - Avoid expiring or signed avatar image URLs so shared profile previews keep loading.
 - Square images work best because PayLink displays avatars in a circular crop.
-- Invalid or non-HTTPS avatar URLs fall back to initials.
+- Leave the avatar URL blank to use the initials fallback.
 
 ## Supported Tokens
 
