@@ -203,7 +203,7 @@ npm run build
 
 ## Avatar URLs
 
-- Arbitrary remote avatar sources are allowed for this POC.
+- PayLink accepts remote avatar image URLs for this proof of concept.
 - Avatar URLs must be `https://`.
 - Use a direct image URL rather than a profile page or gallery link.
 - Avoid expiring or signed avatar image URLs so shared profile previews keep loading.
