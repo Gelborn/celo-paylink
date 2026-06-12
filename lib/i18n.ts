@@ -457,7 +457,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       connectBeforePay: "Connect with MiniPay or a browser wallet to send this payment.",
       fillAllFields: "Complete handle, display name, bio, and preferred token before publishing.",
       invalidImage:
-        "Avatar URL must be blank or start with https://.",
+        "Leave the avatar URL blank or use an https:// link.",
       missingAmount: "Enter an amount before sending this payment.",
       positiveAmount: "Enter an amount greater than zero before sending.",
       handleAvailable: "Handle is available.",
@@ -729,7 +729,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       connectBeforePay: "Conecte pelo MiniPay ou por uma carteira do navegador para enviar este pagamento.",
       fillAllFields: "Preencha handle, nome exibido, bio e token preferido antes de publicar.",
       invalidImage:
-        "A URL do avatar deve ficar vazia ou começar com https://.",
+        "Deixe a URL do avatar vazia ou use um link https://.",
       missingAmount: "Informe um valor antes de enviar este pagamento.",
       positiveAmount: "Informe um valor maior que zero antes de enviar.",
       handleAvailable: "Handle disponível.",
