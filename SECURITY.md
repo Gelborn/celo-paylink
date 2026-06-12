@@ -29,5 +29,6 @@ Send a private report to the repository owner with:
 - any suggested mitigation or workaround
 
 Do not include private keys, seed or recovery phrases, wallet passphrases, or production RPC secrets in the report.
+Do not move live funds or perform destructive tests without coordinating with the repository owner first.
 
 If the report is valid, fixes will be prepared privately and disclosed after a patch is available.
