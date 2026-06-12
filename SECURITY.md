@@ -15,7 +15,7 @@ Send a private report to the repository owner with:
 - expected behavior and what happened instead
 - the affected route or Celo network, if applicable
 - the contract address and chain ID, if the report involves a live contract
-- the public handle involved, if safe to share
+- the recipient public handle involved, if safe to share
 - deployed URL and commit SHA, when available
 - whether it affects preview/demo mode, production payment flows, or both
 - whether any wallet prompt was signed, rejected, or never shown
