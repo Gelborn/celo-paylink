@@ -459,7 +459,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       invalidImage:
         "Avatar URL must be blank or start with https://.",
       missingAmount: "Enter an amount before sending this payment.",
-      positiveAmount: "Enter a payment amount greater than zero.",
+      positiveAmount: "Enter an amount greater than zero before sending.",
       handleAvailable: "Handle is available.",
       handleTaken: "That handle is already taken. Try another one.",
       handleInvalid: "Use 3-32 characters: lowercase letters, numbers, hyphen, or underscore.",
@@ -731,7 +731,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       invalidImage:
         "A URL do avatar deve ficar vazia ou começar com https://.",
       missingAmount: "Informe um valor antes de enviar este pagamento.",
-      positiveAmount: "Informe um valor de pagamento maior que zero.",
+      positiveAmount: "Informe um valor maior que zero antes de enviar.",
       handleAvailable: "Handle disponível.",
       handleTaken: "Esse handle já está em uso. Tente outro.",
       handleInvalid: "Use de 3 a 32 caracteres: letras minúsculas, números, hífen ou sublinhado.",
