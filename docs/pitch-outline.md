@@ -13,7 +13,7 @@
 - Product
 - Claim a handle, publish a profile, and get paid in stablecoins
 - Reuse the same public profile or prefilled request links for repeat payments
-- Prefill amount, token, and reference for specific requests
+- Prefill amount, token, and reference for one-off requests
 - Support English and Brazilian Portuguese from the same flow
 
 ## Slide 4
