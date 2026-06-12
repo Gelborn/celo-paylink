@@ -187,6 +187,7 @@ After deployment, copy the contract address and numeric creation block into the 
 - Use the recipient wallet for profile setup and a separate payer wallet when testing a live payment.
 - Payers do not need a PayLink account; they only need a compatible wallet to review and send the payment.
 - Any browser wallet that can switch to Celo, approve ERC-20 allowances, and submit PayLink transactions can exercise the same profile and payment flows.
+- When retesting outside MiniPay, confirm the browser wallet shows the Celo network switch before payment review.
 - Public profile payment pages, success receipts, and recent payments are designed to work without a backend or indexer.
 
 ## Release Checks
