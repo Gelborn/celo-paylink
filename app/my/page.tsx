@@ -6,7 +6,7 @@ import { publicEnv } from "../../lib/env";
 export const metadata: Metadata = {
   title: "PayLink dashboard",
   description:
-    "Manage your MiniPay PayLink profile, create prefilled request links, and review incoming payments and PayLink receipts.",
+    "Manage your MiniPay PayLink public profile, create prefilled request links, and review incoming payments and PayLink receipts.",
   alternates: {
     canonical: "/my"
   },
