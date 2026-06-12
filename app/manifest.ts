@@ -22,7 +22,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
         sizes: "1200x2598",
         form_factor: "narrow",
-        label: "MiniPay PayLink mobile public profile payment preview"
+        label: "MiniPay PayLink English mobile public profile payment preview"
       },
       {
         src: "/paylink-demo-pt-br-poster.png",
