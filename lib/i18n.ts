@@ -463,7 +463,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       handleAvailable: "Handle is available.",
       handleTaken: "That handle is already taken. Try another one.",
       handleInvalid: "Use 3-32 characters with no spaces: lowercase letters, numbers, hyphen, or underscore.",
-      handleLocked: "Handle cannot change after publishing.",
+      handleLocked: "Handle cannot change after publishing, but profile details can still be updated.",
       handleChecking: "Checking handle availability...",
       handleDefault: "Use lowercase letters, numbers, hyphen, or underscore with no spaces for your public URL.",
       noProfile:
@@ -735,7 +735,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       handleAvailable: "Handle disponível.",
       handleTaken: "Esse handle já está em uso. Tente outro.",
       handleInvalid: "Use de 3 a 32 caracteres sem espaços: letras minúsculas, números, hífen ou sublinhado.",
-      handleLocked: "O handle não pode ser alterado depois da publicação.",
+      handleLocked: "O handle não pode ser alterado depois da publicação, mas os dados do perfil ainda podem ser atualizados.",
       handleChecking: "Verificando disponibilidade do handle...",
       handleDefault: "Use letras minúsculas, números, hífen ou sublinhado sem espaços na URL pública.",
       noProfile:
