@@ -343,7 +343,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       emptyTransactions:
         "Incoming payments and PayLink receipts will appear here after someone pays through your public profile or request link.",
       connectPrompt:
-        "Open in MiniPay or connect a browser wallet to create and manage your public profile."
+        "Open PayLink in MiniPay or connect a browser wallet to create and manage your public profile."
     },
     profileDiscovery: {
       eyebrow: "Published profiles",
@@ -615,7 +615,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       emptyTransactions:
         "Os pagamentos recebidos e comprovantes do PayLink aparecerão aqui depois que alguém pagar pelo seu perfil público ou link de cobrança.",
       connectPrompt:
-        "Abra no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil público."
+        "Abra o PayLink no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil público."
     },
     profileDiscovery: {
       eyebrow: "Perfis publicados",
