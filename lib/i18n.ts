@@ -443,7 +443,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       contractReady: "Profile updates publish directly through PayLink on Celo.",
       missingContract: "Configure PayLink for this network before publishing profiles or accepting payments.",
       noWalletFound:
-        "No wallet found. Open PayLink in MiniPay or use a browser with an injected wallet.",
+        "No wallet found. Open PayLink in MiniPay or use a browser wallet.",
       couldNotConnectWallet: "Could not connect to the wallet. Check the wallet prompt and try again.",
       switchWalletRequired: "Switch your wallet to {network} to continue.",
       miniPayWrongNetwork:
@@ -715,7 +715,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       contractReady: "As alterações do perfil são publicadas direto pelo PayLink na Celo.",
       missingContract: "Configure o PayLink para esta rede antes de publicar perfis ou receber pagamentos.",
       noWalletFound:
-        "Nenhuma carteira foi encontrada. Abra o PayLink no MiniPay ou use um navegador com carteira integrada.",
+        "Nenhuma carteira foi encontrada. Abra o PayLink no MiniPay ou use uma carteira do navegador.",
       couldNotConnectWallet: "Não foi possível conectar à carteira. Confira a solicitação na carteira e tente novamente.",
       switchWalletRequired: "Troque sua carteira para {network} para continuar.",
       miniPayWrongNetwork:
