@@ -35,11 +35,13 @@ export function NetworkMismatchModal({
       variants={modalBackdrop}
       initial="hidden"
       animate="show"
+      exit="exit"
     >
       <motion.div
         variants={modalPanel}
         initial="hidden"
         animate="show"
+        exit="exit"
         className="w-full max-w-md"
       >
         <Card
