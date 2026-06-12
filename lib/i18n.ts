@@ -357,7 +357,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       searchPlaceholder: "creator_handle",
       latestTitle: "Recent profiles",
       latestDescription:
-        "Newest profiles published by PayLink contract events.",
+        "Newest profiles published on Celo through PayLink.",
       loading: "Loading profiles...",
       empty: "Published profiles will appear here after they are created on Celo.",
       unavailable:
@@ -629,7 +629,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       searchPlaceholder: "criador_handle",
       latestTitle: "Perfis recentes",
       latestDescription:
-        "Perfis mais novos publicados por eventos do contrato PayLink.",
+        "Perfis mais novos publicados na Celo pelo PayLink.",
       loading: "Carregando perfis...",
       empty: "Perfis publicados aparecerão aqui depois que forem criados na Celo.",
       unavailable:
