@@ -35,7 +35,7 @@
 - Install the PWA once and confirm the `Open PayLink dashboard` shortcut opens `/my`.
 - Launch the installed PWA from its icon and confirm it opens the home page in standalone mode.
 - Rotate the phone once and confirm the installed PWA keeps the payment flow in portrait orientation.
-- Open a `preview=1` public profile URL on the production deployment and confirm demo data stays disabled.
+- Append `preview=1` to a production public profile URL and confirm demo data stays disabled.
 - Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
 - For local phone rehearsal, confirm preview links use the `npm run dev:mobile` network host instead of `localhost`.
 - Save the exact demo request link with its amount, token, and reference values for the final submission notes.
