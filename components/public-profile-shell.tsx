@@ -187,6 +187,18 @@ export function PublicProfileShell({
   const openDashboardLabel = `${dictionary.actions.openDashboard}: @${profile.handle}`;
   const payCreatorLabel = `${dictionary.actions.payCreator}: @${profile.handle}`;
   const createYourOwnLabel = `${dictionary.actions.createYourOwn}: @${profile.handle}`;
+  const shareStatusLabel =
+    shareStatus === "copied"
+      ? dictionary.labels.copied
+      : shareStatus === "shared"
+        ? dictionary.labels.shared
+        : null;
+  const shareProfileButtonLabel = shareStatusLabel
+    ? `${shareStatusLabel}: @${profile.handle}`
+    : shareProfileLabel;
+  const shareCreatorLinkButtonLabel = shareStatusLabel
+    ? `${shareStatusLabel}: @${profile.handle}`
+    : shareCreatorLinkLabel;
 
   async function handleSharePublicPage() {
     try {
@@ -321,7 +333,7 @@ export function PublicProfileShell({
                       onClick={() => {
                         void handleSharePublicPage();
                       }}
-                      aria-label={shareProfileLabel}
+                      aria-label={shareProfileButtonLabel}
                     >
                       {dictionary.actions.shareProfile}
                     </Button>
@@ -415,7 +427,7 @@ export function PublicProfileShell({
                         onClick={() => {
                           void handleSharePublicPage();
                         }}
-                        aria-label={shareCreatorLinkLabel}
+                        aria-label={shareCreatorLinkButtonLabel}
                       >
                         {dictionary.actions.shareCreatorLink}
                       </Button>
@@ -466,7 +478,7 @@ export function PublicProfileShell({
                         onClick={() => {
                           void handleSharePublicPage();
                         }}
-                        aria-label={shareCreatorLinkLabel}
+                        aria-label={shareCreatorLinkButtonLabel}
                       >
                         {dictionary.actions.shareCreatorLink}
                       </Button>
