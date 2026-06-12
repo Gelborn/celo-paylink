@@ -6,7 +6,7 @@
 
 ## Slide 2
 - Problem
-- Small creators and freelancers need a public payment profile that feels native to MiniPay
+- Small creators, freelancers, and solo merchants need a public payment profile that feels native to MiniPay
 - Copying and pasting wallet addresses makes small repeat payments harder to trust
 
 ## Slide 3
