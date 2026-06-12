@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MiniPay PayLink",
     description:
-      "Publish a no-custody payment profile, share prefilled request links, and give payers PayLink receipts after direct Celo stablecoin payments.",
+      "Publish a no-custody payment profile, share prefilled request links, and give payers shareable PayLink receipts after direct Celo stablecoin payments.",
     url: publicEnv.appUrl,
     siteName: "MiniPay PayLink",
     locale: "en_US",
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MiniPay PayLink",
     description:
-      "Publish a no-custody payment profile, share prefilled request links, and give payers PayLink receipts after direct Celo stablecoin payments.",
+      "Publish a no-custody payment profile, share prefilled request links, and give payers shareable PayLink receipts after direct Celo stablecoin payments.",
     images: [
       {
         url: "/og.svg",
