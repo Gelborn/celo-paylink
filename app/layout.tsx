@@ -83,7 +83,7 @@ export const metadata: Metadata = {
         url: "/og.svg",
         width: 1200,
         height: 630,
-        alt: "MiniPay PayLink public profile payment and receipt preview"
+        alt: "MiniPay PayLink public payment page and receipt preview"
       }
     ]
   },
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
         url: "/og.svg",
         width: 1200,
         height: 630,
-        alt: "MiniPay PayLink public profile payment and receipt preview"
+        alt: "MiniPay PayLink public payment page and receipt preview"
       }
     ]
   },
