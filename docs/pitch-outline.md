@@ -25,7 +25,7 @@
 ## Slide 5
 - Onchain design
 - Verified PayLinkProfile contract
-- Direct stablecoin forwarding
+- Stablecoins forward directly to the recipient
 - No custody; payments settle directly to the recipient wallet
 - Payment history from PayLink events
 - No backend or indexer required
