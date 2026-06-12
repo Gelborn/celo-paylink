@@ -109,7 +109,7 @@ For a quick reviewer demo without connecting a wallet or deploying a contract, o
 This opens a prefilled public profile payment page with the demo amount, token, and reference already set.
 Keep `demo-paylink` for local preview; use a real created handle for final demo links.
 
-If Next.js starts on a different local port, replace `3000` in both preview URLs.
+If Next.js starts on a different local port, replace `3000` in both preview URLs before opening them.
 Keep both preview URLs on the same local origin so the payment and receipt states share one app session.
 
 To preview the matching receipt state, open:
