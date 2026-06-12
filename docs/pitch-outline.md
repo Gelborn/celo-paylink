@@ -14,7 +14,7 @@
 - Claim a handle, publish a profile, and get paid in stablecoins
 - Reuse the same public profile or prefilled request links for repeat payments
 - Prefill amount, token, and reference for one-off requests
-- Support English and Brazilian Portuguese from the same flow
+- Support English and Brazilian Portuguese in the same flow
 
 ## Slide 4
 - Why Celo
