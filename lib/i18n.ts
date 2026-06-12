@@ -359,7 +359,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       latestDescription:
         "Newest profiles published by PayLink contract events.",
       loading: "Loading profiles...",
-      empty: "Published profiles will appear here after they are created onchain.",
+      empty: "Published profiles will appear here after they are created on Celo.",
       unavailable:
         "Profile discovery will appear after the PayLink contract address is configured.",
       tooShort: "Enter at least 3 characters from a handle to search.",
@@ -631,7 +631,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       latestDescription:
         "Perfis mais novos publicados por eventos do contrato PayLink.",
       loading: "Carregando perfis...",
-      empty: "Perfis publicados aparecerão aqui depois que forem criados onchain.",
+      empty: "Perfis publicados aparecerão aqui depois que forem criados na Celo.",
       unavailable:
         "A descoberta de perfis aparecerá quando o endereço do contrato do PayLink estiver configurado.",
       tooShort: "Digite pelo menos 3 caracteres de um handle para buscar.",
