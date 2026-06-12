@@ -12,7 +12,7 @@ Use the same amount, token, and reference values in the preview fallback and liv
 Keep the live reference short so it stays legible in the wallet and receipt screens.
 
 During the live wallet walkthrough, call out that payments settle directly to the recipient wallet with no platform custody.
-Use a real created handle for the live pass; keep `demo-paylink` for preview-only fallback URLs.
+Use a real created handle for the live wallet walkthrough; keep `demo-paylink` for preview-only fallback URLs.
 Name the recipient handle and payer wallet consistently so reviewers can follow the two-wallet flow.
 
 Before the live pass, confirm the payer wallet has enough of the selected token for the requested amount and a little CELO for network fees.
