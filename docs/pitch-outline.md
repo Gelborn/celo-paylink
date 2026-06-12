@@ -11,7 +11,7 @@
 
 ## Slide 3
 - Product
-- Claim a handle, publish a profile, get paid in stablecoins
+- Claim a handle, publish a profile, and get paid in stablecoins
 - Reuse the same public profile or prefilled request links for repeat payments
 - Prefill amount, token, and reference for specific requests
 - Support English and Brazilian Portuguese from the same flow
