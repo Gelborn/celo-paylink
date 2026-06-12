@@ -468,7 +468,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       handleDefault: "Use lowercase letters, numbers, hyphen, or underscore with no spaces for your public URL.",
       noProfile:
         "Connect a wallet and publish your profile to start receiving payments.",
-      profileLoading: "Loading your profile...",
+      profileLoading: "Loading your PayLink profile...",
       finishingProfile: "Publishing your profile...",
       confirmProfileInWallet:
         "Confirm the profile transaction in your wallet, then wait for Celo confirmation.",
@@ -740,7 +740,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       handleDefault: "Use letras minúsculas, números, hífen ou sublinhado sem espaços na URL pública.",
       noProfile:
         "Conecte uma carteira e publique seu perfil para começar a receber.",
-      profileLoading: "Carregando seu perfil...",
+      profileLoading: "Carregando seu perfil PayLink...",
       finishingProfile: "Publicando seu perfil...",
       confirmProfileInWallet:
         "Confirme a transação do perfil na sua carteira e aguarde a inclusão na Celo.",
