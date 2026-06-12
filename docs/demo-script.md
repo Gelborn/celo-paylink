@@ -24,7 +24,7 @@ Keep the public profile and PayLink receipt URLs visible long enough for reviewe
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
 Disable auto-lock on the phone so it does not sleep mid-flow.
 
-Close unrelated browser tabs and dismiss wallet notifications before recording so the live pass stays focused.
+Close unrelated browser tabs and dismiss wallet notifications before recording so the live wallet walkthrough stays focused.
 Keep wallet account switchers closed unless you need to explain the two-wallet setup.
 Keep private keys, seed phrases, and deployment env files out of the recording.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
