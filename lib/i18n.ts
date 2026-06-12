@@ -363,7 +363,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       unavailable:
         "Profile discovery will appear after PayLink is configured for this network.",
       tooShort: "Enter at least 3 characters from a handle to search.",
-      notFound: "No published profile matches that handle.",
+      notFound: "No published profile matches that handle. Check the spelling or paste the full handle.",
       error: "Profiles could not load right now. Try again in a moment.",
       exactHint: "Paste the full handle. PayLink removes @ and spaces; handles use 3-32 letters, numbers, hyphens, or underscores.",
       openProfile: "Open profile"
@@ -635,7 +635,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       unavailable:
         "A descoberta de perfis aparecerá quando o PayLink estiver configurado para esta rede.",
       tooShort: "Digite pelo menos 3 caracteres de um handle para buscar.",
-      notFound: "Nenhum perfil publicado corresponde a esse handle.",
+      notFound: "Nenhum perfil publicado corresponde a esse handle. Confira a grafia ou cole o handle completo.",
       error: "Não foi possível carregar os perfis agora. Tente novamente em instantes.",
       exactHint: "Cole o handle completo. O PayLink remove @ e espaços; handles usam de 3 a 32 letras, números, hífens ou sublinhados.",
       openProfile: "Abrir perfil"
