@@ -465,7 +465,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       handleInvalid: "Use 3-32 characters with no spaces: lowercase letters, numbers, hyphen, or underscore.",
       handleLocked: "Handle cannot change after publishing.",
       handleChecking: "Checking handle availability...",
-      handleDefault: "Use lowercase letters, numbers, hyphen, or underscore for your public URL.",
+      handleDefault: "Use lowercase letters, numbers, hyphen, or underscore with no spaces for your public URL.",
       noProfile:
         "Connect a wallet and publish your profile to start receiving payments.",
       profileLoading: "Loading your profile...",
@@ -737,7 +737,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       handleInvalid: "Use de 3 a 32 caracteres sem espaços: letras minúsculas, números, hífen ou sublinhado.",
       handleLocked: "O handle não pode ser alterado depois da publicação.",
       handleChecking: "Verificando disponibilidade do handle...",
-      handleDefault: "Use letras minúsculas, números, hífen ou sublinhado na URL pública.",
+      handleDefault: "Use letras minúsculas, números, hífen ou sublinhado sem espaços na URL pública.",
       noProfile:
         "Conecte uma carteira e publique seu perfil para começar a receber.",
       profileLoading: "Carregando seu perfil...",
