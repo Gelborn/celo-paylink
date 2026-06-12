@@ -40,6 +40,7 @@ export const metadata: Metadata = {
     "request links",
     "payment receipts",
     "PayLink receipts",
+    "receipt proof",
     "no-custody payments",
     "public payment profile",
     "creator payments",
