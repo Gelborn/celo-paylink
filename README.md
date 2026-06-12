@@ -227,7 +227,7 @@ From the current Celo docs. Before a mainnet deployment, re-check these addresse
 ## Public Repo Notes
 
 - The repo includes CI, Dependabot, `SECURITY.md`, and explicit public/private env separation.
-- CI remains available for manual verification without running on every push or pull request.
+- CI remains available through `workflow_dispatch` for manual verification without running on every push or pull request.
 - `robots.ts` and page metadata keep dashboard and receipt routes out of indexing while PayLink receipt URLs remain directly shareable.
 - `sitemap.ts` publishes the canonical app origin for search engines; dynamic profile links are shared directly instead of being enumerated.
 - `manifest.ts` publishes install metadata, maskable install icons, the `Open PayLink dashboard` shortcut, and English plus Brazilian Portuguese mobile demo screenshots.
