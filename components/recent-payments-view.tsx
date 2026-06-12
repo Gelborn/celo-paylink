@@ -39,6 +39,7 @@ export function RecentPaymentsView({
     title,
     isLoading ? "loading" : payments.length === 0 ? "empty" : "list"
   );
+  const emptyDescriptionId = `${titleId}-description`;
 
   if (isLoading) {
     return (
@@ -91,6 +92,7 @@ export function RecentPaymentsView({
         className="compact-card"
         role="region"
         aria-labelledby={titleId}
+        aria-describedby={emptyDescriptionId}
       >
         <CardHeader>
           <CardTitle id={titleId} className="text-base">{title}</CardTitle>
@@ -100,7 +102,7 @@ export function RecentPaymentsView({
             <IconFrame tone="accent" className="h-9 w-9 rounded-md">
               <ReceiptText aria-hidden="true" />
             </IconFrame>
-            <p>{dictionary.dashboard.emptyTransactions}</p>
+            <p id={emptyDescriptionId}>{dictionary.dashboard.emptyTransactions}</p>
           </div>
         </CardContent>
       </Card>
