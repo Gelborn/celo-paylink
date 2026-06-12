@@ -27,7 +27,7 @@
 - Open `/og.svg` on the deployed origin and confirm the social preview image is reachable over HTTPS.
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes and receipt URLs stay unindexed.
-- Open `/my` on the deployed origin and confirm the dashboard page metadata includes `noindex`.
+- Open `/my` on the deployed origin and confirm the PayLink dashboard page metadata includes `noindex`.
 - Confirm `/sitemap.xml` lists the final HTTPS production origin, not localhost or a preview URL.
 - Open `/manifest.webmanifest` and confirm the app name, short name, description, language, text direction, maskable icon, scope, and `display` mode match the production install.
 - Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS.
