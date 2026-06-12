@@ -68,7 +68,7 @@
 - Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear handle guidance.
 - Open a fresh profile with no payments and confirm the recent-payments empty state is clear.
 - Open the final avatar URL directly and confirm the image loads over HTTPS before screenshots.
-- Try a non-HTTPS avatar URL once and confirm the initials fallback appears.
+- Try a non-HTTPS avatar URL once and confirm the dashboard shows clear avatar URL guidance.
 - Copy the public profile link from `/my` and confirm it uses the final HTTPS origin.
 - Use the mobile share action once and confirm the share title names the profile and the shared URL is the final public profile URL.
 - Send at least one real payment and verify it appears in the recent payments list.
