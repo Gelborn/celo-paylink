@@ -73,6 +73,7 @@
 - Send at least one real payment and verify it appears in the recent payments list.
 - Save the live demo transaction hash with the final submission notes after the successful payment.
 - Save the matching PayLink receipt URL beside the transaction hash so reviewers can reopen the in-app proof.
+- Open the saved PayLink receipt URL from the submission notes once before sharing it.
 - Reload the public profile after payment and confirm the recent payment is still visible from chain data.
 - Open the success-screen receipt link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the success-screen amount, token, and reference match the public request link.
