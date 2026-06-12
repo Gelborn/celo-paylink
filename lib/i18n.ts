@@ -164,6 +164,7 @@ export type Dictionary = {
     profileLive: string;
     preferredToken: string;
     payingFrom: string;
+    paidFrom: string;
     notConnected: string;
     copied: string;
     shared: string;
@@ -429,6 +430,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       profileLive: "PayLink live",
       preferredToken: "Preferred token",
       payingFrom: "Paying from",
+      paidFrom: "Paid from",
       notConnected: "Not connected",
       copied: "Copied",
       shared: "Shared",
@@ -700,6 +702,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       profileLive: "PayLink ativo",
       preferredToken: "Token preferido",
       payingFrom: "Pagando com",
+      paidFrom: "Pago por",
       notConnected: "Não conectado",
       copied: "Copiado",
       shared: "Compartilhado",

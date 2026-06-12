@@ -159,7 +159,7 @@ export function RecentPaymentsView({
                           </span>
                         </div>
                         <p className="text-sm text-zinc-400">
-                          {dictionary.labels.payingFrom}{" "}
+                          {dictionary.labels.paidFrom}{" "}
                           <span className="text-zinc-200" title={payment.payer}>
                             {shortenAddress(payment.payer)}
                           </span>
