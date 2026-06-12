@@ -299,7 +299,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         {
           title: "Keep a receipt",
           description:
-            "Payers get a receipt link after confirmation, and recent payments appear from onchain events."
+            "Payers get a receipt link after confirmation, and recent payments appear from Celo activity."
         }
       ],
       trustStatements: [
@@ -571,7 +571,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         {
           title: "Guarde o comprovante",
           description:
-            "Quem paga recebe um link de comprovante após a confirmação, e os pagamentos recentes aparecem por eventos onchain."
+            "Quem paga recebe um link de comprovante após a confirmação, e os pagamentos recentes aparecem pela atividade na Celo."
         }
       ],
       trustStatements: [
