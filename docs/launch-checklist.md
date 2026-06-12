@@ -29,7 +29,7 @@
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes and receipt URLs stay unindexed.
 - Open `/my` on the deployed origin and confirm the dashboard page metadata includes `noindex`.
 - Confirm `/sitemap.xml` lists the final HTTPS production origin, not localhost or a preview URL.
-- Open `/manifest.webmanifest` and confirm the app name, description, language, text direction, maskable icon, scope, and `display` mode match the production install.
+- Open `/manifest.webmanifest` and confirm the app name, short name, description, language, text direction, maskable icon, scope, and `display` mode match the production install.
 - Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS.
 - Open both manifest screenshot URLs and confirm the English and Brazilian Portuguese mobile preview posters load from the deployed origin.
 - Install the PWA once and confirm the `Open PayLink dashboard` shortcut opens `/my`.
