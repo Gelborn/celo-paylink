@@ -478,7 +478,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Switch your wallet to the required network before using PayLink.",
       wrongNetworkMiniPayDescription:
         'MiniPay is on the wrong network for this app. If you are testing, disable "Use Testnet" in MiniPay settings, then return and try again.',
-      insufficientBalance: "Insufficient {token} balance to send this payment.",
+      insufficientBalance: "Insufficient {token} balance to send this payment. Add funds or choose a smaller amount.",
       approving: "Approving",
       confirmingApproval: "Confirming token approval on Celo...",
       sending: "Sending",
@@ -750,7 +750,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Troque sua carteira para a rede correta antes de usar o PayLink.",
       wrongNetworkMiniPayDescription:
         'O MiniPay está na rede errada para este app. Se você estiver testando, desative "Use Testnet" nas configurações do MiniPay, volte e tente de novo.',
-      insufficientBalance: "Saldo insuficiente em {token} para enviar este pagamento.",
+      insufficientBalance: "Saldo insuficiente em {token} para enviar este pagamento. Adicione saldo ou escolha um valor menor.",
       approving: "Aprovando",
       confirmingApproval: "Confirmando a aprovação do token na Celo...",
       sending: "Enviando",
