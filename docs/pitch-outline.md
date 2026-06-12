@@ -49,7 +49,7 @@
 - Prefilled request links
 - Shareable PayLink receipt proof
 - No payer PayLink account required
-- No custody
+- No platform custody
 
 ## Slide 8
 - Next steps
