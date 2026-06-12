@@ -18,6 +18,7 @@ Send a private report to the repository owner with:
 - the public handle involved, if safe to share
 - deployed URL and commit SHA, when available
 - whether it affects preview/demo mode, production payment flows, or both
+- whether any wallet prompt was signed, rejected, or never shown
 - browser, wallet type (MiniPay or another injected wallet), OS, and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
 - approximate date and time observed, including timezone, if it happened on a live deployment
