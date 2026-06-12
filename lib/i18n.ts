@@ -347,7 +347,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     profileDiscovery: {
       eyebrow: "Published profiles",
-      title: "Creators and merchants already using PayLink.",
+      title: "Creators and merchants already accepting PayLink.",
       description:
         "Browse public profiles recently published from the PayLink contract.",
       searchTab: "Search",
@@ -619,7 +619,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     profileDiscovery: {
       eyebrow: "Perfis publicados",
-      title: "Criadores e comerciantes já usando o PayLink.",
+      title: "Criadores e comerciantes já recebendo pelo PayLink.",
       description:
         "Veja perfis públicos publicados recentemente pelo contrato do PayLink.",
       searchTab: "Buscar",
