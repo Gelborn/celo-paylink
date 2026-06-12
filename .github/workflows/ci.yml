@@ -4,6 +4,10 @@ run-name: Manual CI verification
 on:
   workflow_dispatch:
 
+concurrency:
+  group: "manual-ci-${{ github.ref }}"
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
