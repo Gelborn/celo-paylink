@@ -19,7 +19,7 @@ Before the live wallet walkthrough, confirm the payer wallet has enough of the s
 Confirm the recipient profile is already saved before starting the timer so setup does not crowd the live wallet walkthrough.
 
 Keep the MiniPay phone unlocked on the public profile payment page before starting the 90-second timer.
-Keep the final request link open in a second tab in case the phone needs a quick reload.
+Keep the final request link open in a second tab in case the MiniPay phone needs a quick reload.
 Keep the public profile and PayLink receipt URLs visible long enough for reviewers to read the shared origin.
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
 Disable auto-lock on the phone so it does not sleep mid-flow.
