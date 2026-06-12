@@ -473,7 +473,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       confirmProfileInWallet:
         "Confirm the profile transaction in your wallet, then wait for Celo confirmation.",
       syncingProfile:
-        "Refreshing your dashboard with the latest onchain profile data.",
+        "Refreshing your dashboard with the latest Celo profile data.",
       wrongNetworkDescription:
         "Switch your wallet to the required network before using PayLink.",
       wrongNetworkMiniPayDescription:
@@ -745,7 +745,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       confirmProfileInWallet:
         "Confirme a transação do perfil na sua carteira e aguarde a inclusão na Celo.",
       syncingProfile:
-        "Atualizando seu painel com os dados onchain mais recentes do perfil.",
+        "Atualizando seu painel com os dados mais recentes do perfil na Celo.",
       wrongNetworkDescription:
         "Troque sua carteira para a rede correta antes de usar o PayLink.",
       wrongNetworkMiniPayDescription:
