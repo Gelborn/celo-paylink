@@ -19,7 +19,7 @@
 ## Slide 4
 - Why Celo
 - MiniPay mobile distribution
-- Mobile-first stablecoin payment UX
+- Mobile-first stablecoin payment experience
 - Low transaction costs for small payments
 
 ## Slide 5
