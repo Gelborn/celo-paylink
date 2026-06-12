@@ -61,7 +61,7 @@
 - Open the copied request link in a private browser window and confirm it does not rely on owner session state.
 - Test an unsupported `token` query once and confirm the page falls back to a supported token.
 - Test a request reference with a space and confirm it stays readable after sharing the link.
-- Test a request amount with cents and confirm the payment and receipt keep the decimal value readable.
+- Test a request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
 - Switch to `pt-BR` once and confirm public profile and payment copy still fits before screenshots.
 - Reload after switching locale and confirm the selected language remains consistent.
 - Confirm profile creation, profile updates, and request-link generation.
