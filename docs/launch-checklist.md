@@ -96,4 +96,4 @@
 - Scan the final public profile link from a QR code once and confirm it opens on mobile.
 - Watch the exported demo once with audio muted and confirm the visible flow still explains the payment path.
 - Confirm the exported demo shows the wallet confirmation amount, token, and Celo explorer transaction proof clearly.
-- Record a short product demo.
+- Record the short product demo from the final deployed origin.
