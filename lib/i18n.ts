@@ -434,7 +434,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       shared: "Shared",
       checking: "Checking...",
       transaction: "Transaction",
-      owner: "Owner view",
+      owner: "Your profile",
       visitor: "Public profile"
     },
     messages: {
