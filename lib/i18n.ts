@@ -453,7 +453,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       waitingConfirmation: "Waiting for confirmation...",
       profilePublished: "Profile published. Your public link is ready.",
       paymentComplete: "Payment complete.",
-      connectBeforeSave: "Connect your wallet before publishing this profile.",
+      connectBeforeSave: "Connect with MiniPay or a browser wallet before publishing this profile.",
       connectBeforePay: "Connect with MiniPay or a browser wallet to send this payment.",
       fillAllFields: "Complete handle, display name, bio, and preferred token before publishing.",
       invalidImage:
@@ -725,7 +725,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       waitingConfirmation: "Aguardando confirmação...",
       profilePublished: "Perfil publicado. Seu link público está pronto.",
       paymentComplete: "Pagamento concluído.",
-      connectBeforeSave: "Conecte sua carteira antes de publicar este perfil.",
+      connectBeforeSave: "Conecte pelo MiniPay ou por uma carteira do navegador antes de publicar este perfil.",
       connectBeforePay: "Conecte pelo MiniPay ou por uma carteira do navegador para enviar este pagamento.",
       fillAllFields: "Preencha handle, nome exibido, bio e token preferido antes de publicar.",
       invalidImage:
