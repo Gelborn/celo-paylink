@@ -96,6 +96,7 @@ export type Dictionary = {
     description: string;
     searchTab: string;
     searchTitle: string;
+    resultTitle: string;
     searchDescription: string;
     searchPlaceholder: string;
     latestTitle: string;
@@ -352,6 +353,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Browse public profiles recently published through PayLink on Celo.",
       searchTab: "Search",
       searchTitle: "Find a profile",
+      resultTitle: "Matching profile",
       searchDescription:
         "Enter an exact handle to open the matching public profile.",
       searchPlaceholder: "creator_handle",
@@ -624,6 +626,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Veja perfis públicos publicados recentemente pelo PayLink na Celo.",
       searchTab: "Buscar",
       searchTitle: "Buscar perfil",
+      resultTitle: "Perfil encontrado",
       searchDescription:
         "Digite o handle exato para abrir o perfil público correspondente.",
       searchPlaceholder: "criador_handle",

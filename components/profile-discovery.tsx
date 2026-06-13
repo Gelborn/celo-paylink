@@ -290,7 +290,7 @@ export function ProfileDiscovery({
             exit="exit"
           >
             <h3 id={searchResultTitleId} className="text-base font-semibold text-white">
-              {dictionary.profileDiscovery.searchTitle}
+              {dictionary.profileDiscovery.resultTitle}
             </h3>
             <ProfileLinkCard
               profile={searchResult}
