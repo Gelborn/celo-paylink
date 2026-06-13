@@ -19,6 +19,7 @@ Send a private report to the repository owner with:
 - deployed URL and commit SHA, when available
 - whether it affects preview/demo mode, production payment flows, or both
 - whether the issue is visible signed out or only after connecting a wallet
+- whether it reproduces after a page reload or fresh browser session
 - whether any wallet prompt was signed, rejected, or never shown
 - browser, wallet type (MiniPay or another injected wallet), OS, and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
