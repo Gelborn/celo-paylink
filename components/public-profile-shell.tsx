@@ -120,6 +120,7 @@ export function PublicProfileShell({
   const [shareStatus, setShareStatus] = useState<
     "idle" | "copied" | "shared" | "error"
   >("idle");
+  const [isSharePending, setIsSharePending] = useState(false);
   const [isOwner, setIsOwner] = useState(false);
   const hasPrefilledAmount = Boolean(initialAmount);
   const hasPrefilledReference = Boolean(initialReference);
@@ -201,6 +202,11 @@ export function PublicProfileShell({
     : shareCreatorLinkLabel;
 
   async function handleSharePublicPage() {
+    if (isSharePending) {
+      return;
+    }
+
+    setIsSharePending(true);
     try {
       const nextStatus = await shareOrCopyUrl(publicUrl, shareProfileLabel);
       setShareStatus(nextStatus);
@@ -212,6 +218,8 @@ export function PublicProfileShell({
 
       setShareStatus("error");
       window.setTimeout(() => setShareStatus("idle"), 2200);
+    } finally {
+      setIsSharePending(false);
     }
   }
 
@@ -334,6 +342,8 @@ export function PublicProfileShell({
                       onClick={() => {
                         void handleSharePublicPage();
                       }}
+                      disabled={isSharePending}
+                      aria-busy={isSharePending ? true : undefined}
                       aria-label={shareProfileButtonLabel}
                     >
                       {dictionary.actions.shareProfile}
@@ -432,6 +442,8 @@ export function PublicProfileShell({
                         onClick={() => {
                           void handleSharePublicPage();
                         }}
+                        disabled={isSharePending}
+                        aria-busy={isSharePending ? true : undefined}
                         aria-label={shareCreatorLinkButtonLabel}
                       >
                         {dictionary.actions.shareCreatorLink}
@@ -483,6 +495,8 @@ export function PublicProfileShell({
                         onClick={() => {
                           void handleSharePublicPage();
                         }}
+                        disabled={isSharePending}
+                        aria-busy={isSharePending ? true : undefined}
                         aria-label={shareCreatorLinkButtonLabel}
                       >
                         {dictionary.actions.shareCreatorLink}
