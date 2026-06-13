@@ -49,7 +49,7 @@
 - Confirm the final submission notes name the target Celo network for the public profile, request link, and receipt.
 - Confirm the final request link uses a short reference that stays readable in MiniPay and on the receipt.
 - Test the saved demo request link inside MiniPay on a phone.
-- Confirm the profile owner wallet and payer wallet are separate for the live payment test.
+- Confirm the recipient wallet used for profile setup and the payer wallet are separate for the live payment test.
 - Confirm the wallet is on Celo before approving or sending the payment.
 - Confirm the payer wallet has the selected token and a little CELO for network fees.
 - Confirm the selected token, amount, and reference match PayLink before approving or sending in the wallet.
