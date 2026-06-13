@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { CheckCircle2, Coins, ExternalLink, FileText, Send, Wallet } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Hex } from "viem";
@@ -69,6 +69,7 @@ export function PaymentPanelIsland({
   initialTokenQuery: string;
 }) {
   const { dictionary } = useLocale();
+  const paymentResultTransactionLabelId = useId();
   const {
     account,
     connect,
@@ -336,10 +337,16 @@ export function PaymentPanelIsland({
           </div>
 
           <div className="mt-4 border-t border-white/10 pt-4">
-            <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+            <p
+              id={paymentResultTransactionLabelId}
+              className="text-xs uppercase tracking-[0.16em] text-zinc-500"
+            >
               {dictionary.labels.transaction}
             </p>
-            <code className="mt-2 block break-all text-sm text-zinc-300">
+            <code
+              aria-labelledby={paymentResultTransactionLabelId}
+              className="mt-2 block break-all text-sm text-zinc-300"
+            >
               {paymentResult.txHash}
             </code>
           </div>
