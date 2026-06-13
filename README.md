@@ -119,7 +119,7 @@ To preview the matching receipt state, open:
 
 `http://localhost:3000/success?tx=0x51f0ed1f7cf8e3d4860ef65bfb30e94c877ce4bfc0a463ce84f674fed0ef8e2c&handle=demo-paylink&amount=5&token=USDC&ref=coffee&preview=1`
 
-When sharing walletless review notes, include both preview URLs so reviewers can compare the payment page and receipt proof.
+When sharing walletless review notes, label both preview URLs so reviewers can compare the payment page and receipt proof.
 If you change the demo amount, token, or reference, keep the same values in both preview URLs so the receipt matches the payment page.
 Keep the same handle in both preview URLs so the payment and receipt states point to the same profile.
 Use the same browser locale for both preview URLs so the payment page and receipt copy match.
