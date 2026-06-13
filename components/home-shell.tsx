@@ -137,6 +137,7 @@ export function HomeShell({
                   icon={<Copy aria-hidden="true" />}
                   label={dictionary.fields.publicLink}
                   value={publicUrl}
+                  valueTitle={publicUrl || undefined}
                   tone="accent"
                   mono
                 />
