@@ -268,6 +268,8 @@ export function ProfileDiscovery({
         >
           {!contractAddress
             ? dictionary.profileDiscovery.unavailable
+            : searchState === "loading"
+              ? dictionary.profileDiscovery.loading
             : searchState === "too-short"
               ? dictionary.profileDiscovery.tooShort
             : searchState === "not-found"
