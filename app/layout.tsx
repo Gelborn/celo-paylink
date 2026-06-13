@@ -56,6 +56,7 @@ export const metadata: Metadata = {
   creator: "MiniPay PayLink",
   publisher: "MiniPay PayLink",
   authors: [{ name: "Gelborn" }],
+  referrer: "strict-origin-when-cross-origin",
   formatDetection: {
     address: false,
     email: false,
