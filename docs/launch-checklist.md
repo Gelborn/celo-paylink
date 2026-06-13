@@ -77,6 +77,7 @@
 - Open the final avatar URL directly and confirm the image loads over HTTPS before screenshots.
 - Try a non-HTTPS avatar URL once and confirm the dashboard shows clear avatar URL guidance.
 - Copy the public profile link from `/my` and confirm it uses the final HTTPS origin.
+- Paste the copied public profile link once and confirm it opens the same submitted handle.
 - Use the mobile share action once and confirm the share title names the profile and the shared URL is the final public profile URL.
 - Send at least one real payment and verify it appears in the recent payments list.
 - Save the live demo transaction hash with the final submission notes after the successful payment.
