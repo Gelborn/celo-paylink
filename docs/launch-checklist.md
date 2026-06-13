@@ -39,7 +39,7 @@
 - Confirm `/sitemap.xml` lists the final HTTPS production origin, not localhost or a preview URL.
 - View source for the deployed home page and confirm the root `<html>` tag includes the expected `lang` value and `dir="ltr"`.
 - View source for the deployed home page and confirm the referrer meta tag uses `strict-origin-when-cross-origin`.
-- Open `/manifest.webmanifest` and confirm the app name, short name, description, language, text direction, maskable icon, scope, and `display` mode match the production install.
+- Open `/manifest.webmanifest` and confirm the app name, short name, description, language, text direction, maskable icon, scope, start URL, and `display` mode match the production install.
 - View source for the deployed home page and confirm the mobile web app meta tags are present for Android and iOS install prompts.
 - Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS.
 - Open both manifest screenshot URLs and confirm the English and Brazilian Portuguese payment and receipt proof preview posters load from the deployed origin with distinct locale labels.
