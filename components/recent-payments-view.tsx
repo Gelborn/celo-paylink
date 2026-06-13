@@ -195,7 +195,11 @@ export function RecentPaymentsView({
 
                     <div className="flex items-center justify-between gap-3 text-xs text-zinc-500">
                       <span>{dictionary.labels.transaction}</span>
-                      <span className="transition group-hover:text-zinc-300" title={payment.txHash}>
+                      <span
+                        aria-label={`${dictionary.labels.transaction}: ${payment.txHash}`}
+                        className="transition group-hover:text-zinc-300"
+                        title={payment.txHash}
+                      >
                         {shortenAddress(payment.txHash)}
                       </span>
                       <ExternalLink
