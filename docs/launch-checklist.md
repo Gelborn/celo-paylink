@@ -42,6 +42,7 @@
 - Save the exact demo request link with its amount, token, and reference values for the final submission notes.
 - Confirm the saved demo request link uses the final HTTPS origin before adding it to submission notes.
 - Confirm the final submission notes label the home URL, public profile URL, request link, and receipt URL separately.
+- Confirm the final submission notes name the target Celo network for the public profile, request link, and receipt.
 - Confirm the final request link uses a short reference that stays readable in MiniPay and on the receipt.
 - Test the saved demo request link inside MiniPay on a phone.
 - Confirm the profile owner wallet and payer wallet are separate for the live payment test.
