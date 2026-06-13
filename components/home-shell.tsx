@@ -40,6 +40,7 @@ export function HomeShell({
 }) {
   const { dictionary } = useLocale();
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
+  const [isCopyPending, setIsCopyPending] = useState(false);
   const {
     account,
     chainId,
@@ -174,8 +175,15 @@ export function HomeShell({
                       size="lg"
                       className="w-full sm:w-auto"
                       leftIcon={<Copy aria-hidden="true" />}
+                      disabled={isCopyPending}
+                      aria-busy={isCopyPending ? true : undefined}
                       aria-label={copyProfileLabel}
                       onClick={async () => {
+                        if (isCopyPending) {
+                          return;
+                        }
+
+                        setIsCopyPending(true);
                         try {
                           await copyTextToClipboard(publicUrl);
                           setCopyStatus("copied");
@@ -183,6 +191,8 @@ export function HomeShell({
                         } catch {
                           setCopyStatus("error");
                           window.setTimeout(() => setCopyStatus("idle"), 2200);
+                        } finally {
+                          setIsCopyPending(false);
                         }
                       }}
                     >
