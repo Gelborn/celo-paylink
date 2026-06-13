@@ -49,6 +49,9 @@ export function HomeWalletControls({
   ) : isMiniPay && !isDisconnectedByUser ? (
     <div
       role="status"
+      aria-label={`${dictionary.labels.walletControls}: ${
+        isConnecting ? dictionary.messages.waitingConfirmation : "MiniPay"
+      }`}
       aria-live="polite"
       aria-atomic="true"
       className="rounded-full border border-white/10 bg-zinc-950/80 px-4 py-2 text-xs font-medium text-zinc-400"
