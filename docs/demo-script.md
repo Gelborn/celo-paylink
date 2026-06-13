@@ -25,7 +25,7 @@ Keep the final request link open in a second tab in case the payer MiniPay phone
 Keep the public profile and PayLink receipt URLs visible long enough for reviewers to read the shared origin and handle.
 Keep the browser address bar visible when showing final URLs so the deployed origin is readable.
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
-Disable auto-lock on the phone so it does not sleep mid-flow.
+Disable auto-lock on the payer phone so it does not sleep mid-flow.
 
 Close unrelated browser tabs and dismiss wallet notifications before recording so the live wallet walkthrough stays focused.
 Keep wallet account and network switchers closed unless you need to explain the two-wallet setup.
