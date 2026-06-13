@@ -36,6 +36,7 @@
 - Copy a prefilled request link from the dashboard when a fixed amount is needed
 - Confirm the final origin and handle before payment
 - Review amount, token, and reference
+- Keep the reference short enough to read in MiniPay and on the receipt
 - Approve the token if prompted
 - Send payment
 - Return to the in-app PayLink receipt
