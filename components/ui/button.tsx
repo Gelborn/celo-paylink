@@ -35,6 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       ref={ref}
       type={type}
       disabled={disabled}
+      aria-disabled={disabled ? true : undefined}
       whileHover={disabled ? undefined : whileHover || subtleLift}
       whileTap={disabled ? undefined : whileTap || softTap}
       transition={transition || motionTransitions.micro}
