@@ -10,7 +10,7 @@ Keep the README's matching preview receipt URL ready if you need to show the rec
 When showing either preview URL on a phone, open the paths on the `npm run dev:mobile` network host instead of `localhost`.
 Use the same amount, token, and reference values in the preview fallback and live wallet walkthrough so reviewers can compare both states quickly.
 Keep the live reference short so it stays legible in the wallet and receipt screens.
-Use a neutral reference such as `coffee` or `demo` so client names do not appear in wallet or receipt footage.
+Use a neutral reference such as `coffee` or `demo` so client names do not appear in wallet confirmations, receipts, or screenshots.
 
 During the live wallet walkthrough, call out that payments settle directly to the recipient wallet with no platform custody.
 Use a real created handle for the live wallet walkthrough; keep `demo-paylink` for preview-only fallback URLs.
