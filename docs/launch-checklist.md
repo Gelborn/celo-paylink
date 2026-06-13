@@ -85,7 +85,7 @@
 - Confirm profile creation, profile updates, and request-link generation.
 - Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear handle guidance.
 - Open a fresh profile with no payments and confirm the recent-payments empty state is clear.
-- Open the final avatar URL directly and confirm the image loads over HTTPS before screenshots.
+- Open the final avatar URL directly and confirm the image loads over HTTPS without a signed or expiring URL before screenshots.
 - Try a non-HTTPS avatar URL once and confirm the dashboard shows clear avatar URL guidance.
 - Copy the public profile link from `/my` and confirm it uses the final HTTPS origin.
 - Paste the copied public profile link once and confirm it opens the same submitted handle.
