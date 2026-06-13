@@ -38,7 +38,7 @@
 - View source for the deployed home page and confirm the mobile web app meta tags are present for Android and iOS install prompts.
 - Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS.
 - Open both manifest screenshot URLs and confirm the English and Brazilian Portuguese mobile preview posters load from the deployed origin with distinct locale labels.
-- Install the PWA once and confirm the `Open PayLink dashboard` shortcut opens `/my`.
+- Install the PWA once and confirm the `Open PayLink dashboard` shortcut shows the `My PayLink` short label and opens `/my`.
 - Launch the installed PWA from its icon and confirm it opens the home page in standalone mode.
 - Rotate the phone once and confirm the installed PWA keeps the payment flow in portrait orientation.
 - Append `preview=1` to a production public profile URL and confirm demo data stays disabled.
