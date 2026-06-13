@@ -83,6 +83,7 @@ export function DetailTile({
             {label}
           </p>
           <div
+            aria-label={valueTitle}
             title={valueTitle}
             className={clsx(
               "mt-1.5 min-w-0 break-words text-base font-semibold leading-6 text-white",
