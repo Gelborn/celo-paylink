@@ -33,6 +33,7 @@
 ## Slide 6
 - MiniPay user flow
 - Open the public PayLink in MiniPay
+- Payer does not need to create a PayLink account before paying
 - Copy a prefilled request link from the dashboard when a fixed amount is needed
 - Confirm the final origin and handle before payment
 - Review amount, token, and reference
