@@ -17,7 +17,7 @@ type SuccessPageProps = {
 
 const receiptTitle = "PayLink receipt proof";
 const receiptDescription =
-  "Open a shareable PayLink receipt with amount, token, reference, recipient handle, matching Celo explorer transaction proof, and a path back to the recipient profile.";
+  "Open a shareable PayLink receipt with amount, token, reference, recipient handle, matching Celo explorer proof for the same transaction hash, and a path back to the recipient profile.";
 
 export const metadata: Metadata = {
   title: receiptTitle,
