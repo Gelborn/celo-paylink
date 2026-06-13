@@ -16,6 +16,7 @@ Use a real created handle for the live wallet walkthrough; keep `demo-paylink` f
 Name the recipient handle and payer wallet consistently so reviewers can follow the two-wallet flow.
 
 Before the live wallet walkthrough, confirm the payer wallet has enough of the selected token for the requested amount and a little CELO for network fees.
+Confirm MiniPay is on the target Celo network before opening the live request link.
 Confirm the recipient profile is already saved before starting the timer so setup does not crowd the live wallet walkthrough.
 
 Keep the MiniPay phone unlocked on the public profile payment page before starting the 90-second timer.
