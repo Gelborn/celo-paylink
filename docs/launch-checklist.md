@@ -81,6 +81,7 @@
 - Try a non-HTTPS avatar URL once and confirm the dashboard shows clear avatar URL guidance.
 - Copy the public profile link from `/my` and confirm it uses the final HTTPS origin.
 - Paste the copied public profile link once and confirm it opens the same submitted handle.
+- Confirm the copied public profile link keeps the handle casing and characters shown on the dashboard.
 - Open the copied public profile link in a private browser window and confirm it does not rely on owner session state.
 - Use the mobile share action once and confirm the share title names the profile and the shared URL is the final public profile URL.
 - Send at least one real payment and verify it appears in the recent payments list.
