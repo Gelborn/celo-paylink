@@ -561,6 +561,7 @@ export function DashboardShell({
                                 tone="accent"
                                 detail={
                                   <code
+                                    aria-label={`${publicLinkLabel}: ${publicUrl}`}
                                     className="inline-flex max-w-full break-all rounded-lg border border-white/10 bg-black/20 px-3 py-1.5 text-xs leading-5 text-zinc-300"
                                     style={{ fontFamily: "var(--font-mono), monospace" }}
                                   >
