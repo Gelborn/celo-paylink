@@ -57,7 +57,7 @@
 
 ## Slide 8
 - Next steps
-- Shareable PayLink QR codes for in-person payments
+- Shareable MiniPay PayLink QR codes for in-person payments
 - Saved PayLink receipt links with matching explorer proof for client bookkeeping
 - Lightweight invoice templates for repeat client requests
 - Merchant-specific suggested amount presets for faster request links
