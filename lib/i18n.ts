@@ -274,7 +274,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       proofEyebrow: "Trust built in",
       proofTitle: "Clear payment details before anyone sends.",
       proofDescription:
-        "PayLink shows the recipient, amount, token, and verification path before the transfer moves on Celo.",
+        "PayLink shows the recipient, amount, token, reference, and verification path before the transfer moves on Celo.",
       proofChips: [
         "Funds move directly to the recipient wallet",
         "Amount, token, and reference stay in the link",
@@ -546,7 +546,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       proofEyebrow: "Confiança integrada",
       proofTitle: "Dados claros antes de qualquer pagamento.",
       proofDescription:
-        "O PayLink mostra quem recebe, valor, token e caminho de verificação antes da transferência na Celo.",
+        "O PayLink mostra quem recebe, valor, token, referência e caminho de verificação antes da transferência na Celo.",
       proofChips: [
         "Os fundos vão direto para a carteira de quem recebe",
         "Valor, token e referência ficam no link",
