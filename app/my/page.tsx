@@ -4,7 +4,7 @@ import { getDefaultChainId } from "../../lib/chains";
 import { publicEnv } from "../../lib/env";
 
 export const metadata: Metadata = {
-  title: "PayLink dashboard",
+  title: "MiniPay PayLink dashboard",
   description:
     "Manage your MiniPay PayLink public profile, create prefilled request links, review incoming payments, and open PayLink receipts.",
   alternates: {
