@@ -331,6 +331,7 @@ export function ProfileEditor({
               <Input
                 value={form.handle}
                 readOnly={Boolean(profile)}
+                aria-label={dictionary.fields.handle}
                 aria-invalid={invalidFields.handle}
                 aria-describedby={handleStatusId}
                 autoComplete="off"
@@ -366,6 +367,7 @@ export function ProfileEditor({
               </span>
               <Input
                 value={form.displayName}
+                aria-label={dictionary.fields.displayName}
                 aria-invalid={invalidFields.displayName}
                 autoComplete="name"
                 enterKeyHint="next"
@@ -410,6 +412,7 @@ export function ProfileEditor({
             </span>
             <Textarea
               value={form.bio}
+              aria-label={dictionary.fields.bio}
               aria-invalid={invalidFields.bio}
               className={
                 invalidFields.bio
