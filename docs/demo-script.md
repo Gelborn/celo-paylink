@@ -39,7 +39,7 @@ If you use a browser-wallet fallback, keep the same request link so the amount, 
 If the Celo explorer is slow during judging, keep the PayLink receipt visible and point out that the explorer link uses the same transaction hash.
 
 1. Open the landing page and explain PayLink in one sentence.
-2. Open `/my`, connect with MiniPay, and create or update the payment profile.
+2. Open `/my`, connect with the recipient wallet in MiniPay, and create or update the payment profile.
 3. Show the saved handle and copy the public profile link.
    Pause on the copied link long enough to make the public profile URL format clear.
 4. Open the copied public `/u/[handle]` link so the final origin is visible.
