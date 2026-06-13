@@ -62,6 +62,9 @@ export function DashboardShell({
   const [shareStatus, setShareStatus] = useState<
     "idle" | "copied" | "shared" | "copy-error" | "share-error"
   >("idle");
+  const [pendingShareAction, setPendingShareAction] = useState<
+    "copy" | "share" | null
+  >(null);
   const {
     account,
     chainId,
@@ -154,8 +157,9 @@ export function DashboardShell({
   }
 
   async function handleShareProfile() {
-    if (!publicUrl) return;
+    if (!publicUrl || pendingShareAction) return;
 
+    setPendingShareAction("share");
     try {
       const nextStatus = await shareOrCopyUrl(publicUrl, publicLinkLabel);
       setShareStatus(nextStatus);
@@ -167,12 +171,15 @@ export function DashboardShell({
 
       setShareStatus("share-error");
       window.setTimeout(() => setShareStatus("idle"), 2200);
+    } finally {
+      setPendingShareAction(null);
     }
   }
 
   async function handleCopyProfileLink() {
-    if (!publicUrl) return;
+    if (!publicUrl || pendingShareAction) return;
 
+    setPendingShareAction("copy");
     try {
       await copyTextToClipboard(publicUrl);
       setShareStatus("copied");
@@ -180,6 +187,8 @@ export function DashboardShell({
     } catch {
       setShareStatus("copy-error");
       window.setTimeout(() => setShareStatus("idle"), 2200);
+    } finally {
+      setPendingShareAction(null);
     }
   }
 
@@ -581,6 +590,10 @@ export function DashboardShell({
                                   variant="outline"
                                   className="w-full sm:min-w-[10rem]"
                                   leftIcon={<Copy aria-hidden="true" />}
+                                  disabled={pendingShareAction !== null}
+                                  aria-busy={
+                                    pendingShareAction === "copy" ? true : undefined
+                                  }
                                   aria-label={copyPublicLinkLabel}
                                   onClick={() => {
                                     void handleCopyProfileLink();
@@ -595,6 +608,10 @@ export function DashboardShell({
                                 <Button
                                   className="w-full sm:min-w-[10rem]"
                                   leftIcon={<Share2 aria-hidden="true" />}
+                                  disabled={pendingShareAction !== null}
+                                  aria-busy={
+                                    pendingShareAction === "share" ? true : undefined
+                                  }
                                   aria-label={sharePublicLinkLabel}
                                   onClick={() => {
                                     void handleShareProfile();
