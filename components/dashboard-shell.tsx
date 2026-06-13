@@ -381,7 +381,11 @@ export function DashboardShell({
                         @{profile.handle} · {shortenAddress(account)}
                       </p>
                       {preferredToken ? (
-                        <p className="text-xs text-zinc-500" title={preferredToken.name}>
+                        <p
+                          aria-label={`${dictionary.labels.preferredToken}: ${preferredToken.name}`}
+                          className="text-xs text-zinc-500"
+                          title={preferredToken.name}
+                        >
                           {dictionary.labels.preferredToken}: {preferredToken.symbol}
                         </p>
                       ) : null}
