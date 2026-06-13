@@ -53,6 +53,7 @@ export function HeadlessSelect({
         <select
           id={selectId}
           aria-label={label ? undefined : accessibleLabel}
+          aria-disabled={disabled ? true : undefined}
           aria-invalid={invalid ? true : undefined}
           disabled={disabled}
           lang={selected?.lang}
