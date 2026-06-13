@@ -25,13 +25,17 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
   const { dictionary } = useLocale();
   const copyActionLabel = copyLabel || dictionary.actions.copyLink;
   const copyButtonLabel =
-    status === "copied"
+    pendingAction === "copy"
+      ? `${dictionary.messages.copyingLink}: ${label}`
+      : status === "copied"
       ? `${dictionary.labels.copied}: ${label}`
       : status === "shared"
         ? `${dictionary.labels.shared}: ${label}`
         : `${copyActionLabel}: ${label}`;
   const shareButtonLabel =
-    status === "shared"
+    pendingAction === "share"
+      ? `${dictionary.messages.sharingLink}: ${label}`
+      : status === "shared"
       ? `${dictionary.labels.shared}: ${label}`
       : `${dictionary.actions.shareLink}: ${label}`;
 

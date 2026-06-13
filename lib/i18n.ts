@@ -211,6 +211,8 @@ export type Dictionary = {
       confirmingApproval: string;
       sending: string;
       openingReceipt: string;
+      copyingLink: string;
+      sharingLink: string;
       linkCopied: string;
       shareOpened: string;
       copyFailed: string;
@@ -487,6 +489,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       confirmingApproval: "Confirming token approval on Celo...",
       sending: "Sending",
       openingReceipt: "Opening your PayLink receipt...",
+      copyingLink: "Copying link",
+      sharingLink: "Opening share sheet",
       linkCopied: "Link copied. Ready to share.",
       shareOpened: "Share sheet opened for this link.",
       copyFailed: "Could not copy the link on this device. Select the URL and copy it manually.",
@@ -761,6 +765,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       confirmingApproval: "Confirmando a aprovação do token na Celo...",
       sending: "Enviando",
       openingReceipt: "Abrindo o comprovante do PayLink...",
+      copyingLink: "Copiando link",
+      sharingLink: "Abrindo compartilhamento",
       linkCopied: "Link copiado. Pronto para compartilhar.",
       shareOpened: "Janela de compartilhamento aberta para este link.",
       copyFailed: "Não foi possível copiar o link neste dispositivo. Selecione a URL e copie manualmente.",
