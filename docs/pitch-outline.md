@@ -36,7 +36,7 @@
 - Open the public PayLink in MiniPay
 - Payer does not need to create a PayLink account before paying
 - Copy a prefilled request link from the dashboard when a fixed amount is needed
-- Confirm the final origin and handle before payment
+- Confirm the final HTTPS origin and handle before payment
 - Review amount, token, and reference
 - Keep the reference short enough to read in MiniPay and on the receipt
 - Approve the token if prompted
