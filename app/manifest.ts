@@ -22,14 +22,14 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
         sizes: "1200x2598",
         form_factor: "narrow",
-        label: "MiniPay PayLink English mobile public profile payment and receipt preview"
+        label: "MiniPay PayLink English mobile public profile payment and receipt proof preview"
       },
       {
         src: "/paylink-demo-pt-br-poster.png",
         type: "image/png",
         sizes: "1200x2598",
         form_factor: "narrow",
-        label: "MiniPay PayLink Brazilian Portuguese mobile public profile payment and receipt preview"
+        label: "MiniPay PayLink Brazilian Portuguese mobile public profile payment and receipt proof preview"
       }
     ],
     shortcuts: [
