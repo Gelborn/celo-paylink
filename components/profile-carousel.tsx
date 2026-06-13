@@ -52,6 +52,7 @@ function ProfileLinkCard({
             </span>
             {token ? (
               <span
+                aria-label={`${dictionary.labels.preferredToken}: ${token.name}`}
                 className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-zinc-400"
                 title={token.name}
               >
