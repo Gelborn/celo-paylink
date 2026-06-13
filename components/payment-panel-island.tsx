@@ -445,6 +445,7 @@ export function PaymentPanelIsland({
               inputMode="decimal"
               autoComplete="off"
               enterKeyHint="next"
+              aria-label={dictionary.fields.amount}
               value={amount}
               onChange={(event) =>
                 setAmount(sanitizeCurrencyInput(event.target.value))
@@ -462,6 +463,7 @@ export function PaymentPanelIsland({
               autoComplete="off"
               enterKeyHint="done"
               maxLength={140}
+              aria-label={dictionary.fields.note}
               onChange={(event) => setReference(event.target.value)}
               placeholder={dictionary.placeholders.note}
             />
