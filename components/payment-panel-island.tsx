@@ -497,7 +497,7 @@ export function PaymentPanelIsland({
               isPaymentBusy
                 ? dictionary.messages.waitingConfirmation
                 : selectedToken
-                  ? `${dictionary.actions.payNow}: ${amount || dictionary.placeholders.amount} ${selectedToken.symbol}`
+                  ? `${dictionary.actions.payNow}: ${amount || dictionary.placeholders.amount} ${selectedToken.symbol}, @${profile.handle}`
                   : dictionary.actions.payNow
             }
           >
