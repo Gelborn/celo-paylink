@@ -143,6 +143,8 @@ export function RecentPaymentsView({
                     payment.token,
                     chainId
                   )} ${payment.tokenSymbol || dictionary.fields.token}, ${
+                    dictionary.labels.paidFrom
+                  } ${shortenAddress(payment.payer)}, ${
                     dictionary.labels.transaction
                   } ${shortenAddress(payment.txHash)}, @${payment.handle}, ${paymentDateLabel}`}
                   className="group block rounded-lg border border-white/10 bg-zinc-950/45 px-4 py-4 transition-[background-color,border-color,transform] duration-200 ease-[var(--motion-ease)] hover:-translate-y-0.5 hover:border-[color:var(--accent-line)] hover:bg-zinc-950/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] sm:px-5 sm:py-5"
