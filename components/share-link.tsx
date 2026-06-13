@@ -21,6 +21,7 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
   const [status, setStatus] = useState<
     "idle" | "copied" | "shared" | "copy-error" | "share-error"
   >("idle");
+  const [pendingAction, setPendingAction] = useState<"copy" | "share" | null>(null);
   const { dictionary } = useLocale();
   const copyActionLabel = copyLabel || dictionary.actions.copyLink;
   const copyButtonLabel =
@@ -35,6 +36,7 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
       : `${dictionary.actions.shareLink}: ${label}`;
 
   async function handleCopy() {
+    setPendingAction("copy");
     try {
       await copyTextToClipboard(url);
       setStatus("copied");
@@ -42,10 +44,13 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
     } catch {
       setStatus("copy-error");
       window.setTimeout(() => setStatus("idle"), 2200);
+    } finally {
+      setPendingAction(null);
     }
   }
 
   async function handleShare() {
+    setPendingAction("share");
     try {
       const nextStatus = await shareOrCopyUrl(url, label);
       setStatus(nextStatus);
@@ -57,6 +62,8 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
 
       setStatus("share-error");
       window.setTimeout(() => setStatus("idle"), 2200);
+    } finally {
+      setPendingAction(null);
     }
   }
 
@@ -82,6 +89,8 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
           variant="primary"
           className="w-full sm:w-auto"
           leftIcon={<Copy aria-hidden="true" />}
+          disabled={pendingAction !== null}
+          aria-busy={pendingAction === "copy" ? true : undefined}
           aria-label={copyButtonLabel}
         >
           {status === "copied"
@@ -97,6 +106,8 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
           variant="outline"
           className="w-full sm:w-auto"
           leftIcon={<Share2 aria-hidden="true" />}
+          disabled={pendingAction !== null}
+          aria-busy={pendingAction === "share" ? true : undefined}
           aria-label={shareButtonLabel}
         >
           {dictionary.actions.shareLink}
