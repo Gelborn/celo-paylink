@@ -76,6 +76,7 @@ export function ChargeLinkPanel({
             inputMode="decimal"
             autoComplete="off"
             enterKeyHint="next"
+            aria-label={dictionary.fields.amount}
             value={amount}
             onChange={(event) => setAmount(sanitizeCurrencyInput(event.target.value))}
             placeholder={dictionary.placeholders.amount}
@@ -91,6 +92,7 @@ export function ChargeLinkPanel({
             autoComplete="off"
             enterKeyHint="done"
             maxLength={140}
+            aria-label={dictionary.fields.note}
             onChange={(event) => setNote(event.target.value)}
             placeholder={dictionary.placeholders.note}
           />
