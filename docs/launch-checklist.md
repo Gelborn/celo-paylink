@@ -7,6 +7,7 @@
 - Save the verified contract address and explorer URL alongside the final submission links.
 - Save the deployed production app commit SHA alongside the final submission links.
 - Set `NEXT_PUBLIC_CONTRACT_ADDRESS_*` for the selected production chain.
+- Confirm production contract address values are not blank; blanks are only for walletless local previews.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` for the selected production chain after deployment.
 - Confirm production deployment block values are not blank; blanks are only for walletless local previews.
 - Confirm the deployment block value is the decimal contract creation block height, not the verification or first-payment block.
