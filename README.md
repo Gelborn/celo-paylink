@@ -10,6 +10,7 @@ When building a link by hand, URL-encode references with spaces or symbols befor
 Keep `ref` concise because it appears on receipts and recent payment history.
 The dashboard request-link form handles this encoding for generated links.
 Use a supported token symbol such as `USDm`, `USDC`, or `USD₮`, or a supported token contract address for the optional `token` query.
+When typing `token=USD₮` by hand, URL-encode the `₮` symbol or use the token contract address.
 Omit `token` to use the recipient's preferred token from their profile.
 Use human-readable decimal amounts such as `5` or `5.50`; do not put token base units in request URLs.
 Use a period as the decimal separator in shared URLs so wallets and receipts read the amount consistently.
