@@ -206,6 +206,8 @@ npm run typecheck
 npm run build
 ```
 
+The GitHub Actions CI workflow is manual-only; trigger it after the final push if you need a hosted verification record.
+
 ## Avatar URLs
 
 - PayLink accepts remote avatar image URLs for this proof of concept.
