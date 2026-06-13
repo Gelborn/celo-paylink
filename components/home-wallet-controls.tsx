@@ -63,6 +63,7 @@ export function HomeWalletControls({
       leftIcon={<Wallet aria-hidden="true" />}
       disabled={isConnecting}
       aria-busy={isConnecting ? true : undefined}
+      aria-label={`${isConnecting ? dictionary.messages.waitingConfirmation : dictionary.actions.connectWallet}: ${dictionary.labels.walletControls}`}
       onClick={() => {
         void connect();
       }}
