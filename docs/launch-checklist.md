@@ -21,6 +21,7 @@
 - Run `npm run typecheck` before the production build so generated Next.js types are current.
 - Run `npm run build` once with the production environment values.
 - Run the manual CI workflow from GitHub Actions once after the final push so the submitted commit has a recorded verification run.
+- Confirm the manual CI workflow run targets the same commit SHA saved in the final submission notes.
 - Open the deployed home URL in a signed-out browser and confirm it loads without a wallet connection.
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
 - Confirm the public profile preview uses the submitted handle and display name, not the demo fallback copy.
