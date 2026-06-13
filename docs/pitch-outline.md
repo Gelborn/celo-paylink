@@ -33,6 +33,7 @@
 ## Slide 6
 - MiniPay user flow
 - Open the public PayLink in MiniPay
+- Copy a prefilled request link from the dashboard when a fixed amount is needed
 - Confirm the final origin and handle before payment
 - Review amount, token, and reference
 - Approve the token if prompted
