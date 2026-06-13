@@ -387,6 +387,7 @@ export function ProfileEditor({
             </span>
             <Input
               value={form.avatarUrl}
+              aria-label={dictionary.fields.avatarUrl}
               aria-invalid={invalidFields.avatarUrl}
               type="url"
               inputMode="url"
@@ -431,6 +432,7 @@ export function ProfileEditor({
             </span>
             <Textarea
               value={form.paymentMessage}
+              aria-label={dictionary.fields.paymentMessage}
               aria-invalid={invalidFields.paymentMessage}
               className="min-h-[108px]"
               onChange={(event) =>
