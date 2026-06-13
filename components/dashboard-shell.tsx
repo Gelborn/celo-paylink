@@ -399,6 +399,7 @@ export function DashboardShell({
                       variant="secondary"
                       leftIcon={<Eye aria-hidden="true" />}
                       className="border-[color:var(--accent-line)] text-[color:var(--accent)]"
+                      aria-label={openPublicPageLabel}
                     >
                       {dictionary.actions.openPublicPage}
                     </Button>
