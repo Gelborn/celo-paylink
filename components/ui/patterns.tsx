@@ -118,6 +118,8 @@ export function ActionRow({
   children?: ReactNode;
   className?: string;
 }) {
+  const actionLabel = typeof title === "string" ? title : undefined;
+
   return (
     <div
       className={clsx(
@@ -138,7 +140,11 @@ export function ActionRow({
         </div>
       </div>
       {children ? (
-        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
+        <div
+          className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center"
+          role={actionLabel ? "group" : undefined}
+          aria-label={actionLabel}
+        >
           {children}
         </div>
       ) : null}
