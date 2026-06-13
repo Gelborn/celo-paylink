@@ -102,6 +102,9 @@ export function DashboardShell({
     shareStatus === "shared"
       ? `${dictionary.labels.shared}: ${publicLinkLabel}`
       : `${dictionary.actions.shareLink}: ${publicLinkLabel}`;
+  const editProfileLabel = profile
+    ? `${dictionary.actions.editProfile}: @${profile.handle}`
+    : dictionary.actions.editProfile;
   const openPublicPageLabel = profile
     ? `${dictionary.actions.openPublicPage}: @${profile.handle}`
     : dictionary.actions.openPublicPage;
@@ -391,6 +394,7 @@ export function DashboardShell({
                       setManageView("overview");
                       setIsEditingProfile(true);
                     }}
+                    aria-label={editProfileLabel}
                   >
                     {dictionary.actions.editProfile}
                   </Button>
