@@ -75,6 +75,9 @@ export function HomeShell({
   const viewProfileLabel = profile
     ? `${dictionary.actions.viewProfile}: @${profile.handle}`
     : dictionary.actions.viewProfile;
+  const createChargeLinkLabel = profile
+    ? `${dictionary.actions.createChargeLink}: @${profile.handle}`
+    : dictionary.actions.createChargeLink;
   const showConnectAction =
     hasProvider && !account && (!isMiniPay || isDisconnectedByUser);
 
@@ -227,6 +230,7 @@ export function HomeShell({
                       variant="secondary"
                       className="w-full"
                       leftIcon={<FileText aria-hidden="true" />}
+                      aria-label={createChargeLinkLabel}
                     >
                       {dictionary.actions.createChargeLink}
                     </Button>
