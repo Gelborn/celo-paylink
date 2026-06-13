@@ -34,7 +34,7 @@ Keep wallet account and network switchers closed unless you need to explain the 
 Keep private keys, seed phrases, and deployment env files out of the recording.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
 Open both prepared preview URLs once before recording so local Next.js routes and images are warm when the camera starts.
-Keep browser zoom at 100% in both preview and live tabs so the wallet handoff, receipt, and explorer proof stay readable.
+Keep browser zoom at 100% in preview, live, and explorer tabs so the wallet handoff, receipt, and explorer proof stay readable.
 
 If the live wallet connection stalls during judging, switch to the preview link and narrate where the live confirmation would happen.
 If you use a browser-wallet fallback, keep the same request link so the amount, token, and reference stay aligned with the MiniPay path.
