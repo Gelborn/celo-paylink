@@ -511,6 +511,7 @@ export function PaymentPanelIsland({
               className="w-full sm:w-auto"
               leftIcon={<Wallet aria-hidden="true" />}
               aria-busy={isConnecting ? true : undefined}
+              aria-label={`${dictionary.actions.connectWallet}: ${dictionary.publicPage.paymentFormTitle}`}
               onClick={() => {
                 void connect();
               }}
