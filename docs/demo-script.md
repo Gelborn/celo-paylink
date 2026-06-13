@@ -43,6 +43,7 @@ If the Celo explorer is slow during judging, keep the PayLink receipt visible an
 4. Open the copied public `/u/[handle]` link so the final origin is visible.
 5. Pick a token, choose a preset amount, and add a short reference.
    Pause on the selected token label before sending so the currency is clear in the recording.
+   Name the target Celo network before sending so the wallet confirmation has context.
    Say that the reference carries through to the receipt and recent payment history.
 6. Approve the token if needed.
    If the wallet shows a separate approval prompt, call it out before the payment confirmation.
