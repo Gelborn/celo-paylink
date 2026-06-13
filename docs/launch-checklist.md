@@ -62,6 +62,7 @@
 - Open a request link without the optional `token` query and confirm it uses the recipient's preferred token.
 - Open the copied request link in a private browser window and confirm it does not rely on owner session state.
 - Test an unsupported `token` query once and confirm the page falls back to a supported token.
+- If using `token=USD₮` in a hand-written request link, confirm the symbol is URL-encoded or use the token address.
 - Test a request reference with a space and confirm it stays readable after sharing the link.
 - Test a request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
 - Switch to Brazilian Portuguese (`pt-BR`) once and confirm public profile and payment copy still fits before screenshots.
