@@ -374,7 +374,11 @@ export function PublicProfileShell({
                                 {initialAmount} {selectedToken?.symbol}
                               </span>
                             }
-                            valueTitle={selectedToken?.name}
+                            valueTitle={
+                              selectedToken
+                                ? `${initialAmount} ${selectedToken.name}`
+                                : undefined
+                            }
                             tone="accent"
                             className="min-h-[4.5rem] px-3 py-3"
                           />
