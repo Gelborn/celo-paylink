@@ -386,6 +386,8 @@ export function PaymentPanelIsland({
 
       <div
         id="paylink-payment-panel"
+        role="region"
+        aria-label={dictionary.publicPage.paymentFormTitle}
         className="space-y-3.5 rounded-lg border border-white/10 bg-black/25 px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.025)] sm:space-y-5 sm:px-5 sm:py-5"
       >
         <AnimatePresence mode="wait" initial={false}>
