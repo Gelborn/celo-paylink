@@ -171,7 +171,11 @@ export function RecentPaymentsView({
                           </div>
                           <p className="text-sm text-zinc-400">
                             {dictionary.labels.paidFrom}{" "}
-                            <span className="text-zinc-200" title={payment.payer}>
+                            <span
+                              aria-label={`${dictionary.labels.paidFrom}: ${payment.payer}`}
+                              className="text-zinc-200"
+                              title={payment.payer}
+                            >
                               {shortenAddress(payment.payer)}
                             </span>
                           </p>
