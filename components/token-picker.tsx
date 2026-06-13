@@ -33,6 +33,7 @@ export function TokenPicker({
       className={className}
       invalid={invalid}
       disabled={disabled || options.length === 0}
+      placeholder={label}
       value={selectedAddress}
       onChange={onChange}
       options={options.map((token) => ({
