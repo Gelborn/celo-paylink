@@ -108,6 +108,9 @@ export function DashboardShell({
   const openPublicPageLabel = profile
     ? `${dictionary.actions.openPublicPage}: @${profile.handle}`
     : dictionary.actions.openPublicPage;
+  const createChargeLinkLabel = profile
+    ? `${dictionary.actions.createChargeLink}: @${profile.handle}`
+    : dictionary.actions.createChargeLink;
   const preferredToken = profile
     ? getTokenByAddress(profile.preferredToken, initialChainId)
     : null;
@@ -640,6 +643,7 @@ export function DashboardShell({
                                   className="w-full border-[color:var(--accent-line)] text-[color:var(--accent)] sm:min-w-[12rem]"
                                   leftIcon={<FileText aria-hidden="true" />}
                                   onClick={() => setManageView("invoice")}
+                                  aria-label={createChargeLinkLabel}
                                 >
                                   {dictionary.actions.createChargeLink}
                                 </Button>
