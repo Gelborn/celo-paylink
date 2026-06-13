@@ -21,6 +21,7 @@ Send a private report to the repository owner with:
 - whether it affects preview/demo mode, production payment flows, or both
 - whether the issue is visible signed out or only after connecting a wallet
 - selected language or browser locale, if copy, receipts, or profile display are involved
+- whether native sharing, clipboard copy, or a manually typed URL was involved, if link behavior is affected
 - whether it reproduces after a page reload or fresh browser session
 - whether any wallet prompt was signed, rejected, or never shown
 - browser, wallet type (MiniPay or another injected wallet), OS, and device details, if relevant
