@@ -91,6 +91,7 @@
 - Confirm the copied public profile link keeps the handle casing and characters shown on the dashboard.
 - Open the copied public profile link in a private browser window and confirm it does not rely on owner session state.
 - Use the mobile share action once and confirm the share title names the profile and the shared URL is the final public profile URL.
+- Use the share action once in a desktop browser without native sharing and confirm it falls back to copied-link feedback.
 - Send at least one real payment and verify it appears in the recent payments list.
 - Save the live demo transaction hash with the final submission notes after the successful payment.
 - Save the matching PayLink receipt URL beside the transaction hash so reviewers can reopen the in-app proof.
