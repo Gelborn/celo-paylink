@@ -22,6 +22,7 @@
     "paylink-receipts",
     "receipt-proof",
     "no-custody-payments",
+    "direct-wallet-settlement",
     "creator-payments",
     "freelancer-payments",
     "pwa"
