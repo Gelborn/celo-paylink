@@ -76,6 +76,9 @@ export const metadata: Metadata = {
     title: "MiniPay PayLink",
     statusBarStyle: "black-translucent"
   },
+  other: {
+    "mobile-web-app-capable": "yes"
+  },
   openGraph: {
     title: "MiniPay PayLink",
     description:
