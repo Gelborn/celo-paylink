@@ -48,7 +48,8 @@ export const metadata: Metadata = {
     "direct wallet settlement",
     "public payment profile",
     "creator payments",
-    "freelancer payments"
+    "freelancer payments",
+    "merchant payments"
   ],
   category: "finance",
   creator: "MiniPay PayLink",
