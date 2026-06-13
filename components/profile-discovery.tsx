@@ -248,6 +248,7 @@ export function ProfileDiscovery({
                 className="w-full sm:w-auto sm:min-w-[8rem]"
                 leftIcon={<Search aria-hidden="true" />}
                 disabled={!contractAddress || searchState === "loading"}
+                aria-busy={searchState === "loading" ? true : undefined}
                 aria-label={searchButtonLabel}
               >
                 {searchState === "loading"
