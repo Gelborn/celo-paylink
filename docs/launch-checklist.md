@@ -52,6 +52,7 @@
 - Open the same public profile payment page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
 - Open the public profile URL without query parameters and confirm the default payment prompt is clear.
 - Tap each suggested amount once on mobile and confirm the amount field updates without layout shift.
+- Navigate the suggested amount presets with assistive tech once and confirm each announced amount matches the visible button label.
 - Navigate the public profile payment page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
 - Navigate the success receipt with a keyboard once and confirm the explorer and profile actions are reachable.
 - Search for a profile with a screen reader once and confirm found or not-found status is announced.
