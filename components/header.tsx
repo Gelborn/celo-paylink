@@ -316,7 +316,7 @@ export function Header({
                             onDisconnect();
                             setOpen(false);
                           }}
-                          aria-label={`${dictionary.actions.disconnectWallet}: ${shortenAddress(account)}`}
+                          aria-label={`${dictionary.actions.disconnectWallet}: ${account}`}
                         >
                           {dictionary.actions.disconnectWallet}
                         </Button>
