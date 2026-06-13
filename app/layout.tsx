@@ -129,7 +129,7 @@ export default async function RootLayout({
   const locale = resolveLocaleFromRequest(await cookies(), await headers());
 
   return (
-    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang={locale} dir="ltr" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         <LocaleProvider initialLocale={locale}>
           <div className="page-shell">
