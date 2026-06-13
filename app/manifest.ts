@@ -35,7 +35,7 @@ export default function manifest(): MetadataRoute.Manifest {
     shortcuts: [
       {
         name: "Open PayLink dashboard",
-        short_name: "Dashboard",
+        short_name: "My PayLink",
         description: "Open the PayLink dashboard to manage your public profile, create request links, review incoming payments, and open PayLink receipts.",
         url: "/my",
         icons: [
