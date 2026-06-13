@@ -185,7 +185,7 @@ export function SuccessShell({
                     href={`${getExplorerBaseUrl(chainId)}/tx/${txHash}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${dictionary.actions.openExplorer}: ${txHash}`}
+                    aria-label={`${dictionary.actions.openExplorer}: ${txHash}, ${dictionary.labels.opensInNewTab}`}
                     className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white px-5 text-sm font-medium text-zinc-950 transition hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)]"
                   >
                     <ExternalLink aria-hidden="true" className="h-4 w-4" />

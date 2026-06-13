@@ -173,6 +173,7 @@ export type Dictionary = {
     transaction: string;
     owner: string;
     visitor: string;
+    opensInNewTab: string;
   };
     messages: {
       contractReady: string;
@@ -439,7 +440,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       checking: "Checking...",
       transaction: "Transaction",
       owner: "Your profile",
-      visitor: "Public profile"
+      visitor: "Public profile",
+      opensInNewTab: "opens in a new tab"
     },
     messages: {
       contractReady: "Profile updates publish directly through PayLink on Celo.",
@@ -712,7 +714,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       checking: "Verificando...",
       transaction: "Transação",
       owner: "Seu perfil",
-      visitor: "Perfil público"
+      visitor: "Perfil público",
+      opensInNewTab: "abre em uma nova aba"
     },
     messages: {
       contractReady: "As alterações do perfil são publicadas direto pelo PayLink na Celo.",
