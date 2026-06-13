@@ -107,6 +107,7 @@ export function ChargeLinkPanel({
       <ShareLink
         label={dictionary.fields.chargeLink}
         url={chargeUrl}
+        copyLabel={dictionary.actions.copyChargeLink}
         embedded
       />
     </div>

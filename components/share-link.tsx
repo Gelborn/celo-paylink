@@ -13,20 +13,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 type ShareLinkProps = {
   label: string;
   url: string;
+  copyLabel?: string;
   embedded?: boolean;
 };
 
-export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
+export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLinkProps) {
   const [status, setStatus] = useState<
     "idle" | "copied" | "shared" | "copy-error" | "share-error"
   >("idle");
   const { dictionary } = useLocale();
+  const copyActionLabel = copyLabel || dictionary.actions.copyLink;
   const copyButtonLabel =
     status === "copied"
       ? `${dictionary.labels.copied}: ${label}`
       : status === "shared"
         ? `${dictionary.labels.shared}: ${label}`
-        : `${dictionary.actions.copyLink}: ${label}`;
+        : `${copyActionLabel}: ${label}`;
   const shareButtonLabel =
     status === "shared"
       ? `${dictionary.labels.shared}: ${label}`
@@ -86,7 +88,7 @@ export function ShareLink({ label, url, embedded = false }: ShareLinkProps) {
             ? dictionary.labels.copied
             : status === "shared"
               ? dictionary.labels.shared
-              : dictionary.actions.copyLink}
+              : copyActionLabel}
         </Button>
         <Button
           onClick={() => {
