@@ -377,7 +377,11 @@ export function DashboardShell({
                       <h2 className="text-2xl font-semibold text-white">
                         {profile.displayName}
                       </h2>
-                      <p className="text-sm text-zinc-400" title={`@${profile.handle} · ${account}`}>
+                      <p
+                        aria-label={`${dictionary.fields.handle}: @${profile.handle}. ${dictionary.labels.connectedWallet}: ${account}`}
+                        className="text-sm text-zinc-400"
+                        title={`@${profile.handle} · ${account}`}
+                      >
                         @{profile.handle} · {shortenAddress(account)}
                       </p>
                       {preferredToken ? (
