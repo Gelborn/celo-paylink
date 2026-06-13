@@ -45,6 +45,7 @@ export const metadata: Metadata = {
     "PayLink receipts",
     "receipt proof",
     "no-custody payments",
+    "direct wallet settlement",
     "public payment profile",
     "creator payments",
     "freelancer payments"
