@@ -17,6 +17,7 @@
     "payment-links",
     "payment-profile",
     "public-payment-profile",
+    "minipay-request-links",
     "request-links",
     "payment-receipts",
     "paylink-receipts",
