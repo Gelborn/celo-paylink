@@ -211,7 +211,7 @@ npm run typecheck
 npm run build
 ```
 
-The GitHub Actions CI workflow is manual-only; trigger it after the final push if you need a hosted verification record.
+The GitHub Actions CI workflow is manual-only; trigger it for the submitted commit after the final push if you need a hosted verification record.
 
 ## Avatar URLs
 
