@@ -33,7 +33,7 @@ Close unrelated browser tabs and dismiss wallet notifications before recording s
 Keep wallet account and network switchers closed unless you need to explain the two-wallet setup.
 Keep private keys, seed phrases, and deployment env files out of the recording.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
-Open both prepared preview URLs once before recording so local Next.js routes are warm when the camera starts.
+Open both prepared preview URLs once before recording so local Next.js routes and images are warm when the camera starts.
 Keep browser zoom at 100% in both preview and live tabs so the wallet handoff, receipt, and explorer proof stay readable.
 
 If the live wallet connection stalls during judging, switch to the preview link and narrate where the live confirmation would happen.
