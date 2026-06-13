@@ -386,7 +386,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       missingTitle: "This PayLink is not published yet.",
       missingDescription:
         "That handle has not been published. Check the handle spelling, or create your profile to start receiving direct payments.",
-      noContractTitle: "PayLink is not ready on this network.",
+      noContractTitle: "PayLink is not configured for this network.",
       noContractDescription:
         "Configure PayLink for this network before sharing public profiles.",
       recentPayments: "Recent payments",
@@ -658,7 +658,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       missingTitle: "Este PayLink ainda não foi publicado.",
       missingDescription:
         "Esse handle ainda não foi publicado. Confira a grafia do handle ou crie seu perfil para começar a receber pagamentos diretos.",
-      noContractTitle: "PayLink não está pronto nesta rede.",
+      noContractTitle: "O PayLink não está configurado para esta rede.",
       noContractDescription:
         "Configure o PayLink para esta rede antes de compartilhar perfis públicos.",
       recentPayments: "Pagamentos recentes",
