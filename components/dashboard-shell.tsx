@@ -420,6 +420,7 @@ export function DashboardShell({
                   <Button
                     variant="ghost"
                     onClick={() => setIsEditingProfile(false)}
+                    aria-label={`${dictionary.actions.cancel}: ${dictionary.actions.editProfile}`}
                   >
                     {dictionary.actions.cancel}
                   </Button>
