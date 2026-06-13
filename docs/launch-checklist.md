@@ -71,6 +71,7 @@
 - Test a request reference with a space and confirm it stays readable after sharing the link.
 - Test a request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
 - Switch to Brazilian Portuguese (`pt-BR`) once and confirm public profile and payment copy still fits before screenshots.
+- Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
 - Reload after switching locale and confirm the selected language remains consistent.
 - Confirm profile creation, profile updates, and request-link generation.
 - Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear handle guidance.
