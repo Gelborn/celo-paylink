@@ -53,6 +53,7 @@ export const metadata: Metadata = {
   category: "finance",
   creator: "MiniPay PayLink",
   publisher: "MiniPay PayLink",
+  authors: [{ name: "Gelborn" }],
   formatDetection: {
     address: false,
     email: false,
