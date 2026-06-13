@@ -25,6 +25,7 @@
     "direct-wallet-settlement",
     "creator-payments",
     "freelancer-payments",
+    "merchant-payments",
     "pwa"
   ],
   "author": "Gelborn",
