@@ -242,6 +242,7 @@ PayLink expects the token decimals from `lib/tokens.ts`: `USDC` and `USD₮` use
 - The repo includes CI, Dependabot, `SECURITY.md`, and explicit public/private env separation.
 - `.env.example` uses placeholders and public RPC defaults so reviewers can run walletless previews without private credentials.
 - CI remains available through `workflow_dispatch` for manual verification after a final push without running on every push or pull request.
+- `package.json` keywords highlight MiniPay request links, receipt proof, no-custody settlement, and walletless payment previews for repository discovery.
 - `layout.tsx` publishes root language and direction attributes, social metadata, mobile web app tags, referrer policy, and Talent App verification metadata.
 - `robots.ts` and page metadata keep dashboard routes, receipt pages, and preview URLs out of indexing while PayLink receipt URLs remain directly shareable.
 - `sitemap.ts` publishes the canonical app origin for search engines; dynamic profile links are shared directly instead of being enumerated.
