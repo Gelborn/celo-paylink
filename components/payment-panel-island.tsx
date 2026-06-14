@@ -520,8 +520,13 @@ export function PaymentPanelIsland({
               variant="outline"
               className="w-full sm:w-auto"
               leftIcon={<Wallet aria-hidden="true" />}
+              disabled={isConnecting}
               aria-busy={isConnecting ? true : undefined}
-              aria-label={`${dictionary.actions.connectWallet}: ${dictionary.publicPage.paymentFormTitle}`}
+              aria-label={`${
+                isConnecting
+                  ? dictionary.messages.waitingConfirmation
+                  : dictionary.actions.connectWallet
+              }: ${dictionary.publicPage.paymentFormTitle}`}
               onClick={() => {
                 void connect();
               }}
