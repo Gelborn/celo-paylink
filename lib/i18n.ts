@@ -317,7 +317,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Open the dashboard, create your profile, and share your public profile link anywhere you get paid.",
       summaryTitle: "Your PayLink is live.",
       summaryDescription:
-        "Share your public profile, create prefilled request links, and review incoming payments and receipts from one dashboard.",
+        "Share your public profile, create prefilled payment links, and review incoming payments and receipts from one dashboard.",
       connectHint:
         "Open PayLink in MiniPay or connect a wallet to publish your profile."
     },
