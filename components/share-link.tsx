@@ -38,6 +38,18 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
       : status === "shared"
       ? `${dictionary.labels.shared}: ${label}`
       : `${dictionary.actions.shareLink}: ${label}`;
+  const copyButtonText =
+    pendingAction === "copy"
+      ? dictionary.messages.copyingLink
+      : status === "copied"
+      ? dictionary.labels.copied
+      : status === "shared"
+        ? dictionary.labels.shared
+        : copyActionLabel;
+  const shareButtonText =
+    pendingAction === "share"
+      ? dictionary.messages.sharingLink
+      : dictionary.actions.shareLink;
 
   async function handleCopy() {
     setPendingAction("copy");
@@ -97,11 +109,7 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
           aria-busy={pendingAction === "copy" ? true : undefined}
           aria-label={copyButtonLabel}
         >
-          {status === "copied"
-            ? dictionary.labels.copied
-            : status === "shared"
-              ? dictionary.labels.shared
-              : copyActionLabel}
+          {copyButtonText}
         </Button>
         <Button
           onClick={() => {
@@ -114,7 +122,7 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
           aria-busy={pendingAction === "share" ? true : undefined}
           aria-label={shareButtonLabel}
         >
-          {dictionary.actions.shareLink}
+          {shareButtonText}
         </Button>
       </div>
       <FeedbackMessage
