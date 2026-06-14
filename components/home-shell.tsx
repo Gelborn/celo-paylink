@@ -108,7 +108,7 @@ export function HomeShell({
               <CardContent className="space-y-8 px-8 py-8 md:px-10 md:py-10">
                 <div className="flex flex-wrap items-center gap-3">
                   <AccentBadge>{dictionary.labels.profileLive}</AccentBadge>
-                  <Badge>@{profile.handle}</Badge>
+                  <Badge title={`@${profile.handle}`}>@{profile.handle}</Badge>
                 </div>
 
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center">

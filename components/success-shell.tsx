@@ -83,7 +83,9 @@ export function SuccessShell({
                     size="lg"
                   />
                   <div className="space-y-2">
-                    <Badge variant="accent">@{profile.handle}</Badge>
+                    <Badge variant="accent" title={`@${profile.handle}`}>
+                      @{profile.handle}
+                    </Badge>
                     <div>
                       <h2 className="text-3xl font-semibold text-white sm:text-[2rem]">
                         {profile.displayName}
