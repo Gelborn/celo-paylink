@@ -437,7 +437,11 @@ export function ProfileEditor({
               value={form.paymentMessage}
               aria-label={dictionary.fields.paymentMessage}
               aria-invalid={invalidFields.paymentMessage}
-              className="min-h-[108px]"
+              className={
+                invalidFields.paymentMessage
+                  ? "min-h-[108px] border-red-400/70 focus:border-red-400"
+                  : "min-h-[108px]"
+              }
               onChange={(event) =>
                 setForm((current) => ({
                   ...current,
