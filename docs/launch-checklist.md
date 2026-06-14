@@ -57,7 +57,7 @@
 - Confirm the final submission notes label the home URL, public profile URL, payment request link, and receipt URL separately.
 - Confirm the final submission notes name the target Celo network for the public profile, payment request link, and receipt proof.
 - Confirm the final payment request link uses a short reference that stays readable in MiniPay and on the receipt.
-- Test the saved demo request link inside MiniPay on a phone.
+- Test the saved demo payment request link inside MiniPay on a phone.
 - Confirm the recipient wallet used for profile setup and the payer wallet are separate for the live payment test.
 - Confirm the payer wallet is on Celo before approving or sending the payment.
 - Confirm the payer wallet has the selected token and a little CELO for network fees.
