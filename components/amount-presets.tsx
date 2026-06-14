@@ -22,9 +22,10 @@ export function AmountPresets({
     <div className="flex flex-wrap gap-2" role="group" aria-label={label}>
       {values.map((value) => {
         const active = selectedValue === String(value);
+        const displayLabel = tokenSymbol ? `${value} ${tokenSymbol}` : `$${value}`;
         const amountLabel = tokenSymbol
           ? `${label}: ${value} ${tokenSymbol}`
-          : `${label}: ${value}`;
+          : `${label}: ${displayLabel}`;
 
         return (
           <motion.button
@@ -43,7 +44,7 @@ export function AmountPresets({
                 : "border-white/10 bg-zinc-950/55 text-zinc-300 hover:border-white/20 hover:text-white"
             }`}
           >
-            ${value}
+            {displayLabel}
           </motion.button>
         );
       })}
