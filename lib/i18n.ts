@@ -334,7 +334,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       transactionsTab: "Payments",
       quickActions: "Quick actions",
       quickActionChargeDescription:
-        "Create a prefilled request link with amount, token, and reference.",
+        "Create a prefilled payment link with amount, token, and reference.",
       quickActionTransactionsDescription:
         "Review incoming payments and open their PayLink receipts.",
       profileShareHint:
