@@ -270,7 +270,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Payments settle directly in your wallet. PayLink never takes custody.",
       heroChips: [
         "Direct wallet settlement",
-        "Prefilled request links",
+        "Prefilled payment links",
         "Built for MiniPay"
       ],
       demoCaption:
