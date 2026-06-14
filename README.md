@@ -20,7 +20,7 @@ Use a period as the decimal separator in shared URLs so wallets and receipts rea
 - The app is ready to run against Celo mainnet.
 - Set `NEXT_PUBLIC_DEFAULT_CHAIN=celo` for production builds.
 - Set `NEXT_PUBLIC_APP_URL` to the deployed HTTPS origin without a trailing slash before building.
-- Populate the mainnet contract address and deployment block so public routes, receipts, and payment history resolve against the live contract.
+- Populate the mainnet contract address and decimal deployment block so public routes, receipts, and payment history resolve against the live contract.
 
 ## Product
 
