@@ -4,7 +4,7 @@ MiniPay PayLink is a mobile-first payment profile for freelancers, creators, and
 
 Create a public payment profile, add your handle, avatar, bio, and preferred token, and receive stablecoin payments through public profile URLs like:
 
-`/u/user?amount=5&ref=coffee`
+`/u/your-handle?amount=5&ref=coffee`
 
 When building a link by hand, URL-encode references with spaces or symbols before sharing.
 Keep `ref` concise because it appears on receipts and recent payment history.
