@@ -140,7 +140,7 @@ These values should be set explicitly for a public deployment:
 - `NEXT_PUBLIC_DEFAULT_CHAIN`: `celo` for mainnet, `celoSepolia` for testing.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_MAINNET`: deployed `PayLinkProfile` address on Celo mainnet.
 - `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_MAINNET`: numeric `PayLinkProfile` creation block used to bound event reads for payment history.
-- `NEXT_PUBLIC_CELO_MAINNET_RPC_URL`: browser-safe Celo mainnet RPC endpoint.
+- `NEXT_PUBLIC_CELO_MAINNET_RPC_URL`: browser-safe Celo mainnet RPC endpoint without private provider credentials.
 
 For Celo Sepolia staging, use the matching `_SEPOLIA` contract address and numeric creation block with `NEXT_PUBLIC_DEFAULT_CHAIN=celoSepolia`.
 
