@@ -8,7 +8,7 @@
 - Problem
 - Small creators, freelancers, and solo merchants need a public payment profile that feels native to MiniPay
 - Copying and pasting wallet addresses makes small repeat payments harder to trust
-- Wallet transfers without clear references are harder to match back to client requests
+- Wallet transfers without clear references are harder to reconcile with client requests
 
 ## Slide 3
 - Product
