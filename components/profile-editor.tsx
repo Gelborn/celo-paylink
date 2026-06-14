@@ -334,6 +334,7 @@ export function ProfileEditor({
                 aria-label={dictionary.fields.handle}
                 aria-invalid={invalidFields.handle}
                 aria-describedby={handleStatusId}
+                aria-required="true"
                 autoComplete="off"
                 autoCapitalize="none"
                 autoCorrect="off"
@@ -369,6 +370,7 @@ export function ProfileEditor({
                 value={form.displayName}
                 aria-label={dictionary.fields.displayName}
                 aria-invalid={invalidFields.displayName}
+                aria-required="true"
                 autoComplete="name"
                 enterKeyHint="next"
                 className={invalidFields.displayName ? "border-red-400/70 focus:border-red-400" : undefined}
@@ -414,6 +416,7 @@ export function ProfileEditor({
               value={form.bio}
               aria-label={dictionary.fields.bio}
               aria-invalid={invalidFields.bio}
+              aria-required="true"
               className={
                 invalidFields.bio
                   ? "min-h-[108px] border-red-400/70 focus:border-red-400"
