@@ -94,6 +94,7 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
     >
       <code
         aria-label={`${label}: ${url}`}
+        title={url}
         className="block max-w-full overflow-hidden whitespace-normal break-all rounded-md border border-white/10 bg-black/20 px-3 py-3 text-sm leading-6 text-zinc-300"
         style={{ fontFamily: "var(--font-mono), monospace" }}
       >
