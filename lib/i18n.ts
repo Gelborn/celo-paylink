@@ -342,7 +342,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       chargeLinkHint:
         "Create a shareable payment request with amount, token, and reference.",
       profileSection: "Profile",
-      chargeSection: "Request link",
+      chargeSection: "Payment request",
       transactionsSection: "Incoming payments",
       emptyTransactions:
         "Incoming payments and PayLink receipts will appear here after someone pays through your public profile or request link.",
