@@ -56,6 +56,7 @@
 - Shareable PayLink receipt proof
 - Receipts link back to the recipient profile for repeat payments
 - No payer PayLink account required
+- Bilingual public payment flow for English and Brazilian Portuguese reviewers
 - No platform custody
 
 ## Slide 8
