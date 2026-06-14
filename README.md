@@ -139,10 +139,10 @@ These values should be set explicitly for a public deployment:
 - `NEXT_PUBLIC_APP_URL`: canonical public origin, without a path or trailing slash, used by metadata, receipts, robots, and sitemap output.
 - `NEXT_PUBLIC_DEFAULT_CHAIN`: `celo` for mainnet, `celoSepolia` for testing.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_MAINNET`: deployed `PayLinkProfile` address on Celo mainnet.
-- `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_MAINNET`: numeric `PayLinkProfile` creation block used to bound event reads for payment history.
+- `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_MAINNET`: decimal `PayLinkProfile` creation block used to bound event reads for payment history.
 - `NEXT_PUBLIC_CELO_MAINNET_RPC_URL`: browser-safe Celo mainnet RPC endpoint without private provider credentials.
 
-For Celo Sepolia staging, use the matching `_SEPOLIA` contract address and numeric creation block with `NEXT_PUBLIC_DEFAULT_CHAIN=celoSepolia`.
+For Celo Sepolia staging, use the matching `_SEPOLIA` contract address and decimal creation block with `NEXT_PUBLIC_DEFAULT_CHAIN=celoSepolia`.
 
 Do not leave `NEXT_PUBLIC_APP_URL=http://localhost:3000` or a LAN dev host in a public production build.
 
@@ -168,7 +168,7 @@ npm run verify:sepolia
 npm run verify:mainnet
 ```
 
-After deployment, copy the contract address and numeric creation block into the matching `NEXT_PUBLIC_*` values, then run the production build with those values in place.
+After deployment, copy the contract address and decimal creation block into the matching `NEXT_PUBLIC_*` values, then run the production build with those values in place.
 
 ## Environment Notes
 
