@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     "payments",
     "payment links",
     "request links",
+    "public payment links",
     "prefilled request links",
     "payment receipts",
     "PayLink receipts",
