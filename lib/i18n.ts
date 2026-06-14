@@ -246,7 +246,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       updateProfile: "Save changes",
       copyLink: "Copy link",
       copyProfile: "Copy public profile link",
-      copyChargeLink: "Copy request link",
+      copyChargeLink: "Copy payment request link",
       shareLink: "Share link",
       shareProfile: "Share public profile",
       createChargeLink: "Create payment request",
