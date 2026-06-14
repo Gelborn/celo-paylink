@@ -288,7 +288,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       stepsEyebrow: "How it works",
       stepsTitle: "Create once. Share whenever you need to get paid.",
       stepsDescription:
-        "Publish a profile, then use the same public profile or a prefilled request link for each payment.",
+        "Publish a profile, then use the same public profile or a prefilled payment link for each payment.",
       steps: [
         {
           title: "Publish your profile",
