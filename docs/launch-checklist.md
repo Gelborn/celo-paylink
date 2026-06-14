@@ -83,6 +83,7 @@
 - If using `token=USD₮` in a hand-written request link, confirm the symbol is URL-encoded or use the token address.
 - Test a request reference with a space and confirm it stays readable after sharing the link.
 - Type a long request reference once and confirm the 140-character counter updates without shifting the payment form.
+- Type in the request reference with assistive tech once and confirm the full character count is announced as it changes.
 - Test a request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
 - Switch to Brazilian Portuguese (`pt-BR`) once and confirm public profile and payment copy still fits before screenshots.
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
