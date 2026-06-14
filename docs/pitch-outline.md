@@ -28,7 +28,7 @@
 - Verified PayLinkProfile contract
 - Stablecoins forward directly to the recipient
 - No custody; payments settle directly to the recipient wallet
-- Recent payment history from PayLink events
+- Recent payment history from PayLink events on Celo
 - No backend or indexer required
 
 ## Slide 6
