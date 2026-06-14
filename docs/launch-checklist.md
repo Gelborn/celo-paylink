@@ -78,7 +78,7 @@
 - Enable reduced motion once and confirm the home demo remains understandable without animation.
 - Increase browser text size once and confirm the public profile payment controls remain usable.
 - Open the copied payment request link on a second device and confirm the amount, token, and reference are prefilled.
-- Open a request link without the optional `token` query and confirm it uses the recipient's preferred token.
+- Open a payment request link without the optional `token` query and confirm it uses the recipient's preferred token.
 - Open the copied request link in a private browser window and confirm it does not rely on owner session state.
 - Test an unsupported `token` query once and confirm the page falls back to a supported token.
 - If using `token=USD₮` in a hand-written request link, confirm the symbol is URL-encoded or use the token address.
