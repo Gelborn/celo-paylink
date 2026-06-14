@@ -64,7 +64,9 @@ export function HomeShell({
     ? `${dictionary.fields.publicLink}: @${profile.handle}`
     : dictionary.fields.publicLink;
   const copyProfileLabel =
-    copyStatus === "copied"
+    isCopyPending
+      ? `${dictionary.messages.copyingLink}: ${publicLinkLabel}`
+      : copyStatus === "copied"
       ? `${dictionary.labels.copied}: ${publicLinkLabel}`
       : `${dictionary.actions.copyProfile}: ${publicLinkLabel}`;
   const openPublicPageLabel = profile
@@ -196,7 +198,9 @@ export function HomeShell({
                         }
                       }}
                     >
-                      {dictionary.actions.copyProfile}
+                      {isCopyPending
+                        ? dictionary.messages.copyingLink
+                        : dictionary.actions.copyProfile}
                     </Button>
                   ) : null}
                 </div>
