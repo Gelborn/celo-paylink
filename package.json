@@ -20,7 +20,7 @@
     "public-payment-profile",
     "minipay-request-links",
     "request-links",
-    "prefilled-request-links",
+    "prefilled-payment-request-links",
     "stablecoin-request-links",
     "walletless-payment-previews",
     "payment-receipts",
