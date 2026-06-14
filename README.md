@@ -121,7 +121,7 @@ To preview the matching receipt state, open:
 
 When sharing walletless review notes, label both preview URLs as local preview links so reviewers can compare the payment page and receipt proof.
 If you change the demo amount, token, or reference, keep the same values in both preview URLs so the receipt matches the payment page.
-Keep the same handle in both preview URLs so the payment and receipt states point to the same profile.
+Keep `handle=demo-paylink` in both preview URLs so the payment and receipt states point to the same demo profile.
 Use the same browser locale for both preview URLs so the payment page and receipt copy match.
 For Brazilian Portuguese screenshots, switch the browser language to Portuguese (Brazil) before opening both preview URLs.
 Use the same mobile viewport for both preview URLs so screenshots show the payment and receipt states at matching scale.
