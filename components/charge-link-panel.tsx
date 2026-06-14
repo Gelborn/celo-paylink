@@ -103,6 +103,7 @@ export function ChargeLinkPanel({
             id={noteLimitId}
             className="text-xs text-zinc-500"
             aria-live="polite"
+            aria-atomic="true"
             aria-label={`${dictionary.fields.note}: ${note.length} / 140`}
           >
             {note.length}/140

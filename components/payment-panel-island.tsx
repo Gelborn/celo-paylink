@@ -482,6 +482,7 @@ export function PaymentPanelIsland({
               id={referenceLimitId}
               className="text-xs text-zinc-500"
               aria-live="polite"
+              aria-atomic="true"
               aria-label={`${dictionary.fields.note}: ${reference.length} / 140`}
             >
               {reference.length}/140
