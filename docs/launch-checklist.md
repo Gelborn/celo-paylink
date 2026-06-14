@@ -81,7 +81,7 @@
 - Open a payment request link without the optional `token` query and confirm it uses the recipient's preferred token.
 - Open the copied payment request link in a private browser window and confirm it does not rely on owner session state.
 - Test an unsupported `token` query once and confirm the page falls back to a supported token.
-- If using `token=USD₮` in a hand-written request link, confirm the symbol is URL-encoded or use the token address.
+- If using `token=USD₮` in a hand-written payment request link, confirm the symbol is URL-encoded or use the token address.
 - Test a request reference with a space and confirm it stays readable after sharing the link.
 - Type a long request reference once and confirm the 140-character counter updates without shifting the payment form.
 - Type in the request reference with assistive tech once and confirm the full character count is announced as it changes.
