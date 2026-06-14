@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     "prefilled request links",
     "payment receipts",
     "PayLink receipts",
+    "MiniPay receipts",
     "receipt proof",
     "no-custody payments",
     "direct wallet settlement",
