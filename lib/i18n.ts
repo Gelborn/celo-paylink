@@ -328,7 +328,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       descriptionNoProfile:
         "Claim a handle, add your public details, and publish the profile people will use to pay you.",
       descriptionWithProfile:
-        "Manage profile details, prefilled request links, incoming payments, and receipts.",
+        "Manage profile details, prefilled payment links, incoming payments, and receipts.",
       actionsTab: "Profile and links",
       manageTab: "Profile",
       transactionsTab: "Payments",
