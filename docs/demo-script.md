@@ -3,7 +3,7 @@
 Target length: 90 seconds for judging or quick product review.
 Keep setup under 30 seconds so the live wallet confirmation, receipt, and explorer proof stay readable.
 
-Set the app language before recording so the narration, screenshots, and visible copy stay in the same locale.
+Set the app language before recording and keep it unchanged so the narration, screenshots, and visible copy stay in the same locale.
 
 For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public profile payment page before the live MiniPay walkthrough.
 Keep the README's matching preview receipt URL ready if you need to show the receipt state without a wallet.
