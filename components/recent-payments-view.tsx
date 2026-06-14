@@ -168,7 +168,10 @@ export function RecentPaymentsView({
                               {formatTokenAmount(payment.amount, payment.token, chainId)}{" "}
                               {payment.tokenSymbol || dictionary.fields.token}
                             </p>
-                            <span className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-zinc-400">
+                            <span
+                              className="rounded-md border border-white/10 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-zinc-400"
+                              title={`@${payment.handle}`}
+                            >
                               @{payment.handle}
                             </span>
                           </div>
