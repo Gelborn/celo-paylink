@@ -33,7 +33,7 @@
 - View source for one public profile URL in `pt-BR` and confirm `og:locale` is `pt_BR`.
 - Open `/og.svg` on the deployed origin and confirm the root social preview image is reachable over HTTPS.
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
-- Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes, receipt URLs, and `preview=1` URLs stay unindexed.
+- Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes, receipt URLs, and both `?preview=1` and `&preview=1` URLs stay unindexed.
 - Open `/my` on the deployed origin and confirm the PayLink dashboard page metadata includes `noindex`.
 - Open one PayLink receipt URL directly and confirm it remains accessible even though receipt URLs are excluded from indexing.
 - Confirm `/sitemap.xml` lists the final HTTPS production origin, not localhost or a preview URL.
