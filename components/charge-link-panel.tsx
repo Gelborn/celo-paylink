@@ -28,6 +28,7 @@ export function ChargeLinkPanel({
   const tokens = getSupportedTokens(chainId);
   const chargeSectionTitleId = useId();
   const chargeSectionDescriptionId = useId();
+  const noteLimitId = useId();
   const [amount, setAmount] = useState("25");
   const [note, setNote] = useState("");
   const [tokenAddress, setTokenAddress] = useState<string>(profile.preferredToken);
@@ -94,9 +95,18 @@ export function ChargeLinkPanel({
             enterKeyHint="done"
             maxLength={140}
             aria-label={dictionary.fields.note}
+            aria-describedby={noteLimitId}
             onChange={(event) => setNote(event.target.value)}
             placeholder={dictionary.placeholders.note}
           />
+          <p
+            id={noteLimitId}
+            className="text-xs text-zinc-500"
+            aria-live="polite"
+            aria-label={`${dictionary.fields.note}: ${note.length} / 140`}
+          >
+            {note.length}/140
+          </p>
         </label>
       </div>
 
