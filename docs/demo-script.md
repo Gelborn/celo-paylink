@@ -6,7 +6,7 @@ Keep setup under 30 seconds so the live wallet confirmation, receipt, and explor
 Set the app language before recording and keep it unchanged so the narration, screenshots, and visible copy stay in the same locale.
 
 For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public profile payment page before the live MiniPay walkthrough.
-Keep the README's matching preview receipt URL ready if you need to show the receipt state without a wallet.
+Keep the README's matching local preview receipt URL ready if you need to show the receipt state without a wallet.
 When showing either preview URL on a phone, open the paths on the `npm run dev:mobile` network host instead of `localhost`.
 Use the same amount, token, and reference values in the preview fallback and live wallet walkthrough so reviewers can compare both states quickly.
 Keep the live reference short so it stays legible in the wallet and receipt screens.
