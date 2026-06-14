@@ -25,7 +25,7 @@ Keep the same payer wallet selected through approval and send prompts so the rec
 Confirm the recipient profile is already saved before starting the timer so setup does not crowd the live wallet walkthrough.
 
 Keep the payer MiniPay phone unlocked on the public profile payment page before starting the 90-second timer.
-Keep the same final HTTPS request link open in a second tab in case the payer MiniPay phone needs a quick reload.
+Keep the same final HTTPS payment request link open in a second tab in case the payer MiniPay phone needs a quick reload.
 Keep the public profile, request link, and PayLink receipt URLs visible long enough for reviewers to read the shared origin, handle, and receipt path.
 Keep the browser address bar visible when showing final URLs so the deployed origin is readable.
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
