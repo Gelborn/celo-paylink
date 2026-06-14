@@ -28,7 +28,7 @@
 - Verified PayLinkProfile contract
 - Stablecoins forward directly to the recipient
 - No custody; payments settle directly to the recipient wallet
-- Payment history from PayLink events
+- Recent payment history from PayLink events
 - No backend or indexer required
 
 ## Slide 6
