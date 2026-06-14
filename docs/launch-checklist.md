@@ -123,6 +123,7 @@
 - Watch the exported demo once with audio muted and confirm the visible flow still explains the payment path.
 - Confirm the exported demo starts on a loaded PayLink screen, not a blank page or browser setup frame.
 - Confirm the uploaded demo title or thumbnail clearly names PayLink before sharing the submission link.
+- Label the uploaded demo link separately from PayLink receipt and Celo explorer proof links in the final submission notes.
 - Open the uploaded demo link in a private browser once and confirm it is viewable without owner-only access.
 - Confirm the exported demo shows the wallet confirmation amount, token, and Celo explorer transaction proof clearly.
 - Record the short product demo from the same final deployed HTTPS origin used in the submission notes.
