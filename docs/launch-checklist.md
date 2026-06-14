@@ -101,7 +101,7 @@
 - Use the mobile share action once and confirm the share title names the profile handle and the shared URL is the final public profile URL.
 - Use the share action once in a desktop browser without native sharing and confirm it falls back to copied-link feedback.
 - Send at least one real payment and verify it appears in the recent payments list.
-- Inspect one recent payment date with browser accessibility tools and confirm it exposes a machine-readable timestamp.
+- Inspect one recent payment date in the browser accessibility tree and confirm it exposes a machine-readable timestamp.
 - Save the live demo transaction hash with the final submission notes after the successful payment.
 - Save the matching PayLink receipt URL beside the transaction hash so reviewers can reopen the in-app proof.
 - Open the saved PayLink receipt URL from the submission notes once before sharing it.
