@@ -455,6 +455,7 @@ export function PaymentPanelIsland({
               autoComplete="off"
               enterKeyHint="next"
               aria-label={dictionary.fields.amount}
+              aria-required="true"
               value={amount}
               onChange={(event) =>
                 setAmount(sanitizeCurrencyInput(event.target.value))
