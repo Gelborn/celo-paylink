@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en",
     dir: "ltr",
     description:
-      "A MiniPay-ready public payment profile for no-custody Celo stablecoin payments, prefilled request links, and shareable PayLink receipts.",
+      "A MiniPay-ready public payment profile for no-custody Celo stablecoin payments, prefilled payment request links, and shareable PayLink receipts.",
     categories: ["business", "finance", "productivity"],
     start_url: "/",
     scope: "/",
