@@ -19,7 +19,7 @@ type SuccessPageProps = {
 
 const receiptTitle = "MiniPay PayLink receipt proof";
 const receiptDescription =
-  "Open a shareable PayLink receipt with the amount, token, reference, recipient handle, matching Celo explorer proof for the same transaction hash, and a path back to the recipient profile.";
+  "Open a shareable PayLink receipt with the amount, token, reference, recipient handle, matching Celo explorer transaction proof for the same transaction hash, and a path back to the recipient profile.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = resolveLocaleFromRequest(await cookies(), await headers());
