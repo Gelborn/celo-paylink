@@ -196,10 +196,20 @@ export function PublicProfileShell({
         : null;
   const shareProfileButtonLabel = shareStatusLabel
     ? `${shareStatusLabel}: @${profile.handle}`
-    : shareProfileLabel;
+    : isSharePending
+      ? `${dictionary.messages.sharingLink}: @${profile.handle}`
+      : shareProfileLabel;
   const shareCreatorLinkButtonLabel = shareStatusLabel
     ? `${shareStatusLabel}: @${profile.handle}`
-    : shareCreatorLinkLabel;
+    : isSharePending
+      ? `${dictionary.messages.sharingLink}: @${profile.handle}`
+      : shareCreatorLinkLabel;
+  const shareProfileButtonText = isSharePending
+    ? dictionary.messages.sharingLink
+    : dictionary.actions.shareProfile;
+  const shareCreatorLinkButtonText = isSharePending
+    ? dictionary.messages.sharingLink
+    : dictionary.actions.shareCreatorLink;
 
   async function handleSharePublicPage() {
     if (isSharePending) {
@@ -346,7 +356,7 @@ export function PublicProfileShell({
                       aria-busy={isSharePending ? true : undefined}
                       aria-label={shareProfileButtonLabel}
                     >
-                      {dictionary.actions.shareProfile}
+                      {shareProfileButtonText}
                     </Button>
                   </div>
                   <FeedbackMessage
@@ -446,7 +456,7 @@ export function PublicProfileShell({
                         aria-busy={isSharePending ? true : undefined}
                         aria-label={shareCreatorLinkButtonLabel}
                       >
-                        {dictionary.actions.shareCreatorLink}
+                        {shareCreatorLinkButtonText}
                       </Button>
                     </div>
                   )}
@@ -499,7 +509,7 @@ export function PublicProfileShell({
                         aria-busy={isSharePending ? true : undefined}
                         aria-label={shareCreatorLinkButtonLabel}
                       >
-                        {dictionary.actions.shareCreatorLink}
+                        {shareCreatorLinkButtonText}
                       </Button>
                     ) : null}
                     <Link href="/my" className="block w-full sm:w-auto">
