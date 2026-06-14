@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     "request links",
     "public payment links",
     "prefilled request links",
+    "walletless payment previews",
     "stablecoin request links",
     "payment receipts",
     "PayLink receipts",
