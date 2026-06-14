@@ -61,6 +61,7 @@ export function ChargeLinkPanel({
         </div>
         <AmountPresets
           label={dictionary.fields.suggestedAmounts}
+          tokenSymbol={tokenSymbol}
           values={[5, 15, 25, 50]}
           selectedValue={amount}
           onSelect={setAmount}

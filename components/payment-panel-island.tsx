@@ -437,6 +437,7 @@ export function PaymentPanelIsland({
           </p>
           <AmountPresets
             label={dictionary.fields.suggestedAmounts}
+            tokenSymbol={selectedToken?.symbol}
             values={[5, 15, 25, 50]}
             selectedValue={amount}
             onSelect={setAmount}

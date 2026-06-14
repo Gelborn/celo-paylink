@@ -5,6 +5,7 @@ import { motionTransitions, softTap, subtleLift } from "../lib/motion";
 
 type AmountPresetsProps = {
   label: string;
+  tokenSymbol?: string;
   values: number[];
   selectedValue: string;
   onSelect: (value: string) => void;
@@ -12,6 +13,7 @@ type AmountPresetsProps = {
 
 export function AmountPresets({
   label,
+  tokenSymbol,
   values,
   selectedValue,
   onSelect
@@ -20,6 +22,9 @@ export function AmountPresets({
     <div className="flex flex-wrap gap-2" role="group" aria-label={label}>
       {values.map((value) => {
         const active = selectedValue === String(value);
+        const amountLabel = tokenSymbol
+          ? `${label}: ${value} ${tokenSymbol}`
+          : `${label}: ${value}`;
 
         return (
           <motion.button
@@ -30,7 +35,7 @@ export function AmountPresets({
             whileTap={softTap}
             transition={motionTransitions.spring}
             onClick={() => onSelect(String(value))}
-            aria-label={`${label}: $${value}`}
+            aria-label={amountLabel}
             aria-pressed={active}
             className={`min-w-12 rounded-lg border px-3.5 py-2 text-sm font-medium transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)] ${
               active
