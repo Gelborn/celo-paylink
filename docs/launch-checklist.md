@@ -85,7 +85,7 @@
 - Test a payment request reference with a space and confirm it stays readable after sharing the link.
 - Type a long payment request reference once and confirm the 140-character counter updates without shifting the payment form.
 - Type in the payment request reference with assistive tech once and confirm the full character count is announced as it changes.
-- Test a request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
+- Test a payment request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
 - Switch to Brazilian Portuguese (`pt-BR`) once and confirm public profile and payment copy still fits before screenshots.
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
 - Reload after switching locale and confirm the selected language remains consistent.
