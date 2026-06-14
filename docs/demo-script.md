@@ -40,7 +40,7 @@ If the live wallet confirmation stalls during judging, switch to the preview lin
 If you use a browser-wallet fallback, keep the same request link so the amount, token, and reference stay aligned with the MiniPay path.
 If the Celo explorer is slow during judging, keep the PayLink receipt visible and point out that the explorer link uses the same transaction hash.
 
-1. Open the landing page and explain PayLink in one sentence.
+1. Open the landing page and explain PayLink as a no-custody MiniPay profile in one sentence.
 2. Open `/my`, connect with the recipient wallet in MiniPay, and create or update the payment profile.
 3. Show the saved handle and copy the public profile link.
    Pause on the copied link long enough to make the final origin and handle clear.
