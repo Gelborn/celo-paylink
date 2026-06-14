@@ -45,7 +45,7 @@
 - Return to the in-app PayLink receipt
 - Open the matching Celo explorer transaction page
 - Point out that both proof surfaces use the same transaction hash
-- Share the PayLink receipt URL as proof
+- Share the PayLink receipt URL as payment proof
 - Refresh the public profile to show the recent payment event
 
 ## Slide 7
