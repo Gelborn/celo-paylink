@@ -298,7 +298,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         {
           title: "Share the right link",
           description:
-            "Share your public profile for open payments or create a prefilled request link with amount, token, and reference."
+            "Share your public profile for open payments or create a prefilled payment link with amount, token, and reference."
         },
         {
           title: "Keep a receipt",
