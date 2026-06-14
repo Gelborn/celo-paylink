@@ -96,15 +96,31 @@ export function DashboardShell({
     ? `${dictionary.fields.publicLink}: @${profile.handle}`
     : dictionary.fields.publicLink;
   const copyPublicLinkLabel =
-    shareStatus === "copied"
+    pendingShareAction === "copy"
+      ? `${dictionary.messages.copyingLink}: ${publicLinkLabel}`
+      : shareStatus === "copied"
       ? `${dictionary.labels.copied}: ${publicLinkLabel}`
       : shareStatus === "shared"
         ? `${dictionary.labels.shared}: ${publicLinkLabel}`
         : `${dictionary.actions.copyLink}: ${publicLinkLabel}`;
   const sharePublicLinkLabel =
-    shareStatus === "shared"
+    pendingShareAction === "share"
+      ? `${dictionary.messages.sharingLink}: ${publicLinkLabel}`
+      : shareStatus === "shared"
       ? `${dictionary.labels.shared}: ${publicLinkLabel}`
       : `${dictionary.actions.shareLink}: ${publicLinkLabel}`;
+  const copyPublicLinkText =
+    pendingShareAction === "copy"
+      ? dictionary.messages.copyingLink
+      : shareStatus === "copied"
+      ? dictionary.labels.copied
+      : shareStatus === "shared"
+        ? dictionary.labels.shared
+        : dictionary.actions.copyLink;
+  const sharePublicLinkText =
+    pendingShareAction === "share"
+      ? dictionary.messages.sharingLink
+      : dictionary.actions.shareLink;
   const editProfileLabel = profile
     ? `${dictionary.actions.editProfile}: @${profile.handle}`
     : dictionary.actions.editProfile;
@@ -599,11 +615,7 @@ export function DashboardShell({
                                     void handleCopyProfileLink();
                                   }}
                                 >
-                                  {shareStatus === "copied"
-                                    ? dictionary.labels.copied
-                                    : shareStatus === "shared"
-                                      ? dictionary.labels.shared
-                                      : dictionary.actions.copyLink}
+                                  {copyPublicLinkText}
                                 </Button>
                                 <Button
                                   className="w-full sm:min-w-[10rem]"
@@ -617,7 +629,7 @@ export function DashboardShell({
                                     void handleShareProfile();
                                   }}
                                 >
-                                  {dictionary.actions.shareLink}
+                                  {sharePublicLinkText}
                                 </Button>
                               </ActionRow>
                               <FeedbackMessage
