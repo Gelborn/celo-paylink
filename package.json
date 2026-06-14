@@ -21,7 +21,7 @@
     "minipay-request-links",
     "request-links",
     "prefilled-payment-request-links",
-    "stablecoin-request-links",
+    "stablecoin-payment-request-links",
     "walletless-payment-previews",
     "payment-receipts",
     "minipay-receipts",
