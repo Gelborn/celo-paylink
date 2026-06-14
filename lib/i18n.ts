@@ -249,7 +249,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       copyChargeLink: "Copy request link",
       shareLink: "Share link",
       shareProfile: "Share public profile",
-      createChargeLink: "Create request link",
+      createChargeLink: "Create payment request",
       openExplorer: "View Celo explorer receipt",
       openPublicPage: "Open public profile",
       payNow: "Pay now",
