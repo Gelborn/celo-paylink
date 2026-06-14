@@ -114,7 +114,7 @@
 - Capture final screenshots for these states:
   - landing page
   - owner dashboard
-  - public profile payment page
+  - prefilled public profile payment page
   - success screen
 - Confirm any QR code encodes the final HTTPS public profile URL, not localhost or a preview URL.
 - Scan the final public profile QR code once and confirm it opens the submitted profile on mobile.
