@@ -134,6 +134,9 @@ export function RecentPaymentsView({
             const paymentDateLabel = payment.timestamp
               ? formatDateLabel(payment.timestamp, locale)
               : dictionary.labels.checking;
+            const paymentDateTime = payment.timestamp
+              ? new Date(payment.timestamp * 1000).toISOString()
+              : undefined;
 
             return (
               <motion.li key={payment.txHash} variants={fadeUp}>
@@ -187,9 +190,13 @@ export function RecentPaymentsView({
                           </p>
                         </div>
                       </div>
-                      <div className="shrink-0 rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-xs text-zinc-400">
+                      <time
+                        dateTime={paymentDateTime}
+                        title={paymentDateTime}
+                        className="shrink-0 rounded-md border border-white/10 bg-black/20 px-3 py-1.5 text-xs text-zinc-400"
+                      >
                         {paymentDateLabel}
-                      </div>
+                      </time>
                     </div>
 
                     {payment.reference ? (
