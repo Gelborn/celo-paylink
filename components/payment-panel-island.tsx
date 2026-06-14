@@ -346,6 +346,7 @@ export function PaymentPanelIsland({
             </p>
             <code
               aria-labelledby={paymentResultTransactionLabelId}
+              title={paymentResult.txHash}
               className="mt-2 block break-all text-sm text-zinc-300"
             >
               {paymentResult.txHash}

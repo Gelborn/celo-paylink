@@ -172,6 +172,7 @@ export function SuccessShell({
                   </p>
                   <code
                     aria-labelledby={transactionLabelId}
+                    title={txHash || undefined}
                     className="mt-2 block break-all text-sm text-zinc-300"
                   >
                     {txHash || "—"}
