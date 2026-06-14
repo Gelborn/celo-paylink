@@ -20,6 +20,7 @@
     "minipay-request-links",
     "request-links",
     "payment-receipts",
+    "minipay-receipts",
     "paylink-receipts",
     "receipt-proof",
     "no-custody-payments",
