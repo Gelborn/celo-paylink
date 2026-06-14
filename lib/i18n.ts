@@ -376,7 +376,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     publicPage: {
       ownerTitle: "This is your public PayLink profile.",
       ownerDescription:
-        "Visitors see the payment form here. Share this public profile as-is, or open the dashboard to update details and create prefilled request links.",
+        "Visitors see the payment form here. Share this public profile as-is, or open the dashboard to update details and create prefilled payment links.",
       visitorTitle: "Send a direct Celo payment",
       visitorDescription:
         "Review the recipient, amount, token, and any reference before confirming the payment in your wallet.",
