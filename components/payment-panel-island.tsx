@@ -70,6 +70,7 @@ export function PaymentPanelIsland({
 }) {
   const { dictionary } = useLocale();
   const paymentResultTransactionLabelId = useId();
+  const referenceLimitId = useId();
   const {
     account,
     connect,
@@ -472,9 +473,18 @@ export function PaymentPanelIsland({
               enterKeyHint="done"
               maxLength={140}
               aria-label={dictionary.fields.note}
+              aria-describedby={referenceLimitId}
               onChange={(event) => setReference(event.target.value)}
               placeholder={dictionary.placeholders.note}
             />
+            <p
+              id={referenceLimitId}
+              className="text-xs text-zinc-500"
+              aria-live="polite"
+              aria-label={`${dictionary.fields.note}: ${reference.length} / 140`}
+            >
+              {reference.length}/140
+            </p>
           </label>
         </div>
 
