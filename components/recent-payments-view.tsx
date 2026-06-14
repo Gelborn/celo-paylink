@@ -197,7 +197,7 @@ export function RecentPaymentsView({
                         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
                           {dictionary.fields.note}
                         </p>
-                        <p className="mt-2 text-sm leading-7 text-zinc-300">
+                        <p className="mt-2 text-sm leading-7 text-zinc-300" title={payment.reference}>
                           {payment.reference}
                         </p>
                       </div>
