@@ -333,6 +333,7 @@ export function PaymentPanelIsland({
                 icon={<FileText aria-hidden="true" />}
                 label={dictionary.fields.note}
                 value={paymentResult.reference}
+                valueTitle={paymentResult.reference}
               />
             ) : null}
           </div>

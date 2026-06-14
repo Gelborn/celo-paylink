@@ -141,6 +141,7 @@ export function SuccessShell({
                       icon={<FileText aria-hidden="true" />}
                       label={dictionary.fields.note}
                       value={reference}
+                      valueTitle={reference}
                     />
                   ) : null}
                 </div>
