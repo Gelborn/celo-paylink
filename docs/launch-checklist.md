@@ -63,6 +63,7 @@
 - Confirm the payer wallet has the selected token and a little CELO for network fees.
 - Confirm the selected token, amount, and reference match PayLink before approving or sending in the wallet.
 - Reject one wallet request and confirm PayLink shows a clear retry path.
+- Trigger one wallet request and confirm the pending button text is visible and duplicate taps stay disabled.
 - Open the same public profile payment page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
 - Open the public profile URL without query parameters and confirm the default payment prompt is clear.
 - Tap each suggested amount once on mobile and confirm the amount field updates without layout shift.
