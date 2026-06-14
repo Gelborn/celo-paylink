@@ -8,7 +8,7 @@ Create a public payment profile, add your handle, avatar, bio, and preferred tok
 
 When building a link by hand, URL-encode `ref` values with spaces or symbols before sharing.
 Keep `ref` concise because it appears on receipts and recent payment history.
-The dashboard request-link form handles this encoding for generated links.
+The dashboard request-link form handles this URL encoding for generated links.
 Use a supported token symbol such as `USDm`, `USDC`, or `USD₮`, or a supported token contract address for the optional `token` query.
 When typing `token=USD₮` by hand, URL-encode the `₮` symbol or use the token contract address.
 Omit `token` to use the recipient's preferred token from their profile.
