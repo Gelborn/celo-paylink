@@ -52,7 +52,7 @@
 - Product principles
 - Direct wallet settlement
 - Minimal setup
-- Prefilled request links
+- Prefilled payment request links
 - Shareable PayLink receipt proof
 - Receipts link back to the recipient profile for repeat payments
 - No payer PayLink account required
