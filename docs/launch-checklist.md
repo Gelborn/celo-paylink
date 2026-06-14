@@ -51,7 +51,7 @@
 - For local phone rehearsal, confirm preview links use the `npm run dev:mobile` network host instead of `localhost` after restarting with the matching `NEXT_PUBLIC_APP_URL`.
 - Save the exact demo request link with its amount, token, and reference values for the final submission notes.
 - Confirm the saved demo request link uses the final HTTPS origin before adding it to submission notes.
-- Open the saved demo request link from the final submission notes once to catch copied or truncated URLs.
+- Open the saved demo request link from the final submission notes once to catch copied, mis-encoded, or truncated URLs.
 - Confirm the final submission notes label the home URL, public profile URL, request link, and receipt URL separately.
 - Confirm the final submission notes name the target Celo network for the public profile, request link, and receipt proof.
 - Confirm the final request link uses a short reference that stays readable in MiniPay and on the receipt.
