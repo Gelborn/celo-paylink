@@ -37,7 +37,7 @@ MiniPay PayLink is built around one simple flow:
 ## Features
 
 - Claim a unique immutable handle for a stable public profile URL
-- Add an avatar URL, bio, and payment message
+- Add an avatar URL, bio, payment message, and preferred token
 - Update bio, avatar, payment message, and preferred token without changing the handle
 - Accept supported Celo stablecoins (`USDm`, `USDC`, or `USD₮`) directly from MiniPay-compatible wallets
 - Forward funds straight to the recipient with no platform custody
