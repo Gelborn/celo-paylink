@@ -416,7 +416,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       token: "Token",
       suggestedAmounts: "Suggested amounts",
       publicLink: "Public link",
-      chargeLink: "Request link"
+      chargeLink: "Payment request"
     },
     placeholders: {
       handle: "creator",
