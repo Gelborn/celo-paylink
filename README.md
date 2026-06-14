@@ -130,7 +130,7 @@ The demo receipt URL uses a fixed transaction hash for UI review only; live rece
 Do not include the fixed preview hash in final submission notes as live payment proof.
 For live demos, copy the PayLink receipt URL after wallet confirmation so the `tx` value and handle match the real payment.
 
-`preview=1` only works outside production; production public profile payment pages should use the deployed `PayLinkProfile` contract.
+`preview=1` only works outside production; production public profile payment pages should omit it and use the deployed `PayLinkProfile` contract.
 
 ## Production Configuration
 
