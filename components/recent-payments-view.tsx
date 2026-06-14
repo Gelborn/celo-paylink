@@ -40,6 +40,7 @@ export function RecentPaymentsView({
     isLoading ? "loading" : payments.length === 0 ? "empty" : "list"
   );
   const emptyDescriptionId = `${titleId}-description`;
+  const loadingDescriptionId = `${titleId}-loading`;
 
   if (isLoading) {
     return (
@@ -48,6 +49,7 @@ export function RecentPaymentsView({
         className="compact-card"
         role="region"
         aria-labelledby={titleId}
+        aria-describedby={loadingDescriptionId}
         aria-busy="true"
       >
         <CardHeader>
@@ -55,6 +57,7 @@ export function RecentPaymentsView({
         </CardHeader>
         <CardContent className="space-y-3.5">
           <p
+            id={loadingDescriptionId}
             className="text-sm leading-7 text-zinc-400"
             role="status"
             aria-live="polite"
