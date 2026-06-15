@@ -72,6 +72,7 @@
 - Navigate the public profile payment page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
 - Open and close the token picker with the keyboard once and confirm focus returns to the token control.
 - Navigate the success receipt with a keyboard once and confirm the explorer and profile actions are reachable.
+- Use a screen reader on the success receipt once and confirm the explorer and profile links have clear names.
 - Confirm visible focus states remain clear on amount presets, token picker, submit buttons, and receipt links.
 - Search for a profile with a screen reader once and confirm found or not-found status is announced.
 - Paste a profile handle with a leading `@` and extra spaces, then confirm search opens the same public profile.
