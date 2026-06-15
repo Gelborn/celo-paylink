@@ -6,6 +6,7 @@ Create a public payment profile, add your handle, avatar, bio, and preferred tok
 
 `/u/your-handle?amount=5&ref=coffee`
 
+Add the deployed origin before sharing the path outside the app.
 When building a link by hand, URL-encode `ref` values with spaces or symbols before sharing.
 Keep `ref` concise because it appears on receipts and recent payment history.
 The dashboard request-link form handles this URL encoding for generated links.
