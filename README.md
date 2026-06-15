@@ -131,7 +131,7 @@ Use the same mobile viewport size for both preview URLs so screenshots show the 
 The demo receipt URL uses a fixed transaction hash for UI review only; live receipts should use the hash returned by the wallet flow.
 Do not include the fixed preview hash in final submission notes as live payment proof.
 For live demos, copy the PayLink receipt URL and matching Celo explorer transaction link after wallet confirmation so the `tx` value and handle match the real payment.
-After a live payment, refresh the public profile once so reviewers can see the same amount and token in recent activity.
+After a live payment, refresh the public profile once so reviewers can see the same amount, token, and reference in recent activity.
 
 `preview=1` only works outside production; production public profile payment pages should omit it and use the deployed `PayLinkProfile` contract.
 
