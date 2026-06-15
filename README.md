@@ -194,7 +194,7 @@ After deployment, copy the contract address and decimal creation block into the 
 - Primary target: MiniPay on Celo.
 - Use MiniPay for the canonical mobile review before retesting the same public profile link in other browser wallets.
 - Reuse the same payment request link when comparing MiniPay and browser-wallet fallback behavior so amount, token, and reference stay aligned.
-- Use a low-value live payment for review so wallet confirmations and receipts stay verifiable without risking meaningful funds.
+- Use a low-value live payment for review so wallet confirmations and receipts stay verifiable without risking more funds than needed.
 - Use the recipient wallet for profile setup and a separate payer wallet when testing a live payment so receipt and settlement checks stay clear.
 - Payers do not need a PayLink account; they only need a compatible wallet to review and send the payment.
 - Any browser wallet that can switch to Celo, approve ERC-20 allowances, and submit PayLink transactions can exercise the same profile and payment flows.
