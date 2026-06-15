@@ -24,6 +24,7 @@
     "stablecoin-payment-request-links",
     "walletless-payment-previews",
     "payment-receipts",
+    "celo-receipts",
     "minipay-receipts",
     "paylink-receipts",
     "receipt-proof",
