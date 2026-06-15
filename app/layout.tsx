@@ -54,6 +54,7 @@ export const metadata: Metadata = {
     "no-custody payments",
     "direct wallet settlement",
     "public payment profile",
+    "public profile URL",
     "creator payments",
     "freelancer payments",
     "merchant payments",
