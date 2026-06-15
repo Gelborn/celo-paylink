@@ -41,6 +41,7 @@ Keep browser zoom at 100% in preview, live, and explorer tabs so the wallet hand
 
 If the live wallet confirmation stalls during judging, switch to the walletless preview link and narrate where the live confirmation would happen.
 If you use a browser-wallet fallback, keep the same payment request link so the amount, token, and reference stay aligned with the MiniPay path.
+After any browser-wallet network switch, re-check the amount, token, and reference on PayLink before approving.
 If the Celo explorer is slow during judging, keep the PayLink receipt visible and point out that the explorer link uses the same transaction hash.
 
 1. Open the landing page and explain PayLink as a no-custody MiniPay profile in one sentence.
