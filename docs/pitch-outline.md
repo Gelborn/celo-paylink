@@ -47,7 +47,7 @@
 - Open the matching Celo explorer transaction page
 - Point out that both proof surfaces use the same transaction hash
 - Share the PayLink receipt URL and Celo explorer transaction link as payment proof
-- Reopen the receipt URL in a private tab to show it does not depend on wallet state
+- Reopen the PayLink receipt URL in a private tab to show it does not depend on wallet state
 - Refresh the public profile to show the recent payment event
 
 ## Slide 7
