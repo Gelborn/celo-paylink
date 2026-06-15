@@ -345,7 +345,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       chargeSection: "Payment request",
       transactionsSection: "Incoming payments",
       emptyTransactions:
-        "Incoming payments and PayLink receipts will appear here after someone pays through your public profile or request link.",
+        "Incoming payments and PayLink receipts will appear here after someone pays through your public profile or payment request link.",
       connectPrompt:
         "Open PayLink in MiniPay or connect a browser wallet to create and manage your public profile."
     },
