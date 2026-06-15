@@ -89,7 +89,7 @@
 - Type a long payment request reference once and confirm the 140-character counter updates without shifting the payment form.
 - Type in the payment request reference with a screen reader once and confirm the full character count is announced as it changes.
 - Test a payment request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
-- Switch to Brazilian Portuguese (`pt-BR`) once and confirm public profile and payment copy still fits before screenshots.
+- Switch to Brazilian Portuguese (`pt-BR`) with the language switcher once and confirm public profile and payment copy still fits before screenshots.
 - After switching language, confirm the selected token label still matches the payment request link.
 - Open one receipt in `pt-BR` and confirm the amount, reference, and receipt actions remain readable.
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
