@@ -244,6 +244,7 @@ PayLink expects the token decimals listed in `lib/tokens.ts`: `USDC` and `USD₮
 
 - The repo includes CI, Dependabot, `SECURITY.md`, and explicit public/private env separation.
 - `.env.example` uses placeholders and public RPC defaults so reviewers can run walletless previews without private credentials.
+- `SECURITY.md` asks private reports to include app surface, wallet prompt, URL, receipt, and transaction context without secrets.
 - CI remains available through `workflow_dispatch` for manual verification of the submitted commit without running on every push or pull request.
 - `package.json` keywords highlight MiniPay payment request links, Celo receipts, no-custody settlement, and walletless payment previews for repository discovery.
 - `layout.tsx` publishes root language and direction attributes, social and keyword metadata, mobile web app tags, referrer policy, and Talent App verification metadata.
