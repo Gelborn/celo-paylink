@@ -31,7 +31,7 @@
 - Open the deployed home URL in a signed-out browser and confirm it loads without a wallet connection.
 - Open the deployed home page console once and confirm there are no startup errors before capturing screenshots.
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
-- Confirm the public profile preview uses the submitted handle and display name, not the demo fallback copy.
+- Confirm the public profile preview uses the submitted handle, display name, and avatar, not the demo fallback identity.
 - View source for one public profile URL in `pt-BR` and confirm `og:locale` is `pt_BR`.
 - Open `/og.svg` on the deployed origin and confirm the root social preview image is reachable over HTTPS.
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
