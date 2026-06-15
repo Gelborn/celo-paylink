@@ -50,6 +50,7 @@ If the Celo explorer is slow during judging, keep the PayLink receipt visible an
    Pause on the dashboard until the saved handle and preferred token are both visible.
    Pause on the copied link long enough to make the final origin and handle clear.
 4. Open the copied public `/u/[handle]` link on the payer device so the final origin is visible.
+   Pause on the profile header until the recipient name and handle are readable.
    Say that the payer only needs a compatible wallet and does not create a PayLink account.
 5. Pick a token, choose a preset amount, and add a short reference.
    Pause on the selected token label before sending so the currency is clear in the recording.
