@@ -382,7 +382,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Review the recipient, amount, token, and any reference before confirming the payment in your wallet.",
       invoiceEyebrow: "Payment request",
       invoiceDescription:
-        "This request link includes prefilled payment details. Review them, then complete the transfer on Celo.",
+        "This payment request link includes prefilled payment details. Review them, then complete the transfer on Celo.",
       paymentFormTitle: "Payment details",
       paymentFormDescription:
         "Choose an amount, token, and optional reference. If prompted, approve the token first, then confirm the payment.",
