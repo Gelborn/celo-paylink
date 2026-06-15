@@ -363,7 +363,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       latestTitle: "Recent profiles",
       latestDescription:
         "Newest profiles published on Celo through PayLink.",
-      loading: "Loading profiles...",
+      loading: "Searching profiles...",
       empty: "Published profiles will appear here after they are created on Celo. Start from the dashboard to add yours.",
       unavailable:
         "Profile discovery will appear after a PayLink contract address is configured for this network.",
@@ -639,7 +639,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       latestTitle: "Perfis recentes",
       latestDescription:
         "Perfis mais novos publicados na Celo pelo PayLink.",
-      loading: "Carregando perfis...",
+      loading: "Buscando perfis...",
       empty: "Perfis publicados aparecerão aqui depois que forem criados na Celo. Comece pelo painel para adicionar o seu.",
       unavailable:
         "A descoberta de perfis aparecerá quando um endereço de contrato do PayLink estiver configurado para esta rede.",
