@@ -227,7 +227,7 @@ The GitHub Actions CI workflow is manual-only; trigger it for the submitted comm
 ## Supported Tokens
 
 These token addresses come from the current Celo docs. Before a mainnet deployment, re-check them against the latest Celo token docs.
-PayLink expects the token decimals from `lib/tokens.ts`: `USDC` and `USD₮` use 6 decimals, and `USDm` uses 18 decimals.
+PayLink expects the token decimals listed in `lib/tokens.ts`: `USDC` and `USD₮` use 6 decimals, and `USDm` uses 18 decimals.
 
 - Mainnet
   - `USDm`: `0x765DE816845861e75A25fCA122bb6898B8B1282a`
