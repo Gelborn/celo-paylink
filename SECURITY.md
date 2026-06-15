@@ -33,7 +33,7 @@ Send a private report to the repository owner with:
 - browser, wallet type (MiniPay or another injected wallet), OS, and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
 - approximate date and time observed, including timezone, if it happened on a live deployment
-- transaction hashes, PayLink receipt URLs, or explorer links, if applicable and safe to share
+- transaction hashes, PayLink receipt URLs, or Celo explorer transaction links, if applicable and safe to share
 - whether any receipt URL uses a live wallet transaction hash or a preview/demo hash, if relevant
 - affected token, amount, and reference, if funds or receipt display were involved
 - impact assessment
