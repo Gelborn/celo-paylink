@@ -37,7 +37,7 @@
 - Use walletless preview links only as a fallback before the live payment proof
 - Payer does not need to create a PayLink account before paying
 - Copy a prefilled payment request link from the dashboard when a fixed amount is needed
-- Confirm the final HTTPS origin and handle before payment
+- Confirm the final HTTPS origin, recipient name, and handle before payment
 - Review amount, token, and reference
 - Keep the token label consistent between the wallet confirmation and PayLink receipt
 - Keep the reference short enough to read in MiniPay and on the receipt
