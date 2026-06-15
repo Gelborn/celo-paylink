@@ -100,6 +100,7 @@
 - Open the copied public profile link in a private browser window and confirm it does not rely on owner session state.
 - Use the mobile share action once and confirm the share title names the profile handle and the shared URL is the final public profile URL.
 - Use the share action once in a desktop browser without native sharing and confirm it falls back to copied-link feedback.
+- Confirm copied-link feedback is announced by a screen reader or visible in the accessibility tree.
 - Send at least one real payment and verify it appears in the recent payments list.
 - Inspect one recent payment date in the browser accessibility tree and confirm it exposes a machine-readable timestamp.
 - Save the live demo transaction hash with the final submission notes after the successful payment.
