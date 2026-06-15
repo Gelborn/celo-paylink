@@ -135,6 +135,7 @@
   - owner dashboard
   - prefilled public profile payment page
   - success screen
+- Capture the success screen only after receipt details and explorer/profile actions are visible.
 - Confirm any QR code encodes the final HTTPS public profile URL, not localhost or a preview URL.
 - If using a payment request QR code, confirm it preserves the saved amount, token, and reference values.
 - Scan the final public profile QR code once and confirm it opens the submitted profile on mobile.
