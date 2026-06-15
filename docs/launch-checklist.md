@@ -114,7 +114,7 @@
 - Open the saved PayLink receipt URL and Celo explorer transaction link from the submission notes once before sharing them.
 - Reload the public profile after payment and confirm the recent payment is still visible from PayLink activity on Celo.
 - Confirm the recent payment amount and token match the saved PayLink receipt.
-- Open the success-screen receipt link and confirm it lands on the matching Celo explorer transaction.
+- Open the success-screen explorer link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the explorer link opens on the same Celo network as the submitted payment.
 - Confirm the success-screen amount, token, and reference match the public request link.
 - Confirm the final notes use the same token symbol spelling shown in the wallet confirmation and PayLink receipt.
