@@ -87,6 +87,7 @@
 - Type in the payment request reference with a screen reader once and confirm the full character count is announced as it changes.
 - Test a payment request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
 - Switch to Brazilian Portuguese (`pt-BR`) once and confirm public profile and payment copy still fits before screenshots.
+- Open one receipt in `pt-BR` and confirm the amount, reference, and receipt actions remain readable.
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
 - Reload after switching locale and confirm the selected language remains consistent.
 - Confirm profile creation, profile updates, and request-link generation.
