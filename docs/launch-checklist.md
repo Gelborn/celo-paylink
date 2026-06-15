@@ -123,7 +123,7 @@
 - Confirm any copied PayLink receipt URL uses the final HTTPS origin before sharing it.
 - Share one PayLink receipt URL in a link preview tool and confirm the receipt title and image render correctly.
 - View source for one PayLink receipt URL and confirm the canonical URL and `og:url` resolve to `/success` on the deployed origin.
-- Reopen the success URL in a private browser window and confirm receipt details remain visible.
+- Reopen the PayLink receipt URL in a private browser window and confirm receipt details remain visible.
 - Open the same PayLink receipt URL on mobile once and confirm the receipt stays readable.
 - Use browser back from the success screen and confirm it returns to the public profile without an error.
 - Confirm final screenshots use the same locale and deployed origin as the submitted demo links.
