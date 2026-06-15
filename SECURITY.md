@@ -26,6 +26,7 @@ Send a private report to the repository owner with:
 - whether it reproduces after a page reload or fresh browser session
 - whether any wallet prompt was signed, rejected, or never shown
 - the network name shown in any wallet prompt, if a prompt appeared
+- whether the issue happened in MiniPay, an installed PWA, or a regular browser tab
 - browser, wallet type (MiniPay or another injected wallet), OS, and device details, if relevant
 - screenshots or screen recordings with secrets redacted, if helpful
 - approximate date and time observed, including timezone, if it happened on a live deployment
