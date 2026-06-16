@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "MiniPay",
     "MiniPay PayLink",
     "MiniPay payments",
-    "MiniPay request links",
+    "MiniPay payment request links",
     "MiniPay public profile",
     "PayLink",
     "Celo",
