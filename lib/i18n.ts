@@ -321,7 +321,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       summaryDescription:
         "Share your public profile, create prefilled payment links, and review incoming payments and receipt links from one dashboard.",
       connectHint:
-        "Open PayLink in MiniPay or connect a wallet to publish your profile."
+        "Open PayLink in MiniPay or connect a browser wallet to publish your profile."
     },
     dashboard: {
       eyebrow: "Dashboard",
@@ -598,7 +598,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       summaryDescription:
         "Compartilhe seu perfil público, crie links de cobrança preenchidos e acompanhe pagamentos recebidos e links de comprovante em um painel.",
       connectHint:
-        "Abra o PayLink no MiniPay ou conecte uma carteira para publicar seu perfil."
+        "Abra o PayLink no MiniPay ou conecte uma carteira do navegador para publicar seu perfil."
     },
     dashboard: {
       eyebrow: "Painel",
