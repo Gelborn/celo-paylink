@@ -14,6 +14,7 @@
 - Confirm the deployment platform has all production environment values saved before triggering the build.
 - Confirm the deployment platform uses Node `22.13.0` or newer before triggering the production build.
 - Confirm `NEXT_PUBLIC_APP_URL` points to the final HTTPS public origin without a trailing slash before recording or sharing screenshots.
+- Rebuild after changing `NEXT_PUBLIC_APP_URL` so metadata, copied links, and receipt URLs use the final origin.
 - Confirm `NEXT_PUBLIC_DEFAULT_CHAIN=celo` for the production build.
 - Confirm `NEXT_PUBLIC_DEFAULT_CHAIN=celoSepolia` for any staging build linked in review notes.
 - Confirm `NEXT_PUBLIC_CELO_MAINNET_RPC_URL` uses a browser-safe Celo mainnet endpoint without private provider credentials.
