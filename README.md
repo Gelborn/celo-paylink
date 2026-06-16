@@ -249,8 +249,8 @@ PayLink expects the token decimals listed in `lib/tokens.ts`: `USDC` and `USD₮
 - `.env.example` uses placeholders and public RPC defaults so reviewers can run walletless previews without private credentials.
 - `SECURITY.md` asks private reports to include app surface, wallet prompt, URL, receipt, and transaction context without secrets.
 - CI remains available through `workflow_dispatch` for manual verification of the submitted commit without running on every push or pull request.
-- `package.json` keywords highlight MiniPay public profiles, public profile URLs, payment request links, Celo receipts, Celo explorer links, shareable receipt URLs, no-custody settlement, and walletless payment previews for repository discovery.
-- `layout.tsx` publishes root language and direction attributes, social and keyword metadata including Celo explorer transaction links and shareable receipt URLs, mobile web app tags, referrer policy, and Talent App verification metadata.
+- `package.json` keywords highlight MiniPay public profiles, public profile URLs, payment request links, payment proof, Celo receipts, Celo explorer links, shareable receipt URLs, no-custody settlement, and walletless payment previews for repository discovery.
+- `layout.tsx` publishes root language and direction attributes, social and keyword metadata including payment proof, Celo explorer transaction links, and shareable receipt URLs, mobile web app tags, referrer policy, and Talent App verification metadata.
 - `robots.ts` and page metadata keep dashboard routes, receipt pages, and preview URLs out of indexing while PayLink receipt URLs remain directly shareable.
 - `sitemap.ts` publishes the canonical app origin for search engines; dynamic profile links are shared directly instead of being enumerated.
 - `manifest.ts` publishes install metadata, maskable install icons, English plus Brazilian Portuguese mobile prefilled payment page and shareable receipt preview screenshots, and the `Open PayLink dashboard` shortcut with the `My PayLink` short label, prefilled request link context, and receipt URL recovery description.
