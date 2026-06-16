@@ -20,7 +20,7 @@
     "public-payment-profile",
     "public-profile-url",
     "minipay-public-profile",
-    "minipay-request-links",
+    "minipay-payment-request-links",
     "request-links",
     "prefilled-payment-request-links",
     "stablecoin-payment-request-links",
