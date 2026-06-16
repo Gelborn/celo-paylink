@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Copy, Share2 } from "lucide-react";
 import { motion } from "motion/react";
 import { fadeUp } from "../lib/motion";
@@ -22,6 +22,7 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
     "idle" | "copied" | "shared" | "copy-error" | "share-error"
   >("idle");
   const [pendingAction, setPendingAction] = useState<"copy" | "share" | null>(null);
+  const feedbackId = useId();
   const { dictionary } = useLocale();
   const copyActionLabel = copyLabel || dictionary.actions.copyLink;
   const copyButtonLabel =
@@ -88,6 +89,7 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
       className="rounded-lg border border-white/10 bg-zinc-950/45 p-3"
       role="group"
       aria-label={label}
+      aria-describedby={status === "idle" ? undefined : feedbackId}
       variants={fadeUp}
       initial="hidden"
       animate="show"
@@ -126,20 +128,22 @@ export function ShareLink({ label, url, copyLabel, embedded = false }: ShareLink
           {shareButtonText}
         </Button>
       </div>
-      <FeedbackMessage
-        tone={status === "copy-error" || status === "share-error" ? "error" : "success"}
-        className="mt-3"
-      >
-        {status === "copied"
-          ? dictionary.messages.linkCopied
-          : status === "shared"
-            ? dictionary.messages.shareOpened
-            : status === "copy-error"
-              ? dictionary.messages.copyFailed
-              : status === "share-error"
-              ? dictionary.messages.shareFailed
-              : null}
-      </FeedbackMessage>
+      <div id={feedbackId}>
+        <FeedbackMessage
+          tone={status === "copy-error" || status === "share-error" ? "error" : "success"}
+          className="mt-3"
+        >
+          {status === "copied"
+            ? dictionary.messages.linkCopied
+            : status === "shared"
+              ? dictionary.messages.shareOpened
+              : status === "copy-error"
+                ? dictionary.messages.copyFailed
+                : status === "share-error"
+                ? dictionary.messages.shareFailed
+                : null}
+        </FeedbackMessage>
+      </div>
     </motion.div>
   );
 
