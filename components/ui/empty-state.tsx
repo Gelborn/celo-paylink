@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card";
 
 function getEmptyStateId(title: string) {
@@ -21,7 +21,8 @@ export function EmptyState({
   description: string;
   actions?: ReactNode;
 }) {
-  const baseId = getEmptyStateId(title);
+  const uniqueId = useId();
+  const baseId = `${getEmptyStateId(title)}-${uniqueId}`;
   const titleId = `${baseId}-title`;
   const descriptionId = `${baseId}-description`;
 
