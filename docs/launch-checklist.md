@@ -51,6 +51,7 @@
 - Append `preview=1` to a production public profile URL and confirm demo data stays disabled.
 - Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
 - For local phone rehearsal, confirm preview links use the `npm run dev:mobile` network host instead of `localhost` after restarting with the matching `NEXT_PUBLIC_APP_URL`.
+- Open the `npm run dev:mobile` network host on the phone once before generating local QR codes or payment request links.
 - Save the exact demo payment request link with its amount, token, and reference values for the final submission notes.
 - Confirm the saved demo payment request link uses the final HTTPS origin before adding it to submission notes.
 - Open the saved demo payment request link from the final submission notes once to catch copied, mis-encoded, or truncated URLs.
