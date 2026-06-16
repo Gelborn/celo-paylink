@@ -94,7 +94,7 @@
 - Open one receipt in `pt-BR` and confirm the amount, reference, and receipt actions remain readable.
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
 - Reload after switching locale and confirm the selected language remains consistent.
-- Confirm profile creation, profile updates, and request-link generation.
+- Confirm profile creation, profile updates, and payment request link generation.
 - Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear handle guidance.
 - Open a fresh profile with no payments and confirm the recent-payments empty state is clear.
 - Open the final avatar URL directly and confirm the image loads over HTTPS without a signed or expiring URL before screenshots.
