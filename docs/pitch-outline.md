@@ -55,7 +55,7 @@
 - Direct wallet settlement
 - Minimal setup
 - Prefilled payment request links
-- Shareable PayLink receipt proof
+- Shareable PayLink receipt URLs
 - Receipts link back to the recipient profile for repeat payments
 - No payer PayLink account required
 - Bilingual public payment flow for English and Brazilian Portuguese payers and reviewers
