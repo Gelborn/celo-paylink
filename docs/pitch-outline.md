@@ -9,6 +9,7 @@
 - Small creators, freelancers, and solo merchants need a public payment profile that feels native to MiniPay
 - Copying and pasting wallet addresses makes small repeat payments harder to trust
 - Wallet transfers without clear references are harder to reconcile with client requests
+- Screenshots alone are weak payment proof without a receipt URL and matching explorer transaction
 
 ## Slide 3
 - Product
