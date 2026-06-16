@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "Celo explorer transaction links",
     "PayLink receipts",
     "MiniPay receipts",
-    "receipt proof",
+    "shareable receipt URLs",
     "no-custody payments",
     "direct wallet settlement",
     "public payment profile",
