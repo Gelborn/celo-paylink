@@ -17,6 +17,7 @@ Send a private report to the repository owner with:
 - the affected route or public URL, Celo network, and whether it was Celo mainnet or Celo Sepolia, if applicable
 - the contract address and chain ID, if the report involves a live contract
 - the recipient public handle involved, if safe to share
+- how the affected profile was opened, such as profile search, a profile card, copied link, or typed URL, if relevant
 - deployed URL and commit SHA, when available
 - whether it affects preview/demo mode, production payment flows, or both
 - whether the issue is visible signed out or only after connecting a wallet
