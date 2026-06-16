@@ -336,7 +336,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       quickActionChargeDescription:
         "Create a prefilled payment link with amount, token, and reference.",
       quickActionTransactionsDescription:
-        "Review incoming payments and open their PayLink receipts.",
+        "Review incoming payments and open their PayLink receipt links.",
       profileShareHint:
         "Share this public profile wherever customers already reach you.",
       chargeLinkHint:
@@ -345,7 +345,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       chargeSection: "Payment request",
       transactionsSection: "Incoming payments",
       emptyTransactions:
-        "Incoming payments and PayLink receipts will appear here after someone pays through your public profile or payment request link.",
+        "Incoming payments and PayLink receipt links will appear here after someone pays through your public profile or payment request link.",
       connectPrompt:
         "Open PayLink in MiniPay or connect a browser wallet to create and manage your public profile."
     },
@@ -612,7 +612,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       quickActionChargeDescription:
         "Crie um link de cobrança preenchido com valor, token e referência.",
       quickActionTransactionsDescription:
-        "Revise os pagamentos recebidos e abra os comprovantes do PayLink.",
+        "Revise os pagamentos recebidos e abra os links de comprovante do PayLink.",
       profileShareHint:
         "Compartilhe este perfil público onde seus clientes já falam com você.",
       chargeLinkHint:
@@ -621,7 +621,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       chargeSection: "Link de cobrança",
       transactionsSection: "Pagamentos recebidos",
       emptyTransactions:
-        "Os pagamentos recebidos e comprovantes do PayLink aparecerão aqui depois que alguém pagar pelo seu perfil público ou link de cobrança.",
+        "Os pagamentos recebidos e links de comprovante do PayLink aparecerão aqui depois que alguém pagar pelo seu perfil público ou link de cobrança.",
       connectPrompt:
         "Abra o PayLink no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil público."
     },
