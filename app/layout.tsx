@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     "stablecoin payment request links",
     "payment receipts",
     "Celo receipts",
+    "Celo explorer transaction links",
     "PayLink receipts",
     "MiniPay receipts",
     "receipt proof",
