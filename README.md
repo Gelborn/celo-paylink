@@ -97,6 +97,8 @@ npm run typecheck
 
 ```bash
 npm run dev
+# or, for phone testing on the same network:
+npm run dev:mobile
 ```
 
 For phone testing on the same network, run `npm run dev:mobile` and open the printed network URL on the phone in MiniPay.
