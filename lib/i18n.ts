@@ -402,7 +402,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: "Payment sent.",
       description:
         "Your transfer was submitted on Celo. Save the PayLink receipt link and matching Celo explorer transaction link as proof, then return to the profile to see recent payment activity.",
-      receiptDetails: "PayLink receipt details"
+      receiptDetails: "PayLink receipt link details"
     },
     fields: {
       handle: "Handle",
@@ -678,7 +678,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: "Pagamento enviado.",
       description:
         "Sua transferência foi enviada na Celo. Salve o link do comprovante do PayLink e o link da transação correspondente no explorer da Celo como prova, depois volte ao perfil para ver os pagamentos recentes.",
-      receiptDetails: "Dados do comprovante do PayLink"
+      receiptDetails: "Dados do link de comprovante do PayLink"
     },
     fields: {
       handle: "Handle",
