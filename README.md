@@ -251,7 +251,7 @@ PayLink expects the token decimals listed in `lib/tokens.ts`: `USDC` and `USD₮
 - `layout.tsx` publishes root language and direction attributes, social and keyword metadata, mobile web app tags, referrer policy, and Talent App verification metadata.
 - `robots.ts` and page metadata keep dashboard routes, receipt pages, and preview URLs out of indexing while PayLink receipt URLs remain directly shareable.
 - `sitemap.ts` publishes the canonical app origin for search engines; dynamic profile links are shared directly instead of being enumerated.
-- `manifest.ts` publishes install metadata, maskable install icons, the `Open PayLink dashboard` shortcut with the `My PayLink` short label and dashboard management description, and English plus Brazilian Portuguese mobile prefilled payment page and receipt proof screenshots.
+- `manifest.ts` publishes install metadata, maskable install icons, the `Open PayLink dashboard` shortcut with the `My PayLink` short label and receipt-aware dashboard description, and English plus Brazilian Portuguese mobile prefilled payment page and receipt proof screenshots.
 - Demo, launch, and pitch notes live in `docs/`, including preview URLs and launch checks that stay separate from runtime implementation code.
 
 ## Docs
