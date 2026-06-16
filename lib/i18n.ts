@@ -282,7 +282,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       proofChips: [
         "Funds move directly to the recipient wallet",
         "Amount, token, and reference stay in the link",
-        "Every payment includes a PayLink receipt and Celo explorer proof",
+        "Every payment includes a PayLink receipt URL and Celo explorer link",
         "Accept USDm, USDC, and USD₮"
       ],
       stepsEyebrow: "How it works",
@@ -309,7 +309,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       trustStatements: [
         "Settles to your wallet",
         "No PayLink custody",
-        "PayLink receipt and Celo explorer proof"
+        "PayLink receipt URL and Celo explorer link"
       ],
       closingEyebrow: "Ready when you are",
       closingTitle: "Publish your PayLink before the next payment request.",
@@ -558,7 +558,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       proofChips: [
         "Os fundos vão direto para a carteira de quem recebe",
         "Valor, token e referência ficam no link",
-        "Todo pagamento inclui um comprovante do PayLink e prova no explorer da Celo",
+        "Todo pagamento inclui link de comprovante do PayLink e link para o explorer da Celo",
         "Aceite USDm, USDC e USD₮"
       ],
       stepsEyebrow: "Como funciona",
@@ -585,7 +585,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       trustStatements: [
         "Liquida na sua carteira",
         "Sem custódia do PayLink",
-        "Comprovante do PayLink e prova no explorer da Celo"
+        "Comprovante do PayLink e link para o explorer da Celo"
       ],
       closingEyebrow: "Pronto para receber",
       closingTitle: "Publique seu PayLink antes da próxima cobrança.",
