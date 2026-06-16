@@ -29,7 +29,7 @@
     "celo-receipts",
     "minipay-receipts",
     "paylink-receipts",
-    "receipt-proof",
+    "shareable-receipt-urls",
     "celo-explorer-links",
     "no-custody-payments",
     "direct-wallet-settlement",
