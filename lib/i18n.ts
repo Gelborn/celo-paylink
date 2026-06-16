@@ -23,6 +23,7 @@ export type Dictionary = {
     editProfile: string;
     cancel: string;
     dismissMessage: string;
+    dismissWalletMessage: string;
     closeWalletControls: string;
     openDashboard: string;
     connectWallet: string;
@@ -238,6 +239,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       editProfile: "Edit",
       cancel: "Cancel",
       dismissMessage: "Dismiss message",
+      dismissWalletMessage: "Dismiss wallet message",
       closeWalletControls: "Close wallet controls",
       openDashboard: "Open dashboard",
       connectWallet: "Connect wallet",
@@ -515,6 +517,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       editProfile: "Editar",
       cancel: "Cancelar",
       dismissMessage: "Fechar mensagem",
+      dismissWalletMessage: "Fechar mensagem da carteira",
       closeWalletControls: "Fechar controles da carteira",
       openDashboard: "Abrir painel",
       connectWallet: "Conectar carteira",
