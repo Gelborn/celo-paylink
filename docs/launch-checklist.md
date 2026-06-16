@@ -55,6 +55,7 @@
 - Save the exact demo payment request link with its amount, token, and reference values for the final submission notes.
 - Confirm the saved demo payment request link uses the final HTTPS origin before adding it to submission notes.
 - Open the saved demo payment request link from the final submission notes once to catch copied, mis-encoded, or truncated URLs.
+- Label any walletless preview links separately from live payment proof links in the final submission notes.
 - Confirm the final submission notes label the home URL, public profile URL, payment request link, PayLink receipt URL, and Celo explorer transaction link separately.
 - Confirm the final submission notes name the target Celo network for the public profile, payment request link, PayLink receipt, and Celo explorer transaction link.
 - Confirm the final payment request link uses a short reference that stays readable in MiniPay and on the receipt.
