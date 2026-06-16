@@ -60,6 +60,7 @@
 - Confirm the final submission notes label the home URL, public profile URL, payment request link, PayLink receipt URL, and Celo explorer transaction link separately.
 - Avoid URL shorteners in final submission links so reviewers can see the deployed origin, handle, and receipt path directly.
 - Confirm the final submission notes name the target Celo network for the public profile, payment request link, PayLink receipt, and Celo explorer transaction link.
+- Open each final submission URL in a signed-out or private browser before sending it to reviewers.
 - Confirm the final payment request link uses a short reference that stays readable in MiniPay and on the receipt.
 - Test the saved demo payment request link inside MiniPay on a phone.
 - Confirm the recipient wallet used for profile setup and the payer wallet are separate for the live payment test.
