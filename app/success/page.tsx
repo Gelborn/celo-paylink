@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/og.svg",
           width: 1200,
           height: 630,
-          alt: "MiniPay PayLink receipt with Celo explorer proof preview"
+          alt: "MiniPay PayLink receipt with Celo explorer transaction link preview"
         }
       ]
     },
@@ -57,7 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/og.svg",
           width: 1200,
           height: 630,
-          alt: "MiniPay PayLink receipt with Celo explorer proof preview"
+          alt: "MiniPay PayLink receipt with Celo explorer transaction link preview"
         }
       ]
     },
