@@ -17,7 +17,7 @@ type SuccessPageProps = {
   }>;
 };
 
-const receiptTitle = "MiniPay PayLink receipt proof";
+const receiptTitle = "Shareable MiniPay PayLink receipt";
 const receiptDescription =
   "Open a shareable PayLink receipt with the amount, token, reference, recipient handle, matching Celo explorer transaction link for the same transaction hash, and a path back to the recipient profile.";
 
