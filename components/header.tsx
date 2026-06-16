@@ -289,7 +289,7 @@ export function Header({
                           whileTap={softTap}
                           transition={motionTransitions.micro}
                           className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-zinc-200 transition hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)]"
-                          aria-label={`${dictionary.actions.cancel}: ${dictionary.labels.walletControls}`}
+                          aria-label={dictionary.actions.closeWalletControls}
                         >
                           <X aria-hidden="true" className="h-4 w-4" />
                         </motion.button>
