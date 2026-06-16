@@ -21,7 +21,7 @@
     "public-profile-url",
     "minipay-public-profile",
     "minipay-payment-request-links",
-    "request-links",
+    "payment-request-links",
     "prefilled-payment-request-links",
     "stablecoin-payment-request-links",
     "walletless-payment-previews",
