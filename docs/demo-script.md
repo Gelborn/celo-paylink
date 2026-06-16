@@ -20,7 +20,7 @@ Name the recipient handle and payer wallet consistently so reviewers can follow 
 
 Before the live wallet walkthrough, confirm the payer wallet has enough of the selected token for the requested amount and a little CELO for network fees.
 Confirm the payer MiniPay wallet is on the target Celo network before opening the live payment request link.
-Use the same network name again when showing the explorer proof so reviewers can match the wallet and receipt context.
+Use the same network name again when showing the Celo explorer transaction link so reviewers can match the wallet and receipt context.
 Keep the same payer wallet selected through approval and send prompts so the recorded wallet identity stays consistent.
 Confirm the recipient profile is already saved before starting the timer so setup does not crowd the live wallet walkthrough.
 
