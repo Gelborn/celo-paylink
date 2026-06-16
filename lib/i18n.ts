@@ -301,7 +301,7 @@ const dictionaries: Record<Locale, Dictionary> = {
             "Share your public profile for open payments or create a prefilled payment link with amount, token, and reference."
         },
         {
-          title: "Keep a receipt",
+          title: "Keep the receipt link",
           description:
             "Payers get a receipt link after confirmation, and recent payments appear from Celo activity."
         }
@@ -577,7 +577,7 @@ const dictionaries: Record<Locale, Dictionary> = {
             "Compartilhe seu perfil público para pagamentos livres ou crie um link de cobrança preenchido com valor, token e referência."
         },
         {
-          title: "Guarde o comprovante",
+          title: "Guarde o link do comprovante",
           description:
             "Quem paga recebe um link de comprovante após a confirmação, e os pagamentos recentes aparecem pela atividade na Celo."
         }
