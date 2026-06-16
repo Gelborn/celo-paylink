@@ -317,7 +317,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Open the dashboard, create your profile, and share your public profile link anywhere you get paid.",
       summaryTitle: "Your PayLink is live.",
       summaryDescription:
-        "Share your public profile, create prefilled payment links, and review incoming payments and receipts from one dashboard.",
+        "Share your public profile, create prefilled payment links, and review incoming payments and receipt links from one dashboard.",
       connectHint:
         "Open PayLink in MiniPay or connect a wallet to publish your profile."
     },
@@ -328,7 +328,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       descriptionNoProfile:
         "Claim a handle, add your public details, and publish the profile people will use to pay you.",
       descriptionWithProfile:
-        "Manage profile details, prefilled payment links, incoming payments, and receipts.",
+        "Manage profile details, prefilled payment links, incoming payments, and receipt links.",
       actionsTab: "Profile and links",
       manageTab: "Profile",
       transactionsTab: "Payments",
@@ -593,7 +593,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Abra o painel, crie seu perfil e compartilhe o link do seu perfil público onde você recebe pagamentos.",
       summaryTitle: "Seu PayLink está no ar.",
       summaryDescription:
-        "Compartilhe seu perfil público, crie links de cobrança preenchidos e acompanhe pagamentos recebidos e comprovantes em um painel.",
+        "Compartilhe seu perfil público, crie links de cobrança preenchidos e acompanhe pagamentos recebidos e links de comprovante em um painel.",
       connectHint:
         "Abra o PayLink no MiniPay ou conecte uma carteira para publicar seu perfil."
     },
@@ -604,7 +604,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       descriptionNoProfile:
         "Escolha um handle, adicione seus dados públicos e publique o perfil que as pessoas vão usar para pagar você.",
       descriptionWithProfile:
-        "Gerencie dados do perfil, links de cobrança preenchidos, pagamentos recebidos e comprovantes.",
+        "Gerencie dados do perfil, links de cobrança preenchidos, pagamentos recebidos e links de comprovante.",
       actionsTab: "Perfil e links",
       manageTab: "Perfil",
       transactionsTab: "Pagamentos",
