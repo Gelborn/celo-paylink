@@ -29,6 +29,7 @@ Keep the same final HTTPS payment request link open in a second tab in case the 
 If using a QR code in the recording, scan it with the payer phone once before starting the timer.
 Label the QR code as a public profile or payment request so reviewers know what should open on the phone.
 Keep the public profile URL, payment request link, and PayLink receipt URL visible long enough for reviewers to read the shared origin, handle, and receipt path.
+Show the final URLs without shorteners so reviewers can see the deployed origin and PayLink path directly.
 Keep the browser address bar visible when showing final URLs so the deployed origin is readable.
 If showing profile search, use a known published handle so the result opens immediately during the timed demo.
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
