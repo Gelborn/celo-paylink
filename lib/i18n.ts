@@ -389,7 +389,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "This payment request link includes prefilled payment details. Review them, then complete the transfer on Celo.",
       paymentFormTitle: "Payment details",
       paymentFormDescription:
-        "Choose an amount, token, and optional reference. If prompted, approve the token first, then confirm the payment.",
+        "Choose an amount, token, and optional reference. If prompted, approve the token first in the payer wallet, then confirm the payment.",
       paymentFormLoading: "Loading payment request form",
       requestSummaryLabel: "Request summary",
       missingTitle: "This PayLink is not published yet.",
@@ -667,7 +667,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Este link de cobrança traz dados de pagamento preenchidos. Revise tudo e conclua a transferência na Celo.",
       paymentFormTitle: "Dados do pagamento",
       paymentFormDescription:
-        "Escolha valor, token e referência opcional. Se solicitado, aprove o token primeiro e depois confirme o pagamento.",
+        "Escolha valor, token e referência opcional. Se solicitado, aprove o token primeiro na carteira pagadora e depois confirme o pagamento.",
       paymentFormLoading: "Carregando formulário da cobrança",
       requestSummaryLabel: "Resumo da cobrança",
       missingTitle: "Este PayLink ainda não foi publicado.",
