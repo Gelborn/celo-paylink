@@ -464,7 +464,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       profilePublished: "Profile published. Your public link is ready to share.",
       paymentComplete: "Payment complete. Your receipt link is ready.",
       connectBeforeSave: "Connect with MiniPay or a browser wallet before publishing this profile.",
-      connectBeforePay: "Connect with MiniPay or a browser wallet to send this payment.",
+      connectBeforePay: "Connect a payer wallet in MiniPay or a browser wallet before sending this payment.",
       fillAllFields: "Complete handle, display name, bio, and preferred token before publishing.",
       invalidImage:
         "Leave the avatar URL blank, or paste an https:// image link.",
@@ -742,7 +742,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       profilePublished: "Perfil publicado. Seu link público está pronto para compartilhar.",
       paymentComplete: "Pagamento concluído. Seu link de comprovante está pronto.",
       connectBeforeSave: "Conecte pelo MiniPay ou por uma carteira do navegador antes de publicar este perfil.",
-      connectBeforePay: "Conecte pelo MiniPay ou por uma carteira do navegador para enviar este pagamento.",
+      connectBeforePay: "Conecte uma carteira pagadora no MiniPay ou no navegador antes de enviar este pagamento.",
       fillAllFields: "Preencha handle, nome exibido, bio e token preferido antes de publicar.",
       invalidImage:
         "Deixe a URL do avatar vazia ou cole um link de imagem https://.",
