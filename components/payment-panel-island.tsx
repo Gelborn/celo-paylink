@@ -321,7 +321,11 @@ export function PaymentPanelIsland({
           </p>
         </div>
 
-        <div className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-left">
+        <div
+          className="rounded-lg border border-white/10 bg-zinc-950/70 px-4 py-4 text-left"
+          role="group"
+          aria-label={dictionary.success.receiptDetails}
+        >
           <div className="grid gap-3 sm:grid-cols-2">
             <DetailTile
               icon={<Coins aria-hidden="true" />}
