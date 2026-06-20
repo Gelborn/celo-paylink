@@ -339,7 +339,11 @@ export function PaymentPanelIsland({
             ) : null}
           </div>
 
-          <div className="mt-4 border-t border-white/10 pt-4">
+          <div
+            className="mt-4 border-t border-white/10 pt-4"
+            role="group"
+            aria-labelledby={paymentResultTransactionLabelId}
+          >
             <p
               id={paymentResultTransactionLabelId}
               className="text-xs uppercase tracking-[0.16em] text-zinc-500"
