@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     "PayLink receipts",
     "MiniPay receipts",
     "shareable receipt URLs",
+    "reopenable receipt URLs",
     "no-custody payments",
     "direct wallet settlement",
     "public payment profile",
