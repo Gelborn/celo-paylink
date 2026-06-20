@@ -17,6 +17,7 @@
 - Reuse the same public profile or prefilled payment request links for repeat payments
 - Prefill amount, token, and reference for one-off requests
 - Share PayLink receipt URLs after confirmation as client-ready payment proof
+- Reopen receipt URLs later without relying on the payer wallet session
 - Support English and Brazilian Portuguese in the same payment flow
 
 ## Slide 4
