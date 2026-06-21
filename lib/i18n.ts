@@ -450,7 +450,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       opensInNewTab: "opens in a new tab"
     },
     messages: {
-      contractReady: "Profile updates publish directly through PayLink on Celo.",
+      contractReady: "Profile updates publish directly through the PayLink contract on Celo.",
       missingContract: "Configure PayLink for this network before publishing profiles or accepting payments.",
       noWalletFound:
         "No wallet found. Open PayLink in MiniPay or connect with a browser wallet, then try again.",
@@ -728,7 +728,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       opensInNewTab: "abre em uma nova aba"
     },
     messages: {
-      contractReady: "As alterações do perfil são publicadas direto pelo PayLink na Celo.",
+      contractReady: "As alterações do perfil são publicadas direto pelo contrato PayLink na Celo.",
       missingContract: "Configure o PayLink para esta rede antes de publicar perfis ou receber pagamentos.",
       noWalletFound:
         "Nenhuma carteira foi encontrada. Abra o PayLink no MiniPay ou conecte uma carteira do navegador e tente novamente.",
