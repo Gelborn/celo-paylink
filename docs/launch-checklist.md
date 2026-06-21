@@ -98,7 +98,7 @@
 - Open the copied localized prefilled payment request URL in a private browser window and confirm it does not rely on owner session state.
 - Test an unsupported `token` query once and confirm the page falls back to a supported token.
 - If using `token=USD₮` in a hand-written payment request URL, confirm the symbol is URL-encoded or use the token address.
-- Test a payment request reference with a space and confirm it stays readable after sharing the link.
+- Test a payment request reference with a space and confirm it stays readable in the shared URL.
 - Type a long payment request reference once and confirm the 140-character counter updates without shifting the payment form.
 - Type in the payment request reference with a screen reader once and confirm the full character count is announced as it changes.
 - Test a payment request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
