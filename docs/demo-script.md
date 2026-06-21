@@ -38,6 +38,7 @@ Turn on Do Not Disturb so notification banners do not cover wallet confirmations
 Disable auto-lock on the payer phone so it does not sleep mid-flow.
 
 Close unrelated browser tabs and dismiss wallet notifications before recording so the live wallet walkthrough stays focused.
+Dismiss browser autofill and password manager popovers before recording so they do not cover payment fields.
 Keep wallet account and network switchers closed unless you need to explain the two-wallet setup.
 Keep private keys, seed phrases, and deployment env files out of the recording.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
