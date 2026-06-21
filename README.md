@@ -213,7 +213,7 @@ After deployment, copy the contract address and decimal creation block into the 
 
 ## Release Checks
 
-Run these locally before publishing public changes or recording a final demo:
+Run these locally before publishing public changes or recording final demo footage:
 
 ```bash
 npm run compile
