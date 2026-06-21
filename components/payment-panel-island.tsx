@@ -355,7 +355,7 @@ export function PaymentPanelIsland({
               {dictionary.labels.transaction}
             </p>
             <code
-              aria-labelledby={paymentResultTransactionLabelId}
+              aria-label={`${dictionary.labels.transaction}: ${paymentResult.txHash}`}
               title={paymentResult.txHash}
               className="mt-2 block break-all text-sm text-zinc-300"
             >
