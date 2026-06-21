@@ -158,7 +158,7 @@
 - Confirm any QR code encodes the final HTTPS public profile URL, not localhost or a preview URL.
 - If using a localized prefilled payment request QR code, confirm it preserves the saved amount, token, and reference values.
 - Label any submitted QR code as a public profile or localized prefilled payment request so reviewers know the expected destination.
-- Scan the final public profile QR code once and confirm it opens the submitted profile on mobile.
+- Scan the final public profile QR code once on a signed-out phone and confirm it opens the submitted profile.
 - Watch the exported demo once with audio muted and confirm the visible flow still explains the payment path.
 - Confirm the exported demo starts on a loaded PayLink screen, not a blank page or browser setup frame.
 - Confirm the uploaded demo title or thumbnail clearly names PayLink before sharing the submission URL.
