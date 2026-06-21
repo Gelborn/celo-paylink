@@ -87,6 +87,7 @@
 - Paste a profile handle with a leading `@` and extra spaces, then confirm search opens the same public profile.
 - Enable reduced motion once and confirm the home demo remains understandable without animation.
 - Increase browser text size once and confirm the public profile payment controls remain usable.
+- At 200% browser zoom, confirm token, amount, and reference controls remain visible without horizontal scrolling.
 - Open the copied payment request link on a second device and confirm the amount, token, and reference are prefilled.
 - Open a payment request link without the optional `token` query and confirm it uses the recipient's preferred token.
 - Open the copied payment request link in a private browser window and confirm it does not rely on owner session state.
