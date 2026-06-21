@@ -27,6 +27,7 @@
     "stablecoin-payment-request-links",
     "walletless-payment-previews",
     "bilingual-payments",
+    "localized-payments",
     "payment-receipts",
     "payment-proof",
     "celo-receipts",
