@@ -53,7 +53,7 @@
 - Confirm the installed PWA icon is not visibly cropped on the phone home screen or app switcher.
 - Rotate the phone once and confirm the installed PWA keeps the payment flow in portrait orientation.
 - Append `preview=1` to a production public profile URL and confirm demo data stays disabled.
-- Confirm final judge links use a real handle and omit `preview=1` unless demoing locally.
+- Confirm final judge URLs use a real handle and omit `preview=1` unless demoing locally.
 - For local phone rehearsal, confirm preview URLs use the `npm run dev:mobile` network host instead of `localhost` after restarting with the matching `NEXT_PUBLIC_APP_URL`.
 - Confirm local phone preview URLs keep the same amount, token, reference, and `preview=1` query values after the host swap.
 - Open the `npm run dev:mobile` network host on the phone once before generating local QR codes or payment request URLs.
