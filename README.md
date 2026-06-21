@@ -77,7 +77,7 @@ npm install
 cp .env.example .env
 ```
 
-For preview-only local review, keep the placeholder `PRIVATE_KEY` from `.env.example`; replace it only before deploy, verify, or seed scripts.
+For walletless local review, keep the placeholder `PRIVATE_KEY` from `.env.example`; replace it only before deploy, verify, or seed scripts.
 
 3. Compile contracts:
 
