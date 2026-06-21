@@ -114,7 +114,7 @@
 - Use a screen reader on the fresh-profile empty state and confirm the heading and action are announced together.
 - Open the final avatar URL directly and confirm the image loads over HTTPS without a signed or expiring URL before screenshots.
 - Try a non-HTTPS avatar URL once and confirm the dashboard shows clear avatar URL guidance.
-- Copy the public profile link from `/my` and confirm it uses the final HTTPS origin.
+- Copy the public profile URL from `/my` and confirm it uses the final HTTPS origin.
 - Paste the copied public profile link once and confirm it opens the same submitted handle.
 - Confirm the copied public profile link keeps the handle casing and characters shown on the dashboard.
 - Open the copied public profile link in a private browser window and confirm it does not rely on owner session state.
