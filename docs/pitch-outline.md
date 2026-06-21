@@ -33,7 +33,7 @@
 - Stablecoins forward directly to the recipient
 - No custody; payments settle directly to the recipient wallet
 - Recent payment history from PayLink contract events on Celo
-- No backend or indexer required
+- No backend, server session, or indexer required
 
 ## Slide 6
 - MiniPay user flow
