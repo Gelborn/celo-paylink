@@ -71,4 +71,4 @@
 - Reusable MiniPay PayLink QR codes that open the recipient's public profile for in-person repeat payments
 - Saved PayLink receipt links with matching Celo explorer transaction links for client bookkeeping
 - Lightweight invoice templates that embed prefilled PayLink request URLs for repeat client requests
-- Merchant-specific suggested amount presets for faster payment request links
+- Merchant-specific suggested amount presets for faster payment request URLs
