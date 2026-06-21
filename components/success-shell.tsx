@@ -12,7 +12,6 @@ import { Header } from "./header";
 import { useLocale } from "./locale-provider";
 import { Avatar } from "./ui/avatar";
 import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { DetailTile, IconFrame } from "./ui/patterns";
 
@@ -197,10 +196,15 @@ export function SuccessShell({
                   </Link>
                 ) : null}
                 {handle ? (
-                  <Link href={`/u/${handle}`} aria-label={`${dictionary.actions.viewProfile}: @${handle}`}>
-                    <Button size="lg" leftIcon={<UserRound aria-hidden="true" />}>
+                  <Link
+                    href={`/u/${handle}`}
+                    aria-label={`${dictionary.actions.viewProfile}: @${handle}`}
+                    className="inline-flex h-12 max-w-full shrink-0 items-center justify-center gap-2 rounded-lg border border-[color:var(--accent)] bg-[color:var(--accent)] px-5 text-base font-medium text-zinc-950 shadow-[0_10px_24px_rgba(57,217,138,0.1)] transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--motion-ease)] hover:border-[color:var(--accent-strong)] hover:bg-[color:var(--accent-strong)] hover:shadow-[0_14px_32px_rgba(57,217,138,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-line)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--page)]"
+                  >
+                    <UserRound aria-hidden="true" className="h-4 w-4 shrink-0" />
+                    <span className="truncate">
                       {dictionary.actions.viewProfile} @{handle}
-                    </Button>
+                    </span>
                   </Link>
                 ) : null}
               </div>
