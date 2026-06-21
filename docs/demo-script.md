@@ -49,7 +49,7 @@ Open the prepared payment and receipt preview URLs once before recording so loca
 Keep browser zoom at 100% in preview, live, and explorer tabs so the wallet handoff, receipt, and Celo explorer transaction page stay readable.
 
 If the live wallet confirmation stalls during judging, switch to the walletless preview link and narrate where the live confirmation would happen.
-If you use a browser-wallet fallback, keep the same localized prefilled payment request link so the amount, token, and reference stay aligned with the MiniPay path.
+If you use a browser-wallet fallback, keep the same localized prefilled payment request URL so the amount, token, and reference stay aligned with the MiniPay path.
 After any browser-wallet network switch, re-check the amount, token, and reference on PayLink before approving.
 If the Celo explorer is slow during judging, keep the PayLink receipt visible and point out that the explorer link uses the same transaction hash.
 
