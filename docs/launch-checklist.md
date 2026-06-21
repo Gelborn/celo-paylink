@@ -127,7 +127,7 @@
 - Save the live demo transaction hash with the final submission notes after the successful payment.
 - Save the matching PayLink receipt URL and Celo explorer transaction link beside the transaction hash so reviewers can reopen both links.
 - Open the saved PayLink receipt URL and Celo explorer transaction link from the submission notes once before sharing them.
-- Reload the public profile after payment and confirm the recent payment is still visible from PayLink activity on Celo.
+- Reload the public profile after payment and confirm the recent payment is still visible from PayLink contract events on Celo.
 - Confirm the refreshed recent payments list shows the newest live payment first.
 - Confirm the recent payment amount, token, and reference match the saved PayLink receipt.
 - Open the success-screen explorer link and confirm it lands on the matching Celo explorer transaction.
