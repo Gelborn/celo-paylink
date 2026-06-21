@@ -62,7 +62,8 @@ export const metadata: Metadata = {
     "creator payments",
     "freelancer payments",
     "merchant payments",
-    "PWA"
+    "PWA",
+    "installable PWA"
   ],
   category: "finance",
   creator: "MiniPay PayLink",
