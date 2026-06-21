@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "payments",
     "payment links",
     "payment request links",
-    "payment request URLs",
+    "MiniPay payment request URLs",
     "localized prefilled payment request URLs",
     "public payment links",
     "prefilled payment request URLs",
