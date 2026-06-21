@@ -39,6 +39,7 @@
     "creator-payments",
     "freelancer-payments",
     "merchant-payments",
+    "minipay-pwa",
     "pwa",
     "installable-pwa"
   ],
