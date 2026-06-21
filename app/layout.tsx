@@ -62,6 +62,7 @@ export const metadata: Metadata = {
     "creator payments",
     "freelancer payments",
     "merchant payments",
+    "MiniPay PWA",
     "PWA",
     "installable PWA"
   ],
