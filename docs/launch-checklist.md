@@ -132,7 +132,7 @@
 - Confirm the recent payment amount and token match the saved PayLink receipt.
 - Open the success-screen explorer link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the explorer link opens on the same Celo network as the submitted payment.
-- Confirm the success-screen amount, token, and reference match the public payment request link.
+- Confirm the success-screen amount, token, and reference match the localized prefilled payment request link.
 - Confirm the final notes use the same token symbol spelling shown in the wallet confirmation and PayLink receipt.
 - Confirm the final payment request link and PayLink receipt URL use the same public profile handle.
 - Confirm the submitted PayLink receipt URL uses the live wallet transaction hash, not the fixed preview hash from the README.
