@@ -1,6 +1,6 @@
 # Demo Script
 
-Target length: 90 seconds for judging or quick product review.
+Target length: 90 seconds for judging or a quick product review.
 Keep setup under 30 seconds so the live wallet confirmation, receipt, and Celo explorer transaction page stay readable.
 
 Set the app language with the visible language switcher before recording and keep it unchanged so the narration, screenshots, and visible copy stay in the same locale.
