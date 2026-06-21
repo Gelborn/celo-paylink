@@ -33,7 +33,12 @@ export function EmptyState({
         <CardDescription id={descriptionId}>{description}</CardDescription>
       </CardHeader>
       {actions ? (
-        <CardContent className="flex flex-wrap gap-3 pt-0" role="group" aria-labelledby={titleId}>
+        <CardContent
+          className="flex flex-wrap gap-3 pt-0"
+          role="group"
+          aria-labelledby={titleId}
+          aria-describedby={descriptionId}
+        >
           {actions}
         </CardContent>
       ) : null}
