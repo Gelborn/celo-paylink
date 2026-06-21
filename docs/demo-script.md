@@ -57,7 +57,7 @@ If the Celo explorer is slow during judging, keep the PayLink receipt visible an
 2. Open `/my`, connect with the recipient wallet in MiniPay, and create or update the payment profile.
 3. Show the saved handle and copy the public profile URL.
    Pause on the dashboard until the saved handle and preferred token are both visible.
-   Pause on the copied link long enough to make the final origin and handle clear.
+   Pause on the copied URL long enough to make the final origin and handle clear.
 4. Open the copied public `/u/[handle]` link on the payer device so the final origin is visible.
    Pause on the profile header until the recipient name and handle are readable.
    Say that the payer only needs a compatible wallet and does not create a PayLink account.
