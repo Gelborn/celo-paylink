@@ -107,6 +107,7 @@ If you test generated public profile or payment request links on the phone, set 
 Regenerate or recopy dashboard-created links after the restart so they use the printed network origin.
 Scan any generated local QR code once after the restart to confirm it opens the printed network origin.
 When using the phone URL, replace `localhost:3000` in the payment and receipt preview links below with the printed network host.
+Keep the path and query string unchanged so amount, token, reference, and preview mode still match.
 Keep the phone and dev machine on the same Wi-Fi network; `localhost` only works from the machine running Next.js.
 If the phone cannot open the network URL, allow incoming connections to the dev machine or disable VPN isolation before retrying.
 
