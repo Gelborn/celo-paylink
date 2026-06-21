@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     "walletless payment previews",
     "bilingual payments",
     "localized payments",
-    "stablecoin payment request links",
+    "stablecoin payment request URLs",
     "payment receipts",
     "payment proof",
     "Celo receipts",
