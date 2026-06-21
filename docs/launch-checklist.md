@@ -141,7 +141,7 @@
 - View source for one PayLink receipt URL and confirm the canonical URL and `og:url` resolve to `/success` on the deployed origin.
 - Reopen the PayLink receipt URL in a private browser window and confirm receipt details remain visible.
 - Open the same PayLink receipt URL on mobile once and confirm the receipt stays readable.
-- Use browser back from the success screen and confirm it returns to the public profile without an error.
+- Use the browser back button from the success screen and confirm it returns to the public profile without an error.
 - Confirm final screenshots use the same locale and deployed origin as the submitted demo links.
 - Disable browser translation before localized screenshots so English and Brazilian Portuguese copy stays intentional.
 - Confirm final payment screenshots show the selected token label anywhere the amount is visible.
