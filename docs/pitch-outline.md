@@ -59,7 +59,7 @@
 - Product principles
 - Direct wallet settlement
 - Minimal setup
-- Localized prefilled payment request links
+- Localized prefilled payment request URLs
 - Shareable, reopenable PayLink receipt URLs
 - Receipts link back to the recipient profile for repeat payments
 - No payer PayLink account required
