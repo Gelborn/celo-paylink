@@ -57,9 +57,9 @@
 - For local phone rehearsal, confirm preview URLs use the `npm run dev:mobile` network host instead of `localhost` after restarting with the matching `NEXT_PUBLIC_APP_URL`.
 - Confirm local phone preview URLs keep the same amount, token, reference, and `preview=1` query values after the host swap.
 - Open the `npm run dev:mobile` network host on the phone once before generating local QR codes or payment request URLs.
-- Save the exact localized prefilled demo payment request URL with its amount, token, and reference values for the final submission notes.
-- Confirm the saved demo payment request URL uses the final HTTPS origin before adding it to submission notes.
-- Open the saved demo payment request URL from the final submission notes once to catch copied, mis-encoded, or truncated URLs.
+- Save the exact localized prefilled payment request URL with its amount, token, and reference values for the final submission notes.
+- Confirm the saved localized prefilled payment request URL uses the final HTTPS origin before adding it to submission notes.
+- Open the saved localized prefilled payment request URL from the final submission notes once to catch copied, mis-encoded, or truncated URLs.
 - Label any walletless preview URLs separately from live payment proof links in the final submission notes.
 - Confirm the final submission notes label the home URL, public profile URL, localized prefilled payment request URL, PayLink receipt URL, and Celo explorer transaction link separately.
 - Copy final submission URLs from the deployed app after the production build instead of retyping them by hand.
@@ -67,7 +67,7 @@
 - Confirm the final submission notes name the target Celo network for the public profile, localized prefilled payment request URL, PayLink receipt, and Celo explorer transaction link.
 - Open each final submission URL in a signed-out or private browser before sending it to reviewers.
 - Confirm the final localized prefilled payment request URL uses a short reference that stays readable in MiniPay and on the receipt.
-- Test the saved demo payment request URL inside MiniPay on a phone.
+- Test the saved localized prefilled payment request URL inside MiniPay on a phone.
 - Confirm the recipient wallet used for profile setup and the payer wallet are separate for the live payment test.
 - Confirm the payer wallet is on Celo before approving or sending the payment.
 - Confirm the payer wallet has the selected token and a little CELO for network fees.
