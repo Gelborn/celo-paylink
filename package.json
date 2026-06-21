@@ -39,7 +39,8 @@
     "creator-payments",
     "freelancer-payments",
     "merchant-payments",
-    "pwa"
+    "pwa",
+    "installable-pwa"
   ],
   "author": "Gelborn",
   "license": "MIT",
