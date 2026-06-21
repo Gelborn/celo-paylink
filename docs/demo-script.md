@@ -35,7 +35,7 @@ Keep the public profile URL, localized prefilled payment request URL, and PayLin
 Show the final URLs without shorteners so reviewers can see the deployed origin and PayLink path directly.
 Keep the browser address bar visible when showing final URLs so the deployed origin is readable.
 If showing profile search, use a known published handle so the result opens immediately during the timed demo.
-Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
+Turn on Do Not Disturb on the payer phone so notification banners do not cover wallet confirmations.
 Disable auto-lock on the payer phone so it does not sleep mid-flow.
 Set the payer phone brightness high enough that wallet confirmation text stays readable on camera.
 Keep the payer phone in portrait orientation so MiniPay prompts do not rotate mid-recording.
