@@ -21,6 +21,7 @@ Send a private report to the repository owner with:
 - deployed URL and commit SHA, when available
 - whether it affects preview/demo mode, production payment flows, or both
 - whether the issue is visible signed out or only after connecting a wallet
+- which wallet role was connected, such as recipient owner, payer, or another wallet, if relevant
 - whether owner-only controls appeared on a public profile URL, if access control is involved
 - selected language or browser locale, if copy, receipts, or profile display are involved
 - whether native sharing, clipboard copy, or a manually typed URL was involved, and whether it was a public profile URL, payment request link, or receipt URL
