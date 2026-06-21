@@ -200,7 +200,11 @@ export function RecentPaymentsView({
                     </div>
 
                     {payment.reference ? (
-                      <div className="rounded-lg border border-white/10 bg-black/20 px-4 py-3">
+                      <div
+                        className="rounded-lg border border-white/10 bg-black/20 px-4 py-3"
+                        role="group"
+                        aria-label={dictionary.fields.note}
+                      >
                         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500">
                           {dictionary.fields.note}
                         </p>
