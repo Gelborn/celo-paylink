@@ -37,6 +37,7 @@ If showing profile search, use a known published handle so the result opens imme
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
 Disable auto-lock on the payer phone so it does not sleep mid-flow.
 Set the payer phone brightness high enough that wallet confirmation text stays readable on camera.
+Keep the payer phone in portrait orientation so MiniPay prompts do not rotate mid-recording.
 
 Close unrelated browser tabs and dismiss wallet notifications before recording so the live wallet walkthrough stays focused.
 Dismiss browser autofill and password manager popovers before recording so they do not cover payment fields.
