@@ -168,4 +168,4 @@
 - Open the uploaded demo URL in a private browser once and confirm it is viewable without sign-in or owner-only access.
 - Confirm the uploaded demo URL will remain available through the full review window.
 - Confirm the exported demo shows the wallet confirmation amount, token, reference, and Celo explorer transaction page clearly.
-- Record the short product demo from the same final deployed HTTPS origin used in the submission notes.
+- Record the short product demo from the same final deployed HTTPS origin listed in the submission notes.
