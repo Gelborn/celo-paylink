@@ -5,7 +5,7 @@ Keep setup under 30 seconds so the live wallet confirmation, receipt, and Celo e
 
 Set the app language with the visible language switcher before recording and keep it unchanged so the narration, screenshots, and visible copy stay in the same locale.
 Disable automatic browser translation before recording so the English and Brazilian Portuguese copy stays intentional.
-When recording both locales, reuse the same profile, amount, token, and reference values so reviewers can compare the English and `pt-BR` flows directly.
+When recording both locales, reuse the same profile, amount, token, and reference values so reviewers can compare the English and Brazilian Portuguese flows directly.
 
 For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public profile payment page before the live MiniPay walkthrough.
 Keep the README's matching local preview receipt URL ready if you need to show the receipt state without connecting a wallet.
