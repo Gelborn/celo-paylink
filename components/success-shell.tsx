@@ -173,7 +173,9 @@ export function SuccessShell({
                     {dictionary.labels.transaction}
                   </p>
                   <code
-                    aria-labelledby={transactionLabelId}
+                    aria-label={`${dictionary.labels.transaction}: ${
+                      txHash || dictionary.labels.checking
+                    }`}
                     title={txHash || undefined}
                     className="mt-2 block break-all text-sm text-zinc-300"
                   >
