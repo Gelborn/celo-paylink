@@ -374,7 +374,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       tooShort: "Enter at least 3 characters from a handle to search.",
       notFound: "No published profile matches that handle. Check the spelling or paste the full handle.",
       error: "Profiles could not load right now. Check your connection and try again in a moment.",
-      exactHint: "Paste @handle or the handle only. PayLink removes @ and extra spaces; handles use 3-32 letters, numbers, hyphens, or underscores.",
+      exactHint: "Paste @handle or the handle only. PayLink removes @ and extra spaces before searching; handles use 3-32 letters, numbers, hyphens, or underscores.",
       openProfile: "Open public profile"
     },
     publicPage: {
@@ -652,7 +652,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       tooShort: "Digite pelo menos 3 caracteres de um handle para buscar.",
       notFound: "Nenhum perfil publicado corresponde a esse handle. Confira a grafia ou cole o handle completo.",
       error: "Não foi possível carregar os perfis agora. Confira sua conexão e tente novamente em instantes.",
-      exactHint: "Cole @handle ou apenas o handle. O PayLink remove @ e espaços extras; handles usam de 3 a 32 letras, números, hífens ou sublinhados.",
+      exactHint: "Cole @handle ou apenas o handle. O PayLink remove @ e espaços extras antes da busca; handles usam de 3 a 32 letras, números, hífens ou sublinhados.",
       openProfile: "Abrir perfil público"
     },
     publicPage: {
