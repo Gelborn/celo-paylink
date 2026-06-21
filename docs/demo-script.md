@@ -36,6 +36,7 @@ Keep the browser address bar visible when showing final URLs so the deployed ori
 If showing profile search, use a known published handle so the result opens immediately during the timed demo.
 Turn on Do Not Disturb so notification banners do not cover wallet confirmations.
 Disable auto-lock on the payer phone so it does not sleep mid-flow.
+Set the payer phone brightness high enough that wallet confirmation text stays readable on camera.
 
 Close unrelated browser tabs and dismiss wallet notifications before recording so the live wallet walkthrough stays focused.
 Dismiss browser autofill and password manager popovers before recording so they do not cover payment fields.
