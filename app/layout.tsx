@@ -42,6 +42,7 @@ export const metadata: Metadata = {
     "payments",
     "payment links",
     "payment request links",
+    "payment request URLs",
     "public payment links",
     "prefilled payment request links",
     "walletless payment previews",
