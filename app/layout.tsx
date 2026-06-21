@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "Celo stablecoin payments",
     "mobile payments",
     "payments",
-    "payment links",
+    "MiniPay payment links",
     "PayLink payment request links",
     "MiniPay payment request URLs",
     "localized prefilled payment request URLs",
