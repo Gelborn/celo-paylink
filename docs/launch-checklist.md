@@ -102,6 +102,7 @@
 - After switching language, confirm the selected token label still matches the payment request link.
 - Open one receipt in `pt-BR` and confirm the amount, reference, and receipt actions remain readable.
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
+- Use a screen reader on the language switcher once and confirm the announced locale matches the selected label.
 - Reload after switching locale and confirm the selected language remains consistent.
 - Confirm profile creation, profile updates, and payment request link generation.
 - Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear handle guidance.
