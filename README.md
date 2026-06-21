@@ -261,7 +261,7 @@ If a token address changes, update this table and `lib/tokens.ts` in the same re
 - `layout.tsx` publishes root language and direction attributes, social and keyword metadata for payment proof, Celo explorer transaction links, shareable and reopenable receipt URLs, bilingual and localized payments, and MiniPay PWA discovery, plus mobile web app tags, referrer policy, and Talent App verification metadata.
 - `robots.ts` and page metadata keep dashboard routes, receipt pages, and preview URLs out of indexing while PayLink receipt URLs remain directly shareable.
 - `sitemap.ts` publishes the canonical app origin for search engines; dynamic profile links are shared directly instead of being enumerated.
-- `manifest.ts` publishes install metadata, business, finance, productivity, and utility app categories, maskable install icons, English plus Brazilian Portuguese mobile prefilled payment page and shareable, reopenable receipt preview screenshots, and the `Open PayLink dashboard` shortcut with the `My PayLink` short label, prefilled request link context, and receipt URL reopening description.
+- `manifest.ts` publishes install metadata for localized no-custody Celo payments, business, finance, productivity, and utility app categories, maskable install icons, English plus Brazilian Portuguese mobile prefilled payment page and shareable, reopenable receipt preview screenshots, and the `Open PayLink dashboard` shortcut with the `My PayLink` short label, prefilled request link context, and receipt URL reopening description.
 - Demo, launch, and pitch notes live in `docs/`, including preview URLs and launch checks that stay separate from runtime implementation code.
 
 ## Docs
