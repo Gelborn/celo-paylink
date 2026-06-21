@@ -43,6 +43,7 @@
 - Copy a prefilled payment request link from the dashboard when a fixed amount is needed
 - Confirm the final HTTPS origin, recipient name, and handle before payment
 - Review amount, token, and reference
+- Use a low-value live amount for judge payments so proof stays verifiable without unnecessary risk
 - Keep the token label consistent between the wallet confirmation and PayLink receipt
 - Keep the reference short enough to read in MiniPay and on the receipt
 - Approve the token if prompted
