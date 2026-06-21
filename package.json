@@ -23,6 +23,7 @@
     "minipay-payment-request-links",
     "payment-request-links",
     "payment-request-urls",
+    "localized-prefilled-payment-request-urls",
     "prefilled-payment-request-links",
     "localized-payment-request-links",
     "stablecoin-payment-request-links",
