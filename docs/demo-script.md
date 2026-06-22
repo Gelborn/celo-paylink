@@ -20,7 +20,7 @@ During the live wallet walkthrough, call out that payments settle directly to th
 Use a real saved handle for the live wallet walkthrough; keep `demo-paylink` for preview-only fallback URLs.
 Use the recipient handle and payer wallet names consistently so reviewers can follow the two-wallet flow.
 
-Before the live wallet walkthrough, confirm the payer wallet has enough of the selected token for the requested amount and a little CELO for network fees.
+Before the live wallet walkthrough, confirm the payer wallet has enough of the selected token for the requested amount and a small CELO balance for network fees.
 Confirm the payer MiniPay wallet is on the target Celo network before opening the live localized PayLink prefilled payment request URL.
 Use the same network name again when showing the Celo explorer transaction link so reviewers can match the wallet and receipt context.
 Keep the same payer wallet selected through approval and send prompts so the recorded wallet identity stays consistent.
