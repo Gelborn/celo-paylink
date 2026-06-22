@@ -133,7 +133,7 @@
 - Open the success receipt page explorer link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the explorer link opens on the same Celo network as the submitted payment.
 - Confirm the success receipt page amount, token, and reference match the localized PayLink prefilled payment request URL.
-- Confirm the final notes use the same token symbol spelling shown in the wallet confirmation and PayLink receipt page.
+- Confirm the final submission notes use the same token symbol spelling shown in the wallet confirmation and PayLink receipt page.
 - Confirm the final localized PayLink prefilled payment request URL and PayLink receipt URL use the same public profile handle.
 - Confirm the submitted PayLink receipt URL uses the live wallet transaction hash, not the fixed preview hash from the README.
 - Confirm any copied PayLink receipt URL uses the final HTTPS origin before sharing it.
