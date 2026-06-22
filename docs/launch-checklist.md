@@ -59,7 +59,7 @@
 - Open the `npm run dev:mobile` network host on the phone once before generating local QR codes or localized PayLink prefilled payment request URLs.
 - Save the exact localized PayLink prefilled payment request URL with its amount, token, and reference values for the final submission notes.
 - Confirm the saved localized PayLink prefilled payment request URL uses the final HTTPS origin before adding it to submission notes.
-- Open the saved localized prefilled payment request URL from the final submission notes once to catch copied, mis-encoded, or truncated URLs.
+- Open the saved localized PayLink prefilled payment request URL from the final submission notes once to catch copied, mis-encoded, or truncated URLs.
 - Label any walletless preview URLs separately from live payment proof URLs in the final submission notes.
 - Confirm the final submission notes label the home URL, public profile URL, localized prefilled payment request URL, PayLink receipt URL, and Celo explorer transaction link separately.
 - Copy final submission URLs from the deployed app after the production build instead of retyping them by hand.
