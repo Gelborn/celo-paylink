@@ -145,7 +145,7 @@
 - Confirm final screenshots use the same locale and final HTTPS origin as the submitted demo URLs.
 - Disable browser translation before localized screenshots so English and Brazilian Portuguese copy stays intentional.
 - Confirm final payment screenshots show the selected token label wherever the amount is visible.
-- Confirm final screenshots do not show browser extension banners, wallet popovers, notification banners, or recording overlays.
+- Confirm final screenshots do not show browser extension banners, wallet popovers, notification banners, or screen-recording overlays.
 - Confirm final screenshots only show intended demo wallet addresses, with any other account details cropped or redacted.
 - Capture final reviewer screenshots for these states:
   - landing page
