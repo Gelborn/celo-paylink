@@ -8,7 +8,7 @@
     MiniPay PayLink
   </text>
   <text x="96" y="454" fill="#A1A1AA" font-family="SF Pro Display, Inter, Arial, sans-serif" font-size="30" font-weight="500">
-    A public payment profile for creators, freelancers, and solo merchants on Celo.
+    A no-custody profile for creators, freelancers, and solo merchants on Celo.
   </text>
   <rect x="96" y="502" width="316" height="46" rx="23" fill="#161A20"/>
   <text x="126" y="532" fill="#58E7A5" font-family="SF Pro Display, Inter, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="0.02em">
