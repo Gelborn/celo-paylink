@@ -14,7 +14,7 @@ Use a supported token symbol such as `USDm`, `USDC`, or `USD₮`, or a supported
 When typing `token=USD₮` by hand, URL-encode the `₮` symbol or use the token contract address.
 Omit `token` to use the recipient's preferred token from their profile.
 Use human-readable decimal amounts such as `5` or `5.50`; do not put token base units in PayLink request URLs.
-Use a period as the decimal separator in shared URLs, even for localized demos, so wallets and receipts read the amount consistently.
+Use a period as the decimal separator in shared PayLink URLs, even for localized demos, so wallets and receipts read the amount consistently.
 
 ## Mainnet Status
 
