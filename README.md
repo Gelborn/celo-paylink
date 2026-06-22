@@ -209,7 +209,7 @@ After deployment, copy the contract address and decimal creation block into the 
 - Any browser wallet that can switch to Celo, approve ERC-20 allowances, and submit PayLink transactions can exercise the same profile and payment flows.
 - When retesting outside MiniPay, confirm the browser wallet shows the Celo network switch before payment review.
 - After a browser-wallet network switch, re-check that PayLink still shows the same amount, token, and reference before sending.
-- Public profile payment pages, success receipts, and recent payments are designed to work without a backend, server session, or indexer.
+- Public profile payment pages, success receipt pages, and recent payments are designed to work without a backend, server session, or indexer.
 
 ## Release Checks
 
