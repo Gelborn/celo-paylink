@@ -11,7 +11,7 @@ For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&previ
 Keep the README's matching local PayLink preview receipt URL ready if you need to show the receipt state without connecting a wallet.
 Describe walletless preview receipts as UI review only, not as proof of live settlement.
 When showing either preview URL on a phone, open the paths on the `npm run dev:mobile` network host instead of `localhost`.
-Keep the same query string when swapping hosts so amount, token, reference, and preview mode still match.
+Keep the same query string when switching hosts so amount, token, reference, and preview mode still match.
 Use the same amount, token, and reference values in the walletless preview fallback and live wallet walkthrough so reviewers can compare both states quickly.
 Keep the live reference short so it stays legible in the wallet confirmation and PayLink receipt page.
 Use a neutral reference such as `coffee` or `demo` so client names do not appear in wallet confirmations, the PayLink receipt page, or screenshots.
