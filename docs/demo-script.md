@@ -42,7 +42,7 @@ Keep the payer phone in portrait orientation so MiniPay prompts do not rotate mi
 
 Close unrelated browser tabs and dismiss wallet notifications before recording so the live wallet walkthrough stays focused.
 Dismiss browser autofill and password manager popovers before recording so they do not cover payment fields.
-Keep wallet account and network switchers closed unless you need to explain the two-wallet setup.
+Keep wallet account and network switchers closed unless you need to explain the recipient and payer wallet setup.
 Keep private keys, seed phrases, and deployment env files out of the recording.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
 Open the prepared walletless payment and receipt preview URLs once before recording so local Next.js routes and images are warm when the camera starts.
