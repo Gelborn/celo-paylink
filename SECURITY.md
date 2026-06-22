@@ -18,7 +18,7 @@ Send a private report to the repository owner with:
 - the contract address and chain ID, if the report involves a live contract
 - the recipient public handle involved, if safe to share
 - how the affected profile was opened, such as profile search, a profile card, copied URL, or typed URL, if relevant
-- deployed URL and commit SHA, when available
+- the deployed URL and commit SHA, when available
 - whether it affects preview/demo mode, production payment flows, or both
 - whether the issue is visible signed out or only after connecting a wallet
 - which wallet role was connected, such as recipient owner, payer, or another wallet, if relevant
