@@ -151,7 +151,7 @@
   - landing page
   - owner dashboard
   - prefilled public profile payment page
-  - success screen
+  - success receipt page
 - Capture the owner dashboard only after the saved handle and preferred token are visible.
 - Capture the prefilled payment page only after the amount, token, and reference values are visible.
 - Capture the success screen only after receipt details and explorer/profile actions are visible.
