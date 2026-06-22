@@ -25,7 +25,7 @@
     "payment-request-urls",
     "localized-prefilled-payment-request-urls",
     "paylink-prefilled-payment-request-urls",
-    "localized-payment-request-urls",
+    "paylink-localized-payment-request-urls",
     "stablecoin-payment-request-urls",
     "walletless-payment-previews",
     "bilingual-payments",
