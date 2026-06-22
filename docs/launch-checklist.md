@@ -152,7 +152,7 @@
   - owner dashboard
   - prefilled public profile payment page
   - success receipt page
-- Capture the owner dashboard only after the saved handle and preferred token are visible.
+- Capture the owner dashboard only after the saved handle, preferred token, and public profile URL are visible.
 - Capture the prefilled payment page only after the amount, token, and reference values are visible and match the saved request URL.
 - Capture the success receipt page only after the amount, token, reference, PayLink receipt URL, and explorer/profile actions are visible.
 - Confirm any QR code encodes the final HTTPS public profile URL, not localhost or a preview URL.
