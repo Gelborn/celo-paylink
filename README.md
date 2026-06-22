@@ -231,7 +231,7 @@ The GitHub Actions CI workflow is manual-only; trigger the manual workflow for t
 - Avatar URLs must be `https://`.
 - Use a direct image URL rather than a profile page or gallery link.
 - Avoid expiring or signed avatar image URLs so dashboard avatars and shared profile previews keep loading.
-- Open the avatar URL in a private browser once before final screenshots to catch blocked or expiring images.
+- Open the avatar URL in a private browser once before final screenshots to catch blocked, expiring, or sign-in-gated images.
 - Square images work best because PayLink displays avatars in a circular crop.
 - Prefer a lightweight image file so public profiles and link previews load quickly on mobile.
 - Leave the avatar URL blank to use the built-in initials fallback.
