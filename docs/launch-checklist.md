@@ -162,7 +162,7 @@
 - Watch the exported demo once with audio muted and confirm the visible flow still explains the payment path.
 - Confirm the exported demo starts on a loaded PayLink screen, not a blank page, loading state, or browser setup screen.
 - Confirm the uploaded demo title or thumbnail clearly names PayLink before sharing the submission URL.
-- Confirm the uploaded demo URL is a public HTTPS URL, not a local file or unpublished draft.
+- Confirm the uploaded demo URL is a public HTTPS URL, not a local file, unpublished draft, or permissions-limited share link.
 - Confirm the uploaded demo description names the target Celo network if the host supports descriptions.
 - Label the uploaded demo URL separately from PayLink receipt URL and Celo explorer transaction links in the final submission notes.
 - Open the uploaded demo URL in a private browser once and confirm it is viewable without sign-in or owner-only access.
