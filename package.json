@@ -39,6 +39,7 @@
     "reopenable-receipt-urls",
     "celo-explorer-transaction-links",
     "no-custody-payments",
+    "direct-no-custody-payments",
     "direct-wallet-settlement",
     "creator-payments",
     "freelancer-payments",
