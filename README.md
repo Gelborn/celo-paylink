@@ -196,7 +196,7 @@ After deployment, copy the contract address and decimal creation block into the 
 - `PAYLINK_CONTRACT_ADDRESS_*` is used by explorer verification and demo seeding scripts.
 - Keep `PAYLINK_CONTRACT_ADDRESS_*` aligned with the matching `NEXT_PUBLIC_CONTRACT_ADDRESS_*` when running scripts.
 - `ETHERSCAN_API_KEY` and `CELOSCAN_API_KEY` are only needed when running explorer verification scripts.
-- Do not rely on private `CELO_*` values as fallbacks for browser config.
+- Do not rely on private `CELO_*` values as fallbacks for browser-facing config.
 
 ## Wallet Support
 
