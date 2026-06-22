@@ -73,7 +73,7 @@
 - Confirm the payer wallet has the selected token and a little CELO for network fees.
 - Confirm the selected token, amount, and reference match PayLink before approving or sending in the wallet.
 - Confirm the wallet prompt recipient matches the saved recipient wallet before sending the live payment.
-- Reject one wallet request and confirm PayLink shows a clear retry path.
+- Reject one wallet request and confirm PayLink shows a clear retry path without losing amount, token, or reference.
 - Trigger one wallet request and confirm the pending button text is visible and duplicate taps stay disabled.
 - Open the same public profile payment page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
 - In the browser-wallet fallback outside MiniPay, switch to Celo once and confirm amount, token, and reference remain unchanged before sending.
