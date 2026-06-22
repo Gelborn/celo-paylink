@@ -13,7 +13,7 @@ The dashboard payment request form handles this URL encoding for generated local
 Use a supported token symbol such as `USDm`, `USDC`, or `USD₮`, or a supported token contract address for the optional `token` query.
 When typing `token=USD₮` by hand, URL-encode the `₮` symbol or use the token contract address.
 Omit `token` to use the recipient's preferred token from their profile.
-Use human-readable decimal amounts such as `5` or `5.50`; do not put token base units in request URLs.
+Use human-readable decimal amounts such as `5` or `5.50`; do not put token base units in PayLink request URLs.
 Use a period as the decimal separator in shared URLs, even for localized demos, so wallets and receipts read the amount consistently.
 
 ## Mainnet Status
