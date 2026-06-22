@@ -45,7 +45,7 @@
 - Open `/manifest.webmanifest` and confirm the app name, short name, description, categories, language, text direction, maskable icon, scope, start URL, and `display` mode match the production install.
 - Confirm the manifest theme and background colors match the installed PWA splash and browser chrome.
 - View source for the deployed home page and confirm the mobile web app meta tags are present for Android and iOS install prompts.
-- Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS.
+- Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS without a broken image.
 - Open both manifest screenshot URLs and confirm the English and Brazilian Portuguese prefilled payment page and shareable, reopenable receipt preview posters load from the deployed origin with distinct English and Brazilian Portuguese labels.
 - Install the PWA once and confirm the `Open PayLink dashboard` shortcut shows the `My PayLink` short label, describes public profile URL, localized PayLink prefilled payment request URLs, recent incoming payments, and reopening PayLink receipt URLs, and opens `/my`.
 - Launch the installed PWA from the phone home screen and confirm it opens the home page in standalone mode.
