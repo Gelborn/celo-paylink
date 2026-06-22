@@ -39,7 +39,7 @@ Send a private report to the repository owner with:
 - redact unrelated wallet addresses, balances, and account names from screenshots when they are not needed to reproduce the issue
 - approximate date and time observed, including timezone, if it happened on a live deployment
 - transaction hashes, PayLink receipt URLs, or Celo explorer transaction links, if applicable and safe to share
-- whether any receipt URL uses a live wallet transaction hash or a preview/demo hash, if relevant
+- whether any PayLink receipt URL uses a live wallet transaction hash or a preview/demo hash, if relevant
 - affected token, amount, and reference, if funds or receipt display were involved
 - impact assessment
 - whether funds, profile metadata, or receipt display were affected
