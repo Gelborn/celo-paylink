@@ -108,7 +108,7 @@
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
 - Use a screen reader on the language switcher once and confirm the announced locale matches the selected label.
 - Reload after switching locale and confirm the selected language remains consistent.
-- Confirm profile creation, profile updates, and localized PayLink prefilled payment request URL generation.
+- Confirm profile creation, profile updates, and localized PayLink prefilled payment request URL generation still work.
 - Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear handle guidance.
 - Open a fresh profile with no payments and confirm the recent payments empty state is clear.
 - Use a screen reader on the fresh profile empty state and confirm the heading and action are announced together.
