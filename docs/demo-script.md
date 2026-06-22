@@ -23,7 +23,7 @@ Use the recipient handle and payer wallet names consistently so reviewers can fo
 Before the live wallet walkthrough, confirm the payer wallet has enough of the selected token for the requested amount and a small CELO balance for network fees.
 Confirm the payer's MiniPay wallet is on the target Celo network before opening the live localized PayLink prefilled payment request URL.
 Use the same network name again when showing the Celo explorer transaction link so reviewers can match the wallet and receipt context.
-Keep the same payer wallet selected through approval and send prompts so the recorded wallet identity stays consistent.
+Keep the same payer wallet selected through approval and payment prompts so the recorded wallet identity stays consistent.
 Confirm the recipient profile is already saved before starting the timer so setup does not crowd the live wallet walkthrough.
 
 Keep the payer MiniPay phone unlocked on the public profile or localized PayLink prefilled payment request page before starting the 90-second timer.
