@@ -7,7 +7,7 @@ Only the latest version on the default branch is supported for security fixes.
 ## Reporting
 
 Please do not open a public GitHub issue for suspected vulnerabilities.
-Use GitHub private vulnerability reporting if it is enabled for this repository; otherwise contact the repository owner privately.
+Use GitHub private vulnerability reporting if it is enabled for this repository; otherwise contact the repository owner privately before sharing reproduction details.
 
 Send a private report to the repository owner with:
 
