@@ -48,7 +48,7 @@
 - Keep the reference short enough to read in MiniPay and on the receipt
 - Approve the token if prompted
 - Send payment
-- Return to the in-app PayLink receipt
+- Return to the in-app PayLink receipt page
 - Open the matching Celo explorer transaction page
 - Point out that the PayLink receipt URL and Celo explorer transaction link use the same transaction hash
 - Share the PayLink receipt URL and Celo explorer transaction link as payment proof
