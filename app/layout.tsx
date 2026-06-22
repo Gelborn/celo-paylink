@@ -60,6 +60,7 @@ export const metadata: Metadata = {
     "shareable receipt URLs",
     "reopenable receipt URLs",
     "no-custody payments",
+    "direct no-custody payments",
     "direct wallet settlement",
     "public payment profile",
     "public profile URL",
