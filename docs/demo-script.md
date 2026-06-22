@@ -70,7 +70,7 @@ If the Celo explorer transaction page is slow during judging, keep the PayLink r
    If the wallet shows a separate approval prompt, call it out before the payment confirmation.
 7. Send the payment and wait for confirmation.
    Keep the wallet confirmation visible briefly so the amount and token are legible.
-   Wait for PayLink to return to the success receipt before stopping the recording.
+   Wait for PayLink to return to the success receipt page before stopping the recording.
 8. Show the success page and matching Celo explorer transaction link.
    Mention the amount, token, reference, and handle shown on the receipt.
    Pause on the PayLink receipt URL briefly before opening the explorer so the final origin is visible.
