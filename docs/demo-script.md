@@ -34,7 +34,7 @@ Label the QR code as a public profile or localized PayLink prefilled payment req
 Keep the public profile URL, localized PayLink prefilled payment request URL, and PayLink receipt URL visible long enough for reviewers to read the shared origin, handle, and receipt path.
 Show the final URLs without shorteners so reviewers can see the deployed origin and PayLink path directly.
 Keep the browser address bar visible when showing final URLs so the deployed origin and path are readable and match the submission notes.
-If showing profile search, use a known published handle so the result opens immediately during the timed demo.
+If showing profile search, use a known published handle from the final deployed app so the result opens immediately during the timed demo.
 Turn on Do Not Disturb on the payer phone so notification banners do not cover wallet confirmations.
 Disable auto-lock on the payer phone so it does not sleep mid-flow.
 Set the payer phone brightness high enough that wallet confirmation text stays readable on camera.
