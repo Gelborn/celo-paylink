@@ -65,7 +65,7 @@
 - Copy final submission URLs from the deployed app after the production build instead of retyping them by hand.
 - Avoid URL shorteners in final submission URLs so reviewers can see the deployed origin, handle, and receipt path directly.
 - Confirm the final submission notes name the target Celo network for the public profile, localized PayLink prefilled payment request URL, PayLink receipt URL, and Celo explorer transaction link.
-- Open each final submission URL in a signed-out or private browser before sending it to reviewers.
+- Open each final submission URL in a signed-out or private browser before sending it to reviewers and confirm no owner or payer wallet session is required.
 - Confirm the final localized PayLink prefilled payment request URL uses a short reference that stays readable in MiniPay and on the receipt.
 - Test the saved localized PayLink prefilled payment request URL inside MiniPay on a phone.
 - Confirm the recipient wallet used for profile setup and the payer wallet are separate for the live payment test.
