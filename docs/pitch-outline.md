@@ -50,7 +50,7 @@
 - Send payment
 - Return to the in-app PayLink receipt
 - Open the matching Celo explorer transaction page
-- Point out that the PayLink receipt and Celo explorer transaction link use the same transaction hash
+- Point out that the PayLink receipt URL and Celo explorer transaction link use the same transaction hash
 - Share the PayLink receipt URL and Celo explorer transaction link as payment proof
 - Reopen the PayLink receipt URL in a private tab to show it does not depend on wallet state
 - Refresh the public profile to show the recent PayLink contract event
