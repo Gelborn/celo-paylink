@@ -34,7 +34,7 @@
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
 - Confirm the public profile preview uses the submitted handle, display name, and avatar, not the demo fallback identity.
 - View source for one Brazilian Portuguese public profile URL and confirm `og:locale` is `pt_BR`.
-- Open `/og.svg` on the deployed origin and confirm the root social preview image is reachable over HTTPS.
+- Open `/og.svg` on the deployed origin and confirm the root social preview image renders over HTTPS without a broken image.
 - Open the public profile URL in a signed-out browser and confirm owner-only controls stay hidden.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes, PayLink receipt URLs, and both `?preview=1` and `&preview=1` URLs stay unindexed.
 - Open `/my` on the deployed origin and confirm the PayLink dashboard page metadata includes `noindex`.
