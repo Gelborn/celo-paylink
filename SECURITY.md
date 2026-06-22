@@ -30,7 +30,7 @@ Send a private report to the repository owner with:
 - whether a URL shortener, redirect, or copied tracking wrapper was involved before opening the PayLink URL
 - the amount, token, and reference query values, if a localized PayLink prefilled payment request URL is involved and they are safe to share
 - whether it reproduces after a page reload or fresh browser session
-- whether any wallet prompt was signed, rejected, or never shown
+- whether any wallet prompt was approved, rejected, or never shown
 - the network name shown in any wallet prompt, if a prompt appeared
 - whether a browser wallet network switch happened before the issue, if applicable
 - whether the issue happened in MiniPay, an installed PWA, or a regular browser tab
