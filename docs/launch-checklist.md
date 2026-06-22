@@ -144,7 +144,7 @@
 - Use the browser back button from the success receipt page and confirm the browser returns to the public profile without an error.
 - Confirm final screenshots use the same locale and final HTTPS origin as the submitted demo URLs and final submission notes.
 - Disable browser translation before localized screenshots so English and Brazilian Portuguese copy stays intentional.
-- Confirm final payment screenshots show the selected token label wherever the amount is visible.
+- Confirm final payment screenshots show the selected token label next to every visible amount.
 - Confirm final screenshots do not show browser extension banners, wallet popovers, notification banners, or screen-recording overlays.
 - Confirm final screenshots only show intended demo wallet addresses, with any other account details cropped or redacted.
 - Capture final reviewer screenshots for these states:
