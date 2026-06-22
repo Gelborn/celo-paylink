@@ -121,7 +121,7 @@
 - Use the mobile share action once and confirm the share title names the profile handle and the shared URL is the final public profile URL.
 - Share one localized PayLink prefilled payment request URL on mobile and confirm amount, token, and reference stay in the shared URL.
 - Use the share action once in a desktop browser without native sharing and confirm it falls back to copied-link feedback.
-- Confirm copied-link feedback is announced by a screen reader or exposed in the accessibility tree.
+- Confirm copied-link feedback is announced by a screen reader or otherwise exposed in the accessibility tree.
 - Send at least one real payment and verify it appears in the recent payments list.
 - Inspect one recent payment date in the browser accessibility tree and confirm the datetime value is machine-readable.
 - Save the live demo transaction hash with the final submission notes after the successful payment.
