@@ -130,7 +130,7 @@
 - Reload the public profile after payment and confirm the recent payment is still visible from PayLink contract events on Celo.
 - Confirm the refreshed recent payments list shows the newest live payment first.
 - Confirm the recent payment amount, token, and reference match the saved PayLink receipt URL.
-- Open the success-screen explorer link and confirm it lands on the matching Celo explorer transaction.
+- Open the success receipt page explorer link and confirm it lands on the matching Celo explorer transaction.
 - Confirm the explorer link opens on the same Celo network as the submitted payment.
 - Confirm the success-screen amount, token, and reference match the localized PayLink prefilled payment request URL.
 - Confirm the final notes use the same token symbol spelling shown in the wallet confirmation and PayLink receipt page.
