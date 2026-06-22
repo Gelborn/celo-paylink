@@ -192,7 +192,7 @@ After deployment, copy the contract address and decimal creation block into the 
 - `NEXT_PUBLIC_CELO_*` values are the browser-facing RPC endpoints used by the frontend.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_*` powers public payment routes, receipts, and payment history.
 - `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` limits payment history reads to the decimal contract creation block height; leave it blank only for walletless local previews.
-- Restart the dev server after changing `.env` so public origin, chain, contract, and RPC values refresh.
+- Restart the dev server after changing `.env` so public origin, chain, contract, and browser-facing RPC values refresh.
 - `PAYLINK_CONTRACT_ADDRESS_*` is used by explorer verification and demo seeding scripts.
 - Keep `PAYLINK_CONTRACT_ADDRESS_*` aligned with the matching `NEXT_PUBLIC_CONTRACT_ADDRESS_*` when running scripts.
 - `ETHERSCAN_API_KEY` and `CELOSCAN_API_KEY` are only needed when running explorer verification scripts.
