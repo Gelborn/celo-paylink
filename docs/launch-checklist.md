@@ -28,7 +28,7 @@
 - Confirm `.github/workflows/ci.yml` is still `workflow_dispatch`-only before batching polish commits so routine pushes do not consume Actions minutes.
 - Run the manual CI workflow from GitHub Actions once after the final push so the submitted commit has a recorded verification run.
 - Confirm the manual CI workflow run targets the same commit SHA saved in the final submission notes.
-- Save the manual CI workflow run URL and passing status beside the submitted commit SHA for reviewer follow-up.
+- Save the manual CI workflow run URL and passing status beside the submitted commit SHA for reviewer verification.
 - Open the deployed home URL in a signed-out browser and confirm it loads without a wallet connection.
 - Open the deployed home page console once and confirm there are no startup errors before capturing screenshots.
 - Share the deployed home URL and one public profile URL in a link preview tool and confirm the title, description, and image render correctly.
