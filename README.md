@@ -102,7 +102,7 @@ npm run dev:mobile
 ```
 
 For phone testing on the same network, run `npm run dev:mobile` and open the printed network URL on the phone in MiniPay.
-Use that printed network URL for local QR code, public profile, or localized prefilled payment request URL tests on the phone.
+Use that printed network URL for local QR code, public profile, or localized PayLink prefilled payment request URL tests on the phone.
 If you test generated public profile or localized prefilled payment request URLs on the phone, set `NEXT_PUBLIC_APP_URL` to the printed network origin and restart the dev server.
 Regenerate or recopy dashboard-created URLs after the restart so they use the printed network origin.
 Scan any generated local QR code once after the restart to confirm it opens the printed network origin.
