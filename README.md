@@ -146,7 +146,7 @@ After a live payment, refresh the public profile once so reviewers can see the s
 
 These values should be set explicitly for a public deployment:
 
-- `NEXT_PUBLIC_APP_URL`: canonical public origin, without a path or trailing slash, used by metadata, receipts, robots, and sitemap output.
+- `NEXT_PUBLIC_APP_URL`: canonical HTTPS public origin, without a path or trailing slash, used by metadata, receipts, robots, and sitemap output.
 - `NEXT_PUBLIC_DEFAULT_CHAIN`: `celo` for mainnet, `celoSepolia` for testing.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_MAINNET`: deployed `PayLinkProfile` address on Celo mainnet.
 - `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_MAINNET`: decimal `PayLinkProfile` creation block used to bound event reads for payment history.
