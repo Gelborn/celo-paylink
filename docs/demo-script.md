@@ -14,7 +14,7 @@ When showing either preview URL on a phone, open the paths on the `npm run dev:m
 Keep the same query string when swapping hosts so amount, token, reference, and preview mode still match.
 Use the same amount, token, and reference values in the walletless preview fallback and live wallet walkthrough so reviewers can compare both states quickly.
 Keep the live reference short so it stays legible in the wallet confirmation and PayLink receipt page.
-Use a neutral reference such as `coffee` or `demo` so client names do not appear in wallet confirmations, receipts, or screenshots.
+Use a neutral reference such as `coffee` or `demo` so client names do not appear in wallet confirmations, the PayLink receipt page, or screenshots.
 
 During the live wallet walkthrough, call out that payments settle directly to the recipient wallet with no platform custody.
 Use a real created handle for the live wallet walkthrough; keep `demo-paylink` for preview-only fallback URLs.
