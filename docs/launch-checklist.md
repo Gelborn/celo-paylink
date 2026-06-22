@@ -67,7 +67,7 @@
 - Confirm the final submission notes name the target Celo network for the public profile, localized PayLink prefilled payment request URL, PayLink receipt, and Celo explorer transaction link.
 - Open each final submission URL in a signed-out or private browser before sending it to reviewers.
 - Confirm the final localized PayLink prefilled payment request URL uses a short reference that stays readable in MiniPay and on the receipt.
-- Test the saved localized prefilled payment request URL inside MiniPay on a phone.
+- Test the saved localized PayLink prefilled payment request URL inside MiniPay on a phone.
 - Confirm the recipient wallet used for profile setup and the payer wallet are separate for the live payment test.
 - Confirm the payer wallet is on the target Celo network before approving or sending the payment.
 - Confirm the payer wallet has the selected token and a little CELO for network fees.
