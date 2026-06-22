@@ -63,7 +63,7 @@ If the Celo explorer transaction page is slow during judging, keep the PayLink r
    Say that the payer only needs a compatible wallet and does not create a PayLink account.
 5. Pick a token, choose a preset amount, and add a short reference.
    Pause on the selected token label before sending so the currency is clear in the recording.
-   Use the same token symbol spelling in narration and final notes so it matches the wallet and receipt labels.
+   Use the same token symbol spelling in narration and final notes so it matches the wallet confirmation and PayLink receipt page labels.
    Name the target Celo network before sending so the wallet confirmation has context.
    Say that the reference carries through to the receipt and recent payment history.
 6. Approve the token if needed.
