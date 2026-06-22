@@ -61,7 +61,7 @@
 - Minimal setup
 - Localized PayLink prefilled payment request URLs
 - Shareable, reopenable PayLink receipt URLs
-- Receipts link back to the recipient profile for repeat payments
+- PayLink receipts link back to the recipient profile for repeat payments
 - No payer PayLink account required
 - Bilingual public payment flow for English and Brazilian Portuguese payers and reviewers
 - No platform custody
