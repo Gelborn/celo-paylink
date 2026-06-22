@@ -26,7 +26,7 @@ Use the same network name again when showing the Celo explorer transaction link 
 Keep the same payer wallet selected through approval and send prompts so the recorded wallet identity stays consistent.
 Confirm the recipient profile is already saved before starting the timer so setup does not crowd the live wallet walkthrough.
 
-Keep the payer MiniPay phone unlocked on the public profile payment page before starting the 90-second timer.
+Keep the payer MiniPay phone unlocked on the public profile or localized PayLink prefilled payment request page before starting the 90-second timer.
 Keep the same final HTTPS localized PayLink prefilled payment request URL open in a second browser tab in case the payer MiniPay phone needs a quick reload.
 Keep a notes browser tab ready for the live PayLink receipt URL and Celo explorer transaction link so the reviewer handoff is immediate after confirmation.
 If using a QR code in the recording, scan it with the payer phone once before starting the timer to confirm it opens the expected PayLink URL.
