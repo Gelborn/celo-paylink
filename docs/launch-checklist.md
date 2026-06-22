@@ -103,7 +103,7 @@
 - Type in the payment request reference with a screen reader once and confirm the full character count is announced as it changes.
 - Test a payment request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
 - Switch to Brazilian Portuguese (`pt-BR`) with the language switcher once and confirm public profile and payment copy still fits before screenshots.
-- After switching language, confirm the selected token label still matches the localized prefilled payment request URL.
+- After switching language, confirm the selected token label still matches the localized PayLink prefilled payment request URL.
 - Open one Brazilian Portuguese receipt on mobile and confirm the amount, reference, and receipt actions remain readable.
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
 - Use a screen reader on the language switcher once and confirm the announced locale matches the selected label.
