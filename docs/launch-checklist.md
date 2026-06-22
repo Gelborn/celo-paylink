@@ -167,5 +167,5 @@
 - Label the uploaded demo URL separately from PayLink receipt URL and Celo explorer transaction links in the final submission notes.
 - Open the uploaded demo URL in a private browser once and confirm it is viewable without sign-in, password, or owner-only access.
 - Confirm the uploaded demo URL remains public, does not expire, and stays available through the full review window.
-- Confirm the exported demo shows the wallet confirmation amount, token, reference, PayLink receipt URL, and matching Celo explorer transaction page clearly.
+- Confirm the exported demo shows the wallet confirmation amount, token, reference, PayLink receipt URL, and matching Celo explorer transaction page long enough to read.
 - Record the short product demo from the same final deployed HTTPS origin listed in the submission notes, not a staging or localhost origin.
