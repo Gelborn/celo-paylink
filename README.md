@@ -223,7 +223,7 @@ npm run typecheck
 npm run build
 ```
 
-The GitHub Actions CI workflow is manual-only; trigger the manual workflow for the submitted commit after the final push if you need a hosted verification record reviewers can tie to the submitted SHA.
+The GitHub Actions CI workflow is manual-only; trigger the manual workflow for the submitted commit after the final push if you need a hosted verification record reviewers can match to the submitted SHA.
 
 ## Avatar URLs
 
