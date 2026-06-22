@@ -160,7 +160,7 @@
 - Label each submitted QR code as a public profile or localized PayLink prefilled payment request so reviewers know the expected destination.
 - Scan the final public profile QR code once on a signed-out phone and confirm it opens the submitted profile.
 - Watch the exported demo once with audio muted and confirm the visible flow still explains the payment path.
-- Confirm the exported demo starts on a loaded PayLink screen, not a blank page or browser setup frame.
+- Confirm the exported demo starts on a loaded PayLink screen, not a blank page or browser setup screen.
 - Confirm the uploaded demo title or thumbnail clearly names PayLink before sharing the submission URL.
 - Confirm the uploaded demo URL is a public HTTPS URL, not a local file or unpublished draft.
 - Confirm the uploaded demo description names the target Celo network if the host supports descriptions.
