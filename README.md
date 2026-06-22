@@ -7,7 +7,7 @@ Create a public payment profile, add your handle, avatar, bio, and preferred tok
 `/u/your-handle?amount=5&ref=coffee`
 
 Add the deployed origin before sharing the path outside the app.
-When building a URL by hand, URL-encode `ref` values with spaces or symbols before sharing.
+When building a PayLink URL by hand, URL-encode `ref` values with spaces or symbols before sharing.
 Keep `ref` concise because it appears on receipts and recent payment history.
 The dashboard payment request form handles this URL encoding for generated localized PayLink prefilled payment request URLs.
 Use a supported token symbol such as `USDm`, `USDC`, or `USD₮`, or a supported token contract address for the optional `token` query.
