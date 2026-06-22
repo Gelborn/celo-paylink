@@ -8,7 +8,7 @@ Disable automatic browser translation before recording so the English and Brazil
 When recording both locales, reuse the same profile, amount, token, and reference values so reviewers can compare the English and Brazilian Portuguese flows directly.
 
 For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public profile payment page before the live MiniPay walkthrough.
-Keep the README's matching local PayLink preview receipt URL ready if you need to show the receipt state without connecting a wallet.
+Keep the README's matching local PayLink preview receipt URL ready if you need to show the receipt state without connecting a payer wallet.
 Describe walletless preview receipts as UI review only, not as proof of live settlement.
 When showing either preview URL on a phone, open the paths on the `npm run dev:mobile` network host instead of `localhost`.
 Keep the same query string when switching hosts so amount, token, reference, and preview mode still match.
