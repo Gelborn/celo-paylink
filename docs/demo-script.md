@@ -29,7 +29,7 @@ Confirm the recipient profile is already saved before starting the timer so setu
 Keep the payer MiniPay phone unlocked on the public profile payment page before starting the 90-second timer.
 Keep the same final HTTPS localized PayLink prefilled payment request URL open in a second browser tab in case the payer MiniPay phone needs a quick reload.
 Keep a notes browser tab ready for the live PayLink receipt URL and Celo explorer transaction link so the reviewer handoff is immediate after confirmation.
-If using a QR code in the recording, scan it with the payer phone once before starting the timer.
+If using a QR code in the recording, scan it with the payer phone once before starting the timer to confirm it opens the expected PayLink URL.
 Label the QR code as a public profile or localized PayLink prefilled payment request so reviewers know what should open on the phone.
 Keep the public profile URL, localized PayLink prefilled payment request URL, and PayLink receipt URL visible long enough for reviewers to read the shared origin, handle, and receipt path.
 Show the final URLs without shorteners so reviewers can see the deployed origin and PayLink path directly.
