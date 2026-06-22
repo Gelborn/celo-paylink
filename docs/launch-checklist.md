@@ -57,7 +57,7 @@
 - For local phone rehearsal, confirm preview URLs use the `npm run dev:mobile` network host instead of `localhost` after restarting with the matching `NEXT_PUBLIC_APP_URL`.
 - Confirm local phone preview URLs keep the same amount, token, reference, and `preview=1` query values after the host swap.
 - Open the `npm run dev:mobile` network host on the phone once before generating local QR codes or localized PayLink prefilled payment request URLs.
-- Save the exact localized prefilled payment request URL with its amount, token, and reference values for the final submission notes.
+- Save the exact localized PayLink prefilled payment request URL with its amount, token, and reference values for the final submission notes.
 - Confirm the saved localized prefilled payment request URL uses the final HTTPS origin before adding it to submission notes.
 - Open the saved localized prefilled payment request URL from the final submission notes once to catch copied, mis-encoded, or truncated URLs.
 - Label any walletless preview URLs separately from live payment proof URLs in the final submission notes.
