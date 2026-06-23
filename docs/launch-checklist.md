@@ -62,7 +62,7 @@
 - Open the saved localized PayLink prefilled payment request URL after pasting it into the final submission notes to catch copied, mis-encoded, or truncated URLs.
 - Label any walletless preview URLs separately from live payment proof URLs in the final submission notes.
 - Confirm the final submission notes label the home URL, public profile URL, localized PayLink prefilled payment request URL, PayLink receipt URL, and Celo explorer transaction link separately.
-- Copy final submission URLs from the deployed app UI after the production build instead of retyping them by hand.
+- Copy final submission URLs from the deployed app UI after the production build so localhost, staging, or preview origins do not leak into review notes.
 - Avoid URL shorteners in final submission URLs so reviewers can see the deployed origin, handle, and receipt path directly.
 - Confirm the final submission notes name the target Celo network for the public profile, localized PayLink prefilled payment request URL, PayLink receipt URL, and Celo explorer transaction link.
 - Open each final submission URL in a signed-out or private browser before sending it to reviewers and confirm no owner or payer wallet session is required.
