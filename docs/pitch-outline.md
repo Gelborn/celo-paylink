@@ -19,7 +19,7 @@
 - Prefill amount, token, and reference for one-off requests
 - Share PayLink receipt URLs after confirmation as client-ready payment proof
 - Reopen PayLink receipt URLs later without relying on the payer wallet session
-- Support English and Brazilian Portuguese in the same payment flow
+- Support English and Brazilian Portuguese across the same payment and receipt flow
 
 ## Slide 4
 - Why Celo
