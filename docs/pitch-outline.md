@@ -14,7 +14,7 @@
 
 ## Slide 3
 - Product
-- Claim a handle, publish a profile, and get paid directly in stablecoins
+- Claim a handle, publish a profile, and get paid directly in Celo stablecoins
 - Reuse the same public profile URL or localized PayLink prefilled payment request URLs for repeat payments
 - Prefill amount, token, and reference for one-off requests
 - Share PayLink receipt URLs after confirmation as client-ready payment proof
