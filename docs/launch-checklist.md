@@ -71,7 +71,7 @@
 - Confirm the recipient wallet used for profile setup and the payer wallet are separate for the live payment test.
 - Confirm the payer wallet is on the target Celo network before approving or sending the payment.
 - Confirm the payer wallet has enough of the selected token for the request and a little CELO for network fees.
-- Confirm the selected token, amount, and reference match PayLink before approving or sending in the wallet.
+- Confirm the selected token, amount, and reference match PayLink before approving or sending in the wallet prompt.
 - Confirm the wallet prompt recipient matches the saved recipient wallet before sending the live payment.
 - Reject one wallet request and confirm PayLink shows a clear retry path without losing amount, token, or reference.
 - Trigger one wallet request and confirm the pending button text stays visible while duplicate taps stay disabled.
