@@ -156,7 +156,7 @@
 - Capture the prefilled payment page only after the amount, token, and reference values are visible and match the saved localized PayLink prefilled payment request URL.
 - Capture the success receipt page only after the amount, token, reference, PayLink receipt URL, and Celo explorer/profile actions are visible in the same viewport.
 - Confirm any public profile QR code encodes the final HTTPS public profile URL, not localhost or a preview URL.
-- If using a localized PayLink prefilled payment request QR code, confirm it opens the final HTTPS origin and preserves the handle path, amount, token, and reference values from the saved request URL.
+- If using a localized PayLink prefilled payment request QR code, scan it on a signed-out phone and confirm it opens the final HTTPS origin while preserving the handle path, amount, token, and reference values from the saved request URL.
 - Label each submitted QR code in the final submission notes as either a public profile or localized PayLink prefilled payment request so reviewers know the expected destination.
 - Scan the final public profile QR code once on a signed-out phone and confirm it opens the submitted profile from the final submission notes on the final HTTPS origin.
 - After export, watch the demo from start to finish with audio muted and confirm the visible flow still explains the payment path from request to receipt.
