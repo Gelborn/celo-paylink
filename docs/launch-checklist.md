@@ -106,7 +106,7 @@
 - After switching language, confirm the selected token label still matches the localized PayLink prefilled payment request URL.
 - Open one Brazilian Portuguese (`pt-BR`) PayLink receipt page on mobile and confirm the amount, token, reference, and receipt actions remain readable.
 - Confirm the language switcher remains reachable on the public profile before recording localized screenshots.
-- Use a screen reader on the language switcher once and confirm the announced locale matches the selected label.
+- Use a screen reader on the language switcher once and confirm the announced locale and selected state match the visible label.
 - Reload after switching locale and confirm the selected language remains consistent.
 - Confirm profile creation, profile updates, and localized PayLink prefilled payment request URL generation still work on the deployed origin.
 - Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear handle guidance.
