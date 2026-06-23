@@ -126,7 +126,7 @@
 - Inspect one recent payment date in the browser accessibility tree and confirm it exposes a machine-readable datetime attribute.
 - Save the live demo transaction hash and target network with the final submission notes after the successful payment.
 - Save the matching PayLink receipt URL and Celo explorer transaction link beside the transaction hash and target network so reviewers can reopen both links.
-- Open the saved PayLink receipt URL and Celo explorer transaction link from the submission notes once before sharing them with reviewers.
+- Open the saved PayLink receipt URL and Celo explorer transaction link from the final submission notes once before sharing them with reviewers.
 - Reload the public profile after payment and confirm the recent payment is still visible from PayLink contract events on Celo.
 - Confirm the refreshed recent payments list shows the newest live payment first.
 - Confirm the recent payment on the refreshed profile shows the same amount, token, and reference as the saved PayLink receipt URL.
