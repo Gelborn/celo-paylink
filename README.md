@@ -109,7 +109,7 @@ Scan any generated local QR code once after the restart to confirm it opens the 
 When using the phone URL, replace `localhost:3000` in the payment and receipt preview URLs below with the printed network host.
 Keep the path and query string unchanged so amount, token, reference, and preview mode still match.
 Keep the phone and dev machine on the same Wi-Fi or LAN network; `localhost` only works from the machine running Next.js.
-If the phone cannot open the network URL, allow incoming connections to the dev machine or disable VPN isolation before retrying.
+If the phone cannot open the network URL, allow incoming connections to the dev server on the dev machine or disable VPN isolation before retrying.
 
 For a quick reviewer demo without connecting a wallet or deploying a contract, open:
 
