@@ -2,7 +2,7 @@
 
 ## Slide 1
 - MiniPay PayLink
-- A no-custody stablecoin payment profile for freelancers, creators, and solo merchants
+- A no-custody Celo stablecoin payment profile for freelancers, creators, and solo merchants
 
 ## Slide 2
 - Problem
