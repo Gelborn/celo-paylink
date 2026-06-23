@@ -77,7 +77,7 @@
 - Trigger one wallet request and confirm the pending button text stays visible while duplicate taps stay disabled.
 - Open the same public profile payment page in a non-MiniPay mobile browser and confirm the wallet guidance is clear.
 - In the browser-wallet fallback outside MiniPay, switch to Celo once and confirm amount, token, reference, and recipient handle remain unchanged before sending.
-- Open the public profile URL without query parameters and confirm the default payment prompt is clear.
+- Open the public profile URL without query parameters and confirm the default public payment prompt is clear.
 - Tap each suggested amount once on mobile and confirm the amount field updates without layout shift.
 - Navigate the suggested amount presets with a screen reader once and confirm each announced amount matches the visible button label.
 - Try submitting with an empty amount once and confirm a screen reader identifies the amount field as required.
