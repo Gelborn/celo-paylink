@@ -85,7 +85,7 @@
 - Open and close the token picker with the keyboard once and confirm focus returns to the same token control.
 - Change the selected token with a screen reader once and confirm the announced token matches the visible label.
 - Navigate the success receipt page with a keyboard once and confirm the explorer and profile actions are reachable.
-- Use a screen reader on the success receipt page once and confirm the explorer and profile links have clear names.
+- Use a screen reader on the success receipt page once and confirm the explorer and profile links have clear action names.
 - Confirm keyboard focus states remain visible on amount presets, token picker, submit buttons, and receipt links.
 - Search for a profile with a screen reader once and confirm found or not-found status is announced.
 - Confirm any profile search shown in the demo uses a known published handle from the final deployed app so the result opens without slowing the walkthrough.
