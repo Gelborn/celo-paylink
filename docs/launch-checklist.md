@@ -39,7 +39,7 @@
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes, PayLink receipt URLs, and both `?preview=1` and `&preview=1` URLs stay unindexed.
 - Open `/my` on the deployed origin and confirm the PayLink dashboard page metadata includes `noindex`.
 - Open one PayLink receipt URL directly and confirm it remains accessible even though PayLink receipt URLs are excluded from indexing.
-- Confirm `/sitemap.xml` lists the final HTTPS production origin, not localhost, staging, or a preview URL.
+- Confirm `/sitemap.xml` lists only the final HTTPS production origin, not localhost, staging, preview, profile, or receipt URLs.
 - View source for the deployed home page and confirm the root `<html>` tag includes the expected `lang` value and `dir="ltr"`.
 - View source for the deployed home page and confirm the referrer meta tag uses `strict-origin-when-cross-origin`.
 - Open `/manifest.webmanifest` and confirm the app name, short name, description, categories, language, text direction, maskable icon, scope, start URL, and `display` mode match the production install.
