@@ -123,7 +123,7 @@
 - Use the share action once in a desktop browser that lacks native sharing and confirm it falls back to copied-link feedback.
 - Confirm copied-link feedback is announced by a screen reader or otherwise exposed in the accessibility tree.
 - Send at least one real payment and verify it appears in the recent payments list.
-- Inspect one recent payment date in the browser accessibility tree and confirm the datetime value is machine-readable.
+- Inspect one recent payment date in the browser accessibility tree and confirm it exposes a machine-readable datetime attribute.
 - Save the live demo transaction hash with the final submission notes after the successful payment.
 - Save the matching PayLink receipt URL and Celo explorer transaction link beside the transaction hash so reviewers can reopen both links.
 - Open the saved PayLink receipt URL and Celo explorer transaction link from the submission notes once before sharing them.
