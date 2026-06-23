@@ -159,7 +159,7 @@
 - If using a localized PayLink prefilled payment request QR code, confirm it preserves the amount, token, and reference values from the saved request URL.
 - Label each submitted QR code in the final submission notes as either a public profile or localized PayLink prefilled payment request so reviewers know the expected destination.
 - Scan the final public profile QR code once on a signed-out phone and confirm it opens the submitted profile from the final submission notes on the final HTTPS origin.
-- Watch the exported demo once with audio muted and confirm the visible flow still explains the payment path from request to receipt.
+- After export, watch the demo once with audio muted and confirm the visible flow still explains the payment path from request to receipt.
 - Confirm the exported demo starts on a loaded PayLink screen, not a blank page, loading state, or browser setup screen.
 - Confirm the uploaded demo title or thumbnail clearly names MiniPay PayLink before sharing the submission URL.
 - Confirm the uploaded demo URL is a public HTTPS URL, not a local file, unpublished draft, or permissions-limited share link.
