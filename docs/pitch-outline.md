@@ -15,7 +15,7 @@
 ## Slide 3
 - Product
 - Claim a handle, publish a profile, and get paid directly in stablecoins
-- Reuse the same public profile or localized PayLink prefilled payment request URLs for repeat payments
+- Reuse the same public profile URL or localized PayLink prefilled payment request URLs for repeat payments
 - Prefill amount, token, and reference for one-off requests
 - Share PayLink receipt URLs after confirmation as client-ready payment proof
 - Reopen PayLink receipt URLs later without relying on the payer wallet session
