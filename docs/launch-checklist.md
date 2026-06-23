@@ -143,7 +143,7 @@
 - Open the same live PayLink receipt URL on a mobile viewport once and confirm the receipt details stay readable without horizontal scrolling.
 - Use the browser back button from the success receipt page after the live payment flow and confirm the browser returns to the public profile without an error.
 - Confirm final screenshots use the same locale and final HTTPS origin as the submitted demo URLs and final submission notes.
-- Disable browser translation before localized screenshots so English and Brazilian Portuguese copy stays intentional.
+- Disable browser translation before capturing localized screenshots so English and Brazilian Portuguese copy stays intentional.
 - Confirm final payment screenshots show the selected token label next to every visible amount.
 - Confirm final screenshots do not show browser extension banners, wallet popovers, autofill popovers, notification banners, or screen-recording overlays.
 - Confirm final screenshots only show intended demo wallet addresses, with unrelated account names, addresses, and balances cropped or redacted.
