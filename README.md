@@ -153,7 +153,7 @@ These values should be set explicitly for a public deployment:
 - `NEXT_PUBLIC_CELO_MAINNET_RPC_URL`: browser-safe Celo mainnet RPC endpoint that does not include private provider credentials.
 - `NEXT_PUBLIC_CELO_SEPOLIA_RPC_URL`: browser-safe Celo Sepolia RPC endpoint for staging builds that does not include private provider credentials.
 
-For Celo Sepolia staging, use the matching `_SEPOLIA` contract address and decimal creation block with `NEXT_PUBLIC_DEFAULT_CHAIN=celoSepolia`.
+For Celo Sepolia staging, use the matching `_SEPOLIA` contract address, decimal creation block, and browser-safe RPC URL with `NEXT_PUBLIC_DEFAULT_CHAIN=celoSepolia`.
 
 Do not leave `NEXT_PUBLIC_APP_URL=http://localhost:3000` or a LAN dev host in a public production build.
 
