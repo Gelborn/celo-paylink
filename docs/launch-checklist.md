@@ -164,7 +164,7 @@
 - Confirm the uploaded demo title or thumbnail clearly names MiniPay PayLink and Celo before sharing the submission URL.
 - Confirm the uploaded demo URL is a public viewer HTTPS URL, not a local file, unpublished draft, editor link, or permissions-limited share link.
 - Confirm the uploaded demo description names the same target Celo network used by the receipt and explorer proof, such as Celo mainnet or Celo Sepolia, before publishing or copying the submission URL.
-- Label the uploaded demo URL as the demo video, separate from PayLink receipt URL and Celo explorer transaction links in the final submission notes.
+- Label the uploaded demo URL as the demo video in the final submission notes, separate from PayLink receipt URL and Celo explorer transaction links, so reviewers can identify each proof artifact.
 - Open the uploaded demo URL in a private or signed-out browser once and confirm it is viewable without sign-in, password, or owner-only access.
 - Confirm the uploaded demo URL remains public, avoids temporary or expiring share links, and stays available through the full review window.
 - Confirm the exported demo shows the wallet confirmation amount, token, reference, PayLink receipt URL, and matching Celo explorer transaction page long enough for reviewers to read without pausing.
