@@ -120,7 +120,7 @@ Keep `demo-paylink` for local preview; use a real created handle for final demo 
 For final reviewer notes, regenerate and copy the localized PayLink prefilled payment request URL from the deployed dashboard instead of adapting this local preview URL.
 
 If Next.js starts on a different local port, replace `3000` in both preview URLs before opening them.
-Keep both preview URLs on the same local origin so the payment and receipt states share one app session.
+Keep both preview URLs on the same local origin so the payment and receipt states share the same preview context.
 
 To preview the matching receipt state, open:
 
