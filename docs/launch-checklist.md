@@ -87,7 +87,7 @@
 - Navigate the success receipt page with a keyboard once and confirm the explorer and profile actions are reachable.
 - Use a screen reader on the success receipt page once and confirm the explorer and profile links have clear action names.
 - Confirm keyboard focus states remain visible while tabbing through amount presets, token picker, submit buttons, and receipt links.
-- Search for a profile with a screen reader once and confirm found or not-found status is announced.
+- Search for a profile with a screen reader once and confirm the found or not-found status message is announced.
 - Confirm any profile search shown in the demo uses a known published handle from the final deployed app so the result opens without slowing the walkthrough.
 - Paste a profile handle with a leading `@` and extra spaces, then confirm search opens the same public profile.
 - Enable reduced motion once and confirm the home demo remains understandable without animation.
