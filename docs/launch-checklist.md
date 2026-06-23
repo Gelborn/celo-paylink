@@ -113,7 +113,7 @@
 - Open a fresh profile with no payments and confirm the recent payments empty state clearly says no payments have arrived yet.
 - Use a screen reader on the fresh profile empty state and confirm the heading, explanatory copy, and action are announced together.
 - Open the final avatar URL directly and confirm the image loads over HTTPS without a signed or expiring URL before screenshots.
-- Try a non-HTTPS avatar URL once and confirm the dashboard shows clear avatar URL guidance.
+- Try a non-HTTPS avatar URL once and confirm the dashboard shows clear HTTPS-only avatar URL guidance.
 - Copy the public profile URL from `/my` and confirm it uses the final HTTPS origin.
 - Paste the copied public profile URL once and confirm it opens the same submitted handle.
 - Confirm the copied public profile URL keeps the handle casing and characters shown on the dashboard.
