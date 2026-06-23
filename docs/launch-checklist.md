@@ -97,7 +97,7 @@
 - Open a localized PayLink prefilled payment request URL without the optional `token` query and confirm it falls back to the recipient's preferred token.
 - Open the copied localized PayLink prefilled payment request URL in a private or signed-out browser window and confirm it does not rely on owner session state.
 - Test an unsupported `token` query once and confirm the page falls back to a supported token without dropping the amount or reference.
-- If using `token=USD₮` in a manually written PayLink payment request URL, confirm the symbol is URL-encoded or use the token address.
+- If using `token=USD₮` in a manually written PayLink payment request URL, confirm the symbol is URL-encoded or use the token address before sharing.
 - Test a payment request reference containing a space and confirm it stays encoded in the shared URL and readable on the payment page.
 - Type a long payment request reference once and confirm the 140-character limit counter updates without shifting the payment form controls.
 - Type in the payment request reference field with a screen reader once and confirm the full character count is announced as it changes.
