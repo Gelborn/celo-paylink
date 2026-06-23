@@ -55,7 +55,7 @@
 - Append `preview=1` to a production public profile URL and confirm demo data stays disabled.
 - Confirm final judge URLs use a real handle and omit `preview=1` unless demoing locally.
 - For local phone rehearsal, confirm preview URLs use the `npm run dev:mobile` network host instead of `localhost` after restarting with the matching `NEXT_PUBLIC_APP_URL`.
-- Confirm local phone preview URLs keep the same amount, token, reference, and `preview=1` query values after the host swap.
+- Confirm local phone preview URLs keep the same profile handle path, amount, token, reference, and `preview=1` query values after the host swap.
 - Open the `npm run dev:mobile` network host on the phone once before generating local QR codes or localized PayLink prefilled payment request URLs.
 - Save the exact localized PayLink prefilled payment request URL with its amount, token, and reference values for the final submission notes.
 - Confirm the saved localized PayLink prefilled payment request URL uses the final HTTPS origin before adding it to final submission notes.
