@@ -161,7 +161,7 @@
 - Scan the final public profile QR code once on a signed-out phone and confirm it opens the submitted profile from the final submission notes on the final HTTPS origin.
 - After export, watch the demo from start to finish with audio muted and confirm the visible flow still explains the payment path from request to receipt.
 - Confirm the exported demo's first frame shows a loaded PayLink screen from the final HTTPS origin, not a blank page, loading state, or browser setup screen.
-- Confirm the uploaded demo title or thumbnail clearly names MiniPay PayLink before sharing the submission URL.
+- Confirm the uploaded demo title or thumbnail clearly names MiniPay PayLink and Celo before sharing the submission URL.
 - Confirm the uploaded demo URL is a public HTTPS URL, not a local file, unpublished draft, or permissions-limited share link.
 - Confirm the uploaded demo description names the same target Celo network used by the receipt and explorer proof, such as Celo mainnet or Celo Sepolia, if the video host supports descriptions.
 - Label the uploaded demo URL as the demo video, separate from PayLink receipt URL and Celo explorer transaction links in the final submission notes.
