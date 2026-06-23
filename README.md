@@ -9,7 +9,7 @@ Create a public, no-custody payment profile, add your handle, avatar, bio, and p
 Add the deployed HTTPS origin before sharing the path outside the app.
 When building a PayLink URL by hand, URL-encode `ref` values with spaces or symbols before sharing.
 Keep `ref` concise because it appears on receipts and recent payment history.
-The dashboard payment request form handles this URL encoding for generated localized PayLink prefilled payment request URLs.
+The dashboard payment request form handles this URL encoding automatically for generated localized PayLink prefilled payment request URLs.
 Use a supported token symbol such as `USDm`, `USDC`, or `USD₮`, or a supported token contract address for the optional `token` query.
 When typing `token=USD₮` by hand, URL-encode the `₮` symbol or use the token contract address.
 Omit `token` to use the recipient's preferred token from their profile.
