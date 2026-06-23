@@ -32,7 +32,7 @@ Use a period (`.`) as the decimal separator in shared PayLink URLs, even for loc
 MiniPay PayLink is built around one simple flow:
 
 1. Create a public, no-custody payment profile.
-2. Share your public profile or a localized PayLink prefilled payment request URL.
+2. Share your public profile URL or a localized PayLink prefilled payment request URL.
 3. Get paid directly to your wallet in Celo stablecoins with a shareable, reopenable PayLink receipt URL.
 
 ## Features
