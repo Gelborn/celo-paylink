@@ -119,7 +119,7 @@
 - Confirm the copied public profile URL keeps the handle casing and characters shown on the dashboard profile card.
 - Open the copied public profile URL in a private or signed-out browser window and confirm it does not rely on owner session state.
 - Use the mobile share action once and confirm the share title names the profile handle and the shared URL is the final HTTPS public profile URL.
-- Share one localized PayLink prefilled payment request URL through the mobile share sheet and confirm amount, token, and reference stay in the shared URL.
+- Share one localized PayLink prefilled payment request URL through the mobile share sheet and confirm amount, token, and reference stay encoded in the shared URL.
 - Use the share action once in a desktop browser that lacks native sharing and confirm it falls back to copied-link feedback.
 - Confirm copied-link feedback is announced by a screen reader or otherwise exposed in the accessibility tree.
 - Send at least one real payment and verify it appears in the recent payments list.
