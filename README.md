@@ -229,7 +229,7 @@ The GitHub Actions CI workflow is manual-only; trigger the manual workflow for t
 
 - PayLink accepts remote avatar image URLs for this proof of concept.
 - Avatar URLs must be `https://`.
-- Use a direct image file URL rather than a profile page or gallery link so preview fetchers can load the image directly.
+- Use a direct image file URL that returns an image content type rather than a profile page or gallery link so preview fetchers can load it directly.
 - Avoid expiring or signed avatar image URLs so dashboard avatars and shared profile previews keep loading.
 - Open the avatar URL in a private or signed-out browser once before final screenshots to catch blocked, expiring, or sign-in-gated images.
 - Square images work best because PayLink displays avatars in a circular crop on profile pages and shared previews.
