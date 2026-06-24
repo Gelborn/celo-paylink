@@ -46,7 +46,7 @@ Keep wallet account and network switchers closed unless you need to explain the 
 Keep private keys, seed phrases, and deployment env files out of the recording.
 Wait for prepared pages to finish loading before recording so profile and receipt details are visible from the first frame.
 Open the prepared walletless payment and receipt preview URLs once before recording so local Next.js routes and images are warm when the camera starts.
-Keep browser zoom at 100% in walletless preview, live payment, and explorer tabs so the wallet handoff, receipt, and Celo explorer transaction page stay readable.
+Keep browser zoom at 100% in walletless preview, live payment, receipt, and explorer tabs so the wallet handoff, receipt, and Celo explorer transaction page stay readable.
 
 If the live wallet confirmation stalls during judging, switch to the walletless preview URL and narrate where the live wallet confirmation would happen.
 If you use a browser-wallet fallback instead of MiniPay, keep the same localized PayLink prefilled payment request URL so the amount, token, reference, and recipient handle stay aligned with the MiniPay path.
