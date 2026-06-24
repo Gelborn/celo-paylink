@@ -370,7 +370,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       loading: "Searching profiles...",
       empty: "Published PayLink profiles will appear here after they are created on Celo. Start from the dashboard to add yours.",
       unavailable:
-        "Configure a PayLink contract address for this network to enable public profile search.",
+        "Public profile search needs a PayLink contract address for this network.",
       tooShort: "Enter at least 3 characters from a handle to search.",
       notFound: "No published profile matches that handle. Check the spelling or paste the full handle.",
       error: "Profiles could not load right now. Check your connection and try again in a moment.",
@@ -648,7 +648,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       loading: "Buscando perfis...",
       empty: "Perfis publicados do PayLink aparecerão aqui depois que forem criados na Celo. Comece pelo painel para adicionar o seu.",
       unavailable:
-        "Configure um endereço de contrato do PayLink para esta rede para ativar a busca de perfis públicos.",
+        "A busca de perfis públicos precisa de um endereço de contrato do PayLink nesta rede.",
       tooShort: "Digite pelo menos 3 caracteres de um handle para buscar.",
       notFound: "Nenhum perfil publicado corresponde a esse handle. Confira a grafia ou cole o handle completo.",
       error: "Não foi possível carregar os perfis agora. Confira sua conexão e tente novamente em instantes.",
