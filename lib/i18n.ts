@@ -366,7 +366,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       searchPlaceholder: "creator_handle",
       latestTitle: "Recent profiles",
       latestDescription:
-        "Newest profiles published on Celo through PayLink.",
+        "Newest public PayLink profiles published on Celo.",
       loading: "Searching profiles...",
       empty: "Published profiles will appear here after they are created on Celo. Start from the dashboard to add yours.",
       unavailable:
@@ -644,7 +644,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       searchPlaceholder: "criador_handle",
       latestTitle: "Perfis recentes",
       latestDescription:
-        "Perfis mais novos publicados na Celo pelo PayLink.",
+        "Perfis públicos mais novos do PayLink publicados na Celo.",
       loading: "Buscando perfis...",
       empty: "Perfis publicados aparecerão aqui depois que forem criados na Celo. Comece pelo painel para adicionar o seu.",
       unavailable:
