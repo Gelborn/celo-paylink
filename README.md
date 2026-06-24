@@ -266,7 +266,7 @@ If a token address or decimal changes, update this table and `lib/tokens.ts` in 
 
 ## Docs
 
-See the launch and review notes:
+See the launch, demo, and pitch notes:
 
 - [docs/launch-checklist.md](./docs/launch-checklist.md)
 - [docs/demo-script.md](./docs/demo-script.md)
