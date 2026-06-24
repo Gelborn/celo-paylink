@@ -52,7 +52,7 @@
 - Open the matching Celo explorer transaction page from the PayLink receipt
 - Point out that the PayLink receipt URL and Celo explorer transaction link use the same transaction hash
 - Share the PayLink receipt URL and matching Celo explorer transaction link as payment proof in the final submission notes
-- Reopen the PayLink receipt URL in a private tab to show it does not depend on the payer wallet session
+- Reopen the PayLink receipt URL in a private tab to show the receipt details and profile return path do not depend on the payer wallet session
 - Refresh the public profile to show the matching recent PayLink contract event on that profile with the same amount, token, reference, and handle
 
 ## Slide 7
