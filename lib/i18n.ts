@@ -386,7 +386,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Review the recipient, amount, token, and any reference before confirming the payment in your payer wallet.",
       invoiceEyebrow: "Prefilled payment request",
       invoiceDescription:
-        "This payment request link includes prefilled payment details. Review them, then complete the transfer on Celo.",
+        "This link opens with saved payment details. Review them, then complete the transfer on Celo.",
       paymentFormTitle: "Payment details",
       paymentFormDescription:
         "Choose an amount, token, and optional reference. If prompted, approve the token first in the payer wallet, then confirm the payment.",
@@ -664,7 +664,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Confira quem recebe, valor, token e referência, se houver, antes de confirmar o pagamento na carteira pagadora.",
       invoiceEyebrow: "Cobrança preenchida",
       invoiceDescription:
-        "Este link de cobrança traz dados de pagamento preenchidos. Revise tudo e conclua a transferência na Celo.",
+        "Este link abre com dados de pagamento preenchidos. Revise tudo e conclua a transferência na Celo.",
       paymentFormTitle: "Dados do pagamento",
       paymentFormDescription:
         "Escolha valor, token e referência opcional. Se solicitado, aprove o token primeiro na carteira pagadora e depois confirme o pagamento.",
