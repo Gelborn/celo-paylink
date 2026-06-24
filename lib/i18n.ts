@@ -500,7 +500,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       copyFailed: "Could not copy this link on this device. Select the URL and copy it manually.",
       shareFailed: "Could not open share options right now. Use the copy button or copy the URL manually.",
       loadingPayments: "Reading recent PayLink payments from Celo...",
-      supportsTokens: "Accepts {tokens}."
+      supportsTokens: "Accepts payments in {tokens}."
     }
   },
   "pt-BR": {
@@ -778,7 +778,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       copyFailed: "Não foi possível copiar este link neste dispositivo. Selecione a URL e copie manualmente.",
       shareFailed: "Não foi possível abrir as opções de compartilhamento agora. Use o botão de copiar ou copie a URL manualmente.",
       loadingPayments: "Lendo pagamentos recentes do PayLink na Celo...",
-      supportsTokens: "Aceita {tokens}."
+      supportsTokens: "Aceita pagamentos em {tokens}."
     }
   }
 };
