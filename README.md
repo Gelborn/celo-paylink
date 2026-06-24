@@ -1,6 +1,6 @@
 # MiniPay PayLink
 
-MiniPay PayLink is a mobile-first no-custody payment profile for freelancers, creators, and solo merchants on Celo.
+MiniPay PayLink is a mobile-first no-custody public payment profile for freelancers, creators, and solo merchants on Celo.
 
 Create a public, no-custody payment profile, add your handle, avatar, bio, and preferred token, and receive stablecoin payments through public profile URLs like:
 
