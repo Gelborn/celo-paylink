@@ -384,7 +384,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       visitorTitle: "Send a direct Celo payment",
       visitorDescription:
         "Review the recipient, amount, token, and any reference before confirming the payment in your payer wallet.",
-      invoiceEyebrow: "Payment request",
+      invoiceEyebrow: "Prefilled payment request",
       invoiceDescription:
         "This payment request link includes prefilled payment details. Review them, then complete the transfer on Celo.",
       paymentFormTitle: "Payment details",
@@ -662,7 +662,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       visitorTitle: "Enviar pagamento direto na Celo",
       visitorDescription:
         "Confira quem recebe, valor, token e referência, se houver, antes de confirmar o pagamento na carteira pagadora.",
-      invoiceEyebrow: "Cobrança",
+      invoiceEyebrow: "Cobrança preenchida",
       invoiceDescription:
         "Este link de cobrança traz dados de pagamento preenchidos. Revise tudo e conclua a transferência na Celo.",
       paymentFormTitle: "Dados do pagamento",
