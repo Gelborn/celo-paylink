@@ -357,7 +357,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Published profiles",
       title: "Creators, freelancers, and merchants already accepting PayLink.",
       description:
-        "Browse public profiles recently published through PayLink on Celo.",
+        "Browse public PayLink profiles recently published on Celo.",
       searchTab: "Search",
       searchTitle: "Find a profile",
       resultTitle: "Matching profile",
@@ -635,7 +635,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Perfis publicados",
       title: "Criadores, freelancers e comerciantes já recebendo pelo PayLink.",
       description:
-        "Veja perfis públicos publicados recentemente pelo PayLink na Celo.",
+        "Veja perfis públicos do PayLink publicados recentemente na Celo.",
       searchTab: "Buscar",
       searchTitle: "Buscar perfil",
       resultTitle: "Perfil encontrado",
