@@ -105,6 +105,7 @@ For phone testing on the same network, run `npm run dev:mobile` and open the pri
 Use that printed network URL for local QR code, public profile, or localized PayLink prefilled payment request URL tests on the phone.
 If you test generated public profile or localized PayLink prefilled payment request URLs on the phone, set `NEXT_PUBLIC_APP_URL` to the printed network origin and restart the dev server.
 Regenerate or recopy dashboard-created URLs after the restart so they use the printed network origin.
+Keep that printed network origin unchanged for the matching payment and receipt preview URLs during the same phone rehearsal.
 Scan any generated local QR code once after the restart to confirm it opens the printed network origin.
 When using the phone URL, replace `localhost:3000` in the payment and receipt preview URLs below with the printed network host.
 Keep the path and query string unchanged so amount, token, reference, and preview mode still match.
