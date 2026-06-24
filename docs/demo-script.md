@@ -78,7 +78,7 @@ If the Celo explorer transaction page is slow during judging, keep the PayLink r
    Keep the Celo explorer transaction page visible long enough for reviewers to read the transaction hash and status.
    Copy the live PayLink receipt URL after the live wallet walkthrough for the final submission notes.
    Reopen the copied live PayLink receipt URL once outside the payer wallet session so the final proof is not tied to that session.
-   Keep the reloaded live receipt visible long enough to show the amount, token, reference, and handle still match.
+   Keep the reloaded live receipt visible long enough to show the amount, token, reference, handle, and profile return path still match.
    Paste the copied live PayLink receipt URL into a fresh private tab once before submitting so reviewers see the same proof without payer wallet state.
    Label the copied live PayLink receipt URL separately from the Celo explorer transaction link in the final submission notes.
 9. Refresh the public profile after the success receipt page and show the newest recent payment from PayLink contract events on Celo with the same amount, token, reference, and handle.
