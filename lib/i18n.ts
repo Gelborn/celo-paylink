@@ -359,7 +359,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       description:
         "Browse public PayLink profiles recently published on Celo.",
       searchTab: "Search",
-      searchTitle: "Find a profile",
+      searchTitle: "Find a PayLink profile",
       resultTitle: "Matching PayLink profile",
       searchDescription:
         "Enter an exact PayLink handle to open the matching public profile.",
@@ -637,7 +637,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       description:
         "Veja perfis públicos do PayLink publicados recentemente na Celo.",
       searchTab: "Buscar",
-      searchTitle: "Buscar perfil",
+      searchTitle: "Buscar perfil do PayLink",
       resultTitle: "Perfil do PayLink encontrado",
       searchDescription:
         "Digite o handle exato do PayLink para abrir o perfil público correspondente.",
