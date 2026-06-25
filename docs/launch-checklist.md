@@ -2,7 +2,7 @@
 
 - Deploy `PayLinkProfile.sol` on the target Celo network.
 - Save the deployment transaction hash and target network alongside the final submission notes.
-- Confirm `CELOSCAN_API_KEY` is set before running explorer verification scripts.
+- Confirm `CELOSCAN_API_KEY` is set in the shell before running explorer verification scripts.
 - Verify the contract on the matching Celo block explorer.
 - Save the verified contract address and explorer URL alongside the final submission notes.
 - Save the deployed production app commit SHA alongside the final submission notes.
