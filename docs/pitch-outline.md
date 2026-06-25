@@ -31,7 +31,7 @@
 - Onchain design
 - Verified PayLinkProfile contract
 - Stablecoins forward directly to the recipient wallet
-- No custody; payments settle directly to the recipient wallet
+- No platform custody; payments settle directly to the recipient wallet
 - Recent payment history from PayLink contract events on Celo
 - No backend, server session, or separate indexer required
 
