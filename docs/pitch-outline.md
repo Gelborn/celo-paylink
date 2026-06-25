@@ -37,7 +37,7 @@
 
 ## Slide 6
 - MiniPay user flow
-- Open the public PayLink profile in MiniPay
+- Open the final public PayLink profile in MiniPay
 - Use walletless preview URLs only as a fallback before the live payment proof
 - Payer does not need to create a PayLink account before paying
 - Copy a localized PayLink prefilled payment request URL from the dashboard when a fixed amount is needed
