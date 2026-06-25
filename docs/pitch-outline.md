@@ -58,7 +58,7 @@
 ## Slide 7
 - Product principles
 - Direct wallet settlement
-- Minimal setup
+- Minimal setup for recipients and payers
 - Localized PayLink prefilled payment request URLs
 - Shareable, reopenable PayLink receipt URLs
 - PayLink receipts link back to the recipient profile for repeat payments
