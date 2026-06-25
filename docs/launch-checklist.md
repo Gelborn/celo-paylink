@@ -110,7 +110,7 @@
 - Use a screen reader on the language switcher once and confirm the announced locale and selected state match the visible label.
 - Reload after switching locale and confirm the public profile stays in the selected language.
 - Confirm profile creation, profile updates, and localized PayLink prefilled payment request URL generation still work on the deployed origin.
-- Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear minimum-length handle guidance.
+- Try a two-character profile handle once and confirm the dashboard keeps the profile unpublished with clear 3-character minimum handle guidance.
 - Open a fresh profile with no payments and confirm the recent payments empty state clearly says no payments have arrived yet.
 - Use a screen reader on the fresh profile empty state and confirm the heading, explanatory copy, and action are announced together.
 - Open the final avatar URL directly and confirm the image loads over HTTPS without a signed or expiring URL before screenshots.
