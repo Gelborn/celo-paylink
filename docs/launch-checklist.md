@@ -151,7 +151,7 @@
 - Confirm final screenshots show only intended demo wallet addresses, with unrelated account names, addresses, and balances cropped or redacted.
 - Capture final reviewer screenshots for each of these states:
   - deployed landing page
-  - owner dashboard
+  - owner dashboard with saved profile
   - prefilled public profile payment page
   - success receipt page
 - Capture the owner dashboard only after the saved handle, preferred token, and final public profile URL are visible in the same viewport.
