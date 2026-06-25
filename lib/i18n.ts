@@ -367,7 +367,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       latestTitle: "Recent profiles",
       latestDescription:
         "Newest public PayLink profiles published on Celo.",
-      loading: "Searching profiles...",
+      loading: "Searching PayLink profiles...",
       empty: "Published PayLink profiles will appear here after they are created on Celo. Start from the dashboard to add yours.",
       unavailable:
         "Public profile search needs a PayLink contract address for this network.",
@@ -645,7 +645,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       latestTitle: "Perfis recentes",
       latestDescription:
         "Perfis públicos mais novos do PayLink publicados na Celo.",
-      loading: "Buscando perfis...",
+      loading: "Buscando perfis do PayLink...",
       empty: "Perfis publicados do PayLink aparecerão aqui depois que forem criados na Celo. Comece pelo painel para adicionar o seu.",
       unavailable:
         "A busca de perfis públicos precisa de um endereço de contrato do PayLink nesta rede.",
