@@ -6,7 +6,7 @@ Create a public, no-custody payment profile, add your handle, avatar, bio, and p
 
 `/u/your-handle?amount=5&ref=coffee`
 
-Add the deployed HTTPS origin before sharing the path outside the app.
+Add the deployed HTTPS origin before sharing this path outside the app.
 When building a PayLink URL by hand, URL-encode `ref` values with spaces or symbols before sharing.
 Keep `ref` concise because it appears on receipts and recent payment history.
 The dashboard payment request form handles this URL encoding automatically for generated localized PayLink prefilled payment request URLs.
