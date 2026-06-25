@@ -102,7 +102,7 @@
 - Test a payment request reference containing a space and confirm it stays encoded in the shared URL and readable on the payment page.
 - Type a payment request reference near the 140-character limit once and confirm the counter updates without shifting the payment form controls.
 - Type in the payment request reference field with a screen reader once and confirm the updated character count is announced as it changes.
-- Test a payment request amount such as `5.50` and confirm the payment and receipt keep the decimal value readable.
+- Test a payment request amount such as `5.50` and confirm the payment page and receipt keep the decimal value readable.
 - Switch to Brazilian Portuguese (`pt-BR`) with the language switcher once and confirm the public profile header and payment form copy still fit before screenshots.
 - After switching language, confirm the selected token label still matches the localized PayLink prefilled payment request URL.
 - Open one Brazilian Portuguese (`pt-BR`) PayLink receipt page on mobile and confirm the amount, token, reference, and receipt actions remain readable.
