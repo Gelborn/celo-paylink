@@ -150,7 +150,7 @@
 - Confirm final screenshots do not show browser extension banners, wallet popovers, autofill popovers, notification banners, or screen-recording overlays.
 - Confirm final screenshots show only intended demo wallet addresses, with unrelated account names, addresses, and balances cropped or redacted.
 - Capture final reviewer screenshots for each of these states:
-  - landing page
+  - deployed landing page
   - owner dashboard
   - prefilled public profile payment page
   - success receipt page
