@@ -81,7 +81,7 @@
 - Open the public profile URL without query parameters and confirm the default public payment prompt is clear.
 - Tap each suggested amount once on mobile and confirm the amount field and active preset state update without layout shift.
 - Navigate the suggested amount presets with a screen reader once and confirm each announced amount and selected state match the visible button label.
-- Try submitting with an empty amount once and confirm a screen reader identifies the amount field error as required.
+- Try submitting with an empty amount once and confirm a screen reader announces the amount field error as required.
 - Navigate the public profile payment page with a keyboard once and confirm token, amount, reference, and submit controls are reachable.
 - Open and close the token picker with the keyboard once and confirm focus returns to the same token control.
 - Change the selected token with a screen reader once and confirm the announced token matches the visible label.
