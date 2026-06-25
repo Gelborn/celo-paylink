@@ -42,7 +42,7 @@
 - Confirm `/sitemap.xml` lists only the final HTTPS production origin, not localhost, staging, preview, profile, or receipt URLs.
 - View source for the deployed home page and confirm the root `<html>` tag includes the expected `lang` value and `dir="ltr"`.
 - View source for the deployed home page and confirm the referrer meta tag uses `strict-origin-when-cross-origin`.
-- Open `/manifest.webmanifest` and confirm the app name, short name, description, categories, language, text direction, maskable icon, scope, start URL, and `display` mode match the production install.
+- Open `/manifest.webmanifest` on the deployed origin and confirm the app name, short name, description, categories, language, text direction, maskable icon, scope, start URL, and `display` mode match the production install.
 - Confirm the manifest description names PayLink as a public payment profile before installing from the deployed origin.
 - Confirm the manifest theme and background colors match the installed PWA splash and browser chrome.
 - View source for the deployed home page and confirm the mobile web app meta tags are present for Android and iOS install prompts.
