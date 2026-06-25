@@ -4,7 +4,7 @@ Target length: 90 seconds for judging or a quick product review.
 Keep setup under 30 seconds before the timed walkthrough so the live wallet confirmation, PayLink receipt page, and Celo explorer transaction page stay readable.
 
 Set the app language with the visible language switcher before recording and keep it unchanged so the narration, screenshots, and visible copy stay in the same locale.
-Disable automatic browser translation before recording so the English and Brazilian Portuguese copy remains intentional.
+Disable automatic browser translation before recording so English and Brazilian Portuguese copy stays intentional in screenshots.
 When recording both locales, reuse the same profile, amount, token, and reference values so reviewers can compare the English and Brazilian Portuguese flows directly.
 
 For walletless review, use `/u/demo-paylink?amount=5&ref=coffee&token=USDC&preview=1` to show the public profile payment page before the live MiniPay walkthrough.
