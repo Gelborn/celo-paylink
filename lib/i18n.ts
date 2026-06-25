@@ -375,7 +375,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       notFound: "No published PayLink profile matches that handle. Check the spelling or paste the full handle.",
       error: "Profiles could not load right now. Check your connection and try again in a moment.",
       exactHint: "Paste @handle or the handle only. PayLink removes @ and extra spaces before searching. Handles use 3-32 letters, numbers, hyphens, or underscores.",
-      openProfile: "Open public profile"
+      openProfile: "Open PayLink profile"
     },
     publicPage: {
       ownerTitle: "This is your public PayLink profile.",
@@ -653,7 +653,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       notFound: "Nenhum perfil publicado do PayLink corresponde a esse handle. Confira a grafia ou cole o handle completo.",
       error: "Não foi possível carregar os perfis agora. Confira sua conexão e tente novamente em instantes.",
       exactHint: "Cole @handle ou apenas o handle. O PayLink remove @ e espaços extras antes da busca. Handles usam de 3 a 32 letras, números, hífens ou sublinhados.",
-      openProfile: "Abrir perfil público"
+      openProfile: "Abrir perfil do PayLink"
     },
     publicPage: {
       ownerTitle: "Este é o seu perfil público do PayLink.",
