@@ -153,7 +153,7 @@
   - deployed landing page
   - owner dashboard with saved profile
   - prefilled public profile payment page
-  - success receipt page
+  - success receipt page with explorer actions
 - Capture the owner dashboard only after the saved handle, preferred token, and final public profile URL are visible in the same viewport.
 - Capture the prefilled payment page only after the amount, token, reference, and handle path are visible and match the saved localized PayLink prefilled payment request URL.
 - Capture the success receipt page only after the amount, token, reference, PayLink receipt URL, and Celo explorer/profile actions are visible in the same viewport.
