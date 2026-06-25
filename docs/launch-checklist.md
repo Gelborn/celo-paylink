@@ -137,7 +137,7 @@
 - Confirm the final submission notes use the same token symbol spelling shown in the wallet confirmation and PayLink receipt page.
 - Confirm the final localized PayLink prefilled payment request URL and PayLink receipt URL use the same submitted public profile handle.
 - Confirm the submitted PayLink receipt URL uses the live wallet transaction hash, not the fixed preview hash from the README.
-- Confirm any copied PayLink receipt URL uses the final HTTPS origin before sharing it.
+- Confirm any PayLink receipt URL copied from the receipt page address bar uses the final HTTPS origin before sharing it.
 - Share one live PayLink receipt URL in a link preview tool and confirm the receipt title and preview image render correctly.
 - View source for one live PayLink receipt URL and confirm the canonical URL and `og:url` point to the `/success` receipt path on the deployed origin.
 - Confirm the live receipt metadata description lists the amount, token, reference, recipient handle, matching Celo explorer link, and profile return path.
