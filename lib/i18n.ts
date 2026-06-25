@@ -354,7 +354,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Open PayLink in MiniPay or connect a browser wallet to create and manage your public profile."
     },
     profileDiscovery: {
-      eyebrow: "Published profiles",
+      eyebrow: "Published PayLink profiles",
       title: "Creators, freelancers, and merchants already accepting PayLink.",
       description:
         "Browse public PayLink profiles recently published on Celo.",
@@ -632,7 +632,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Abra o PayLink no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil público."
     },
     profileDiscovery: {
-      eyebrow: "Perfis publicados",
+      eyebrow: "Perfis do PayLink publicados",
       title: "Criadores, freelancers e comerciantes já recebendo pelo PayLink.",
       description:
         "Veja perfis públicos do PayLink publicados recentemente na Celo.",
