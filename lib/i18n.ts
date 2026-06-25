@@ -372,7 +372,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       unavailable:
         "Public profile search needs a PayLink contract address for this network.",
       tooShort: "Enter at least 3 characters from a PayLink handle to search.",
-      notFound: "No published profile matches that handle. Check the spelling or paste the full handle.",
+      notFound: "No published PayLink profile matches that handle. Check the spelling or paste the full handle.",
       error: "Profiles could not load right now. Check your connection and try again in a moment.",
       exactHint: "Paste @handle or the handle only. PayLink removes @ and extra spaces before searching. Handles use 3-32 letters, numbers, hyphens, or underscores.",
       openProfile: "Open public profile"
@@ -650,7 +650,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       unavailable:
         "A busca de perfis públicos precisa de um endereço de contrato do PayLink nesta rede.",
       tooShort: "Digite pelo menos 3 caracteres de um handle do PayLink para buscar.",
-      notFound: "Nenhum perfil publicado corresponde a esse handle. Confira a grafia ou cole o handle completo.",
+      notFound: "Nenhum perfil publicado do PayLink corresponde a esse handle. Confira a grafia ou cole o handle completo.",
       error: "Não foi possível carregar os perfis agora. Confira sua conexão e tente novamente em instantes.",
       exactHint: "Cole @handle ou apenas o handle. O PayLink remove @ e espaços extras antes da busca. Handles usam de 3 a 32 letras, números, hífens ou sublinhados.",
       openProfile: "Abrir perfil público"
