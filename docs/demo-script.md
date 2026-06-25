@@ -55,7 +55,7 @@ If the Celo explorer transaction page is slow during judging, keep the PayLink r
 
 1. Open the deployed landing page and explain PayLink as a no-custody public payment profile for Celo stablecoins and MiniPay in one sentence.
 2. Open `/my` on the deployed origin, connect with the recipient wallet in MiniPay, and create or update the public, no-custody payment profile.
-3. Show the saved handle and copy the public profile URL.
+3. Show the saved handle and copy the final public profile URL.
    Pause on the dashboard until the saved handle and preferred token are both visible.
    Pause on the copied URL long enough to make the final origin and handle clear.
 4. Open the copied public `/u/[handle]` link on the payer device so the final origin is visible.
