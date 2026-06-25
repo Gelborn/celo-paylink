@@ -71,7 +71,7 @@
 - Test the saved localized PayLink prefilled payment request URL inside MiniPay on the payer phone.
 - Confirm the recipient wallet used for profile setup and the payer wallet are separate for the live payment test.
 - Confirm the payer wallet is on the target Celo network before approving or sending the payment.
-- Confirm the payer wallet has enough of the selected token for the request and a little CELO for network fees.
+- Confirm the payer wallet has enough of the selected token for the request plus a small CELO balance for network fees.
 - Confirm the selected token, amount, and reference match PayLink before approving or sending in the wallet prompt.
 - Confirm the wallet prompt recipient address matches the saved recipient wallet, not the payer wallet, before sending the live payment.
 - Reject one wallet request and confirm PayLink shows a clear retry path without losing amount, token, or reference.
