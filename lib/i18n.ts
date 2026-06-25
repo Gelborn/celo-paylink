@@ -360,7 +360,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Browse public PayLink profiles recently published on Celo.",
       searchTab: "Search",
       searchTitle: "Find a profile",
-      resultTitle: "Matching profile",
+      resultTitle: "Matching PayLink profile",
       searchDescription:
         "Enter an exact PayLink handle to open the matching public profile.",
       searchPlaceholder: "creator_handle",
@@ -638,7 +638,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Veja perfis públicos do PayLink publicados recentemente na Celo.",
       searchTab: "Buscar",
       searchTitle: "Buscar perfil",
-      resultTitle: "Perfil encontrado",
+      resultTitle: "Perfil do PayLink encontrado",
       searchDescription:
         "Digite o handle exato do PayLink para abrir o perfil público correspondente.",
       searchPlaceholder: "criador_handle",
