@@ -10,7 +10,7 @@
 - Confirm production contract address values are not blank; blanks are only for walletless local previews.
 - Set `NEXT_PUBLIC_CONTRACT_DEPLOYMENT_BLOCK_*` for the selected production chain after deployment.
 - Confirm production deployment block values are not blank; blanks are only for walletless local previews.
-- Confirm the deployment block value is the decimal contract creation block height, not the verification or first-payment block.
+- Confirm the deployment block value is the decimal contract creation block height, not the verification block or first-payment block.
 - Confirm the deployment platform has all production environment values saved before triggering the build.
 - Confirm the deployment platform uses Node `22.13.0` or newer before triggering the production build.
 - Confirm `NEXT_PUBLIC_APP_URL` points to the final HTTPS public origin without a trailing slash before recording or sharing screenshots.
