@@ -63,7 +63,7 @@ celo-paylink/
 
 ## Quick Start
 
-Use Node `22.13.0` or newer. The repo includes [.nvmrc](./.nvmrc) for local setup, and the current Hardhat/ESLint toolchain will not run cleanly on older Node releases.
+Use Node `22.13.0` or newer. The repo includes [.nvmrc](./.nvmrc) for local setup; older Node releases do not run the current Hardhat/ESLint toolchain cleanly.
 
 1. Install dependencies:
 
