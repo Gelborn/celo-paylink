@@ -1,6 +1,6 @@
 # Demo Script
 
-Target length: 90 seconds for judging or a quick product review.
+Target length: 90 seconds for review or a quick product walkthrough.
 Keep setup under 30 seconds before the timed walkthrough so the live wallet confirmation, PayLink receipt page, and Celo explorer transaction page stay readable.
 
 Set the app language with the visible language switcher before recording and keep it unchanged so the narration, screenshots, and visible copy stay in the same locale.
