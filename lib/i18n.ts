@@ -305,9 +305,9 @@ const dictionaries: Record<Locale, Dictionary> = {
             "Share your public profile for open payments or create a prefilled payment link with amount, token, and reference."
         },
         {
-          title: "Keep the receipt link",
+          title: "Keep the receipt URL",
           description:
-            "Payers get a receipt link after confirmation, and recent payments appear from PayLink contract events on Celo."
+            "Payers get a receipt URL after confirmation, and recent payments appear from PayLink contract events on Celo."
         }
       ],
       trustStatements: [
@@ -583,9 +583,9 @@ const dictionaries: Record<Locale, Dictionary> = {
             "Compartilhe seu perfil público para pagamentos livres ou crie um link de cobrança preenchido com valor, token e referência."
         },
         {
-          title: "Guarde o link do comprovante",
+          title: "Guarde a URL do comprovante",
           description:
-            "Quem paga recebe um link de comprovante após a confirmação, e os pagamentos recentes aparecem pelos eventos do contrato PayLink na Celo."
+            "Quem paga recebe uma URL de comprovante após a confirmação, e os pagamentos recentes aparecem pelos eventos do contrato PayLink na Celo."
         }
       ],
       trustStatements: [
