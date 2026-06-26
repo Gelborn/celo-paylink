@@ -235,7 +235,7 @@ The GitHub Actions CI workflow is manual-only; trigger the manual workflow for t
 - Open the avatar URL in a private or signed-out browser once before final screenshots to catch blocked, expiring, or sign-in-gated avatar images.
 - Square images work best because PayLink displays avatars in a circular crop on profile pages and shared previews.
 - Prefer a lightweight image file so public profiles and link previews load quickly on mobile networks.
-- Leave the avatar URL blank to use the built-in initials fallback.
+- Leave the avatar URL blank to use PayLink's built-in initials fallback.
 
 ## Supported Tokens
 
