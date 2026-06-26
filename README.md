@@ -207,7 +207,7 @@ After deployment, copy the contract address and decimal creation block into the 
 - Use a low-value live payment for review on the selected Celo network so wallet confirmations and receipts stay verifiable without risking more funds than needed.
 - Use the recipient wallet for profile setup and a separate payer wallet when testing a live payment so receipt and settlement checks stay clear.
 - Payers do not need a PayLink account; they only need a compatible Celo wallet to review the request and send the payment.
-- Any browser wallet that can switch to the Celo network, approve ERC-20 allowances, and submit PayLink transactions can exercise the same profile and payment flows.
+- Any browser wallet that can switch to the Celo network, approve ERC-20 allowances, and submit PayLink transactions can test the same profile and payment flows.
 - When retesting outside MiniPay, confirm the browser-wallet fallback shows the Celo network switch before approving or sending the payment.
 - After a browser-wallet fallback network switch, re-check that PayLink still shows the same amount, token, reference, and recipient handle before approving or sending.
 - Public profile payment pages, success receipt pages, and recent payments are designed to work without a backend, server session, or separate indexer.
