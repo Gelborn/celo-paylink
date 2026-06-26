@@ -131,7 +131,7 @@ When sharing walletless review notes, label both preview URLs as local preview U
 If you change the demo amount, token, or reference, keep the same values in both preview URLs so the receipt matches the payment page.
 Keep `handle=demo-paylink` in both preview URLs so the payment and receipt states point to the same demo profile.
 Use the same browser locale for both preview URLs so the payment page and receipt copy stay in the same language.
-For Brazilian Portuguese screenshots, use the in-app language switcher or set the browser language to Portuguese (Brazil) before capturing both preview URLs.
+For Brazilian Portuguese screenshots, use the in-app language switcher or set the browser language to Portuguese (Brazil) before capturing both preview pages.
 Use the same mobile viewport size for both preview URLs so screenshots show the payment and receipt states at matching scale.
 
 The demo receipt URL uses a fixed transaction hash for UI review only; live receipts should use the hash returned by the wallet flow.
