@@ -143,7 +143,7 @@
 - Confirm the live receipt metadata description lists the amount, token, reference, recipient handle, matching Celo explorer link, and profile return path.
 - Reopen the same live PayLink receipt URL in a private or signed-out browser window and confirm the amount, token, reference, handle, and profile return path remain visible without relying on payer wallet state.
 - Open the same live PayLink receipt URL on a mobile viewport at 100% zoom once and confirm the receipt details stay readable and primary actions remain reachable without horizontal scrolling.
-- Use the browser back button from the success receipt page after the live payment flow and confirm the browser returns to the public profile without an error.
+- Use the browser back button from the success receipt page after the live payment flow and confirm the browser returns to the public profile without showing an error page.
 - Confirm final screenshots use the same locale and final HTTPS origin as the submitted demo URLs and final submission notes.
 - Disable browser translation before capturing localized screenshots so English and Brazilian Portuguese copy stays intentional.
 - Confirm final payment and receipt screenshots show the selected token label next to every visible amount in wallet and receipt views.
