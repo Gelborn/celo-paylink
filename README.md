@@ -188,7 +188,7 @@ After deployment, copy the contract address and decimal creation block into the 
 - `NEXT_PUBLIC_APP_URL` should be an HTTPS origin without a trailing slash or path for production.
 - Vercel, CI, and any machine running `npm install`, `npm run compile`, `npm test`, deploy, or verify scripts should use Node `22.13.0` or newer.
 - `PRIVATE_KEY` is only needed for deploy, verify, or seed scripts; frontend preview URLs do not use that key.
-- `NEXT_PUBLIC_*` values are safe to expose to the browser.
+- `NEXT_PUBLIC_*` values are intentionally exposed to the browser.
 - `CELO_*` values are private RPC settings for Hardhat and scripts only.
 - `NEXT_PUBLIC_CELO_*` values are the browser-facing RPC endpoints used by the frontend.
 - `NEXT_PUBLIC_CONTRACT_ADDRESS_*` powers public payment routes, receipts, and payment history.
