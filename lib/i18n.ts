@@ -405,8 +405,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Payment sent",
       title: "Payment sent.",
       description:
-        "Your transfer was submitted on Celo. Save the PayLink receipt link and matching Celo explorer transaction link as proof you can reopen later, then return to the public profile to see recent payment activity.",
-      receiptDetails: "PayLink receipt link details"
+        "Your transfer was submitted on Celo. Save the PayLink receipt URL and matching Celo explorer transaction link as proof you can reopen later, then return to the public profile to see recent payment activity.",
+      receiptDetails: "PayLink receipt URL details"
     },
     fields: {
       handle: "Handle",
@@ -683,8 +683,8 @@ const dictionaries: Record<Locale, Dictionary> = {
       eyebrow: "Pagamento enviado",
       title: "Pagamento enviado.",
       description:
-        "Sua transferência foi enviada na Celo. Salve o link do comprovante do PayLink e o link da transação correspondente no explorer da Celo como prova que você pode reabrir depois; em seguida, volte ao perfil público para ver os pagamentos recentes.",
-      receiptDetails: "Dados do link de comprovante do PayLink"
+        "Sua transferência foi enviada na Celo. Salve a URL do comprovante do PayLink e o link da transação correspondente no explorer da Celo como prova que você pode reabrir depois; em seguida, volte ao perfil público para ver os pagamentos recentes.",
+      receiptDetails: "Dados da URL do comprovante do PayLink"
     },
     fields: {
       handle: "Handle",
