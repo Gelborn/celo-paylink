@@ -44,7 +44,7 @@
 - View source for the deployed home page and confirm the referrer meta tag uses `strict-origin-when-cross-origin`.
 - Open `/manifest.webmanifest` on the deployed origin and confirm the app name, short name, description, categories, language, text direction, maskable icon, scope, start URL, and `display` mode match the production install.
 - Confirm the manifest description names PayLink as a public payment profile before installing from the deployed origin.
-- Confirm the manifest theme and background colors match the installed PWA splash and browser chrome.
+- Confirm the manifest theme and background colors match the installed PWA splash screen and browser chrome.
 - View source for the deployed home page and confirm the mobile web app meta tags are present for Android and iOS install prompts.
 - Open `/icon.svg` on the deployed origin and confirm the install icon renders over HTTPS without a broken image.
 - Open both manifest screenshot URLs and confirm the English and Brazilian Portuguese prefilled payment page and shareable, reopenable receipt preview posters load from the deployed origin with distinct English and Brazilian Portuguese labels.
