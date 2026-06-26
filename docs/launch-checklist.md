@@ -38,7 +38,7 @@
 - Open `/og.svg` on the deployed origin and confirm the root social preview image renders over HTTPS without a broken image.
 - Open the public profile URL in a signed-out browser window and confirm owner-only controls stay hidden.
 - Open `/robots.txt` and `/sitemap.xml` on the deployed origin and confirm dashboard routes, PayLink receipt URLs, and both `?preview=1` and `&preview=1` URLs stay unindexed.
-- Open `/my` on the deployed origin and confirm the PayLink dashboard page metadata includes `noindex` and describes managing the public profile, payment request links, recent payments, and receipt URLs.
+- Open `/my` on the deployed origin and confirm the PayLink dashboard page metadata includes `noindex` and describes managing the public profile, payment request URLs, recent payments, and receipt URLs.
 - Open one PayLink receipt URL directly and confirm it remains accessible even though PayLink receipt URLs are excluded from indexing.
 - Confirm `/sitemap.xml` lists only the final HTTPS production origin, not localhost, staging, preview, profile, or receipt URLs.
 - View source for the deployed home page and confirm the root `<html>` tag includes the expected `lang` value and `dir="ltr"`.
