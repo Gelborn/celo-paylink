@@ -256,7 +256,7 @@ If a token address or decimal changes, update this table and `lib/tokens.ts` in 
 
 - The repo includes CI, Dependabot, `SECURITY.md`, and explicit public/private env separation.
 - `.env.example` uses placeholders and public RPC defaults so reviewers can run walletless previews without private credentials.
-- `SECURITY.md` asks private reports to include app surface, wallet prompt, PayLink URL type, safe path/query details, receipt URL, matching Celo explorer link, and transaction context without secrets or unrelated wallet details.
+- `SECURITY.md` asks private reports to include app surface, wallet prompt, PayLink URL type, safe path/query details, receipt URL, matching Celo explorer transaction link, and transaction context without secrets or unrelated wallet details.
 - CI remains available through `workflow_dispatch` for manual verification of the submitted commit without running on every push or pull request.
 - `package.json` keywords highlight MiniPay public profiles, public profile URLs, localized PayLink prefilled payment request URLs, Celo stablecoin payment request URLs, payment proof, Celo receipts, Celo explorer transaction links, shareable and reopenable receipt URLs, direct no-custody payments, walletless payment previews, bilingual and localized payments, and MiniPay PWA discovery.
 - `layout.tsx` publishes root language and direction attributes, social and keyword metadata for MiniPay request URLs, localized PayLink prefilled payment request URLs, direct no-custody Celo stablecoin payments, payment proof, Celo explorer transaction links, shareable and reopenable receipt URLs, bilingual and localized payments, and MiniPay PWA discovery, plus mobile web app tags, referrer policy, and Talent App verification metadata.
