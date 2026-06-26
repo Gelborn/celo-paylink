@@ -51,7 +51,7 @@ Keep browser zoom at 100% in walletless preview, live payment, receipt, and expl
 If the live wallet confirmation stalls during review, switch to the walletless preview URL and narrate where the live wallet confirmation would appear.
 If you use a browser-wallet fallback instead of MiniPay, keep the same localized PayLink prefilled payment request URL so the amount, token, reference, and recipient handle stay aligned with the MiniPay path.
 After any browser-wallet fallback network switch, re-check the amount, token, reference, and recipient handle on PayLink before approving or sending.
-If the Celo explorer transaction page is slow during judging, keep the PayLink receipt page visible and point out that the transaction link uses the same transaction hash.
+If the Celo explorer transaction page is slow during review, keep the PayLink receipt page visible and point out that the transaction link uses the same transaction hash.
 
 1. Open the deployed landing page and explain PayLink as a no-custody public payment profile for Celo stablecoins and MiniPay in one sentence.
 2. Open `/my` on the deployed origin, connect with the recipient wallet in MiniPay, and create or update the public, no-custody payment profile.
