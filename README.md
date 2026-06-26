@@ -44,7 +44,7 @@ MiniPay PayLink is built around one simple flow:
 - Forward funds straight to the recipient with no platform custody
 - Render recent payments from PayLink contract events on Celo without a separate backend, server session, or indexer
 - Share reopenable PayLink receipt URLs with matching Celo explorer links for the same Celo transaction
-- Link PayLink receipts back to the recipient profile for repeat payments
+- Link PayLink receipts back to the recipient profile so repeat payments start from the same handle
 - Support English (`en`) and Brazilian Portuguese (`pt-BR`) with automatic locale detection and a manual language switcher
 
 ## Repo Layout
