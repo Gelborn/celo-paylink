@@ -313,7 +313,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       trustStatements: [
         "Settles to your wallet",
         "No PayLink custody",
-        "PayLink receipt URL and Celo explorer link"
+        "PayLink receipt URL and Celo explorer transaction link"
       ],
       closingEyebrow: "Ready when you are",
       closingTitle: "Publish your PayLink before the next payment request.",
@@ -591,7 +591,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       trustStatements: [
         "Liquida na sua carteira",
         "Sem custódia do PayLink",
-        "Comprovante do PayLink e link para o explorer da Celo"
+        "Comprovante do PayLink e link da transação no explorer da Celo"
       ],
       closingEyebrow: "Pronto para receber",
       closingTitle: "Publique seu PayLink antes da próxima cobrança.",
