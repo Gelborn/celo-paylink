@@ -564,7 +564,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       proofChips: [
         "Os fundos vão direto para a carteira de quem recebe",
         "Valor, token e referência ficam na URL de cobrança",
-        "Todo pagamento inclui link de comprovante do PayLink e link da transação no explorer da Celo",
+        "Todo pagamento inclui URL de comprovante do PayLink e link da transação no explorer da Celo",
         "Aceite USDm, USDC e USD₮"
       ],
       stepsEyebrow: "Como funciona",
