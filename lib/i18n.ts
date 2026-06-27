@@ -302,7 +302,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         {
           title: "Share the right link",
           description:
-            "Share your public profile for open payments or create a prefilled payment link with amount, token, and reference."
+            "Share your public profile for open payments or create a prefilled payment request URL with amount, token, and reference."
         },
         {
           title: "Keep the receipt URL",
@@ -580,7 +580,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         {
           title: "Compartilhe o link certo",
           description:
-            "Compartilhe seu perfil público para pagamentos livres ou crie um link de cobrança preenchido com valor, token e referência."
+            "Compartilhe seu perfil público para pagamentos livres ou crie uma URL de cobrança preenchida com valor, token e referência."
         },
         {
           title: "Guarde a URL do comprovante",
