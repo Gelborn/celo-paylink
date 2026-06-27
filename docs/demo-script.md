@@ -12,6 +12,7 @@ Keep the README's matching local PayLink preview receipt URL ready if you need t
 Describe walletless preview receipts as UI review only, not as proof of live settlement.
 When showing either preview URL on a phone, open the paths on the `npm run dev:mobile` network host instead of `localhost`.
 Keep the same path and query string when switching hosts so profile handle, amount, token, reference, and preview mode still match.
+After restarting the dev server with a new network host, recopy preview URLs from that host before recording so screenshots do not show a stale origin.
 Use the same amount, token, and reference values in the walletless preview fallback and live wallet walkthrough so reviewers can compare both states quickly.
 Keep the live reference short so it stays legible in the wallet confirmation and PayLink receipt page.
 Use a neutral reference such as `coffee` or `demo` so client names do not appear in wallet confirmations, the PayLink receipt page, or screenshots.
