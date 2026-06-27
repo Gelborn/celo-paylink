@@ -292,7 +292,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       stepsEyebrow: "How it works",
       stepsTitle: "Create once. Share whenever you need to get paid.",
       stepsDescription:
-        "Publish a profile, then use the same public profile or a prefilled payment link for each payment.",
+        "Publish a profile, then use the same public profile or a prefilled payment request URL for each payment.",
       steps: [
         {
           title: "Publish your profile",
@@ -570,7 +570,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       stepsEyebrow: "Como funciona",
       stepsTitle: "Crie uma vez. Compartilhe sempre que precisar receber.",
       stepsDescription:
-        "Publique um perfil e use o mesmo perfil público ou um link de cobrança preenchido para cada pagamento.",
+        "Publique um perfil e use o mesmo perfil público ou uma URL de cobrança preenchida para cada pagamento.",
       steps: [
         {
           title: "Publique seu perfil",
