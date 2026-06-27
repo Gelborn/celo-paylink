@@ -344,7 +344,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       profileShareHint:
         "Share this public profile where customers already contact you so they can pay or return to the same handle.",
       chargeLinkHint:
-        "Create a shareable payment request link with amount, token, and reference.",
+        "Create a shareable payment request URL with amount, token, and reference.",
       profileSection: "Profile",
       chargeSection: "Payment request",
       transactionsSection: "Incoming payments",
@@ -622,7 +622,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       profileShareHint:
         "Compartilhe este perfil público onde seus clientes já entram em contato com você para pagar ou voltar ao mesmo handle.",
       chargeLinkHint:
-        "Crie um link de cobrança compartilhável com valor, token e referência.",
+        "Crie uma URL de cobrança compartilhável com valor, token e referência.",
       profileSection: "Perfil",
       chargeSection: "Link de cobrança",
       transactionsSection: "Pagamentos recebidos",
