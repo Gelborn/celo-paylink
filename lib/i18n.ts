@@ -285,7 +285,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "PayLink shows the recipient, amount, token, reference, and verification path before the transfer moves on Celo.",
       proofChips: [
         "Funds move directly to the recipient wallet",
-        "Amount, token, and reference stay in the link",
+        "Amount, token, and reference stay in the request URL",
         "Every payment includes a PayLink receipt URL and Celo explorer transaction link",
         "Accept USDm, USDC, and USD₮"
       ],
@@ -563,7 +563,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "O PayLink mostra quem recebe, valor, token, referência e caminho de verificação antes da transferência na Celo.",
       proofChips: [
         "Os fundos vão direto para a carteira de quem recebe",
-        "Valor, token e referência ficam no link",
+        "Valor, token e referência ficam na URL de cobrança",
         "Todo pagamento inclui link de comprovante do PayLink e link da transação no explorer da Celo",
         "Aceite USDm, USDC e USD₮"
       ],
