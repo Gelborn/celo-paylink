@@ -349,7 +349,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       chargeSection: "Payment request",
       transactionsSection: "Incoming payments",
       emptyTransactions:
-        "Incoming payments and PayLink receipt links will appear here after someone pays through your public profile or payment request link.",
+        "Incoming payments and PayLink receipt URLs will appear here after someone pays through your public profile or payment request URL.",
       connectPrompt:
         "Open PayLink in MiniPay or connect a browser wallet to create and manage your public profile."
     },
@@ -627,7 +627,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       chargeSection: "Link de cobrança",
       transactionsSection: "Pagamentos recebidos",
       emptyTransactions:
-        "Os pagamentos recebidos e links de comprovante do PayLink aparecerão aqui depois que alguém pagar pelo seu perfil público ou link de cobrança.",
+        "Os pagamentos recebidos e URLs de comprovante do PayLink aparecerão aqui depois que alguém pagar pelo seu perfil público ou URL de cobrança.",
       connectPrompt:
         "Abra o PayLink no MiniPay ou conecte uma carteira do navegador para criar e gerenciar seu perfil público."
     },
