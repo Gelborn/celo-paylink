@@ -340,7 +340,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       quickActionChargeDescription:
         "Create a prefilled payment request URL with amount, token, and reference.",
       quickActionTransactionsDescription:
-        "Review incoming PayLink payments and open their matching receipt links.",
+        "Review incoming PayLink payments and open their matching receipt URLs.",
       profileShareHint:
         "Share this public profile where customers already contact you so they can pay or return to the same handle.",
       chargeLinkHint:
@@ -618,7 +618,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       quickActionChargeDescription:
         "Crie uma URL de cobrança PayLink preenchida com valor, token e referência.",
       quickActionTransactionsDescription:
-        "Revise os pagamentos PayLink recebidos e abra os links de comprovante correspondentes.",
+        "Revise os pagamentos PayLink recebidos e abra as URLs de comprovante correspondentes.",
       profileShareHint:
         "Compartilhe este perfil público onde seus clientes já entram em contato com você para pagar ou voltar ao mesmo handle.",
       chargeLinkHint:
